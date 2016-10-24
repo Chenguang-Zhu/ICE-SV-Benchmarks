@@ -1,0 +1,22 @@
+/usr/bin/clang-3.6 -c -emit-llvm -D__SEAHORN__ -fgnu89-inline -m32 -g -I/home/polaris/Desktop/seahorn/build/run/include -o /tmp/sea-jHp5Tt/id2_b5_o10_true-unreach-call.bc /home/polaris/Desktop/SV/sv-benchmarks/c/recursive-simple/id2_b5_o10_true-unreach-call.c
+/home/polaris/Desktop/seahorn/build/run/bin/seapp -o /tmp/sea-jHp5Tt/id2_b5_o10_true-unreach-call.pp.bc --horn-inline-all --strip-extern=true --devirt-functions --externalize-addr-taken-funcs --kill-vaarg=true /tmp/sea-jHp5Tt/id2_b5_o10_true-unreach-call.bc
+/home/polaris/Desktop/seahorn/build/run/bin/seapp -o /tmp/sea-jHp5Tt/id2_b5_o10_true-unreach-call.pp.ms.bc --horn-mixed-sem --ms-reduce-main /tmp/sea-jHp5Tt/id2_b5_o10_true-unreach-call.pp.bc
+/home/polaris/Desktop/seahorn/build/run/bin/seaopt -f -funit-at-a-time -o /tmp/sea-jHp5Tt/id2_b5_o10_true-unreach-call.pp.ms.o.bc -O3 --disable-loop-vectorization=true --disable-slp-vectorization=true --vectorize-slp-aggressive=false /tmp/sea-jHp5Tt/id2_b5_o10_true-unreach-call.pp.ms.bc
+/home/polaris/Desktop/seahorn/build/run/bin/seahorn --keep-shadows=true --horn-solve -horn-inter-proc -horn-sem-lvl=ptr --horn-step=large /tmp/sea-jHp5Tt/id2_b5_o10_true-unreach-call.pp.ms.o.bc --horn-global-constraints=true --horn-stats --horn-singleton-aliases=true --horn-pdr-contexts=600 --horn-ignore-calloc=false --horn-make-undef-warning-error=false --horn-answer
+unsat
+Function: id
+id@_tail: true
+id@UnifiedReturnBlock.split: (id@%UnifiedRetVal<=5)
+Function: main
+main@entry: true
+main@entry.split: false
+
+
+************** BRUNCH STATS ***************** 
+BRUNCH_STAT Result TRUE
+BRUNCH_STAT Horn 0.02
+BRUNCH_STAT HornClauseDB::loadZFixedPoint 0.00
+BRUNCH_STAT HornifyModule 0.00
+BRUNCH_STAT LargeHornifyFunction 0.00
+BRUNCH_STAT seahorn_total 0.02
+************** BRUNCH STATS END ***************** 

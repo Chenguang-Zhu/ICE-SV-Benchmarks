@@ -1,0 +1,28 @@
+/usr/bin/clang-3.6 -c -emit-llvm -D__SEAHORN__ -fgnu89-inline -m32 -g -I/home/polaris/Desktop/seahorn/build/run/include -o /tmp/sea-mpi_75/gcd01_true-termination.bc /home/polaris/Desktop/SV/sv-benchmarks/c/termination-numeric/gcd01_true-termination.c
+/home/polaris/Desktop/seahorn/build/run/bin/seapp -o /tmp/sea-mpi_75/gcd01_true-termination.pp.bc --strip-extern=true --devirt-functions --externalize-addr-taken-funcs --kill-vaarg=true /tmp/sea-mpi_75/gcd01_true-termination.bc
+/home/polaris/Desktop/seahorn/build/run/bin/seapp -o /tmp/sea-mpi_75/gcd01_true-termination.pp.ms.bc --horn-mixed-sem --ms-reduce-main /tmp/sea-mpi_75/gcd01_true-termination.pp.bc
+/home/polaris/Desktop/seahorn/build/run/bin/seaopt -f -funit-at-a-time -o /tmp/sea-mpi_75/gcd01_true-termination.pp.ms.o.bc -O3 --disable-loop-vectorization=true --disable-slp-vectorization=true --vectorize-slp-aggressive=false /tmp/sea-mpi_75/gcd01_true-termination.pp.ms.bc
+/home/polaris/Desktop/seahorn/build/run/bin/seahorn --keep-shadows=true --horn-solve -horn-inter-proc -horn-sem-lvl=ptr --horn-step=large /tmp/sea-mpi_75/gcd01_true-termination.pp.ms.o.bc --horn-global-constraints=true --horn-stats --horn-singleton-aliases=true --horn-pdr-contexts=600 --horn-ignore-calloc=false --horn-make-undef-warning-error=false --horn-answer
+unsat
+Function: gcd
+gcd@_tail: true
+gcd@.lr.ph..lr.ph.split_crit_edge:
+		(gcd@%y1.tr.ph7>=1)
+	(gcd@%y2.tr.ph9>=1)
+gcd@_y2.tr3:
+		(gcd@%y1.tr.ph7>=1)
+	(gcd@%y2.tr3>=1)
+gcd@tailrecurse.outer._crit_edge.split: ((!((!((!(gcd@%y1>=1))||(!(gcd@%y2>=1))))||(!(gcd@%.0=0))))||(gcd@%.0>=1))
+Function: main
+main@entry: true
+main@entry.split: false
+
+
+************** BRUNCH STATS ***************** 
+BRUNCH_STAT Result TRUE
+BRUNCH_STAT Horn 0.07
+BRUNCH_STAT HornClauseDB::loadZFixedPoint 0.00
+BRUNCH_STAT HornifyModule 0.00
+BRUNCH_STAT LargeHornifyFunction 0.00
+BRUNCH_STAT seahorn_total 0.08
+************** BRUNCH STATS END ***************** 

@@ -1,0 +1,2711 @@
+WARNING RECURSION at hanoi
+SCC is: hanoi 
+REL NAME TO C5 NAME MAP:
+verifier.error, PRED_0
+hanoi@_tail, PRED_1
+hanoi@UnifiedReturnBlock.split, PRED_2
+hanoi, PRED_3
+main@entry, PRED_4
+main@entry.split, PRED_5
+pos.query.pred, PRED_6
+(verifier.error V_0 V_1 V_2)
+(hanoi@_tail V_0)
+(hanoi@UnifiedReturnBlock.split V_0 V_1)
+(hanoi V_0 V_1 V_2 V_3 V_4)
+main@entry
+main@entry.split
+pos.query.pred
+DB: 
+Predicates:
+;[fdecl
+  verifier.error
+  BOOL
+  BOOL
+  BOOL
+  BOOL
+]
+[fdecl
+  hanoi@_tail
+  INT
+  BOOL
+]
+[fdecl
+  hanoi@UnifiedReturnBlock.split
+  INT
+  INT
+  BOOL
+]
+[fdecl
+  hanoi
+  BOOL
+  BOOL
+  BOOL
+  INT
+  INT
+  BOOL
+]
+[fdecl
+  main@entry
+  BOOL
+]
+[fdecl
+  main@entry.split
+  BOOL
+]
+[fdecl
+  pos.query.pred
+  BOOL
+]
+Clauses:
+;(verifier.error false false false) <- true.
+(verifier.error false true true) <- true.
+(verifier.error true false true) <- true.
+(verifier.error true true true) <- true.
+(hanoi true true true hanoi@%n_0 hanoi@%UnifiedRetVal_0) <- true.
+(hanoi false true true hanoi@%n_0 hanoi@%UnifiedRetVal_0) <- true.
+(hanoi false false false hanoi@%n_0 hanoi@%UnifiedRetVal_0) <- true.
+(hanoi@_tail hanoi@%n_0) <- true.
+(hanoi@UnifiedReturnBlock.split hanoi@%UnifiedRetVal_2 hanoi@%n_0) <- ((hanoi@_tail hanoi@%n_0)&&[&&
+  true
+  hanoi@%_br_0<->(hanoi@%n_0=1)
+  hanoi@_3_0->(hanoi@_3_0&&hanoi@_tail_0)
+  (hanoi@_3_0&&hanoi@_tail_0)->(!hanoi@%_br_0)
+  hanoi@%_4_0=(hanoi@%n_0+-1)
+  (hanoi hanoi@_3_0 false false hanoi@%_4_0 hanoi@%_5_0)
+  hanoi@%_6_0=(hanoi@%_5_0*2)
+  hanoi@%_br1_0=(hanoi@%_6_0+1)
+  hanoi@_br2_0->(hanoi@_br2_0&&hanoi@_tail_0)
+  (hanoi@_br2_0&&hanoi@_tail_0)->hanoi@%_br_0
+  hanoi@UnifiedReturnBlock_0->((hanoi@UnifiedReturnBlock_0&&hanoi@_br2_0)||(hanoi@UnifiedReturnBlock_0&&hanoi@_3_0))
+  hanoi@%UnifiedRetVal_0=1
+  hanoi@%UnifiedRetVal_1=hanoi@%_br1_0
+  (hanoi@UnifiedReturnBlock_0&&hanoi@_br2_0)->(hanoi@%UnifiedRetVal_2=hanoi@%UnifiedRetVal_0)
+  (hanoi@UnifiedReturnBlock_0&&hanoi@_3_0)->(hanoi@%UnifiedRetVal_2=hanoi@%UnifiedRetVal_1)
+  hanoi@UnifiedReturnBlock.split_0->(hanoi@UnifiedReturnBlock.split_0&&hanoi@UnifiedReturnBlock_0)
+  hanoi@UnifiedReturnBlock.split_0
+]).
+(hanoi true false false hanoi@%n_0 hanoi@%UnifiedRetVal_0) <- (hanoi@UnifiedReturnBlock.split hanoi@%UnifiedRetVal_0 hanoi@%n_0).
+main@entry <- true.
+main@entry.split <- (main@entry&&[&&
+  true
+  main@%.off.i_0=(main@%_0_0+-1)
+  main@%_1_0<->ite(main@%.off.i_0>=0, 30<main@%.off.i_0, true)
+  !main@%_1_0
+  (hanoi true false false main@%_0_0 main@%_2_0)
+  main@%_3_0<->(main@%_2_0>-1)
+  !main@%_3_0
+  main@entry.split_0->(main@entry.split_0&&main@entry_0)
+  main@entry.split_0
+]).
+Queries:
+;main@entry.split
+ENTRY IS: main@entry
+=========================== POS START ============================
+VERIFY RULE: pos.query.pred <- ((hanoi@UnifiedReturnBlock.split V_0 V_1)&&(!true))
+UNSAT
+VERIFY RULE: pos.query.pred <- (main@entry.split&&(!true))
+UNSAT
+VERIFY RULE: pos.query.pred <- (main@entry&&(!true))
+UNSAT
+VERIFY RULE: pos.query.pred <- (pos.query.pred&&(!true))
+UNSAT
+VERIFY RULE: pos.query.pred <- ((hanoi@_tail V_0)&&(!true))
+UNSAT
+VERIFY RULE: pos.query.pred <- ((verifier.error V_0 V_1 V_2)&&(!true))
+UNSAT
+VERIFY RULE: pos.query.pred <- ((hanoi V_0 V_1 V_2 V_3 V_4)&&(!true))
+UNSAT
+==================================================================
+AFTER RESET DB IS:
+Predicates:
+;[fdecl
+  verifier.error
+  BOOL
+  BOOL
+  BOOL
+  BOOL
+]
+[fdecl
+  hanoi@_tail
+  INT
+  BOOL
+]
+[fdecl
+  hanoi@UnifiedReturnBlock.split
+  INT
+  INT
+  BOOL
+]
+[fdecl
+  hanoi
+  BOOL
+  BOOL
+  BOOL
+  INT
+  INT
+  BOOL
+]
+[fdecl
+  main@entry
+  BOOL
+]
+[fdecl
+  main@entry.split
+  BOOL
+]
+[fdecl
+  pos.query.pred
+  BOOL
+]
+Clauses:
+;(verifier.error false false false) <- true.
+(verifier.error false true true) <- true.
+(verifier.error true false true) <- true.
+(verifier.error true true true) <- true.
+(hanoi true true true hanoi@%n_0 hanoi@%UnifiedRetVal_0) <- true.
+(hanoi false true true hanoi@%n_0 hanoi@%UnifiedRetVal_0) <- true.
+(hanoi false false false hanoi@%n_0 hanoi@%UnifiedRetVal_0) <- true.
+(hanoi@_tail hanoi@%n_0) <- true.
+(hanoi@UnifiedReturnBlock.split hanoi@%UnifiedRetVal_2 hanoi@%n_0) <- ((hanoi@_tail hanoi@%n_0)&&[&&
+  true
+  hanoi@%_br_0<->(hanoi@%n_0=1)
+  hanoi@_3_0->(hanoi@_3_0&&hanoi@_tail_0)
+  (hanoi@_3_0&&hanoi@_tail_0)->(!hanoi@%_br_0)
+  hanoi@%_4_0=(hanoi@%n_0+-1)
+  (hanoi hanoi@_3_0 false false hanoi@%_4_0 hanoi@%_5_0)
+  hanoi@%_6_0=(hanoi@%_5_0*2)
+  hanoi@%_br1_0=(hanoi@%_6_0+1)
+  hanoi@_br2_0->(hanoi@_br2_0&&hanoi@_tail_0)
+  (hanoi@_br2_0&&hanoi@_tail_0)->hanoi@%_br_0
+  hanoi@UnifiedReturnBlock_0->((hanoi@UnifiedReturnBlock_0&&hanoi@_br2_0)||(hanoi@UnifiedReturnBlock_0&&hanoi@_3_0))
+  hanoi@%UnifiedRetVal_0=1
+  hanoi@%UnifiedRetVal_1=hanoi@%_br1_0
+  (hanoi@UnifiedReturnBlock_0&&hanoi@_br2_0)->(hanoi@%UnifiedRetVal_2=hanoi@%UnifiedRetVal_0)
+  (hanoi@UnifiedReturnBlock_0&&hanoi@_3_0)->(hanoi@%UnifiedRetVal_2=hanoi@%UnifiedRetVal_1)
+  hanoi@UnifiedReturnBlock.split_0->(hanoi@UnifiedReturnBlock.split_0&&hanoi@UnifiedReturnBlock_0)
+  hanoi@UnifiedReturnBlock.split_0
+]).
+(hanoi true false false hanoi@%n_0 hanoi@%UnifiedRetVal_0) <- (hanoi@UnifiedReturnBlock.split hanoi@%UnifiedRetVal_0 hanoi@%n_0).
+main@entry <- true.
+main@entry.split <- (main@entry&&[&&
+  true
+  main@%.off.i_0=(main@%_0_0+-1)
+  main@%_1_0<->ite(main@%.off.i_0>=0, 30<main@%.off.i_0, true)
+  !main@%_1_0
+  (hanoi true false false main@%_0_0 main@%_2_0)
+  main@%_3_0<->(main@%_2_0>-1)
+  !main@%_3_0
+  main@entry.split_0->(main@entry.split_0&&main@entry_0)
+  main@entry.split_0
+]).
+Queries:
+;main@entry.split
+=========================== NEG START ============================
+VERIFY RULE: (hanoi@UnifiedReturnBlock.split V_0 V_1) <- (main@entry&&true)
+SAT, NEED TO ADD NEGATIVE DATA POINT
+[&&
+  main@entry.split
+  main@entry
+  (hanoi true false false 1 -1)
+  (hanoi@UnifiedReturnBlock.split -1 1)
+  main@entry
+]
+NEG CEX IS: (hanoi@UnifiedReturnBlock.split -1 1)
+ANSWER ARGS:
+-1
+1
+NEG CEX, INDEX IS 0
+VERIFY RULE: pos.query.pred <- (main@entry&&true)
+UNSAT
+VERIFY RULE: main@entry <- true
+UNSAT
+VERIFY RULE: main@entry.split <- (main@entry&&true)
+SAT, NEED TO ADD NEGATIVE DATA POINT
+(main@entry.split&&main@entry)
+NEG CEX IS: main@entry.split
+ANSWER ARGS:
+NEG CEX, INDEX IS 1
+VERIFY RULE: (hanoi@_tail V_0) <- (main@entry&&true)
+UNSAT
+VERIFY RULE: (verifier.error V_0 V_1 V_2) <- (main@entry&&true)
+UNSAT
+VERIFY RULE: (hanoi V_0 V_1 V_2 V_3 V_4) <- (main@entry&&true)
+SAT, NEED TO ADD NEGATIVE DATA POINT
+[&&
+  main@entry.split
+  main@entry
+  (hanoi true false false 1 -1)
+  main@entry
+]
+NEG CEX IS: (hanoi true false false 1 -1)
+ANSWER ARGS:
+true
+false
+false
+1
+-1
+NEG CEX, INDEX IS 2
+==================================================================
+AFTER RESET DB IS:
+Predicates:
+;[fdecl
+  verifier.error
+  BOOL
+  BOOL
+  BOOL
+  BOOL
+]
+[fdecl
+  hanoi@_tail
+  INT
+  BOOL
+]
+[fdecl
+  hanoi@UnifiedReturnBlock.split
+  INT
+  INT
+  BOOL
+]
+[fdecl
+  hanoi
+  BOOL
+  BOOL
+  BOOL
+  INT
+  INT
+  BOOL
+]
+[fdecl
+  main@entry
+  BOOL
+]
+[fdecl
+  main@entry.split
+  BOOL
+]
+[fdecl
+  pos.query.pred
+  BOOL
+]
+Clauses:
+;(verifier.error false false false) <- true.
+(verifier.error false true true) <- true.
+(verifier.error true false true) <- true.
+(verifier.error true true true) <- true.
+(hanoi true true true hanoi@%n_0 hanoi@%UnifiedRetVal_0) <- true.
+(hanoi false true true hanoi@%n_0 hanoi@%UnifiedRetVal_0) <- true.
+(hanoi false false false hanoi@%n_0 hanoi@%UnifiedRetVal_0) <- true.
+(hanoi@_tail hanoi@%n_0) <- true.
+(hanoi@UnifiedReturnBlock.split hanoi@%UnifiedRetVal_2 hanoi@%n_0) <- ((hanoi@_tail hanoi@%n_0)&&[&&
+  true
+  hanoi@%_br_0<->(hanoi@%n_0=1)
+  hanoi@_3_0->(hanoi@_3_0&&hanoi@_tail_0)
+  (hanoi@_3_0&&hanoi@_tail_0)->(!hanoi@%_br_0)
+  hanoi@%_4_0=(hanoi@%n_0+-1)
+  (hanoi hanoi@_3_0 false false hanoi@%_4_0 hanoi@%_5_0)
+  hanoi@%_6_0=(hanoi@%_5_0*2)
+  hanoi@%_br1_0=(hanoi@%_6_0+1)
+  hanoi@_br2_0->(hanoi@_br2_0&&hanoi@_tail_0)
+  (hanoi@_br2_0&&hanoi@_tail_0)->hanoi@%_br_0
+  hanoi@UnifiedReturnBlock_0->((hanoi@UnifiedReturnBlock_0&&hanoi@_br2_0)||(hanoi@UnifiedReturnBlock_0&&hanoi@_3_0))
+  hanoi@%UnifiedRetVal_0=1
+  hanoi@%UnifiedRetVal_1=hanoi@%_br1_0
+  (hanoi@UnifiedReturnBlock_0&&hanoi@_br2_0)->(hanoi@%UnifiedRetVal_2=hanoi@%UnifiedRetVal_0)
+  (hanoi@UnifiedReturnBlock_0&&hanoi@_3_0)->(hanoi@%UnifiedRetVal_2=hanoi@%UnifiedRetVal_1)
+  hanoi@UnifiedReturnBlock.split_0->(hanoi@UnifiedReturnBlock.split_0&&hanoi@UnifiedReturnBlock_0)
+  hanoi@UnifiedReturnBlock.split_0
+]).
+(hanoi true false false hanoi@%n_0 hanoi@%UnifiedRetVal_0) <- (hanoi@UnifiedReturnBlock.split hanoi@%UnifiedRetVal_0 hanoi@%n_0).
+main@entry <- true.
+main@entry.split <- (main@entry&&[&&
+  true
+  main@%.off.i_0=(main@%_0_0+-1)
+  main@%_1_0<->ite(main@%.off.i_0>=0, 30<main@%.off.i_0, true)
+  !main@%_1_0
+  (hanoi true false false main@%_0_0 main@%_2_0)
+  main@%_3_0<->(main@%_2_0>-1)
+  !main@%_3_0
+  main@entry.split_0->(main@entry.split_0&&main@entry_0)
+  main@entry.split_0
+]).
+Queries:
+;main@entry.split
+=========================== IMPL START ============================
+==================================================================
+DATA & IMPL FILES ARE GENERATED
+TAG: PRED_0
+NEW CANDIDATE: true
+TAG: PRED_1
+NEW CANDIDATE: true
+TAG: PRED_2
+NEW CANDIDATE: false
+TAG: PRED_3
+NEW CANDIDATE: false
+TAG: PRED_4
+NEW CANDIDATE: true
+TAG: PRED_5
+NEW CANDIDATE: false
+TAG: PRED_6
+NEW CANDIDATE: true
+NEW CANDIDATES MAP:
+(verifier.error V_0 V_1 V_2) : true
+(hanoi@_tail V_0) : true
+(hanoi@UnifiedReturnBlock.split V_0 V_1) : false
+(hanoi V_0 V_1 V_2 V_3 V_4) : false
+main@entry : true
+main@entry.split : false
+pos.query.pred : true
+ENTRY IS: main@entry
+=========================== POS START ============================
+VERIFY RULE: pos.query.pred <- ((hanoi@UnifiedReturnBlock.split V_0 V_1)&&(!false))
+SAT, NEED TO ADD POSITIVE DATA POINT
+[&&
+  pos.query.pred
+  (hanoi@UnifiedReturnBlock.split 1 1)
+  (hanoi@_tail 1)
+  (hanoi false false false 0 0)
+]
+POS OBJ PRED: (hanoi@UnifiedReturnBlock.split V_0 V_1)
+POS CEX IS: (hanoi@UnifiedReturnBlock.split 1 1)
+ANSWER ARGS:
+1
+1
+POS CEX, INDEX IS 3
+VERIFY RULE: pos.query.pred <- (pos.query.pred&&(!true))
+UNSAT
+VERIFY RULE: pos.query.pred <- (main@entry.split&&(!false))
+UNSAT
+VERIFY RULE: pos.query.pred <- (main@entry&&(!true))
+UNSAT
+VERIFY RULE: pos.query.pred <- ((hanoi@_tail V_0)&&(!true))
+UNSAT
+VERIFY RULE: pos.query.pred <- ((verifier.error V_0 V_1 V_2)&&(!true))
+UNSAT
+VERIFY RULE: pos.query.pred <- ((hanoi V_0 V_1 V_2 V_3 V_4)&&(!false))
+SAT, NEED TO ADD POSITIVE DATA POINT
+(pos.query.pred&&(hanoi false false false hanoi_3_0 hanoi_4_0))
+POS OBJ PRED: (hanoi V_0 V_1 V_2 V_3 V_4)
+POS CEX IS: (hanoi false false false hanoi_3_0 hanoi_4_0)
+ANSWER ARGS:
+false
+false
+false
+hanoi_3_0
+UNCERTAIN VALUE: hanoi_3_0
+hanoi_4_0
+UNCERTAIN VALUE: hanoi_4_0
+POS CEX, INDEX IS 4
+==================================================================
+AFTER RESET DB IS:
+Predicates:
+;[fdecl
+  verifier.error
+  BOOL
+  BOOL
+  BOOL
+  BOOL
+]
+[fdecl
+  hanoi@_tail
+  INT
+  BOOL
+]
+[fdecl
+  hanoi@UnifiedReturnBlock.split
+  INT
+  INT
+  BOOL
+]
+[fdecl
+  hanoi
+  BOOL
+  BOOL
+  BOOL
+  INT
+  INT
+  BOOL
+]
+[fdecl
+  main@entry
+  BOOL
+]
+[fdecl
+  main@entry.split
+  BOOL
+]
+[fdecl
+  pos.query.pred
+  BOOL
+]
+Clauses:
+;(verifier.error false false false) <- true.
+(verifier.error false true true) <- true.
+(verifier.error true false true) <- true.
+(verifier.error true true true) <- true.
+(hanoi true true true hanoi@%n_0 hanoi@%UnifiedRetVal_0) <- true.
+(hanoi false true true hanoi@%n_0 hanoi@%UnifiedRetVal_0) <- true.
+(hanoi false false false hanoi@%n_0 hanoi@%UnifiedRetVal_0) <- true.
+(hanoi@_tail hanoi@%n_0) <- true.
+(hanoi@UnifiedReturnBlock.split hanoi@%UnifiedRetVal_2 hanoi@%n_0) <- ((hanoi@_tail hanoi@%n_0)&&[&&
+  true
+  hanoi@%_br_0<->(hanoi@%n_0=1)
+  hanoi@_3_0->(hanoi@_3_0&&hanoi@_tail_0)
+  (hanoi@_3_0&&hanoi@_tail_0)->(!hanoi@%_br_0)
+  hanoi@%_4_0=(hanoi@%n_0+-1)
+  (hanoi hanoi@_3_0 false false hanoi@%_4_0 hanoi@%_5_0)
+  hanoi@%_6_0=(hanoi@%_5_0*2)
+  hanoi@%_br1_0=(hanoi@%_6_0+1)
+  hanoi@_br2_0->(hanoi@_br2_0&&hanoi@_tail_0)
+  (hanoi@_br2_0&&hanoi@_tail_0)->hanoi@%_br_0
+  hanoi@UnifiedReturnBlock_0->((hanoi@UnifiedReturnBlock_0&&hanoi@_br2_0)||(hanoi@UnifiedReturnBlock_0&&hanoi@_3_0))
+  hanoi@%UnifiedRetVal_0=1
+  hanoi@%UnifiedRetVal_1=hanoi@%_br1_0
+  (hanoi@UnifiedReturnBlock_0&&hanoi@_br2_0)->(hanoi@%UnifiedRetVal_2=hanoi@%UnifiedRetVal_0)
+  (hanoi@UnifiedReturnBlock_0&&hanoi@_3_0)->(hanoi@%UnifiedRetVal_2=hanoi@%UnifiedRetVal_1)
+  hanoi@UnifiedReturnBlock.split_0->(hanoi@UnifiedReturnBlock.split_0&&hanoi@UnifiedReturnBlock_0)
+  hanoi@UnifiedReturnBlock.split_0
+]).
+(hanoi true false false hanoi@%n_0 hanoi@%UnifiedRetVal_0) <- (hanoi@UnifiedReturnBlock.split hanoi@%UnifiedRetVal_0 hanoi@%n_0).
+main@entry <- true.
+main@entry.split <- (main@entry&&[&&
+  true
+  main@%.off.i_0=(main@%_0_0+-1)
+  main@%_1_0<->ite(main@%.off.i_0>=0, 30<main@%.off.i_0, true)
+  !main@%_1_0
+  (hanoi true false false main@%_0_0 main@%_2_0)
+  main@%_3_0<->(main@%_2_0>-1)
+  !main@%_3_0
+  main@entry.split_0->(main@entry.split_0&&main@entry_0)
+  main@entry.split_0
+]).
+Queries:
+;main@entry.split
+=========================== NEG START ============================
+VERIFY RULE: (hanoi@UnifiedReturnBlock.split V_0 V_1) <- (main@entry&&false)
+UNSAT
+VERIFY RULE: pos.query.pred <- (main@entry&&true)
+UNSAT
+VERIFY RULE: main@entry <- true
+UNSAT
+VERIFY RULE: main@entry.split <- (main@entry&&false)
+UNSAT
+VERIFY RULE: (hanoi@_tail V_0) <- (main@entry&&true)
+UNSAT
+VERIFY RULE: (verifier.error V_0 V_1 V_2) <- (main@entry&&true)
+UNSAT
+VERIFY RULE: (hanoi V_0 V_1 V_2 V_3 V_4) <- (main@entry&&false)
+UNSAT
+==================================================================
+AFTER RESET DB IS:
+Predicates:
+;[fdecl
+  verifier.error
+  BOOL
+  BOOL
+  BOOL
+  BOOL
+]
+[fdecl
+  hanoi@_tail
+  INT
+  BOOL
+]
+[fdecl
+  hanoi@UnifiedReturnBlock.split
+  INT
+  INT
+  BOOL
+]
+[fdecl
+  hanoi
+  BOOL
+  BOOL
+  BOOL
+  INT
+  INT
+  BOOL
+]
+[fdecl
+  main@entry
+  BOOL
+]
+[fdecl
+  main@entry.split
+  BOOL
+]
+[fdecl
+  pos.query.pred
+  BOOL
+]
+Clauses:
+;(verifier.error false false false) <- true.
+(verifier.error false true true) <- true.
+(verifier.error true false true) <- true.
+(verifier.error true true true) <- true.
+(hanoi true true true hanoi@%n_0 hanoi@%UnifiedRetVal_0) <- true.
+(hanoi false true true hanoi@%n_0 hanoi@%UnifiedRetVal_0) <- true.
+(hanoi false false false hanoi@%n_0 hanoi@%UnifiedRetVal_0) <- true.
+(hanoi@_tail hanoi@%n_0) <- true.
+(hanoi@UnifiedReturnBlock.split hanoi@%UnifiedRetVal_2 hanoi@%n_0) <- ((hanoi@_tail hanoi@%n_0)&&[&&
+  true
+  hanoi@%_br_0<->(hanoi@%n_0=1)
+  hanoi@_3_0->(hanoi@_3_0&&hanoi@_tail_0)
+  (hanoi@_3_0&&hanoi@_tail_0)->(!hanoi@%_br_0)
+  hanoi@%_4_0=(hanoi@%n_0+-1)
+  (hanoi hanoi@_3_0 false false hanoi@%_4_0 hanoi@%_5_0)
+  hanoi@%_6_0=(hanoi@%_5_0*2)
+  hanoi@%_br1_0=(hanoi@%_6_0+1)
+  hanoi@_br2_0->(hanoi@_br2_0&&hanoi@_tail_0)
+  (hanoi@_br2_0&&hanoi@_tail_0)->hanoi@%_br_0
+  hanoi@UnifiedReturnBlock_0->((hanoi@UnifiedReturnBlock_0&&hanoi@_br2_0)||(hanoi@UnifiedReturnBlock_0&&hanoi@_3_0))
+  hanoi@%UnifiedRetVal_0=1
+  hanoi@%UnifiedRetVal_1=hanoi@%_br1_0
+  (hanoi@UnifiedReturnBlock_0&&hanoi@_br2_0)->(hanoi@%UnifiedRetVal_2=hanoi@%UnifiedRetVal_0)
+  (hanoi@UnifiedReturnBlock_0&&hanoi@_3_0)->(hanoi@%UnifiedRetVal_2=hanoi@%UnifiedRetVal_1)
+  hanoi@UnifiedReturnBlock.split_0->(hanoi@UnifiedReturnBlock.split_0&&hanoi@UnifiedReturnBlock_0)
+  hanoi@UnifiedReturnBlock.split_0
+]).
+(hanoi true false false hanoi@%n_0 hanoi@%UnifiedRetVal_0) <- (hanoi@UnifiedReturnBlock.split hanoi@%UnifiedRetVal_0 hanoi@%n_0).
+main@entry <- true.
+main@entry.split <- (main@entry&&[&&
+  true
+  main@%.off.i_0=(main@%_0_0+-1)
+  main@%_1_0<->ite(main@%.off.i_0>=0, 30<main@%.off.i_0, true)
+  !main@%_1_0
+  (hanoi true false false main@%_0_0 main@%_2_0)
+  main@%_3_0<->(main@%_2_0>-1)
+  !main@%_3_0
+  main@entry.split_0->(main@entry.split_0&&main@entry_0)
+  main@entry.split_0
+]).
+Queries:
+;main@entry.split
+=========================== IMPL START ============================
+==================================================================
+DATA & IMPL FILES ARE GENERATED
+TAG: PRED_0
+NEW CANDIDATE: true
+TAG: PRED_1
+NEW CANDIDATE: true
+TAG: PRED_2
+INTERNAL NODE
+CUT ATTRIBUTE: PRED_2!V_0
+LEAF NODE
+LEAF NODE
+NEW CANDIDATE: (true&&(!(V_0<=-1)))
+TAG: PRED_3
+INTERNAL NODE
+CUT ATTRIBUTE: PRED_3!V_0
+LEAF NODE
+LEAF NODE
+NEW CANDIDATE: (true&&(!V_0))
+TAG: PRED_4
+NEW CANDIDATE: true
+TAG: PRED_5
+NEW CANDIDATE: false
+TAG: PRED_6
+NEW CANDIDATE: true
+NEW CANDIDATES MAP:
+(verifier.error V_0 V_1 V_2) : true
+(hanoi@_tail V_0) : true
+(hanoi@UnifiedReturnBlock.split V_0 V_1) : (true&&(!(V_0<=-1)))
+(hanoi V_0 V_1 V_2 V_3 V_4) : (true&&(!V_0))
+main@entry : true
+main@entry.split : false
+pos.query.pred : true
+ENTRY IS: main@entry
+=========================== POS START ============================
+VERIFY RULE: pos.query.pred <- ((hanoi@UnifiedReturnBlock.split V_0 V_1)&&(!(true&&(!(V_0<=-1)))))
+UNSAT
+VERIFY RULE: pos.query.pred <- (pos.query.pred&&(!true))
+UNSAT
+VERIFY RULE: pos.query.pred <- (main@entry.split&&(!false))
+UNSAT
+VERIFY RULE: pos.query.pred <- (main@entry&&(!true))
+UNSAT
+VERIFY RULE: pos.query.pred <- ((hanoi@_tail V_0)&&(!true))
+UNSAT
+VERIFY RULE: pos.query.pred <- ((verifier.error V_0 V_1 V_2)&&(!true))
+UNSAT
+VERIFY RULE: pos.query.pred <- ((hanoi V_0 V_1 V_2 V_3 V_4)&&(!(true&&(!V_0))))
+SAT, NEED TO ADD POSITIVE DATA POINT
+(pos.query.pred&&(hanoi true true true hanoi_3_0 hanoi_4_0))
+POS OBJ PRED: (hanoi V_0 V_1 V_2 V_3 V_4)
+POS CEX IS: (hanoi true true true hanoi_3_0 hanoi_4_0)
+ANSWER ARGS:
+true
+true
+true
+hanoi_3_0
+UNCERTAIN VALUE: hanoi_3_0
+hanoi_4_0
+UNCERTAIN VALUE: hanoi_4_0
+POS CEX, INDEX IS 5
+==================================================================
+AFTER RESET DB IS:
+Predicates:
+;[fdecl
+  verifier.error
+  BOOL
+  BOOL
+  BOOL
+  BOOL
+]
+[fdecl
+  hanoi@_tail
+  INT
+  BOOL
+]
+[fdecl
+  hanoi@UnifiedReturnBlock.split
+  INT
+  INT
+  BOOL
+]
+[fdecl
+  hanoi
+  BOOL
+  BOOL
+  BOOL
+  INT
+  INT
+  BOOL
+]
+[fdecl
+  main@entry
+  BOOL
+]
+[fdecl
+  main@entry.split
+  BOOL
+]
+[fdecl
+  pos.query.pred
+  BOOL
+]
+Clauses:
+;(verifier.error false false false) <- true.
+(verifier.error false true true) <- true.
+(verifier.error true false true) <- true.
+(verifier.error true true true) <- true.
+(hanoi true true true hanoi@%n_0 hanoi@%UnifiedRetVal_0) <- true.
+(hanoi false true true hanoi@%n_0 hanoi@%UnifiedRetVal_0) <- true.
+(hanoi false false false hanoi@%n_0 hanoi@%UnifiedRetVal_0) <- true.
+(hanoi@_tail hanoi@%n_0) <- true.
+(hanoi@UnifiedReturnBlock.split hanoi@%UnifiedRetVal_2 hanoi@%n_0) <- ((hanoi@_tail hanoi@%n_0)&&[&&
+  true
+  hanoi@%_br_0<->(hanoi@%n_0=1)
+  hanoi@_3_0->(hanoi@_3_0&&hanoi@_tail_0)
+  (hanoi@_3_0&&hanoi@_tail_0)->(!hanoi@%_br_0)
+  hanoi@%_4_0=(hanoi@%n_0+-1)
+  (hanoi hanoi@_3_0 false false hanoi@%_4_0 hanoi@%_5_0)
+  hanoi@%_6_0=(hanoi@%_5_0*2)
+  hanoi@%_br1_0=(hanoi@%_6_0+1)
+  hanoi@_br2_0->(hanoi@_br2_0&&hanoi@_tail_0)
+  (hanoi@_br2_0&&hanoi@_tail_0)->hanoi@%_br_0
+  hanoi@UnifiedReturnBlock_0->((hanoi@UnifiedReturnBlock_0&&hanoi@_br2_0)||(hanoi@UnifiedReturnBlock_0&&hanoi@_3_0))
+  hanoi@%UnifiedRetVal_0=1
+  hanoi@%UnifiedRetVal_1=hanoi@%_br1_0
+  (hanoi@UnifiedReturnBlock_0&&hanoi@_br2_0)->(hanoi@%UnifiedRetVal_2=hanoi@%UnifiedRetVal_0)
+  (hanoi@UnifiedReturnBlock_0&&hanoi@_3_0)->(hanoi@%UnifiedRetVal_2=hanoi@%UnifiedRetVal_1)
+  hanoi@UnifiedReturnBlock.split_0->(hanoi@UnifiedReturnBlock.split_0&&hanoi@UnifiedReturnBlock_0)
+  hanoi@UnifiedReturnBlock.split_0
+]).
+(hanoi true false false hanoi@%n_0 hanoi@%UnifiedRetVal_0) <- (hanoi@UnifiedReturnBlock.split hanoi@%UnifiedRetVal_0 hanoi@%n_0).
+main@entry <- true.
+main@entry.split <- (main@entry&&[&&
+  true
+  main@%.off.i_0=(main@%_0_0+-1)
+  main@%_1_0<->ite(main@%.off.i_0>=0, 30<main@%.off.i_0, true)
+  !main@%_1_0
+  (hanoi true false false main@%_0_0 main@%_2_0)
+  main@%_3_0<->(main@%_2_0>-1)
+  !main@%_3_0
+  main@entry.split_0->(main@entry.split_0&&main@entry_0)
+  main@entry.split_0
+]).
+Queries:
+;main@entry.split
+=========================== NEG START ============================
+VERIFY RULE: (hanoi@UnifiedReturnBlock.split V_0 V_1) <- (main@entry&&(true&&(!(V_0<=-1))))
+UNSAT
+VERIFY RULE: pos.query.pred <- (main@entry&&true)
+UNSAT
+VERIFY RULE: main@entry <- true
+UNSAT
+VERIFY RULE: main@entry.split <- (main@entry&&false)
+UNSAT
+VERIFY RULE: (hanoi@_tail V_0) <- (main@entry&&true)
+UNSAT
+VERIFY RULE: (verifier.error V_0 V_1 V_2) <- (main@entry&&true)
+UNSAT
+VERIFY RULE: (hanoi V_0 V_1 V_2 V_3 V_4) <- (main@entry&&(true&&(!V_0)))
+UNSAT
+==================================================================
+AFTER RESET DB IS:
+Predicates:
+;[fdecl
+  verifier.error
+  BOOL
+  BOOL
+  BOOL
+  BOOL
+]
+[fdecl
+  hanoi@_tail
+  INT
+  BOOL
+]
+[fdecl
+  hanoi@UnifiedReturnBlock.split
+  INT
+  INT
+  BOOL
+]
+[fdecl
+  hanoi
+  BOOL
+  BOOL
+  BOOL
+  INT
+  INT
+  BOOL
+]
+[fdecl
+  main@entry
+  BOOL
+]
+[fdecl
+  main@entry.split
+  BOOL
+]
+[fdecl
+  pos.query.pred
+  BOOL
+]
+Clauses:
+;(verifier.error false false false) <- true.
+(verifier.error false true true) <- true.
+(verifier.error true false true) <- true.
+(verifier.error true true true) <- true.
+(hanoi true true true hanoi@%n_0 hanoi@%UnifiedRetVal_0) <- true.
+(hanoi false true true hanoi@%n_0 hanoi@%UnifiedRetVal_0) <- true.
+(hanoi false false false hanoi@%n_0 hanoi@%UnifiedRetVal_0) <- true.
+(hanoi@_tail hanoi@%n_0) <- true.
+(hanoi@UnifiedReturnBlock.split hanoi@%UnifiedRetVal_2 hanoi@%n_0) <- ((hanoi@_tail hanoi@%n_0)&&[&&
+  true
+  hanoi@%_br_0<->(hanoi@%n_0=1)
+  hanoi@_3_0->(hanoi@_3_0&&hanoi@_tail_0)
+  (hanoi@_3_0&&hanoi@_tail_0)->(!hanoi@%_br_0)
+  hanoi@%_4_0=(hanoi@%n_0+-1)
+  (hanoi hanoi@_3_0 false false hanoi@%_4_0 hanoi@%_5_0)
+  hanoi@%_6_0=(hanoi@%_5_0*2)
+  hanoi@%_br1_0=(hanoi@%_6_0+1)
+  hanoi@_br2_0->(hanoi@_br2_0&&hanoi@_tail_0)
+  (hanoi@_br2_0&&hanoi@_tail_0)->hanoi@%_br_0
+  hanoi@UnifiedReturnBlock_0->((hanoi@UnifiedReturnBlock_0&&hanoi@_br2_0)||(hanoi@UnifiedReturnBlock_0&&hanoi@_3_0))
+  hanoi@%UnifiedRetVal_0=1
+  hanoi@%UnifiedRetVal_1=hanoi@%_br1_0
+  (hanoi@UnifiedReturnBlock_0&&hanoi@_br2_0)->(hanoi@%UnifiedRetVal_2=hanoi@%UnifiedRetVal_0)
+  (hanoi@UnifiedReturnBlock_0&&hanoi@_3_0)->(hanoi@%UnifiedRetVal_2=hanoi@%UnifiedRetVal_1)
+  hanoi@UnifiedReturnBlock.split_0->(hanoi@UnifiedReturnBlock.split_0&&hanoi@UnifiedReturnBlock_0)
+  hanoi@UnifiedReturnBlock.split_0
+]).
+(hanoi true false false hanoi@%n_0 hanoi@%UnifiedRetVal_0) <- (hanoi@UnifiedReturnBlock.split hanoi@%UnifiedRetVal_0 hanoi@%n_0).
+main@entry <- true.
+main@entry.split <- (main@entry&&[&&
+  true
+  main@%.off.i_0=(main@%_0_0+-1)
+  main@%_1_0<->ite(main@%.off.i_0>=0, 30<main@%.off.i_0, true)
+  !main@%_1_0
+  (hanoi true false false main@%_0_0 main@%_2_0)
+  main@%_3_0<->(main@%_2_0>-1)
+  !main@%_3_0
+  main@entry.split_0->(main@entry.split_0&&main@entry_0)
+  main@entry.split_0
+]).
+Queries:
+;main@entry.split
+=========================== IMPL START ============================
+==================================================================
+DATA & IMPL FILES ARE GENERATED
+TAG: PRED_0
+NEW CANDIDATE: true
+TAG: PRED_1
+NEW CANDIDATE: true
+TAG: PRED_2
+INTERNAL NODE
+CUT ATTRIBUTE: PRED_2!V_0
+LEAF NODE
+LEAF NODE
+NEW CANDIDATE: (true&&(!(V_0<=-1)))
+TAG: PRED_3
+INTERNAL NODE
+CUT ATTRIBUTE: PRED_3!V_3
+LEAF NODE
+LEAF NODE
+NEW CANDIDATE: (true&&(V_3<=0))
+TAG: PRED_4
+NEW CANDIDATE: true
+TAG: PRED_5
+NEW CANDIDATE: false
+TAG: PRED_6
+NEW CANDIDATE: true
+NEW CANDIDATES MAP:
+(verifier.error V_0 V_1 V_2) : true
+(hanoi@_tail V_0) : true
+(hanoi@UnifiedReturnBlock.split V_0 V_1) : (true&&(!(V_0<=-1)))
+(hanoi V_0 V_1 V_2 V_3 V_4) : (true&&(V_3<=0))
+main@entry : true
+main@entry.split : false
+pos.query.pred : true
+ENTRY IS: main@entry
+=========================== POS START ============================
+VERIFY RULE: pos.query.pred <- ((hanoi@UnifiedReturnBlock.split V_0 V_1)&&(!(true&&(!(V_0<=-1)))))
+UNSAT
+VERIFY RULE: pos.query.pred <- (main@entry&&(!true))
+UNSAT
+VERIFY RULE: pos.query.pred <- (main@entry.split&&(!false))
+UNSAT
+VERIFY RULE: pos.query.pred <- (pos.query.pred&&(!true))
+UNSAT
+VERIFY RULE: pos.query.pred <- ((hanoi@_tail V_0)&&(!true))
+UNSAT
+VERIFY RULE: pos.query.pred <- ((verifier.error V_0 V_1 V_2)&&(!true))
+UNSAT
+VERIFY RULE: pos.query.pred <- ((hanoi V_0 V_1 V_2 V_3 V_4)&&(!(true&&(V_3<=0))))
+SAT, NEED TO ADD POSITIVE DATA POINT
+(pos.query.pred&&(hanoi false false false 1 hanoi_4_0))
+POS OBJ PRED: (hanoi V_0 V_1 V_2 V_3 V_4)
+POS CEX IS: (hanoi false false false 1 hanoi_4_0)
+ANSWER ARGS:
+false
+false
+false
+1
+hanoi_4_0
+UNCERTAIN VALUE: hanoi_4_0
+POS CEX, INDEX IS 6
+==================================================================
+AFTER RESET DB IS:
+Predicates:
+;[fdecl
+  verifier.error
+  BOOL
+  BOOL
+  BOOL
+  BOOL
+]
+[fdecl
+  hanoi@_tail
+  INT
+  BOOL
+]
+[fdecl
+  hanoi@UnifiedReturnBlock.split
+  INT
+  INT
+  BOOL
+]
+[fdecl
+  hanoi
+  BOOL
+  BOOL
+  BOOL
+  INT
+  INT
+  BOOL
+]
+[fdecl
+  main@entry
+  BOOL
+]
+[fdecl
+  main@entry.split
+  BOOL
+]
+[fdecl
+  pos.query.pred
+  BOOL
+]
+Clauses:
+;(verifier.error false false false) <- true.
+(verifier.error false true true) <- true.
+(verifier.error true false true) <- true.
+(verifier.error true true true) <- true.
+(hanoi true true true hanoi@%n_0 hanoi@%UnifiedRetVal_0) <- true.
+(hanoi false true true hanoi@%n_0 hanoi@%UnifiedRetVal_0) <- true.
+(hanoi false false false hanoi@%n_0 hanoi@%UnifiedRetVal_0) <- true.
+(hanoi@_tail hanoi@%n_0) <- true.
+(hanoi@UnifiedReturnBlock.split hanoi@%UnifiedRetVal_2 hanoi@%n_0) <- ((hanoi@_tail hanoi@%n_0)&&[&&
+  true
+  hanoi@%_br_0<->(hanoi@%n_0=1)
+  hanoi@_3_0->(hanoi@_3_0&&hanoi@_tail_0)
+  (hanoi@_3_0&&hanoi@_tail_0)->(!hanoi@%_br_0)
+  hanoi@%_4_0=(hanoi@%n_0+-1)
+  (hanoi hanoi@_3_0 false false hanoi@%_4_0 hanoi@%_5_0)
+  hanoi@%_6_0=(hanoi@%_5_0*2)
+  hanoi@%_br1_0=(hanoi@%_6_0+1)
+  hanoi@_br2_0->(hanoi@_br2_0&&hanoi@_tail_0)
+  (hanoi@_br2_0&&hanoi@_tail_0)->hanoi@%_br_0
+  hanoi@UnifiedReturnBlock_0->((hanoi@UnifiedReturnBlock_0&&hanoi@_br2_0)||(hanoi@UnifiedReturnBlock_0&&hanoi@_3_0))
+  hanoi@%UnifiedRetVal_0=1
+  hanoi@%UnifiedRetVal_1=hanoi@%_br1_0
+  (hanoi@UnifiedReturnBlock_0&&hanoi@_br2_0)->(hanoi@%UnifiedRetVal_2=hanoi@%UnifiedRetVal_0)
+  (hanoi@UnifiedReturnBlock_0&&hanoi@_3_0)->(hanoi@%UnifiedRetVal_2=hanoi@%UnifiedRetVal_1)
+  hanoi@UnifiedReturnBlock.split_0->(hanoi@UnifiedReturnBlock.split_0&&hanoi@UnifiedReturnBlock_0)
+  hanoi@UnifiedReturnBlock.split_0
+]).
+(hanoi true false false hanoi@%n_0 hanoi@%UnifiedRetVal_0) <- (hanoi@UnifiedReturnBlock.split hanoi@%UnifiedRetVal_0 hanoi@%n_0).
+main@entry <- true.
+main@entry.split <- (main@entry&&[&&
+  true
+  main@%.off.i_0=(main@%_0_0+-1)
+  main@%_1_0<->ite(main@%.off.i_0>=0, 30<main@%.off.i_0, true)
+  !main@%_1_0
+  (hanoi true false false main@%_0_0 main@%_2_0)
+  main@%_3_0<->(main@%_2_0>-1)
+  !main@%_3_0
+  main@entry.split_0->(main@entry.split_0&&main@entry_0)
+  main@entry.split_0
+]).
+Queries:
+;main@entry.split
+=========================== NEG START ============================
+VERIFY RULE: (hanoi@UnifiedReturnBlock.split V_0 V_1) <- (main@entry&&(true&&(!(V_0<=-1))))
+UNSAT
+VERIFY RULE: pos.query.pred <- (main@entry&&true)
+UNSAT
+VERIFY RULE: main@entry <- true
+UNSAT
+VERIFY RULE: main@entry.split <- (main@entry&&false)
+UNSAT
+VERIFY RULE: (hanoi@_tail V_0) <- (main@entry&&true)
+UNSAT
+VERIFY RULE: (verifier.error V_0 V_1 V_2) <- (main@entry&&true)
+UNSAT
+VERIFY RULE: (hanoi V_0 V_1 V_2 V_3 V_4) <- (main@entry&&(true&&(V_3<=0)))
+UNSAT
+==================================================================
+AFTER RESET DB IS:
+Predicates:
+;[fdecl
+  verifier.error
+  BOOL
+  BOOL
+  BOOL
+  BOOL
+]
+[fdecl
+  hanoi@_tail
+  INT
+  BOOL
+]
+[fdecl
+  hanoi@UnifiedReturnBlock.split
+  INT
+  INT
+  BOOL
+]
+[fdecl
+  hanoi
+  BOOL
+  BOOL
+  BOOL
+  INT
+  INT
+  BOOL
+]
+[fdecl
+  main@entry
+  BOOL
+]
+[fdecl
+  main@entry.split
+  BOOL
+]
+[fdecl
+  pos.query.pred
+  BOOL
+]
+Clauses:
+;(verifier.error false false false) <- true.
+(verifier.error false true true) <- true.
+(verifier.error true false true) <- true.
+(verifier.error true true true) <- true.
+(hanoi true true true hanoi@%n_0 hanoi@%UnifiedRetVal_0) <- true.
+(hanoi false true true hanoi@%n_0 hanoi@%UnifiedRetVal_0) <- true.
+(hanoi false false false hanoi@%n_0 hanoi@%UnifiedRetVal_0) <- true.
+(hanoi@_tail hanoi@%n_0) <- true.
+(hanoi@UnifiedReturnBlock.split hanoi@%UnifiedRetVal_2 hanoi@%n_0) <- ((hanoi@_tail hanoi@%n_0)&&[&&
+  true
+  hanoi@%_br_0<->(hanoi@%n_0=1)
+  hanoi@_3_0->(hanoi@_3_0&&hanoi@_tail_0)
+  (hanoi@_3_0&&hanoi@_tail_0)->(!hanoi@%_br_0)
+  hanoi@%_4_0=(hanoi@%n_0+-1)
+  (hanoi hanoi@_3_0 false false hanoi@%_4_0 hanoi@%_5_0)
+  hanoi@%_6_0=(hanoi@%_5_0*2)
+  hanoi@%_br1_0=(hanoi@%_6_0+1)
+  hanoi@_br2_0->(hanoi@_br2_0&&hanoi@_tail_0)
+  (hanoi@_br2_0&&hanoi@_tail_0)->hanoi@%_br_0
+  hanoi@UnifiedReturnBlock_0->((hanoi@UnifiedReturnBlock_0&&hanoi@_br2_0)||(hanoi@UnifiedReturnBlock_0&&hanoi@_3_0))
+  hanoi@%UnifiedRetVal_0=1
+  hanoi@%UnifiedRetVal_1=hanoi@%_br1_0
+  (hanoi@UnifiedReturnBlock_0&&hanoi@_br2_0)->(hanoi@%UnifiedRetVal_2=hanoi@%UnifiedRetVal_0)
+  (hanoi@UnifiedReturnBlock_0&&hanoi@_3_0)->(hanoi@%UnifiedRetVal_2=hanoi@%UnifiedRetVal_1)
+  hanoi@UnifiedReturnBlock.split_0->(hanoi@UnifiedReturnBlock.split_0&&hanoi@UnifiedReturnBlock_0)
+  hanoi@UnifiedReturnBlock.split_0
+]).
+(hanoi true false false hanoi@%n_0 hanoi@%UnifiedRetVal_0) <- (hanoi@UnifiedReturnBlock.split hanoi@%UnifiedRetVal_0 hanoi@%n_0).
+main@entry <- true.
+main@entry.split <- (main@entry&&[&&
+  true
+  main@%.off.i_0=(main@%_0_0+-1)
+  main@%_1_0<->ite(main@%.off.i_0>=0, 30<main@%.off.i_0, true)
+  !main@%_1_0
+  (hanoi true false false main@%_0_0 main@%_2_0)
+  main@%_3_0<->(main@%_2_0>-1)
+  !main@%_3_0
+  main@entry.split_0->(main@entry.split_0&&main@entry_0)
+  main@entry.split_0
+]).
+Queries:
+;main@entry.split
+=========================== IMPL START ============================
+==================================================================
+DATA & IMPL FILES ARE GENERATED
+TAG: PRED_0
+NEW CANDIDATE: true
+TAG: PRED_1
+NEW CANDIDATE: true
+TAG: PRED_2
+INTERNAL NODE
+CUT ATTRIBUTE: PRED_2!V_0
+LEAF NODE
+LEAF NODE
+NEW CANDIDATE: (true&&(!(V_0<=-1)))
+TAG: PRED_3
+INTERNAL NODE
+CUT ATTRIBUTE: PRED_3!V_4
+LEAF NODE
+LEAF NODE
+NEW CANDIDATE: (true&&(!(V_4<=-1)))
+TAG: PRED_4
+NEW CANDIDATE: true
+TAG: PRED_5
+NEW CANDIDATE: false
+TAG: PRED_6
+NEW CANDIDATE: true
+NEW CANDIDATES MAP:
+(verifier.error V_0 V_1 V_2) : true
+(hanoi@_tail V_0) : true
+(hanoi@UnifiedReturnBlock.split V_0 V_1) : (true&&(!(V_0<=-1)))
+(hanoi V_0 V_1 V_2 V_3 V_4) : (true&&(!(V_4<=-1)))
+main@entry : true
+main@entry.split : false
+pos.query.pred : true
+ENTRY IS: main@entry
+=========================== POS START ============================
+VERIFY RULE: pos.query.pred <- ((hanoi@UnifiedReturnBlock.split V_0 V_1)&&(!(true&&(!(V_0<=-1)))))
+UNSAT
+VERIFY RULE: pos.query.pred <- (pos.query.pred&&(!true))
+UNSAT
+VERIFY RULE: pos.query.pred <- (main@entry.split&&(!false))
+UNSAT
+VERIFY RULE: pos.query.pred <- (main@entry&&(!true))
+UNSAT
+VERIFY RULE: pos.query.pred <- ((hanoi@_tail V_0)&&(!true))
+UNSAT
+VERIFY RULE: pos.query.pred <- ((verifier.error V_0 V_1 V_2)&&(!true))
+UNSAT
+VERIFY RULE: pos.query.pred <- ((hanoi V_0 V_1 V_2 V_3 V_4)&&(!(true&&(!(V_4<=-1)))))
+SAT, NEED TO ADD POSITIVE DATA POINT
+(pos.query.pred&&(hanoi false false false hanoi_3_0 -1))
+POS OBJ PRED: (hanoi V_0 V_1 V_2 V_3 V_4)
+POS CEX IS: (hanoi false false false hanoi_3_0 -1)
+ANSWER ARGS:
+false
+false
+false
+hanoi_3_0
+UNCERTAIN VALUE: hanoi_3_0
+-1
+POS CEX, INDEX IS 7
+==================================================================
+AFTER RESET DB IS:
+Predicates:
+;[fdecl
+  verifier.error
+  BOOL
+  BOOL
+  BOOL
+  BOOL
+]
+[fdecl
+  hanoi@_tail
+  INT
+  BOOL
+]
+[fdecl
+  hanoi@UnifiedReturnBlock.split
+  INT
+  INT
+  BOOL
+]
+[fdecl
+  hanoi
+  BOOL
+  BOOL
+  BOOL
+  INT
+  INT
+  BOOL
+]
+[fdecl
+  main@entry
+  BOOL
+]
+[fdecl
+  main@entry.split
+  BOOL
+]
+[fdecl
+  pos.query.pred
+  BOOL
+]
+Clauses:
+;(verifier.error false false false) <- true.
+(verifier.error false true true) <- true.
+(verifier.error true false true) <- true.
+(verifier.error true true true) <- true.
+(hanoi true true true hanoi@%n_0 hanoi@%UnifiedRetVal_0) <- true.
+(hanoi false true true hanoi@%n_0 hanoi@%UnifiedRetVal_0) <- true.
+(hanoi false false false hanoi@%n_0 hanoi@%UnifiedRetVal_0) <- true.
+(hanoi@_tail hanoi@%n_0) <- true.
+(hanoi@UnifiedReturnBlock.split hanoi@%UnifiedRetVal_2 hanoi@%n_0) <- ((hanoi@_tail hanoi@%n_0)&&[&&
+  true
+  hanoi@%_br_0<->(hanoi@%n_0=1)
+  hanoi@_3_0->(hanoi@_3_0&&hanoi@_tail_0)
+  (hanoi@_3_0&&hanoi@_tail_0)->(!hanoi@%_br_0)
+  hanoi@%_4_0=(hanoi@%n_0+-1)
+  (hanoi hanoi@_3_0 false false hanoi@%_4_0 hanoi@%_5_0)
+  hanoi@%_6_0=(hanoi@%_5_0*2)
+  hanoi@%_br1_0=(hanoi@%_6_0+1)
+  hanoi@_br2_0->(hanoi@_br2_0&&hanoi@_tail_0)
+  (hanoi@_br2_0&&hanoi@_tail_0)->hanoi@%_br_0
+  hanoi@UnifiedReturnBlock_0->((hanoi@UnifiedReturnBlock_0&&hanoi@_br2_0)||(hanoi@UnifiedReturnBlock_0&&hanoi@_3_0))
+  hanoi@%UnifiedRetVal_0=1
+  hanoi@%UnifiedRetVal_1=hanoi@%_br1_0
+  (hanoi@UnifiedReturnBlock_0&&hanoi@_br2_0)->(hanoi@%UnifiedRetVal_2=hanoi@%UnifiedRetVal_0)
+  (hanoi@UnifiedReturnBlock_0&&hanoi@_3_0)->(hanoi@%UnifiedRetVal_2=hanoi@%UnifiedRetVal_1)
+  hanoi@UnifiedReturnBlock.split_0->(hanoi@UnifiedReturnBlock.split_0&&hanoi@UnifiedReturnBlock_0)
+  hanoi@UnifiedReturnBlock.split_0
+]).
+(hanoi true false false hanoi@%n_0 hanoi@%UnifiedRetVal_0) <- (hanoi@UnifiedReturnBlock.split hanoi@%UnifiedRetVal_0 hanoi@%n_0).
+main@entry <- true.
+main@entry.split <- (main@entry&&[&&
+  true
+  main@%.off.i_0=(main@%_0_0+-1)
+  main@%_1_0<->ite(main@%.off.i_0>=0, 30<main@%.off.i_0, true)
+  !main@%_1_0
+  (hanoi true false false main@%_0_0 main@%_2_0)
+  main@%_3_0<->(main@%_2_0>-1)
+  !main@%_3_0
+  main@entry.split_0->(main@entry.split_0&&main@entry_0)
+  main@entry.split_0
+]).
+Queries:
+;main@entry.split
+=========================== NEG START ============================
+VERIFY RULE: (hanoi@UnifiedReturnBlock.split V_0 V_1) <- (main@entry&&(true&&(!(V_0<=-1))))
+UNSAT
+VERIFY RULE: pos.query.pred <- (main@entry&&true)
+UNSAT
+VERIFY RULE: main@entry <- true
+UNSAT
+VERIFY RULE: main@entry.split <- (main@entry&&false)
+UNSAT
+VERIFY RULE: (hanoi@_tail V_0) <- (main@entry&&true)
+UNSAT
+VERIFY RULE: (verifier.error V_0 V_1 V_2) <- (main@entry&&true)
+UNSAT
+VERIFY RULE: (hanoi V_0 V_1 V_2 V_3 V_4) <- (main@entry&&(true&&(!(V_4<=-1))))
+UNSAT
+==================================================================
+AFTER RESET DB IS:
+Predicates:
+;[fdecl
+  verifier.error
+  BOOL
+  BOOL
+  BOOL
+  BOOL
+]
+[fdecl
+  hanoi@_tail
+  INT
+  BOOL
+]
+[fdecl
+  hanoi@UnifiedReturnBlock.split
+  INT
+  INT
+  BOOL
+]
+[fdecl
+  hanoi
+  BOOL
+  BOOL
+  BOOL
+  INT
+  INT
+  BOOL
+]
+[fdecl
+  main@entry
+  BOOL
+]
+[fdecl
+  main@entry.split
+  BOOL
+]
+[fdecl
+  pos.query.pred
+  BOOL
+]
+Clauses:
+;(verifier.error false false false) <- true.
+(verifier.error false true true) <- true.
+(verifier.error true false true) <- true.
+(verifier.error true true true) <- true.
+(hanoi true true true hanoi@%n_0 hanoi@%UnifiedRetVal_0) <- true.
+(hanoi false true true hanoi@%n_0 hanoi@%UnifiedRetVal_0) <- true.
+(hanoi false false false hanoi@%n_0 hanoi@%UnifiedRetVal_0) <- true.
+(hanoi@_tail hanoi@%n_0) <- true.
+(hanoi@UnifiedReturnBlock.split hanoi@%UnifiedRetVal_2 hanoi@%n_0) <- ((hanoi@_tail hanoi@%n_0)&&[&&
+  true
+  hanoi@%_br_0<->(hanoi@%n_0=1)
+  hanoi@_3_0->(hanoi@_3_0&&hanoi@_tail_0)
+  (hanoi@_3_0&&hanoi@_tail_0)->(!hanoi@%_br_0)
+  hanoi@%_4_0=(hanoi@%n_0+-1)
+  (hanoi hanoi@_3_0 false false hanoi@%_4_0 hanoi@%_5_0)
+  hanoi@%_6_0=(hanoi@%_5_0*2)
+  hanoi@%_br1_0=(hanoi@%_6_0+1)
+  hanoi@_br2_0->(hanoi@_br2_0&&hanoi@_tail_0)
+  (hanoi@_br2_0&&hanoi@_tail_0)->hanoi@%_br_0
+  hanoi@UnifiedReturnBlock_0->((hanoi@UnifiedReturnBlock_0&&hanoi@_br2_0)||(hanoi@UnifiedReturnBlock_0&&hanoi@_3_0))
+  hanoi@%UnifiedRetVal_0=1
+  hanoi@%UnifiedRetVal_1=hanoi@%_br1_0
+  (hanoi@UnifiedReturnBlock_0&&hanoi@_br2_0)->(hanoi@%UnifiedRetVal_2=hanoi@%UnifiedRetVal_0)
+  (hanoi@UnifiedReturnBlock_0&&hanoi@_3_0)->(hanoi@%UnifiedRetVal_2=hanoi@%UnifiedRetVal_1)
+  hanoi@UnifiedReturnBlock.split_0->(hanoi@UnifiedReturnBlock.split_0&&hanoi@UnifiedReturnBlock_0)
+  hanoi@UnifiedReturnBlock.split_0
+]).
+(hanoi true false false hanoi@%n_0 hanoi@%UnifiedRetVal_0) <- (hanoi@UnifiedReturnBlock.split hanoi@%UnifiedRetVal_0 hanoi@%n_0).
+main@entry <- true.
+main@entry.split <- (main@entry&&[&&
+  true
+  main@%.off.i_0=(main@%_0_0+-1)
+  main@%_1_0<->ite(main@%.off.i_0>=0, 30<main@%.off.i_0, true)
+  !main@%_1_0
+  (hanoi true false false main@%_0_0 main@%_2_0)
+  main@%_3_0<->(main@%_2_0>-1)
+  !main@%_3_0
+  main@entry.split_0->(main@entry.split_0&&main@entry_0)
+  main@entry.split_0
+]).
+Queries:
+;main@entry.split
+=========================== IMPL START ============================
+==================================================================
+DATA & IMPL FILES ARE GENERATED
+TAG: PRED_0
+NEW CANDIDATE: true
+TAG: PRED_1
+NEW CANDIDATE: true
+TAG: PRED_2
+INTERNAL NODE
+CUT ATTRIBUTE: PRED_2!V_0
+LEAF NODE
+LEAF NODE
+NEW CANDIDATE: (true&&(!(V_0<=-1)))
+TAG: PRED_3
+INTERNAL NODE
+CUT ATTRIBUTE: PRED_3!V_3-PRED_3!V_4
+LEAF NODE
+LEAF NODE
+NEW CANDIDATE: (true&&((V_3-V_4)<=1))
+TAG: PRED_4
+NEW CANDIDATE: true
+TAG: PRED_5
+NEW CANDIDATE: false
+TAG: PRED_6
+NEW CANDIDATE: true
+NEW CANDIDATES MAP:
+(verifier.error V_0 V_1 V_2) : true
+(hanoi@_tail V_0) : true
+(hanoi@UnifiedReturnBlock.split V_0 V_1) : (true&&(!(V_0<=-1)))
+(hanoi V_0 V_1 V_2 V_3 V_4) : (true&&((V_3-V_4)<=1))
+main@entry : true
+main@entry.split : false
+pos.query.pred : true
+ENTRY IS: main@entry
+=========================== POS START ============================
+VERIFY RULE: pos.query.pred <- ((hanoi@UnifiedReturnBlock.split V_0 V_1)&&(!(true&&(!(V_0<=-1)))))
+UNSAT
+VERIFY RULE: pos.query.pred <- (main@entry.split&&(!false))
+UNSAT
+VERIFY RULE: pos.query.pred <- (main@entry&&(!true))
+UNSAT
+VERIFY RULE: pos.query.pred <- (pos.query.pred&&(!true))
+UNSAT
+VERIFY RULE: pos.query.pred <- ((hanoi@_tail V_0)&&(!true))
+UNSAT
+VERIFY RULE: pos.query.pred <- ((verifier.error V_0 V_1 V_2)&&(!true))
+UNSAT
+VERIFY RULE: pos.query.pred <- ((hanoi V_0 V_1 V_2 V_3 V_4)&&(!(true&&((V_3-V_4)<=1))))
+SAT, NEED TO ADD POSITIVE DATA POINT
+(pos.query.pred&&(hanoi false false false 0 -2))
+POS OBJ PRED: (hanoi V_0 V_1 V_2 V_3 V_4)
+POS CEX IS: (hanoi false false false 0 -2)
+ANSWER ARGS:
+false
+false
+false
+0
+-2
+POS CEX, INDEX IS 8
+==================================================================
+AFTER RESET DB IS:
+Predicates:
+;[fdecl
+  verifier.error
+  BOOL
+  BOOL
+  BOOL
+  BOOL
+]
+[fdecl
+  hanoi@_tail
+  INT
+  BOOL
+]
+[fdecl
+  hanoi@UnifiedReturnBlock.split
+  INT
+  INT
+  BOOL
+]
+[fdecl
+  hanoi
+  BOOL
+  BOOL
+  BOOL
+  INT
+  INT
+  BOOL
+]
+[fdecl
+  main@entry
+  BOOL
+]
+[fdecl
+  main@entry.split
+  BOOL
+]
+[fdecl
+  pos.query.pred
+  BOOL
+]
+Clauses:
+;(verifier.error false false false) <- true.
+(verifier.error false true true) <- true.
+(verifier.error true false true) <- true.
+(verifier.error true true true) <- true.
+(hanoi true true true hanoi@%n_0 hanoi@%UnifiedRetVal_0) <- true.
+(hanoi false true true hanoi@%n_0 hanoi@%UnifiedRetVal_0) <- true.
+(hanoi false false false hanoi@%n_0 hanoi@%UnifiedRetVal_0) <- true.
+(hanoi@_tail hanoi@%n_0) <- true.
+(hanoi@UnifiedReturnBlock.split hanoi@%UnifiedRetVal_2 hanoi@%n_0) <- ((hanoi@_tail hanoi@%n_0)&&[&&
+  true
+  hanoi@%_br_0<->(hanoi@%n_0=1)
+  hanoi@_3_0->(hanoi@_3_0&&hanoi@_tail_0)
+  (hanoi@_3_0&&hanoi@_tail_0)->(!hanoi@%_br_0)
+  hanoi@%_4_0=(hanoi@%n_0+-1)
+  (hanoi hanoi@_3_0 false false hanoi@%_4_0 hanoi@%_5_0)
+  hanoi@%_6_0=(hanoi@%_5_0*2)
+  hanoi@%_br1_0=(hanoi@%_6_0+1)
+  hanoi@_br2_0->(hanoi@_br2_0&&hanoi@_tail_0)
+  (hanoi@_br2_0&&hanoi@_tail_0)->hanoi@%_br_0
+  hanoi@UnifiedReturnBlock_0->((hanoi@UnifiedReturnBlock_0&&hanoi@_br2_0)||(hanoi@UnifiedReturnBlock_0&&hanoi@_3_0))
+  hanoi@%UnifiedRetVal_0=1
+  hanoi@%UnifiedRetVal_1=hanoi@%_br1_0
+  (hanoi@UnifiedReturnBlock_0&&hanoi@_br2_0)->(hanoi@%UnifiedRetVal_2=hanoi@%UnifiedRetVal_0)
+  (hanoi@UnifiedReturnBlock_0&&hanoi@_3_0)->(hanoi@%UnifiedRetVal_2=hanoi@%UnifiedRetVal_1)
+  hanoi@UnifiedReturnBlock.split_0->(hanoi@UnifiedReturnBlock.split_0&&hanoi@UnifiedReturnBlock_0)
+  hanoi@UnifiedReturnBlock.split_0
+]).
+(hanoi true false false hanoi@%n_0 hanoi@%UnifiedRetVal_0) <- (hanoi@UnifiedReturnBlock.split hanoi@%UnifiedRetVal_0 hanoi@%n_0).
+main@entry <- true.
+main@entry.split <- (main@entry&&[&&
+  true
+  main@%.off.i_0=(main@%_0_0+-1)
+  main@%_1_0<->ite(main@%.off.i_0>=0, 30<main@%.off.i_0, true)
+  !main@%_1_0
+  (hanoi true false false main@%_0_0 main@%_2_0)
+  main@%_3_0<->(main@%_2_0>-1)
+  !main@%_3_0
+  main@entry.split_0->(main@entry.split_0&&main@entry_0)
+  main@entry.split_0
+]).
+Queries:
+;main@entry.split
+=========================== NEG START ============================
+VERIFY RULE: (hanoi@UnifiedReturnBlock.split V_0 V_1) <- (main@entry&&(true&&(!(V_0<=-1))))
+UNSAT
+VERIFY RULE: pos.query.pred <- (main@entry&&true)
+UNSAT
+VERIFY RULE: main@entry <- true
+UNSAT
+VERIFY RULE: main@entry.split <- (main@entry&&false)
+UNSAT
+VERIFY RULE: (hanoi@_tail V_0) <- (main@entry&&true)
+UNSAT
+VERIFY RULE: (verifier.error V_0 V_1 V_2) <- (main@entry&&true)
+UNSAT
+VERIFY RULE: (hanoi V_0 V_1 V_2 V_3 V_4) <- (main@entry&&(true&&((V_3-V_4)<=1)))
+UNSAT
+==================================================================
+AFTER RESET DB IS:
+Predicates:
+;[fdecl
+  verifier.error
+  BOOL
+  BOOL
+  BOOL
+  BOOL
+]
+[fdecl
+  hanoi@_tail
+  INT
+  BOOL
+]
+[fdecl
+  hanoi@UnifiedReturnBlock.split
+  INT
+  INT
+  BOOL
+]
+[fdecl
+  hanoi
+  BOOL
+  BOOL
+  BOOL
+  INT
+  INT
+  BOOL
+]
+[fdecl
+  main@entry
+  BOOL
+]
+[fdecl
+  main@entry.split
+  BOOL
+]
+[fdecl
+  pos.query.pred
+  BOOL
+]
+Clauses:
+;(verifier.error false false false) <- true.
+(verifier.error false true true) <- true.
+(verifier.error true false true) <- true.
+(verifier.error true true true) <- true.
+(hanoi true true true hanoi@%n_0 hanoi@%UnifiedRetVal_0) <- true.
+(hanoi false true true hanoi@%n_0 hanoi@%UnifiedRetVal_0) <- true.
+(hanoi false false false hanoi@%n_0 hanoi@%UnifiedRetVal_0) <- true.
+(hanoi@_tail hanoi@%n_0) <- true.
+(hanoi@UnifiedReturnBlock.split hanoi@%UnifiedRetVal_2 hanoi@%n_0) <- ((hanoi@_tail hanoi@%n_0)&&[&&
+  true
+  hanoi@%_br_0<->(hanoi@%n_0=1)
+  hanoi@_3_0->(hanoi@_3_0&&hanoi@_tail_0)
+  (hanoi@_3_0&&hanoi@_tail_0)->(!hanoi@%_br_0)
+  hanoi@%_4_0=(hanoi@%n_0+-1)
+  (hanoi hanoi@_3_0 false false hanoi@%_4_0 hanoi@%_5_0)
+  hanoi@%_6_0=(hanoi@%_5_0*2)
+  hanoi@%_br1_0=(hanoi@%_6_0+1)
+  hanoi@_br2_0->(hanoi@_br2_0&&hanoi@_tail_0)
+  (hanoi@_br2_0&&hanoi@_tail_0)->hanoi@%_br_0
+  hanoi@UnifiedReturnBlock_0->((hanoi@UnifiedReturnBlock_0&&hanoi@_br2_0)||(hanoi@UnifiedReturnBlock_0&&hanoi@_3_0))
+  hanoi@%UnifiedRetVal_0=1
+  hanoi@%UnifiedRetVal_1=hanoi@%_br1_0
+  (hanoi@UnifiedReturnBlock_0&&hanoi@_br2_0)->(hanoi@%UnifiedRetVal_2=hanoi@%UnifiedRetVal_0)
+  (hanoi@UnifiedReturnBlock_0&&hanoi@_3_0)->(hanoi@%UnifiedRetVal_2=hanoi@%UnifiedRetVal_1)
+  hanoi@UnifiedReturnBlock.split_0->(hanoi@UnifiedReturnBlock.split_0&&hanoi@UnifiedReturnBlock_0)
+  hanoi@UnifiedReturnBlock.split_0
+]).
+(hanoi true false false hanoi@%n_0 hanoi@%UnifiedRetVal_0) <- (hanoi@UnifiedReturnBlock.split hanoi@%UnifiedRetVal_0 hanoi@%n_0).
+main@entry <- true.
+main@entry.split <- (main@entry&&[&&
+  true
+  main@%.off.i_0=(main@%_0_0+-1)
+  main@%_1_0<->ite(main@%.off.i_0>=0, 30<main@%.off.i_0, true)
+  !main@%_1_0
+  (hanoi true false false main@%_0_0 main@%_2_0)
+  main@%_3_0<->(main@%_2_0>-1)
+  !main@%_3_0
+  main@entry.split_0->(main@entry.split_0&&main@entry_0)
+  main@entry.split_0
+]).
+Queries:
+;main@entry.split
+=========================== IMPL START ============================
+==================================================================
+DATA & IMPL FILES ARE GENERATED
+TAG: PRED_0
+NEW CANDIDATE: true
+TAG: PRED_1
+NEW CANDIDATE: true
+TAG: PRED_2
+INTERNAL NODE
+CUT ATTRIBUTE: PRED_2!V_0
+LEAF NODE
+LEAF NODE
+NEW CANDIDATE: (true&&(!(V_0<=-1)))
+TAG: PRED_3
+INTERNAL NODE
+CUT ATTRIBUTE: PRED_3!V_0
+LEAF NODE
+INTERNAL NODE
+CUT ATTRIBUTE: PRED_3!V_1
+LEAF NODE
+LEAF NODE
+NEW CANDIDATE: ((true&&(!V_0))||[&&
+  true
+  !(!V_0)
+  !(!V_1)
+])
+TAG: PRED_4
+NEW CANDIDATE: true
+TAG: PRED_5
+NEW CANDIDATE: false
+TAG: PRED_6
+NEW CANDIDATE: true
+NEW CANDIDATES MAP:
+(verifier.error V_0 V_1 V_2) : true
+(hanoi@_tail V_0) : true
+(hanoi@UnifiedReturnBlock.split V_0 V_1) : (true&&(!(V_0<=-1)))
+(hanoi V_0 V_1 V_2 V_3 V_4) : ((true&&(!V_0))||[&&
+  true
+  !(!V_0)
+  !(!V_1)
+])
+main@entry : true
+main@entry.split : false
+pos.query.pred : true
+ENTRY IS: main@entry
+=========================== POS START ============================
+VERIFY RULE: pos.query.pred <- ((hanoi@UnifiedReturnBlock.split V_0 V_1)&&(!(true&&(!(V_0<=-1)))))
+UNSAT
+VERIFY RULE: pos.query.pred <- (main@entry.split&&(!false))
+UNSAT
+VERIFY RULE: pos.query.pred <- (pos.query.pred&&(!true))
+UNSAT
+VERIFY RULE: pos.query.pred <- (main@entry&&(!true))
+UNSAT
+VERIFY RULE: pos.query.pred <- ((hanoi@_tail V_0)&&(!true))
+UNSAT
+VERIFY RULE: pos.query.pred <- ((verifier.error V_0 V_1 V_2)&&(!true))
+UNSAT
+VERIFY RULE: pos.query.pred <- ((hanoi V_0 V_1 V_2 V_3 V_4)&&(!((true&&(!V_0))||[&&
+    true
+    !(!V_0)
+    !(!V_1)
+  ])))
+SAT, NEED TO ADD POSITIVE DATA POINT
+[&&
+  pos.query.pred
+  (hanoi true false false 1 1)
+  (hanoi@UnifiedReturnBlock.split 1 1)
+  (hanoi@_tail 1)
+  (hanoi false false false 0 0)
+]
+POS OBJ PRED: (hanoi V_0 V_1 V_2 V_3 V_4)
+POS CEX IS: (hanoi true false false 1 1)
+ANSWER ARGS:
+true
+false
+false
+1
+1
+POS CEX, INDEX IS 9
+==================================================================
+AFTER RESET DB IS:
+Predicates:
+;[fdecl
+  verifier.error
+  BOOL
+  BOOL
+  BOOL
+  BOOL
+]
+[fdecl
+  hanoi@_tail
+  INT
+  BOOL
+]
+[fdecl
+  hanoi@UnifiedReturnBlock.split
+  INT
+  INT
+  BOOL
+]
+[fdecl
+  hanoi
+  BOOL
+  BOOL
+  BOOL
+  INT
+  INT
+  BOOL
+]
+[fdecl
+  main@entry
+  BOOL
+]
+[fdecl
+  main@entry.split
+  BOOL
+]
+[fdecl
+  pos.query.pred
+  BOOL
+]
+Clauses:
+;(verifier.error false false false) <- true.
+(verifier.error false true true) <- true.
+(verifier.error true false true) <- true.
+(verifier.error true true true) <- true.
+(hanoi true true true hanoi@%n_0 hanoi@%UnifiedRetVal_0) <- true.
+(hanoi false true true hanoi@%n_0 hanoi@%UnifiedRetVal_0) <- true.
+(hanoi false false false hanoi@%n_0 hanoi@%UnifiedRetVal_0) <- true.
+(hanoi@_tail hanoi@%n_0) <- true.
+(hanoi@UnifiedReturnBlock.split hanoi@%UnifiedRetVal_2 hanoi@%n_0) <- ((hanoi@_tail hanoi@%n_0)&&[&&
+  true
+  hanoi@%_br_0<->(hanoi@%n_0=1)
+  hanoi@_3_0->(hanoi@_3_0&&hanoi@_tail_0)
+  (hanoi@_3_0&&hanoi@_tail_0)->(!hanoi@%_br_0)
+  hanoi@%_4_0=(hanoi@%n_0+-1)
+  (hanoi hanoi@_3_0 false false hanoi@%_4_0 hanoi@%_5_0)
+  hanoi@%_6_0=(hanoi@%_5_0*2)
+  hanoi@%_br1_0=(hanoi@%_6_0+1)
+  hanoi@_br2_0->(hanoi@_br2_0&&hanoi@_tail_0)
+  (hanoi@_br2_0&&hanoi@_tail_0)->hanoi@%_br_0
+  hanoi@UnifiedReturnBlock_0->((hanoi@UnifiedReturnBlock_0&&hanoi@_br2_0)||(hanoi@UnifiedReturnBlock_0&&hanoi@_3_0))
+  hanoi@%UnifiedRetVal_0=1
+  hanoi@%UnifiedRetVal_1=hanoi@%_br1_0
+  (hanoi@UnifiedReturnBlock_0&&hanoi@_br2_0)->(hanoi@%UnifiedRetVal_2=hanoi@%UnifiedRetVal_0)
+  (hanoi@UnifiedReturnBlock_0&&hanoi@_3_0)->(hanoi@%UnifiedRetVal_2=hanoi@%UnifiedRetVal_1)
+  hanoi@UnifiedReturnBlock.split_0->(hanoi@UnifiedReturnBlock.split_0&&hanoi@UnifiedReturnBlock_0)
+  hanoi@UnifiedReturnBlock.split_0
+]).
+(hanoi true false false hanoi@%n_0 hanoi@%UnifiedRetVal_0) <- (hanoi@UnifiedReturnBlock.split hanoi@%UnifiedRetVal_0 hanoi@%n_0).
+main@entry <- true.
+main@entry.split <- (main@entry&&[&&
+  true
+  main@%.off.i_0=(main@%_0_0+-1)
+  main@%_1_0<->ite(main@%.off.i_0>=0, 30<main@%.off.i_0, true)
+  !main@%_1_0
+  (hanoi true false false main@%_0_0 main@%_2_0)
+  main@%_3_0<->(main@%_2_0>-1)
+  !main@%_3_0
+  main@entry.split_0->(main@entry.split_0&&main@entry_0)
+  main@entry.split_0
+]).
+Queries:
+;main@entry.split
+=========================== NEG START ============================
+VERIFY RULE: (hanoi@UnifiedReturnBlock.split V_0 V_1) <- (main@entry&&(true&&(!(V_0<=-1))))
+UNSAT
+VERIFY RULE: pos.query.pred <- (main@entry&&true)
+UNSAT
+VERIFY RULE: main@entry <- true
+UNSAT
+VERIFY RULE: main@entry.split <- (main@entry&&false)
+UNSAT
+VERIFY RULE: (hanoi@_tail V_0) <- (main@entry&&true)
+UNSAT
+VERIFY RULE: (verifier.error V_0 V_1 V_2) <- (main@entry&&true)
+UNSAT
+VERIFY RULE: (hanoi V_0 V_1 V_2 V_3 V_4) <- (main@entry&&((true&&(!V_0))||[&&
+  true
+  !(!V_0)
+  !(!V_1)
+]))
+UNSAT
+==================================================================
+AFTER RESET DB IS:
+Predicates:
+;[fdecl
+  verifier.error
+  BOOL
+  BOOL
+  BOOL
+  BOOL
+]
+[fdecl
+  hanoi@_tail
+  INT
+  BOOL
+]
+[fdecl
+  hanoi@UnifiedReturnBlock.split
+  INT
+  INT
+  BOOL
+]
+[fdecl
+  hanoi
+  BOOL
+  BOOL
+  BOOL
+  INT
+  INT
+  BOOL
+]
+[fdecl
+  main@entry
+  BOOL
+]
+[fdecl
+  main@entry.split
+  BOOL
+]
+[fdecl
+  pos.query.pred
+  BOOL
+]
+Clauses:
+;(verifier.error false false false) <- true.
+(verifier.error false true true) <- true.
+(verifier.error true false true) <- true.
+(verifier.error true true true) <- true.
+(hanoi true true true hanoi@%n_0 hanoi@%UnifiedRetVal_0) <- true.
+(hanoi false true true hanoi@%n_0 hanoi@%UnifiedRetVal_0) <- true.
+(hanoi false false false hanoi@%n_0 hanoi@%UnifiedRetVal_0) <- true.
+(hanoi@_tail hanoi@%n_0) <- true.
+(hanoi@UnifiedReturnBlock.split hanoi@%UnifiedRetVal_2 hanoi@%n_0) <- ((hanoi@_tail hanoi@%n_0)&&[&&
+  true
+  hanoi@%_br_0<->(hanoi@%n_0=1)
+  hanoi@_3_0->(hanoi@_3_0&&hanoi@_tail_0)
+  (hanoi@_3_0&&hanoi@_tail_0)->(!hanoi@%_br_0)
+  hanoi@%_4_0=(hanoi@%n_0+-1)
+  (hanoi hanoi@_3_0 false false hanoi@%_4_0 hanoi@%_5_0)
+  hanoi@%_6_0=(hanoi@%_5_0*2)
+  hanoi@%_br1_0=(hanoi@%_6_0+1)
+  hanoi@_br2_0->(hanoi@_br2_0&&hanoi@_tail_0)
+  (hanoi@_br2_0&&hanoi@_tail_0)->hanoi@%_br_0
+  hanoi@UnifiedReturnBlock_0->((hanoi@UnifiedReturnBlock_0&&hanoi@_br2_0)||(hanoi@UnifiedReturnBlock_0&&hanoi@_3_0))
+  hanoi@%UnifiedRetVal_0=1
+  hanoi@%UnifiedRetVal_1=hanoi@%_br1_0
+  (hanoi@UnifiedReturnBlock_0&&hanoi@_br2_0)->(hanoi@%UnifiedRetVal_2=hanoi@%UnifiedRetVal_0)
+  (hanoi@UnifiedReturnBlock_0&&hanoi@_3_0)->(hanoi@%UnifiedRetVal_2=hanoi@%UnifiedRetVal_1)
+  hanoi@UnifiedReturnBlock.split_0->(hanoi@UnifiedReturnBlock.split_0&&hanoi@UnifiedReturnBlock_0)
+  hanoi@UnifiedReturnBlock.split_0
+]).
+(hanoi true false false hanoi@%n_0 hanoi@%UnifiedRetVal_0) <- (hanoi@UnifiedReturnBlock.split hanoi@%UnifiedRetVal_0 hanoi@%n_0).
+main@entry <- true.
+main@entry.split <- (main@entry&&[&&
+  true
+  main@%.off.i_0=(main@%_0_0+-1)
+  main@%_1_0<->ite(main@%.off.i_0>=0, 30<main@%.off.i_0, true)
+  !main@%_1_0
+  (hanoi true false false main@%_0_0 main@%_2_0)
+  main@%_3_0<->(main@%_2_0>-1)
+  !main@%_3_0
+  main@entry.split_0->(main@entry.split_0&&main@entry_0)
+  main@entry.split_0
+]).
+Queries:
+;main@entry.split
+=========================== IMPL START ============================
+==================================================================
+DATA & IMPL FILES ARE GENERATED
+TAG: PRED_0
+NEW CANDIDATE: true
+TAG: PRED_1
+NEW CANDIDATE: true
+TAG: PRED_2
+INTERNAL NODE
+CUT ATTRIBUTE: PRED_2!V_0
+LEAF NODE
+LEAF NODE
+NEW CANDIDATE: (true&&(!(V_0<=-1)))
+TAG: PRED_3
+INTERNAL NODE
+CUT ATTRIBUTE: PRED_3!V_0
+LEAF NODE
+INTERNAL NODE
+CUT ATTRIBUTE: PRED_3!V_3-PRED_3!V_4
+LEAF NODE
+LEAF NODE
+NEW CANDIDATE: ((true&&(!V_0))||[&&
+  true
+  !(!V_0)
+  (V_3-V_4)<=1
+])
+TAG: PRED_4
+NEW CANDIDATE: true
+TAG: PRED_5
+NEW CANDIDATE: false
+TAG: PRED_6
+NEW CANDIDATE: true
+NEW CANDIDATES MAP:
+(verifier.error V_0 V_1 V_2) : true
+(hanoi@_tail V_0) : true
+(hanoi@UnifiedReturnBlock.split V_0 V_1) : (true&&(!(V_0<=-1)))
+(hanoi V_0 V_1 V_2 V_3 V_4) : ((true&&(!V_0))||[&&
+  true
+  !(!V_0)
+  (V_3-V_4)<=1
+])
+main@entry : true
+main@entry.split : false
+pos.query.pred : true
+ENTRY IS: main@entry
+=========================== POS START ============================
+VERIFY RULE: pos.query.pred <- ((hanoi@UnifiedReturnBlock.split V_0 V_1)&&(!(true&&(!(V_0<=-1)))))
+UNSAT
+VERIFY RULE: pos.query.pred <- (pos.query.pred&&(!true))
+UNSAT
+VERIFY RULE: pos.query.pred <- (main@entry.split&&(!false))
+UNSAT
+VERIFY RULE: pos.query.pred <- (main@entry&&(!true))
+UNSAT
+VERIFY RULE: pos.query.pred <- ((hanoi@_tail V_0)&&(!true))
+UNSAT
+VERIFY RULE: pos.query.pred <- ((verifier.error V_0 V_1 V_2)&&(!true))
+UNSAT
+VERIFY RULE: pos.query.pred <- ((hanoi V_0 V_1 V_2 V_3 V_4)&&(!((true&&(!V_0))||[&&
+    true
+    !(!V_0)
+    (V_3-V_4)<=1
+  ])))
+SAT, NEED TO ADD POSITIVE DATA POINT
+(pos.query.pred&&(hanoi true true true 0 -2))
+POS OBJ PRED: (hanoi V_0 V_1 V_2 V_3 V_4)
+POS CEX IS: (hanoi true true true 0 -2)
+ANSWER ARGS:
+true
+true
+true
+0
+-2
+POS CEX, INDEX IS 10
+==================================================================
+AFTER RESET DB IS:
+Predicates:
+;[fdecl
+  verifier.error
+  BOOL
+  BOOL
+  BOOL
+  BOOL
+]
+[fdecl
+  hanoi@_tail
+  INT
+  BOOL
+]
+[fdecl
+  hanoi@UnifiedReturnBlock.split
+  INT
+  INT
+  BOOL
+]
+[fdecl
+  hanoi
+  BOOL
+  BOOL
+  BOOL
+  INT
+  INT
+  BOOL
+]
+[fdecl
+  main@entry
+  BOOL
+]
+[fdecl
+  main@entry.split
+  BOOL
+]
+[fdecl
+  pos.query.pred
+  BOOL
+]
+Clauses:
+;(verifier.error false false false) <- true.
+(verifier.error false true true) <- true.
+(verifier.error true false true) <- true.
+(verifier.error true true true) <- true.
+(hanoi true true true hanoi@%n_0 hanoi@%UnifiedRetVal_0) <- true.
+(hanoi false true true hanoi@%n_0 hanoi@%UnifiedRetVal_0) <- true.
+(hanoi false false false hanoi@%n_0 hanoi@%UnifiedRetVal_0) <- true.
+(hanoi@_tail hanoi@%n_0) <- true.
+(hanoi@UnifiedReturnBlock.split hanoi@%UnifiedRetVal_2 hanoi@%n_0) <- ((hanoi@_tail hanoi@%n_0)&&[&&
+  true
+  hanoi@%_br_0<->(hanoi@%n_0=1)
+  hanoi@_3_0->(hanoi@_3_0&&hanoi@_tail_0)
+  (hanoi@_3_0&&hanoi@_tail_0)->(!hanoi@%_br_0)
+  hanoi@%_4_0=(hanoi@%n_0+-1)
+  (hanoi hanoi@_3_0 false false hanoi@%_4_0 hanoi@%_5_0)
+  hanoi@%_6_0=(hanoi@%_5_0*2)
+  hanoi@%_br1_0=(hanoi@%_6_0+1)
+  hanoi@_br2_0->(hanoi@_br2_0&&hanoi@_tail_0)
+  (hanoi@_br2_0&&hanoi@_tail_0)->hanoi@%_br_0
+  hanoi@UnifiedReturnBlock_0->((hanoi@UnifiedReturnBlock_0&&hanoi@_br2_0)||(hanoi@UnifiedReturnBlock_0&&hanoi@_3_0))
+  hanoi@%UnifiedRetVal_0=1
+  hanoi@%UnifiedRetVal_1=hanoi@%_br1_0
+  (hanoi@UnifiedReturnBlock_0&&hanoi@_br2_0)->(hanoi@%UnifiedRetVal_2=hanoi@%UnifiedRetVal_0)
+  (hanoi@UnifiedReturnBlock_0&&hanoi@_3_0)->(hanoi@%UnifiedRetVal_2=hanoi@%UnifiedRetVal_1)
+  hanoi@UnifiedReturnBlock.split_0->(hanoi@UnifiedReturnBlock.split_0&&hanoi@UnifiedReturnBlock_0)
+  hanoi@UnifiedReturnBlock.split_0
+]).
+(hanoi true false false hanoi@%n_0 hanoi@%UnifiedRetVal_0) <- (hanoi@UnifiedReturnBlock.split hanoi@%UnifiedRetVal_0 hanoi@%n_0).
+main@entry <- true.
+main@entry.split <- (main@entry&&[&&
+  true
+  main@%.off.i_0=(main@%_0_0+-1)
+  main@%_1_0<->ite(main@%.off.i_0>=0, 30<main@%.off.i_0, true)
+  !main@%_1_0
+  (hanoi true false false main@%_0_0 main@%_2_0)
+  main@%_3_0<->(main@%_2_0>-1)
+  !main@%_3_0
+  main@entry.split_0->(main@entry.split_0&&main@entry_0)
+  main@entry.split_0
+]).
+Queries:
+;main@entry.split
+=========================== NEG START ============================
+VERIFY RULE: (hanoi@UnifiedReturnBlock.split V_0 V_1) <- (main@entry&&(true&&(!(V_0<=-1))))
+UNSAT
+VERIFY RULE: pos.query.pred <- (main@entry&&true)
+UNSAT
+VERIFY RULE: main@entry <- true
+UNSAT
+VERIFY RULE: main@entry.split <- (main@entry&&false)
+UNSAT
+VERIFY RULE: (hanoi@_tail V_0) <- (main@entry&&true)
+UNSAT
+VERIFY RULE: (verifier.error V_0 V_1 V_2) <- (main@entry&&true)
+UNSAT
+VERIFY RULE: (hanoi V_0 V_1 V_2 V_3 V_4) <- (main@entry&&((true&&(!V_0))||[&&
+  true
+  !(!V_0)
+  (V_3-V_4)<=1
+]))
+UNSAT
+==================================================================
+AFTER RESET DB IS:
+Predicates:
+;[fdecl
+  verifier.error
+  BOOL
+  BOOL
+  BOOL
+  BOOL
+]
+[fdecl
+  hanoi@_tail
+  INT
+  BOOL
+]
+[fdecl
+  hanoi@UnifiedReturnBlock.split
+  INT
+  INT
+  BOOL
+]
+[fdecl
+  hanoi
+  BOOL
+  BOOL
+  BOOL
+  INT
+  INT
+  BOOL
+]
+[fdecl
+  main@entry
+  BOOL
+]
+[fdecl
+  main@entry.split
+  BOOL
+]
+[fdecl
+  pos.query.pred
+  BOOL
+]
+Clauses:
+;(verifier.error false false false) <- true.
+(verifier.error false true true) <- true.
+(verifier.error true false true) <- true.
+(verifier.error true true true) <- true.
+(hanoi true true true hanoi@%n_0 hanoi@%UnifiedRetVal_0) <- true.
+(hanoi false true true hanoi@%n_0 hanoi@%UnifiedRetVal_0) <- true.
+(hanoi false false false hanoi@%n_0 hanoi@%UnifiedRetVal_0) <- true.
+(hanoi@_tail hanoi@%n_0) <- true.
+(hanoi@UnifiedReturnBlock.split hanoi@%UnifiedRetVal_2 hanoi@%n_0) <- ((hanoi@_tail hanoi@%n_0)&&[&&
+  true
+  hanoi@%_br_0<->(hanoi@%n_0=1)
+  hanoi@_3_0->(hanoi@_3_0&&hanoi@_tail_0)
+  (hanoi@_3_0&&hanoi@_tail_0)->(!hanoi@%_br_0)
+  hanoi@%_4_0=(hanoi@%n_0+-1)
+  (hanoi hanoi@_3_0 false false hanoi@%_4_0 hanoi@%_5_0)
+  hanoi@%_6_0=(hanoi@%_5_0*2)
+  hanoi@%_br1_0=(hanoi@%_6_0+1)
+  hanoi@_br2_0->(hanoi@_br2_0&&hanoi@_tail_0)
+  (hanoi@_br2_0&&hanoi@_tail_0)->hanoi@%_br_0
+  hanoi@UnifiedReturnBlock_0->((hanoi@UnifiedReturnBlock_0&&hanoi@_br2_0)||(hanoi@UnifiedReturnBlock_0&&hanoi@_3_0))
+  hanoi@%UnifiedRetVal_0=1
+  hanoi@%UnifiedRetVal_1=hanoi@%_br1_0
+  (hanoi@UnifiedReturnBlock_0&&hanoi@_br2_0)->(hanoi@%UnifiedRetVal_2=hanoi@%UnifiedRetVal_0)
+  (hanoi@UnifiedReturnBlock_0&&hanoi@_3_0)->(hanoi@%UnifiedRetVal_2=hanoi@%UnifiedRetVal_1)
+  hanoi@UnifiedReturnBlock.split_0->(hanoi@UnifiedReturnBlock.split_0&&hanoi@UnifiedReturnBlock_0)
+  hanoi@UnifiedReturnBlock.split_0
+]).
+(hanoi true false false hanoi@%n_0 hanoi@%UnifiedRetVal_0) <- (hanoi@UnifiedReturnBlock.split hanoi@%UnifiedRetVal_0 hanoi@%n_0).
+main@entry <- true.
+main@entry.split <- (main@entry&&[&&
+  true
+  main@%.off.i_0=(main@%_0_0+-1)
+  main@%_1_0<->ite(main@%.off.i_0>=0, 30<main@%.off.i_0, true)
+  !main@%_1_0
+  (hanoi true false false main@%_0_0 main@%_2_0)
+  main@%_3_0<->(main@%_2_0>-1)
+  !main@%_3_0
+  main@entry.split_0->(main@entry.split_0&&main@entry_0)
+  main@entry.split_0
+]).
+Queries:
+;main@entry.split
+=========================== IMPL START ============================
+==================================================================
+DATA & IMPL FILES ARE GENERATED
+TAG: PRED_0
+NEW CANDIDATE: true
+TAG: PRED_1
+NEW CANDIDATE: true
+TAG: PRED_2
+INTERNAL NODE
+CUT ATTRIBUTE: PRED_2!V_0
+LEAF NODE
+LEAF NODE
+NEW CANDIDATE: (true&&(!(V_0<=-1)))
+TAG: PRED_3
+INTERNAL NODE
+CUT ATTRIBUTE: PRED_3!V_3
+LEAF NODE
+INTERNAL NODE
+CUT ATTRIBUTE: PRED_3!V_4
+LEAF NODE
+LEAF NODE
+NEW CANDIDATE: ((true&&(V_3<=0))||[&&
+  true
+  !(V_3<=0)
+  !(V_4<=-1)
+])
+TAG: PRED_4
+NEW CANDIDATE: true
+TAG: PRED_5
+NEW CANDIDATE: false
+TAG: PRED_6
+NEW CANDIDATE: true
+NEW CANDIDATES MAP:
+(verifier.error V_0 V_1 V_2) : true
+(hanoi@_tail V_0) : true
+(hanoi@UnifiedReturnBlock.split V_0 V_1) : (true&&(!(V_0<=-1)))
+(hanoi V_0 V_1 V_2 V_3 V_4) : ((true&&(V_3<=0))||[&&
+  true
+  !(V_3<=0)
+  !(V_4<=-1)
+])
+main@entry : true
+main@entry.split : false
+pos.query.pred : true
+ENTRY IS: main@entry
+=========================== POS START ============================
+VERIFY RULE: pos.query.pred <- ((hanoi@UnifiedReturnBlock.split V_0 V_1)&&(!(true&&(!(V_0<=-1)))))
+UNSAT
+VERIFY RULE: pos.query.pred <- (main@entry&&(!true))
+UNSAT
+VERIFY RULE: pos.query.pred <- (main@entry.split&&(!false))
+UNSAT
+VERIFY RULE: pos.query.pred <- (pos.query.pred&&(!true))
+UNSAT
+VERIFY RULE: pos.query.pred <- ((hanoi@_tail V_0)&&(!true))
+UNSAT
+VERIFY RULE: pos.query.pred <- ((verifier.error V_0 V_1 V_2)&&(!true))
+UNSAT
+VERIFY RULE: pos.query.pred <- ((hanoi V_0 V_1 V_2 V_3 V_4)&&(!((true&&(V_3<=0))||[&&
+    true
+    !(V_3<=0)
+    !(V_4<=-1)
+  ])))
+SAT, NEED TO ADD POSITIVE DATA POINT
+(pos.query.pred&&(hanoi true true true 1 -1))
+POS OBJ PRED: (hanoi V_0 V_1 V_2 V_3 V_4)
+POS CEX IS: (hanoi true true true 1 -1)
+ANSWER ARGS:
+true
+true
+true
+1
+-1
+POS CEX, INDEX IS 11
+==================================================================
+AFTER RESET DB IS:
+Predicates:
+;[fdecl
+  verifier.error
+  BOOL
+  BOOL
+  BOOL
+  BOOL
+]
+[fdecl
+  hanoi@_tail
+  INT
+  BOOL
+]
+[fdecl
+  hanoi@UnifiedReturnBlock.split
+  INT
+  INT
+  BOOL
+]
+[fdecl
+  hanoi
+  BOOL
+  BOOL
+  BOOL
+  INT
+  INT
+  BOOL
+]
+[fdecl
+  main@entry
+  BOOL
+]
+[fdecl
+  main@entry.split
+  BOOL
+]
+[fdecl
+  pos.query.pred
+  BOOL
+]
+Clauses:
+;(verifier.error false false false) <- true.
+(verifier.error false true true) <- true.
+(verifier.error true false true) <- true.
+(verifier.error true true true) <- true.
+(hanoi true true true hanoi@%n_0 hanoi@%UnifiedRetVal_0) <- true.
+(hanoi false true true hanoi@%n_0 hanoi@%UnifiedRetVal_0) <- true.
+(hanoi false false false hanoi@%n_0 hanoi@%UnifiedRetVal_0) <- true.
+(hanoi@_tail hanoi@%n_0) <- true.
+(hanoi@UnifiedReturnBlock.split hanoi@%UnifiedRetVal_2 hanoi@%n_0) <- ((hanoi@_tail hanoi@%n_0)&&[&&
+  true
+  hanoi@%_br_0<->(hanoi@%n_0=1)
+  hanoi@_3_0->(hanoi@_3_0&&hanoi@_tail_0)
+  (hanoi@_3_0&&hanoi@_tail_0)->(!hanoi@%_br_0)
+  hanoi@%_4_0=(hanoi@%n_0+-1)
+  (hanoi hanoi@_3_0 false false hanoi@%_4_0 hanoi@%_5_0)
+  hanoi@%_6_0=(hanoi@%_5_0*2)
+  hanoi@%_br1_0=(hanoi@%_6_0+1)
+  hanoi@_br2_0->(hanoi@_br2_0&&hanoi@_tail_0)
+  (hanoi@_br2_0&&hanoi@_tail_0)->hanoi@%_br_0
+  hanoi@UnifiedReturnBlock_0->((hanoi@UnifiedReturnBlock_0&&hanoi@_br2_0)||(hanoi@UnifiedReturnBlock_0&&hanoi@_3_0))
+  hanoi@%UnifiedRetVal_0=1
+  hanoi@%UnifiedRetVal_1=hanoi@%_br1_0
+  (hanoi@UnifiedReturnBlock_0&&hanoi@_br2_0)->(hanoi@%UnifiedRetVal_2=hanoi@%UnifiedRetVal_0)
+  (hanoi@UnifiedReturnBlock_0&&hanoi@_3_0)->(hanoi@%UnifiedRetVal_2=hanoi@%UnifiedRetVal_1)
+  hanoi@UnifiedReturnBlock.split_0->(hanoi@UnifiedReturnBlock.split_0&&hanoi@UnifiedReturnBlock_0)
+  hanoi@UnifiedReturnBlock.split_0
+]).
+(hanoi true false false hanoi@%n_0 hanoi@%UnifiedRetVal_0) <- (hanoi@UnifiedReturnBlock.split hanoi@%UnifiedRetVal_0 hanoi@%n_0).
+main@entry <- true.
+main@entry.split <- (main@entry&&[&&
+  true
+  main@%.off.i_0=(main@%_0_0+-1)
+  main@%_1_0<->ite(main@%.off.i_0>=0, 30<main@%.off.i_0, true)
+  !main@%_1_0
+  (hanoi true false false main@%_0_0 main@%_2_0)
+  main@%_3_0<->(main@%_2_0>-1)
+  !main@%_3_0
+  main@entry.split_0->(main@entry.split_0&&main@entry_0)
+  main@entry.split_0
+]).
+Queries:
+;main@entry.split
+=========================== NEG START ============================
+VERIFY RULE: (hanoi@UnifiedReturnBlock.split V_0 V_1) <- (main@entry&&(true&&(!(V_0<=-1))))
+UNSAT
+VERIFY RULE: pos.query.pred <- (main@entry&&true)
+UNSAT
+VERIFY RULE: main@entry <- true
+UNSAT
+VERIFY RULE: main@entry.split <- (main@entry&&false)
+UNSAT
+VERIFY RULE: (hanoi@_tail V_0) <- (main@entry&&true)
+UNSAT
+VERIFY RULE: (verifier.error V_0 V_1 V_2) <- (main@entry&&true)
+UNSAT
+VERIFY RULE: (hanoi V_0 V_1 V_2 V_3 V_4) <- (main@entry&&((true&&(V_3<=0))||[&&
+  true
+  !(V_3<=0)
+  !(V_4<=-1)
+]))
+UNSAT
+==================================================================
+AFTER RESET DB IS:
+Predicates:
+;[fdecl
+  verifier.error
+  BOOL
+  BOOL
+  BOOL
+  BOOL
+]
+[fdecl
+  hanoi@_tail
+  INT
+  BOOL
+]
+[fdecl
+  hanoi@UnifiedReturnBlock.split
+  INT
+  INT
+  BOOL
+]
+[fdecl
+  hanoi
+  BOOL
+  BOOL
+  BOOL
+  INT
+  INT
+  BOOL
+]
+[fdecl
+  main@entry
+  BOOL
+]
+[fdecl
+  main@entry.split
+  BOOL
+]
+[fdecl
+  pos.query.pred
+  BOOL
+]
+Clauses:
+;(verifier.error false false false) <- true.
+(verifier.error false true true) <- true.
+(verifier.error true false true) <- true.
+(verifier.error true true true) <- true.
+(hanoi true true true hanoi@%n_0 hanoi@%UnifiedRetVal_0) <- true.
+(hanoi false true true hanoi@%n_0 hanoi@%UnifiedRetVal_0) <- true.
+(hanoi false false false hanoi@%n_0 hanoi@%UnifiedRetVal_0) <- true.
+(hanoi@_tail hanoi@%n_0) <- true.
+(hanoi@UnifiedReturnBlock.split hanoi@%UnifiedRetVal_2 hanoi@%n_0) <- ((hanoi@_tail hanoi@%n_0)&&[&&
+  true
+  hanoi@%_br_0<->(hanoi@%n_0=1)
+  hanoi@_3_0->(hanoi@_3_0&&hanoi@_tail_0)
+  (hanoi@_3_0&&hanoi@_tail_0)->(!hanoi@%_br_0)
+  hanoi@%_4_0=(hanoi@%n_0+-1)
+  (hanoi hanoi@_3_0 false false hanoi@%_4_0 hanoi@%_5_0)
+  hanoi@%_6_0=(hanoi@%_5_0*2)
+  hanoi@%_br1_0=(hanoi@%_6_0+1)
+  hanoi@_br2_0->(hanoi@_br2_0&&hanoi@_tail_0)
+  (hanoi@_br2_0&&hanoi@_tail_0)->hanoi@%_br_0
+  hanoi@UnifiedReturnBlock_0->((hanoi@UnifiedReturnBlock_0&&hanoi@_br2_0)||(hanoi@UnifiedReturnBlock_0&&hanoi@_3_0))
+  hanoi@%UnifiedRetVal_0=1
+  hanoi@%UnifiedRetVal_1=hanoi@%_br1_0
+  (hanoi@UnifiedReturnBlock_0&&hanoi@_br2_0)->(hanoi@%UnifiedRetVal_2=hanoi@%UnifiedRetVal_0)
+  (hanoi@UnifiedReturnBlock_0&&hanoi@_3_0)->(hanoi@%UnifiedRetVal_2=hanoi@%UnifiedRetVal_1)
+  hanoi@UnifiedReturnBlock.split_0->(hanoi@UnifiedReturnBlock.split_0&&hanoi@UnifiedReturnBlock_0)
+  hanoi@UnifiedReturnBlock.split_0
+]).
+(hanoi true false false hanoi@%n_0 hanoi@%UnifiedRetVal_0) <- (hanoi@UnifiedReturnBlock.split hanoi@%UnifiedRetVal_0 hanoi@%n_0).
+main@entry <- true.
+main@entry.split <- (main@entry&&[&&
+  true
+  main@%.off.i_0=(main@%_0_0+-1)
+  main@%_1_0<->ite(main@%.off.i_0>=0, 30<main@%.off.i_0, true)
+  !main@%_1_0
+  (hanoi true false false main@%_0_0 main@%_2_0)
+  main@%_3_0<->(main@%_2_0>-1)
+  !main@%_3_0
+  main@entry.split_0->(main@entry.split_0&&main@entry_0)
+  main@entry.split_0
+]).
+Queries:
+;main@entry.split
+=========================== IMPL START ============================
+==================================================================
+DATA & IMPL FILES ARE GENERATED
+TAG: PRED_0
+NEW CANDIDATE: true
+TAG: PRED_1
+NEW CANDIDATE: true
+TAG: PRED_2
+INTERNAL NODE
+CUT ATTRIBUTE: PRED_2!V_0
+LEAF NODE
+LEAF NODE
+NEW CANDIDATE: (true&&(!(V_0<=-1)))
+TAG: PRED_3
+INTERNAL NODE
+CUT ATTRIBUTE: PRED_3!V_3
+LEAF NODE
+INTERNAL NODE
+CUT ATTRIBUTE: PRED_3!V_0
+LEAF NODE
+INTERNAL NODE
+CUT ATTRIBUTE: PRED_3!V_4
+INTERNAL NODE
+CUT ATTRIBUTE: PRED_3!V_1
+LEAF NODE
+LEAF NODE
+LEAF NODE
+NEW CANDIDATE: [||
+  true&&(V_3<=0)
+  [&&
+    true
+    !(V_3<=0)
+    !V_0
+  ]
+  [&&
+    true
+    !(V_3<=0)
+    !(!V_0)
+    V_4<=0
+    !(!V_1)
+  ]
+  [&&
+    true
+    !(V_3<=0)
+    !(!V_0)
+    !(V_4<=0)
+  ]
+]
+TAG: PRED_4
+NEW CANDIDATE: true
+TAG: PRED_5
+NEW CANDIDATE: false
+TAG: PRED_6
+NEW CANDIDATE: true
+NEW CANDIDATES MAP:
+(verifier.error V_0 V_1 V_2) : true
+(hanoi@_tail V_0) : true
+(hanoi@UnifiedReturnBlock.split V_0 V_1) : (true&&(!(V_0<=-1)))
+(hanoi V_0 V_1 V_2 V_3 V_4) : [||
+  true&&(V_3<=0)
+  [&&
+    true
+    !(V_3<=0)
+    !V_0
+  ]
+  [&&
+    true
+    !(V_3<=0)
+    !(!V_0)
+    V_4<=0
+    !(!V_1)
+  ]
+  [&&
+    true
+    !(V_3<=0)
+    !(!V_0)
+    !(V_4<=0)
+  ]
+]
+main@entry : true
+main@entry.split : false
+pos.query.pred : true
+ENTRY IS: main@entry
+=========================== POS START ============================
+VERIFY RULE: pos.query.pred <- ((hanoi@UnifiedReturnBlock.split V_0 V_1)&&(!(true&&(!(V_0<=-1)))))
+UNSAT
+VERIFY RULE: pos.query.pred <- (main@entry.split&&(!false))
+UNSAT
+VERIFY RULE: pos.query.pred <- (pos.query.pred&&(!true))
+UNSAT
+VERIFY RULE: pos.query.pred <- (main@entry&&(!true))
+UNSAT
+VERIFY RULE: pos.query.pred <- ((hanoi@_tail V_0)&&(!true))
+UNSAT
+VERIFY RULE: pos.query.pred <- ((verifier.error V_0 V_1 V_2)&&(!true))
+UNSAT
+VERIFY RULE: pos.query.pred <- ((hanoi V_0 V_1 V_2 V_3 V_4)&&(![||
+    true&&(V_3<=0)
+    [&&
+      true
+      !(V_3<=0)
+      !V_0
+    ]
+    [&&
+      true
+      !(V_3<=0)
+      !(!V_0)
+      V_4<=0
+      !(!V_1)
+    ]
+    [&&
+      true
+      !(V_3<=0)
+      !(!V_0)
+      !(V_4<=0)
+    ]
+  ]))
+UNSAT
+==================================================================
+AFTER RESET DB IS:
+Predicates:
+;[fdecl
+  verifier.error
+  BOOL
+  BOOL
+  BOOL
+  BOOL
+]
+[fdecl
+  hanoi@_tail
+  INT
+  BOOL
+]
+[fdecl
+  hanoi@UnifiedReturnBlock.split
+  INT
+  INT
+  BOOL
+]
+[fdecl
+  hanoi
+  BOOL
+  BOOL
+  BOOL
+  INT
+  INT
+  BOOL
+]
+[fdecl
+  main@entry
+  BOOL
+]
+[fdecl
+  main@entry.split
+  BOOL
+]
+[fdecl
+  pos.query.pred
+  BOOL
+]
+Clauses:
+;(verifier.error false false false) <- true.
+(verifier.error false true true) <- true.
+(verifier.error true false true) <- true.
+(verifier.error true true true) <- true.
+(hanoi true true true hanoi@%n_0 hanoi@%UnifiedRetVal_0) <- true.
+(hanoi false true true hanoi@%n_0 hanoi@%UnifiedRetVal_0) <- true.
+(hanoi false false false hanoi@%n_0 hanoi@%UnifiedRetVal_0) <- true.
+(hanoi@_tail hanoi@%n_0) <- true.
+(hanoi@UnifiedReturnBlock.split hanoi@%UnifiedRetVal_2 hanoi@%n_0) <- ((hanoi@_tail hanoi@%n_0)&&[&&
+  true
+  hanoi@%_br_0<->(hanoi@%n_0=1)
+  hanoi@_3_0->(hanoi@_3_0&&hanoi@_tail_0)
+  (hanoi@_3_0&&hanoi@_tail_0)->(!hanoi@%_br_0)
+  hanoi@%_4_0=(hanoi@%n_0+-1)
+  (hanoi hanoi@_3_0 false false hanoi@%_4_0 hanoi@%_5_0)
+  hanoi@%_6_0=(hanoi@%_5_0*2)
+  hanoi@%_br1_0=(hanoi@%_6_0+1)
+  hanoi@_br2_0->(hanoi@_br2_0&&hanoi@_tail_0)
+  (hanoi@_br2_0&&hanoi@_tail_0)->hanoi@%_br_0
+  hanoi@UnifiedReturnBlock_0->((hanoi@UnifiedReturnBlock_0&&hanoi@_br2_0)||(hanoi@UnifiedReturnBlock_0&&hanoi@_3_0))
+  hanoi@%UnifiedRetVal_0=1
+  hanoi@%UnifiedRetVal_1=hanoi@%_br1_0
+  (hanoi@UnifiedReturnBlock_0&&hanoi@_br2_0)->(hanoi@%UnifiedRetVal_2=hanoi@%UnifiedRetVal_0)
+  (hanoi@UnifiedReturnBlock_0&&hanoi@_3_0)->(hanoi@%UnifiedRetVal_2=hanoi@%UnifiedRetVal_1)
+  hanoi@UnifiedReturnBlock.split_0->(hanoi@UnifiedReturnBlock.split_0&&hanoi@UnifiedReturnBlock_0)
+  hanoi@UnifiedReturnBlock.split_0
+]).
+(hanoi true false false hanoi@%n_0 hanoi@%UnifiedRetVal_0) <- (hanoi@UnifiedReturnBlock.split hanoi@%UnifiedRetVal_0 hanoi@%n_0).
+main@entry <- true.
+main@entry.split <- (main@entry&&[&&
+  true
+  main@%.off.i_0=(main@%_0_0+-1)
+  main@%_1_0<->ite(main@%.off.i_0>=0, 30<main@%.off.i_0, true)
+  !main@%_1_0
+  (hanoi true false false main@%_0_0 main@%_2_0)
+  main@%_3_0<->(main@%_2_0>-1)
+  !main@%_3_0
+  main@entry.split_0->(main@entry.split_0&&main@entry_0)
+  main@entry.split_0
+]).
+Queries:
+;main@entry.split
+=========================== NEG START ============================
+VERIFY RULE: (hanoi@UnifiedReturnBlock.split V_0 V_1) <- (main@entry&&(true&&(!(V_0<=-1))))
+UNSAT
+VERIFY RULE: pos.query.pred <- (main@entry&&true)
+UNSAT
+VERIFY RULE: main@entry <- true
+UNSAT
+VERIFY RULE: main@entry.split <- (main@entry&&false)
+UNSAT
+VERIFY RULE: (hanoi@_tail V_0) <- (main@entry&&true)
+UNSAT
+VERIFY RULE: (verifier.error V_0 V_1 V_2) <- (main@entry&&true)
+UNSAT
+VERIFY RULE: (hanoi V_0 V_1 V_2 V_3 V_4) <- (main@entry&&[||
+  true&&(V_3<=0)
+  [&&
+    true
+    !(V_3<=0)
+    !V_0
+  ]
+  [&&
+    true
+    !(V_3<=0)
+    !(!V_0)
+    V_4<=0
+    !(!V_1)
+  ]
+  [&&
+    true
+    !(V_3<=0)
+    !(!V_0)
+    !(V_4<=0)
+  ]
+])
+UNSAT
+==================================================================
+AFTER RESET DB IS:
+Predicates:
+;[fdecl
+  verifier.error
+  BOOL
+  BOOL
+  BOOL
+  BOOL
+]
+[fdecl
+  hanoi@_tail
+  INT
+  BOOL
+]
+[fdecl
+  hanoi@UnifiedReturnBlock.split
+  INT
+  INT
+  BOOL
+]
+[fdecl
+  hanoi
+  BOOL
+  BOOL
+  BOOL
+  INT
+  INT
+  BOOL
+]
+[fdecl
+  main@entry
+  BOOL
+]
+[fdecl
+  main@entry.split
+  BOOL
+]
+[fdecl
+  pos.query.pred
+  BOOL
+]
+Clauses:
+;(verifier.error false false false) <- true.
+(verifier.error false true true) <- true.
+(verifier.error true false true) <- true.
+(verifier.error true true true) <- true.
+(hanoi true true true hanoi@%n_0 hanoi@%UnifiedRetVal_0) <- true.
+(hanoi false true true hanoi@%n_0 hanoi@%UnifiedRetVal_0) <- true.
+(hanoi false false false hanoi@%n_0 hanoi@%UnifiedRetVal_0) <- true.
+(hanoi@_tail hanoi@%n_0) <- true.
+(hanoi@UnifiedReturnBlock.split hanoi@%UnifiedRetVal_2 hanoi@%n_0) <- ((hanoi@_tail hanoi@%n_0)&&[&&
+  true
+  hanoi@%_br_0<->(hanoi@%n_0=1)
+  hanoi@_3_0->(hanoi@_3_0&&hanoi@_tail_0)
+  (hanoi@_3_0&&hanoi@_tail_0)->(!hanoi@%_br_0)
+  hanoi@%_4_0=(hanoi@%n_0+-1)
+  (hanoi hanoi@_3_0 false false hanoi@%_4_0 hanoi@%_5_0)
+  hanoi@%_6_0=(hanoi@%_5_0*2)
+  hanoi@%_br1_0=(hanoi@%_6_0+1)
+  hanoi@_br2_0->(hanoi@_br2_0&&hanoi@_tail_0)
+  (hanoi@_br2_0&&hanoi@_tail_0)->hanoi@%_br_0
+  hanoi@UnifiedReturnBlock_0->((hanoi@UnifiedReturnBlock_0&&hanoi@_br2_0)||(hanoi@UnifiedReturnBlock_0&&hanoi@_3_0))
+  hanoi@%UnifiedRetVal_0=1
+  hanoi@%UnifiedRetVal_1=hanoi@%_br1_0
+  (hanoi@UnifiedReturnBlock_0&&hanoi@_br2_0)->(hanoi@%UnifiedRetVal_2=hanoi@%UnifiedRetVal_0)
+  (hanoi@UnifiedReturnBlock_0&&hanoi@_3_0)->(hanoi@%UnifiedRetVal_2=hanoi@%UnifiedRetVal_1)
+  hanoi@UnifiedReturnBlock.split_0->(hanoi@UnifiedReturnBlock.split_0&&hanoi@UnifiedReturnBlock_0)
+  hanoi@UnifiedReturnBlock.split_0
+]).
+(hanoi true false false hanoi@%n_0 hanoi@%UnifiedRetVal_0) <- (hanoi@UnifiedReturnBlock.split hanoi@%UnifiedRetVal_0 hanoi@%n_0).
+main@entry <- true.
+main@entry.split <- (main@entry&&[&&
+  true
+  main@%.off.i_0=(main@%_0_0+-1)
+  main@%_1_0<->ite(main@%.off.i_0>=0, 30<main@%.off.i_0, true)
+  !main@%_1_0
+  (hanoi true false false main@%_0_0 main@%_2_0)
+  main@%_3_0<->(main@%_2_0>-1)
+  !main@%_3_0
+  main@entry.split_0->(main@entry.split_0&&main@entry_0)
+  main@entry.split_0
+]).
+Queries:
+;main@entry.split
+=========================== IMPL START ============================
+==================================================================
+FINAL INVARIANTS MAP:
+REL: (verifier.error V_0 V_1 V_2), CAND: true
+REL: (hanoi@_tail V_0), CAND: true
+REL: (hanoi@UnifiedReturnBlock.split V_0 V_1), CAND: (true&&(!(V_0<=-1)))
+REL: (hanoi V_0 V_1 V_2 V_3 V_4), CAND: [||
+  true&&(V_3<=0)
+  [&&
+    true
+    !(V_3<=0)
+    !V_0
+  ]
+  [&&
+    true
+    !(V_3<=0)
+    !(!V_0)
+    V_4<=0
+    !(!V_1)
+  ]
+  [&&
+    true
+    !(V_3<=0)
+    !(!V_0)
+    !(V_4<=0)
+  ]
+]
+REL: main@entry, CAND: true
+REL: main@entry.split, CAND: false
+REL: pos.query.pred, CAND: true
+RUN ICE SUCCESSCULLY

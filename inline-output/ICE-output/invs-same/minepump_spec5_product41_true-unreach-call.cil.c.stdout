@@ -1,0 +1,21 @@
+/usr/bin/clang-3.6 -c -emit-llvm -D__SEAHORN__ -fgnu89-inline -m32 -g -I/home/polaris/Desktop/seahorn/build/run/include -o /tmp/sea-ikRwC7/minepump_spec5_product41_true-unreach-call.cil.bc /home/polaris/Desktop/SV/sv-benchmarks/c/product-lines/minepump_spec5_product41_true-unreach-call.cil.c
+/home/polaris/Desktop/seahorn/build/run/bin/seapp -o /tmp/sea-ikRwC7/minepump_spec5_product41_true-unreach-call.cil.pp.bc --horn-inline-all --strip-extern=true --devirt-functions --externalize-addr-taken-funcs --kill-vaarg=true /tmp/sea-ikRwC7/minepump_spec5_product41_true-unreach-call.cil.bc
+/home/polaris/Desktop/seahorn/build/run/bin/seapp -o /tmp/sea-ikRwC7/minepump_spec5_product41_true-unreach-call.cil.pp.ms.bc --horn-mixed-sem --ms-reduce-main /tmp/sea-ikRwC7/minepump_spec5_product41_true-unreach-call.cil.pp.bc
+/home/polaris/Desktop/seahorn/build/run/bin/seaopt -f -funit-at-a-time -o /tmp/sea-ikRwC7/minepump_spec5_product41_true-unreach-call.cil.pp.ms.o.bc -O3 --disable-loop-vectorization=true --disable-slp-vectorization=true --vectorize-slp-aggressive=false /tmp/sea-ikRwC7/minepump_spec5_product41_true-unreach-call.cil.pp.ms.bc
+/home/polaris/Desktop/seahorn/build/run/bin/seahorn --keep-shadows=true --horn-solve -horn-inter-proc -horn-sem-lvl=ptr --horn-step=large -log ice /tmp/sea-ikRwC7/minepump_spec5_product41_true-unreach-call.cil.pp.ms.o.bc --horn-global-constraints=true --horn-stats --horn-singleton-aliases=true --horn-pdr-contexts=600 --horn-ignore-calloc=false --horn-make-undef-warning-error=false --horn-answer --horn-ice
+unsat
+Function: main
+main@entry: true
+main@timeShift.exit.i.i.i: (main@%_2<=2)
+main@verifier.error.split: false
+
+
+************** BRUNCH STATS ***************** 
+BRUNCH_STAT Result TRUE
+BRUNCH_STAT Horn 0.01
+BRUNCH_STAT HornClauseDB::loadZFixedPoint 0.04
+BRUNCH_STAT HornifyModule 0.00
+BRUNCH_STAT ICE inv 0.98
+BRUNCH_STAT LargeHornifyFunction 0.00
+BRUNCH_STAT seahorn_total 0.99
+************** BRUNCH STATS END ***************** 

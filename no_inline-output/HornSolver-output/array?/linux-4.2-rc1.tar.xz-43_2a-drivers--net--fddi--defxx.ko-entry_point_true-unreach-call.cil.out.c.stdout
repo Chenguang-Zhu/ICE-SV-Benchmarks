@@ -1,0 +1,204 @@
+/usr/bin/clang-3.6 -c -emit-llvm -D__SEAHORN__ -fgnu89-inline -m32 -g -I/home/polaris/Desktop/seahorn/build/run/include -o /tmp/sea-73x1HL/linux-4.2-rc1.tar.xz-43_2a-drivers--net--fddi--defxx.ko-entry_point_true-unreach-call.cil.out.bc /home/polaris/Desktop/SV/sv-benchmarks/c/ldv-linux-4.2-rc1/linux-4.2-rc1.tar.xz-43_2a-drivers--net--fddi--defxx.ko-entry_point_true-unreach-call.cil.out.c
+/home/polaris/Desktop/seahorn/build/run/bin/seapp -o /tmp/sea-73x1HL/linux-4.2-rc1.tar.xz-43_2a-drivers--net--fddi--defxx.ko-entry_point_true-unreach-call.cil.out.pp.bc --strip-extern=true --devirt-functions --externalize-addr-taken-funcs --kill-vaarg=true /tmp/sea-73x1HL/linux-4.2-rc1.tar.xz-43_2a-drivers--net--fddi--defxx.ko-entry_point_true-unreach-call.cil.out.bc
+/home/polaris/Desktop/seahorn/build/run/bin/seapp -o /tmp/sea-73x1HL/linux-4.2-rc1.tar.xz-43_2a-drivers--net--fddi--defxx.ko-entry_point_true-unreach-call.cil.out.pp.ms.bc --horn-mixed-sem --ms-reduce-main /tmp/sea-73x1HL/linux-4.2-rc1.tar.xz-43_2a-drivers--net--fddi--defxx.ko-entry_point_true-unreach-call.cil.out.pp.bc
+/home/polaris/Desktop/seahorn/build/run/bin/seaopt -f -funit-at-a-time -o /tmp/sea-73x1HL/linux-4.2-rc1.tar.xz-43_2a-drivers--net--fddi--defxx.ko-entry_point_true-unreach-call.cil.out.pp.ms.o.bc -O3 --disable-loop-vectorization=true --disable-slp-vectorization=true --vectorize-slp-aggressive=false /tmp/sea-73x1HL/linux-4.2-rc1.tar.xz-43_2a-drivers--net--fddi--defxx.ko-entry_point_true-unreach-call.cil.out.pp.ms.bc
+/home/polaris/Desktop/seahorn/build/run/bin/seahorn --keep-shadows=true --horn-solve -horn-inter-proc -horn-sem-lvl=ptr --horn-step=large /tmp/sea-73x1HL/linux-4.2-rc1.tar.xz-43_2a-drivers--net--fddi--defxx.ko-entry_point_true-unreach-call.cil.out.pp.ms.o.bc --horn-global-constraints=true --horn-stats --horn-singleton-aliases=true --horn-pdr-contexts=600 --horn-ignore-calloc=false --horn-make-undef-warning-error=false --horn-answer
+unsat
+Function: ldv_irq_1
+ldv_irq_1@_1: true
+ldv_irq_1@_shadow.mem11.0: true
+ldv_irq_1@_shadow.mem11.2: true
+ldv_irq_1@_timeout_cnt.1.i.i.i.i2: true
+ldv_irq_1@dfx_interrupt.exit:
+		((select(ldv_irq_1@%shadow.mem18.1, @ldv_spin)>=0)||((select(ldv_irq_1@%_tail, @ldv_spin)+(-1*select(ldv_irq_1@%shadow.mem18.1, @ldv_spin)))<=0))
+	((select(ldv_irq_1@%shadow.mem18.1, @ldv_spin)>=0)||((select(ldv_irq_1@%shadow.mem16.1, @ldv_irq_1_2)+(-1*select(ldv_irq_1@%_18, @ldv_irq_1_2)))<=0))
+	((select(ldv_irq_1@%shadow.mem18.1, @ldv_spin)>=0)||((select(ldv_irq_1@%shadow.mem5.1, @ldv_state_variable_3)+(-1*select(ldv_irq_1@%_7, @ldv_state_variable_3)))<=0))
+	((select(ldv_irq_1@%shadow.mem18.1, @ldv_spin)>=0)||((select(ldv_irq_1@%_7, @ldv_state_variable_3)+(-1*select(ldv_irq_1@%shadow.mem5.1, @ldv_state_variable_3)))<=0))
+	((select(ldv_irq_1@%shadow.mem18.1, @ldv_spin)<=0)||((select(ldv_irq_1@%shadow.mem18.1, @ldv_spin)+(-1*select(ldv_irq_1@%_tail, @ldv_spin)))<=0))
+	(((select(ldv_irq_1@%shadow.mem16.1, @ldv_irq_1_2)+(-1*select(ldv_irq_1@%_18, @ldv_irq_1_2)))<=0)||(select(ldv_irq_1@%shadow.mem18.1, @ldv_spin)<=0))
+	(((select(ldv_irq_1@%shadow.mem5.1, @ldv_state_variable_3)+(-1*select(ldv_irq_1@%_7, @ldv_state_variable_3)))<=0)||(select(ldv_irq_1@%shadow.mem18.1, @ldv_spin)<=0))
+	((select(ldv_irq_1@%shadow.mem18.1, @ldv_spin)<=0)||((select(ldv_irq_1@%_7, @ldv_state_variable_3)+(-1*select(ldv_irq_1@%shadow.mem5.1, @ldv_state_variable_3)))<=0))
+Function: dfx_ctl_get_stats
+dfx_ctl_get_stats@_1: true
+dfx_ctl_get_stats@_shadow.mem18.0:
+		((select(dfx_ctl_get_stats@%_tail, @ldv_spin)+(-1*select(dfx_ctl_get_stats@%shadow.mem18.0, @ldv_spin)))<=0)
+	((select(dfx_ctl_get_stats@%shadow.mem18.0, @ldv_spin)+(-1*select(dfx_ctl_get_stats@%_tail, @ldv_spin)))<=0)
+Function: dfx_hw_dma_uninit
+dfx_hw_dma_uninit@_1: true
+dfx_hw_dma_uninit@_timeout_cnt.01: true
+dfx_hw_dma_uninit@.split: true
+Function: dfx_hw_dma_cmd_req
+dfx_hw_dma_cmd_req@NodeBlock: true
+dfx_hw_dma_cmd_req@_bb19: true
+dfx_hw_dma_cmd_req@_bb22: true
+dfx_hw_dma_cmd_req@.split: (dfx_hw_dma_cmd_req@%.0>=0)
+Function: dfx_adap_init
+dfx_adap_init@_1: true
+dfx_adap_init@_timeout_cnt.1.i76:
+		((select(dfx_adap_init@%_14, @ldv_irq_1_1)+(-1*select(dfx_adap_init@%_36, @ldv_irq_1_1)))<=0)
+	((select(dfx_adap_init@%_16, @ldv_irq_1_0)+(-1*select(dfx_adap_init@%_39, @ldv_irq_1_0)))<=0)
+	((select(dfx_adap_init@%_tail, @ldv_spin)+(-1*select(dfx_adap_init@%_31, @ldv_spin)))<=0)
+	((select(dfx_adap_init@%_31, @ldv_spin)+(-1*select(dfx_adap_init@%_tail, @ldv_spin)))<=0)
+dfx_adap_init@_timeout_cnt.1.i275:
+		((select(dfx_adap_init@%_14, @ldv_irq_1_1)+(-1*select(dfx_adap_init@%_36, @ldv_irq_1_1)))<=0)
+	((select(dfx_adap_init@%_31, @ldv_spin)+(-1*select(dfx_adap_init@%_tail, @ldv_spin)))<=0)
+	((select(dfx_adap_init@%_tail, @ldv_spin)+(-1*select(dfx_adap_init@%_31, @ldv_spin)))<=0)
+	((select(dfx_adap_init@%_16, @ldv_irq_1_0)+(-1*select(dfx_adap_init@%_39, @ldv_irq_1_0)))<=0)
+dfx_adap_init@_timeout_cnt.1.i674:
+		((select(dfx_adap_init@%_14, @ldv_irq_1_1)+(-1*select(dfx_adap_init@%_36, @ldv_irq_1_1)))<=0)
+	((select(dfx_adap_init@%_16, @ldv_irq_1_0)+(-1*select(dfx_adap_init@%_39, @ldv_irq_1_0)))<=0)
+	((select(dfx_adap_init@%_tail, @ldv_spin)+(-1*select(dfx_adap_init@%_31, @ldv_spin)))<=0)
+	((select(dfx_adap_init@%_31, @ldv_spin)+(-1*select(dfx_adap_init@%_tail, @ldv_spin)))<=0)
+dfx_adap_init@.lr.ph72:
+		((select(dfx_adap_init@%_16, @ldv_irq_1_0)+(-1*select(dfx_adap_init@%_164, @ldv_irq_1_0)))<=0)
+	((select(dfx_adap_init@%_tail, @ldv_spin)+(-1*select(dfx_adap_init@%_156, @ldv_spin)))<=0)
+	((select(dfx_adap_init@%_14, @ldv_irq_1_1)+(-1*select(dfx_adap_init@%_161, @ldv_irq_1_1)))<=0)
+	((select(dfx_adap_init@%_156, @ldv_spin)+(-1*select(dfx_adap_init@%_tail, @ldv_spin)))<=0)
+dfx_adap_init@.lr.ph68:
+		((select(dfx_adap_init@%_16, @ldv_irq_1_0)+(-1*select(dfx_adap_init@%_164, @ldv_irq_1_0)))<=0)
+	((select(dfx_adap_init@%_tail, @ldv_spin)+(-1*select(dfx_adap_init@%_156, @ldv_spin)))<=0)
+	((select(dfx_adap_init@%_14, @ldv_irq_1_1)+(-1*select(dfx_adap_init@%_161, @ldv_irq_1_1)))<=0)
+	((select(dfx_adap_init@%_156, @ldv_spin)+(-1*select(dfx_adap_init@%_tail, @ldv_spin)))<=0)
+dfx_adap_init@.lr.ph62:
+		(!dfx_adap_init@%_tail102)
+	((select(dfx_adap_init@%_266, @ldv_spin)+(-1*select(dfx_adap_init@%_tail, @ldv_spin)))<=0)
+	((select(dfx_adap_init@%_tail, @ldv_spin)+(-1*select(dfx_adap_init@%_266, @ldv_spin)))<=0)
+dfx_adap_init@.preheader42:
+		(!dfx_adap_init@%_tail102)
+	((select(dfx_adap_init@%_tail, @ldv_spin)+(-1*select(dfx_adap_init@%_266, @ldv_spin)))<=0)
+	((select(dfx_adap_init@%_266, @ldv_spin)+(-1*select(dfx_adap_init@%_tail, @ldv_spin)))<=0)
+dfx_adap_init@.lr.ph57:
+		((select(dfx_adap_init@%_tail, @ldv_spin)+(-1*select(dfx_adap_init@%_266, @ldv_spin)))<=0)
+	((select(dfx_adap_init@%_266, @ldv_spin)+(-1*select(dfx_adap_init@%_tail, @ldv_spin)))<=0)
+dfx_adap_init@.preheader40:
+		((select(dfx_adap_init@%_tail, @ldv_spin)+(-1*select(dfx_adap_init@%_266, @ldv_spin)))<=0)
+	((select(dfx_adap_init@%_266, @ldv_spin)+(-1*select(dfx_adap_init@%_tail, @ldv_spin)))<=0)
+dfx_adap_init@.lr.ph52:
+		((select(dfx_adap_init@%_tail, @ldv_spin)+(-1*select(dfx_adap_init@%_266, @ldv_spin)))<=0)
+	((select(dfx_adap_init@%_266, @ldv_spin)+(-1*select(dfx_adap_init@%_tail, @ldv_spin)))<=0)
+dfx_adap_init@.preheader38:
+		((select(dfx_adap_init@%_tail, @ldv_spin)+(-1*select(dfx_adap_init@%_266, @ldv_spin)))<=0)
+	((select(dfx_adap_init@%_266, @ldv_spin)+(-1*select(dfx_adap_init@%_tail, @ldv_spin)))<=0)
+dfx_adap_init@.lr.ph:
+		((select(dfx_adap_init@%_tail, @ldv_spin)+(-1*select(dfx_adap_init@%_440, @ldv_spin)))<=0)
+	((select(dfx_adap_init@%_440, @ldv_spin)+(-1*select(dfx_adap_init@%_tail, @ldv_spin)))<=0)
+dfx_adap_init@.preheader:
+		((select(dfx_adap_init@%_tail, @ldv_spin)+(-1*select(dfx_adap_init@%_440, @ldv_spin)))<=0)
+	((select(dfx_adap_init@%_440, @ldv_spin)+(-1*select(dfx_adap_init@%_tail, @ldv_spin)))<=0)
+dfx_adap_init@dfx_rcv_flush.exit19.split:
+		((select(dfx_adap_init@%_tail, @ldv_spin)+(-1*select(dfx_adap_init@%shadow.mem18.0, @ldv_spin)))<=0)
+	((select(dfx_adap_init@%shadow.mem18.0, @ldv_spin)+(-1*select(dfx_adap_init@%_tail, @ldv_spin)))<=0)
+Function: dfx_rcv_queue_process
+dfx_rcv_queue_process@_1: true
+dfx_rcv_queue_process@_shadow.mem11.3: true
+dfx_rcv_queue_process@.loopexit: true
+Function: main
+main@entry: true
+main@NodeBlock6.i:
+		(select(main@%shadow.mem36.0, @ldv_spin)>=0)
+	(select(main@%shadow.mem36.0, @ldv_spin)<=0)
+main@.lr.ph341:
+		(select(main@%shadow.mem36.0, @ldv_spin)>=0)
+	(select(main@%shadow.mem36.0, @ldv_spin)<=0)
+main@.lr.ph346:
+		(select(main@%shadow.mem36.0, @ldv_spin)>=0)
+	(select(main@%shadow.mem36.0, @ldv_spin)<=0)
+main@.lr.ph351:
+		(select(main@%shadow.mem36.0, @ldv_spin)>=0)
+	(select(main@%shadow.mem36.0, @ldv_spin)<=0)
+main@.lr.ph326:
+		(select(main@%shadow.mem36.0, @ldv_spin)>=0)
+	(select(main@%shadow.mem36.0, @ldv_spin)<=0)
+main@.lr.ph331:
+		(select(main@%shadow.mem36.0, @ldv_spin)>=0)
+	(select(main@%shadow.mem36.0, @ldv_spin)<=0)
+main@.lr.ph336:
+		(select(main@%shadow.mem36.0, @ldv_spin)>=0)
+	(select(main@%shadow.mem36.0, @ldv_spin)<=0)
+main@.lr.ph356:
+		(select(main@%shadow.mem36.0, @ldv_spin)<=0)
+	(select(main@%shadow.mem36.0, @ldv_spin)>=0)
+main@.lr.ph361:
+		(select(main@%shadow.mem36.0, @ldv_spin)<=0)
+	(select(main@%shadow.mem36.0, @ldv_spin)>=0)
+main@.lr.ph366:
+		(select(main@%shadow.mem36.0, @ldv_spin)<=0)
+	(select(main@%shadow.mem36.0, @ldv_spin)>=0)
+main@_bb80:
+		(select(main@%_657, @ldv_spin)>=0)
+	(select(main@%_657, @ldv_spin)<=0)
+main@.lr.ph318:
+		(select(main@%_657, @ldv_spin)>=0)
+	(select(main@%_657, @ldv_spin)<=0)
+main@.preheader230:
+		(select(main@%_657, @ldv_spin)>=0)
+	(select(main@%_657, @ldv_spin)<=0)
+main@.lr.ph300:
+		(select(main@%shadow.mem36.6, @ldv_spin)>=0)
+	(select(main@%shadow.mem36.6, @ldv_spin)<=0)
+main@.lr.ph305:
+		(select(main@%shadow.mem36.6, @ldv_spin)>=0)
+	(select(main@%shadow.mem36.6, @ldv_spin)<=0)
+main@.lr.ph292:
+		(select(main@%shadow.mem36.7, @ldv_spin)>=0)
+	(select(main@%shadow.mem36.7, @ldv_spin)<=0)
+main@.lr.ph297:
+		(select(main@%shadow.mem36.7, @ldv_spin)>=0)
+	(select(main@%shadow.mem36.7, @ldv_spin)<=0)
+main@.lr.ph308:
+		(select(main@%shadow.mem36.8, @ldv_spin)<=0)
+	(select(main@%shadow.mem36.8, @ldv_spin)>=0)
+main@.lr.ph313:
+		(select(main@%shadow.mem36.8, @ldv_spin)<=0)
+	(select(main@%shadow.mem36.8, @ldv_spin)>=0)
+main@_bb175:
+		(select(main@%_1580, @ldv_spin)>=0)
+	(select(main@%_1580, @ldv_spin)<=0)
+main@_bb178:
+		(select(main@%_1580, @ldv_spin)>=0)
+	(select(main@%_1580, @ldv_spin)<=0)
+main@_bb187: true
+main@ldv_check_alloc_flags.split: false
+main@_bb194: true
+main@_bb197: true
+main@_bb200:
+		(main@%.07||(select(main@%_1907, @ldv_spin)>=0))
+	(main@%.07||(select(main@%_1907, @ldv_spin)<=0))
+main@_bb203:
+		(main@%timeout_cnt.1.i88276>=1)
+	(main@%.07||(select(main@%_1907, @ldv_spin)>=0))
+	(main@%.07||(select(main@%_1907, @ldv_spin)<=0))
+main@_bb206:
+		(main@%.07||(select(main@%_1907, @ldv_spin)>=0))
+	((select(main@%_1907, @ldv_spin)<=0)||main@%.07)
+main@.lr.ph273:
+		(main@%.07||(select(main@%_2030, @ldv_spin)>=0))
+	(main@%.07||(select(main@%_2030, @ldv_spin)<=0))
+main@.lr.ph270:
+		(main@%.07||(select(main@%_2030, @ldv_spin)>=0))
+	(main@%.07||(select(main@%_2030, @ldv_spin)<=0))
+main@.lr.ph264:
+		(select(main@%_2138, @ldv_spin)>=0)
+	(select(main@%_2138, @ldv_spin)<=0)
+main@.preheader:
+		(select(main@%_2138, @ldv_spin)>=0)
+	(select(main@%_2138, @ldv_spin)<=0)
+main@.lr.ph:
+		(select(main@%_2138, @ldv_spin)>=0)
+	(select(main@%_2138, @ldv_spin)<=0)
+main@_bb221:
+		(select(main@%_2138, @ldv_spin)>=0)
+	(select(main@%_2138, @ldv_spin)<=0)
+main@_bb244: true
+main@_bb249: true
+main@_bb253: true
+
+
+************** BRUNCH STATS ***************** 
+BRUNCH_STAT Result TRUE
+BRUNCH_STAT Horn 39.34
+BRUNCH_STAT HornClauseDB::loadZFixedPoint 0.11
+BRUNCH_STAT HornifyModule 0.33
+BRUNCH_STAT LargeHornifyFunction 0.25
+BRUNCH_STAT seahorn_total 40.05
+************** BRUNCH STATS END ***************** 

@@ -1,0 +1,150 @@
+/usr/bin/clang-3.6 -c -emit-llvm -D__SEAHORN__ -fgnu89-inline -m32 -g -I/home/polaris/Desktop/seahorn/build/run/include -o /tmp/sea-myL26R/Primes_true-unreach-call.bc /home/polaris/Desktop/SV/sv-benchmarks/c/recursive/Primes_true-unreach-call.c
+/home/polaris/Desktop/seahorn/build/run/bin/seapp -o /tmp/sea-myL26R/Primes_true-unreach-call.pp.bc --strip-extern=true --devirt-functions --externalize-addr-taken-funcs --kill-vaarg=true /tmp/sea-myL26R/Primes_true-unreach-call.bc
+/home/polaris/Desktop/seahorn/build/run/bin/seapp -o /tmp/sea-myL26R/Primes_true-unreach-call.pp.ms.bc --horn-mixed-sem --ms-reduce-main /tmp/sea-myL26R/Primes_true-unreach-call.pp.bc
+/home/polaris/Desktop/seahorn/build/run/bin/seaopt -f -funit-at-a-time -o /tmp/sea-myL26R/Primes_true-unreach-call.pp.ms.o.bc -O3 --disable-loop-vectorization=true --disable-slp-vectorization=true --vectorize-slp-aggressive=false /tmp/sea-myL26R/Primes_true-unreach-call.pp.ms.bc
+/home/polaris/Desktop/seahorn/build/run/bin/seahorn --keep-shadows=true --horn-solve -horn-inter-proc -horn-sem-lvl=ptr --horn-step=large /tmp/sea-myL26R/Primes_true-unreach-call.pp.ms.o.bc --horn-global-constraints=true --horn-stats --horn-singleton-aliases=true --horn-pdr-contexts=600 --horn-ignore-calloc=false --horn-make-undef-warning-error=false --horn-answer
+unsat
+Function: mult
+mult@_br: true
+mult@tailrecurse: ((mult@%m+(-1*mult@%m.tr))<=0)
+mult@UnifiedReturnBlock.split:
+		[||
+  mult@%m<=1
+  mult@%UnifiedRetVal<=0
+  (mult@%n+(-1*mult@%UnifiedRetVal))<=-1
+]
+	[||
+  mult@%m<=0
+  mult@%UnifiedRetVal>=1
+  mult@%n<=-1
+]
+Function: multiple_of
+multiple_of@_br: true
+multiple_of@tailrecurse.outer:
+		((multiple_of@%m.tr.ph>=0)||([+
+  -1*multiple_of@%n.tr.ph
+  multiple_of@%n
+  -1*multiple_of@%m.tr.ph
+  multiple_of@%m
+]<=0))
+	(((multiple_of@%n+(-1*multiple_of@%n.tr.ph))<=0)||(((-1*multiple_of@%n.tr.ph)+(-1*multiple_of@%m.tr.ph))<=-1))
+	[||
+  multiple_of@%n.tr.ph>=1
+  multiple_of@%n.tr.ph<=-1
+  [+
+    -1*multiple_of@%n.tr.ph
+    multiple_of@%n
+    -1*multiple_of@%m
+  ]<=0
+  [+
+    2*multiple_of@%m
+    multiple_of@%n.tr.ph
+    -1*multiple_of@%n
+  ]<=0
+]
+	[||
+  [+
+    -1*multiple_of@%n.tr.ph
+    multiple_of@%n
+    multiple_of@%m.tr.ph
+    -1*multiple_of@%m
+  ]<=0
+  (multiple_of@%n.tr.ph+(-1*multiple_of@%m.tr.ph))<=-1
+  [+
+    2*multiple_of@%m
+    -1*multiple_of@%n
+    -1*multiple_of@%m.tr.ph
+    multiple_of@%n.tr.ph
+  ]<=0
+]
+	[||
+  multiple_of@%m<=-1
+  [+
+    multiple_of@%n.tr.ph
+    -1*multiple_of@%n
+    -2*multiple_of@%m.tr.ph
+    2*multiple_of@%m
+  ]<=0
+  (multiple_of@%n+(-1*multiple_of@%m))<=-1
+  (multiple_of@%n.tr.ph+(-2*multiple_of@%m.tr.ph))<=-1
+]
+multiple_of@tailrecurse:
+		((multiple_of@%m.tr>=0)||([+
+  multiple_of@%n
+  -1*multiple_of@%n.tr.ph
+  multiple_of@%m
+  -1*multiple_of@%m.tr
+]<=0))
+	[||
+  (multiple_of@%n+(-1*multiple_of@%m))<=-1
+  ((-1*multiple_of@%n.tr.ph)+(-1*multiple_of@%m.tr))<=-1
+  (multiple_of@%m+(-1*multiple_of@%n.tr.ph))<=0
+]
+	[||
+  [+
+    multiple_of@%n.tr.ph
+    -1*multiple_of@%n
+    2*multiple_of@%m
+  ]<=0
+  [+
+    -1*multiple_of@%m
+    multiple_of@%n
+    -1*multiple_of@%n.tr.ph
+  ]<=0
+  multiple_of@%n.tr.ph<=-1
+  multiple_of@%n.tr.ph>=1
+]
+	[||
+  (multiple_of@%n.tr.ph+(-1*multiple_of@%m.tr))<=-1
+  [+
+    -1*multiple_of@%n.tr.ph
+    multiple_of@%n
+    multiple_of@%m.tr
+    -1*multiple_of@%m
+  ]<=0
+  [+
+    2*multiple_of@%m
+    multiple_of@%n.tr.ph
+    -1*multiple_of@%n
+    -1*multiple_of@%m.tr
+  ]<=0
+]
+	[||
+  multiple_of@%m<=-1
+  (multiple_of@%n.tr.ph+(-2*multiple_of@%m.tr))<=-1
+  (multiple_of@%n+(-1*multiple_of@%m))<=-1
+  [+
+    -2*multiple_of@%m.tr
+    multiple_of@%n.tr.ph
+    -1*multiple_of@%n
+    2*multiple_of@%m
+  ]<=0
+]
+multiple_of@.split:
+		(multiple_of@%.0>=0)
+	[||
+  multiple_of@%.0<=0
+  ((-1*multiple_of@%n)+(2*multiple_of@%m))<=0
+  (multiple_of@%n+(-1*multiple_of@%m))<=0
+]
+Function: is_prime_
+is_prime_@_tail: true
+is_prime_@.lr.ph.split..lr.ph.split.split_crit_edge: (((is_prime_@%n+(-1*is_prime_@%m.tr1))<=1)||((is_prime_@%m+(-1*is_prime_@%n))<=-2))
+is_prime_@._crit_edge.split: [||
+  is_prime_@%n<=2
+  is_prime_@%.0<=0
+  (is_prime_@%m+(-1*is_prime_@%n))<=-2
+]
+Function: main
+main@entry: true
+main@entry.split: false
+
+
+************** BRUNCH STATS ***************** 
+BRUNCH_STAT Result TRUE
+BRUNCH_STAT Horn 0.85
+BRUNCH_STAT HornClauseDB::loadZFixedPoint 0.00
+BRUNCH_STAT HornifyModule 0.00
+BRUNCH_STAT LargeHornifyFunction 0.00
+BRUNCH_STAT seahorn_total 0.86
+************** BRUNCH STATS END ***************** 

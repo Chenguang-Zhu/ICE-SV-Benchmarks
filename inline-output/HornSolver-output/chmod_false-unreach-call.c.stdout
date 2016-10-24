@@ -1,0 +1,34 @@
+/usr/bin/clang-3.6 -c -emit-llvm -D__SEAHORN__ -fgnu89-inline -m32 -g -I/home/polaris/Desktop/seahorn/build/run/include -o /tmp/sea-vfHsJI/chmod_false-unreach-call.bc /home/polaris/Desktop/SV/sv-benchmarks/c/busybox-1.22.0/chmod_false-unreach-call.c
+/home/polaris/Desktop/seahorn/build/run/bin/seapp -o /tmp/sea-vfHsJI/chmod_false-unreach-call.pp.bc --horn-inline-all --strip-extern=true --devirt-functions --externalize-addr-taken-funcs --kill-vaarg=true /tmp/sea-vfHsJI/chmod_false-unreach-call.bc
+/home/polaris/Desktop/seahorn/build/run/bin/seapp -o /tmp/sea-vfHsJI/chmod_false-unreach-call.pp.ms.bc --horn-mixed-sem --ms-reduce-main /tmp/sea-vfHsJI/chmod_false-unreach-call.pp.bc
+/home/polaris/Desktop/seahorn/build/run/bin/seaopt -f -funit-at-a-time -o /tmp/sea-vfHsJI/chmod_false-unreach-call.pp.ms.o.bc -O3 --disable-loop-vectorization=true --disable-slp-vectorization=true --vectorize-slp-aggressive=false /tmp/sea-vfHsJI/chmod_false-unreach-call.pp.ms.bc
+/home/polaris/Desktop/seahorn/build/run/bin/seahorn --keep-shadows=true --horn-solve -horn-inter-proc -horn-sem-lvl=ptr --horn-step=large /tmp/sea-vfHsJI/chmod_false-unreach-call.pp.ms.o.bc --horn-global-constraints=true --horn-stats --horn-singleton-aliases=true --horn-pdr-contexts=600 --horn-ignore-calloc=false --horn-make-undef-warning-error=false --horn-answer
+unsat
+Function: main
+main@entry: true
+main@_bb: true
+main@.lr.ph54: (!(main@%_13<=0))
+main@_bb56: true
+main@.thread2.outer: true
+main@.thread2: true
+main@.outer26: true
+main@_bb62: true
+main@.outer17.us: true
+main@.outer17: true
+main@.thread6.outer: true
+main@.thread6: true
+main@.outer22: true
+main@_bb81: true
+main@.outer.us: true
+main@.outer: true
+main@verifier.error.split: false
+
+
+************** BRUNCH STATS ***************** 
+BRUNCH_STAT Result TRUE
+BRUNCH_STAT Horn 0.02
+BRUNCH_STAT HornClauseDB::loadZFixedPoint 0.01
+BRUNCH_STAT HornifyModule 0.04
+BRUNCH_STAT LargeHornifyFunction 0.03
+BRUNCH_STAT seahorn_total 0.09
+************** BRUNCH STATS END ***************** 

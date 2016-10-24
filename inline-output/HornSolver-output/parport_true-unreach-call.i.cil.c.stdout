@@ -1,0 +1,88 @@
+/usr/bin/clang-3.6 -c -emit-llvm -D__SEAHORN__ -fgnu89-inline -m32 -g -I/home/polaris/Desktop/seahorn/build/run/include -o /tmp/sea-pdzCXQ/parport_true-unreach-call.i.cil.bc /home/polaris/Desktop/SV/sv-benchmarks/c/ntdrivers/parport_true-unreach-call.i.cil.c
+/home/polaris/Desktop/seahorn/build/run/bin/seapp -o /tmp/sea-pdzCXQ/parport_true-unreach-call.i.cil.pp.bc --horn-inline-all --strip-extern=true --devirt-functions --externalize-addr-taken-funcs --kill-vaarg=true /tmp/sea-pdzCXQ/parport_true-unreach-call.i.cil.bc
+/home/polaris/Desktop/seahorn/build/run/bin/seapp -o /tmp/sea-pdzCXQ/parport_true-unreach-call.i.cil.pp.ms.bc --horn-mixed-sem --ms-reduce-main /tmp/sea-pdzCXQ/parport_true-unreach-call.i.cil.pp.bc
+/home/polaris/Desktop/seahorn/build/run/bin/seaopt -f -funit-at-a-time -o /tmp/sea-pdzCXQ/parport_true-unreach-call.i.cil.pp.ms.o.bc -O3 --disable-loop-vectorization=true --disable-slp-vectorization=true --vectorize-slp-aggressive=false /tmp/sea-pdzCXQ/parport_true-unreach-call.i.cil.pp.ms.bc
+/home/polaris/Desktop/seahorn/build/run/bin/seahorn --keep-shadows=true --horn-solve -horn-inter-proc -horn-sem-lvl=ptr --horn-step=large /tmp/sea-pdzCXQ/parport_true-unreach-call.i.cil.pp.ms.o.bc --horn-global-constraints=true --horn-stats --horn-singleton-aliases=true --horn-pdr-contexts=600 --horn-ignore-calloc=false --horn-make-undef-warning-error=false --horn-answer
+unsat
+Function: main
+main@entry: true
+main@.lr.ph182: true
+main@_bb172: true
+main@_bb181: true
+main@_bb206: true
+main@.preheader68: true
+main@_bb214: true
+main@.preheader67: true
+main@_bb229: true
+main@.lr.ph120: true
+main@.lr.ph116: true
+main@PptDebugDumpResourceList.exit.i.i.i.i:
+		((main@%status.0.i.i76.i.i+(-1*main@%switch.select2.i.i.i69.i.i))<=0)
+	(main@%switch.select2.i.i.i69.i.i<=259)
+	(main@%status.0.i.i76.i.i<=0)
+main@.lr.ph234: (main@%status.0.i.i76.i.i<=0)
+main@_bb255: (main@%status.0.i.i76.i.i<=0)
+main@.lr.ph215: (main@%status.0.i.i76.i.i<=0)
+main@.lr.ph202:
+		(main@%i.0.i4.i.i.i.ph205>=0)
+	(main@%status.0.i.i76.i.i<=0)
+main@_bb258:
+		(main@%i.0.i4.i.i.i.ph205>=0)
+	(main@%status.0.i.i76.i.i<=0)
+main@.lr.ph191:
+		(main@%i.0.i1.i.i82.i.i188>=0)
+	(main@%status.0.i.i76.i.i<=0)
+	(!(main@%curList.0.i5.i.i.i.ph207<=0))
+	(main@%i.0.i4.i.i.i.ph205>=0)
+main@.lr.ph225: (main@%status.0.i.i76.i.i<=0)
+main@_bb263:
+		(main@%i.0.i.i9.i.i.i218>=0)
+	(main@%status.0.i.i76.i.i<=0)
+main@PptDebugDumpResourceList.exit.i13.i.i.i: (main@%status.0.i.i76.i.i<=0)
+main@_bb268: true
+main@_bb270: true
+main@_bb272: true
+main@.lr.ph247: true
+main@.preheader95: true
+main@.preheader94: true
+main@_bb307: true
+main@.thread27.outer: true
+main@.thread27: true
+main@_bb313: true
+main@..split311_crit_edge: true
+main@_bb349: true
+main@.preheader83: true
+main@_bb357: true
+main@.preheader82: true
+main@_bb372: true
+main@..split306_crit_edge: true
+main@..split301_crit_edge: true
+main@_bb415: true
+main@_bb419: true
+main@_bb423: true
+main@_bb427: true
+main@_bb436: true
+main@_bb440: true
+main@_bb444: true
+main@_bb448: true
+main@..split252_crit_edge: true
+main@..split_crit_edge: true
+main@.preheader76: true
+main@_bb468: true
+main@_bb472: true
+main@_bb476: true
+main@..split248_crit_edge: true
+main@..split251_crit_edge: true
+main@_bb487: true
+main@.lr.ph: true
+main@verifier.error.split: false
+
+
+************** BRUNCH STATS ***************** 
+BRUNCH_STAT Result TRUE
+BRUNCH_STAT Horn 20.68
+BRUNCH_STAT HornClauseDB::loadZFixedPoint 0.14
+BRUNCH_STAT HornifyModule 0.53
+BRUNCH_STAT LargeHornifyFunction 0.48
+BRUNCH_STAT seahorn_total 21.50
+************** BRUNCH STATS END ***************** 

@@ -1,0 +1,40 @@
+/usr/bin/clang-3.6 -c -emit-llvm -D__SEAHORN__ -fgnu89-inline -m32 -g -I/home/polaris/Desktop/seahorn/build/run/include -o /tmp/sea-crT0ac/cp-incomplete_false-unreach-call.bc /home/polaris/Desktop/SV/sv-benchmarks/c/busybox-1.22.0/cp-incomplete_false-unreach-call.c
+/home/polaris/Desktop/seahorn/build/run/bin/seapp -o /tmp/sea-crT0ac/cp-incomplete_false-unreach-call.pp.bc --horn-inline-all --strip-extern=true --devirt-functions --externalize-addr-taken-funcs --kill-vaarg=true /tmp/sea-crT0ac/cp-incomplete_false-unreach-call.bc
+/home/polaris/Desktop/seahorn/build/run/bin/seapp -o /tmp/sea-crT0ac/cp-incomplete_false-unreach-call.pp.ms.bc --horn-mixed-sem --ms-reduce-main /tmp/sea-crT0ac/cp-incomplete_false-unreach-call.pp.bc
+/home/polaris/Desktop/seahorn/build/run/bin/seaopt -f -funit-at-a-time -o /tmp/sea-crT0ac/cp-incomplete_false-unreach-call.pp.ms.o.bc -O3 --disable-loop-vectorization=true --disable-slp-vectorization=true --vectorize-slp-aggressive=false /tmp/sea-crT0ac/cp-incomplete_false-unreach-call.pp.ms.bc
+/home/polaris/Desktop/seahorn/build/run/bin/seahorn --keep-shadows=true --horn-solve -horn-inter-proc -horn-sem-lvl=ptr --horn-step=large -log ice /tmp/sea-crT0ac/cp-incomplete_false-unreach-call.pp.ms.o.bc --horn-global-constraints=true --horn-stats --horn-singleton-aliases=true --horn-pdr-contexts=600 --horn-ignore-calloc=false --horn-make-undef-warning-error=false --horn-answer --horn-ice
+unsat
+Function: copy_file
+copy_file@_1: true
+copy_file@_bucket.0.i10: true
+copy_file@.lr.ph: true
+copy_file@_102: true
+copy_file@last_char_is.exit.i.i: true
+copy_file@last_char_is.exit.i: true
+copy_file@_bucket.0.i1225: true
+copy_file@.lr.ph18.split.us: true
+copy_file@safe_write.exit.i.i.i.us: true
+copy_file@safe_read.exit.i.i: true
+copy_file@is_in_ino_dev_hashtable.exit.split: true
+Function: main
+main@entry: true
+main@_bb: true
+main@last_char_is.exit.i.i.i: (!(main@%.01.i.i<=0))
+main@.preheader6: (!(main@%.01.i.i<=0))
+main@_bb16: (!(main@%.01.i.i<=0))
+main@.preheader5: (!(main@%.01.i.i<=0))
+main@.lr.ph: (!(main@%.01.i.i<=0))
+main@last_char_is.exit.i9.i.i: (!(main@%.01.i.i<=0))
+main@bb_make_directory.exit.i.i: (!(main@%.2.i.i<=0))
+main@verifier.error.split: false
+
+
+************** BRUNCH STATS ***************** 
+BRUNCH_STAT Result TRUE
+BRUNCH_STAT Horn 0.08
+BRUNCH_STAT HornClauseDB::loadZFixedPoint 3.37
+BRUNCH_STAT HornifyModule 0.04
+BRUNCH_STAT ICE inv 43.95
+BRUNCH_STAT LargeHornifyFunction 0.03
+BRUNCH_STAT seahorn_total 44.13
+************** BRUNCH STATS END ***************** 

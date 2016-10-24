@@ -1,0 +1,64 @@
+/usr/bin/clang-3.6 -c -emit-llvm -D__SEAHORN__ -fgnu89-inline -m32 -g -I/home/polaris/Desktop/seahorn/build/run/include -o /tmp/sea-SB1P5D/elevator_spec13_product22_true-unreach-call.cil.bc /home/polaris/Desktop/SV/sv-benchmarks/c/product-lines/elevator_spec13_product22_true-unreach-call.cil.c
+/home/polaris/Desktop/seahorn/build/run/bin/seapp -o /tmp/sea-SB1P5D/elevator_spec13_product22_true-unreach-call.cil.pp.bc --horn-inline-all --strip-extern=true --devirt-functions --externalize-addr-taken-funcs --kill-vaarg=true /tmp/sea-SB1P5D/elevator_spec13_product22_true-unreach-call.cil.bc
+/home/polaris/Desktop/seahorn/build/run/bin/seapp -o /tmp/sea-SB1P5D/elevator_spec13_product22_true-unreach-call.cil.pp.ms.bc --horn-mixed-sem --ms-reduce-main /tmp/sea-SB1P5D/elevator_spec13_product22_true-unreach-call.cil.pp.bc
+/home/polaris/Desktop/seahorn/build/run/bin/seaopt -f -funit-at-a-time -o /tmp/sea-SB1P5D/elevator_spec13_product22_true-unreach-call.cil.pp.ms.o.bc -O3 --disable-loop-vectorization=true --disable-slp-vectorization=true --vectorize-slp-aggressive=false /tmp/sea-SB1P5D/elevator_spec13_product22_true-unreach-call.cil.pp.ms.bc
+/home/polaris/Desktop/seahorn/build/run/bin/seahorn --keep-shadows=true --horn-solve -horn-inter-proc -horn-sem-lvl=ptr --horn-step=large /tmp/sea-SB1P5D/elevator_spec13_product22_true-unreach-call.cil.pp.ms.o.bc --horn-global-constraints=true --horn-stats --horn-singleton-aliases=true --horn-pdr-contexts=600 --horn-ignore-calloc=false --horn-make-undef-warning-error=false --horn-answer
+unsat
+Function: main
+main@timeShift.exit.i939.i.i.i.preheader: true
+main@timeShift.exit.i939.i.i.i:
+		((main@%_12<=1)||(main@%_7<=0))
+	((main@%_10>=1)||(main@%_7=0))
+	(main@%_7>=0)
+	(main@%_7<=1)
+	((main@%_8>=0)||(main@%_10>=0))
+	((main@%_8<=0)||(main@%_10>=0))
+main@NewDefault33.i.i.i846.i1785.i.i.i:
+		((main@%_510+(-1*main@%i___0.1.in.i.i.i848.i1787.i.i.i))<=0)
+	(!(main@%_510<=0))
+main@NewDefault17.i.i.i869.i1808.i.i.i: false
+main@NewDefault17.i3.i.i892.i1831.i.i.i.us.us:
+		(main@%_513<=0)
+	(main@%_513>=0)
+	(main@%_512<=0)
+	(main@%_512>=0)
+main@NewDefault17.i3.i.i892.i1831.i.i.i.us:
+		(main@%i.0.in.i5.i.i894.i1833.i.i.i.us>=1)
+	(main@%_508<=1)
+	(main@%_513>=0)
+	(main@%_513<=1)
+	(main@%_510>=1)
+main@NewDefault17.i3.i.i892.i1831.i.i.i.us952:
+		(main@%_513<=0)
+	(main@%_513>=0)
+	(main@%i.0.in.i5.i.i894.i1833.i.i.i.us953>=0)
+	(main@%_510>=0)
+	((main@%i.0.in.i5.i.i894.i1833.i.i.i.us953+(-1*main@%_510))<=4)
+main@NewDefault17.i3.i.i892.i1831.i.i.i:
+		((!(main@%_512<=0))||(!(main@%_512>=0)))
+	(main@%_508<=1)
+	(main@%_510>=1)
+	(main@%_513<=1)
+	(main@%_513>=0)
+	(main@%i.0.in.i5.i.i894.i1833.i.i.i>=1)
+main@NewDefault33.i27.i.i916.i1855.i.i.i.preheader: (!(main@%_510<=0))
+main@NewDefault33.i27.i.i916.i1855.i.i.i.us:
+		(main@%_510>=1)
+	((main@%_510+(-1*main@%i___0.1.in.i29.i.i918.i1857.i.i.i.us))<=0)
+main@NewDefault33.i27.i.i916.i1855.i.i.i.us956:
+		(main@%_510>=1)
+	((main@%_510+(-1*main@%i___0.1.in.i29.i.i918.i1857.i.i.i.us957))<=0)
+main@NewDefault33.i27.i.i916.i1855.i.i.i:
+		((main@%_510+(-1*main@%i___0.1.in.i29.i.i918.i1857.i.i.i))<=0)
+	(main@%_510>=1)
+main@verifier.error.split: false
+
+
+************** BRUNCH STATS ***************** 
+BRUNCH_STAT Result TRUE
+BRUNCH_STAT Horn 34.00
+BRUNCH_STAT HornClauseDB::loadZFixedPoint 0.04
+BRUNCH_STAT HornifyModule 0.24
+BRUNCH_STAT LargeHornifyFunction 0.22
+BRUNCH_STAT seahorn_total 34.36
+************** BRUNCH STATS END ***************** 

@@ -1,0 +1,24 @@
+/usr/bin/clang-3.6 -c -emit-llvm -D__SEAHORN__ -fgnu89-inline -m32 -g -I/home/polaris/Desktop/seahorn/build/run/include -o /tmp/sea-N_h71h/floppy_true-unreach-call.i.cil.bc /home/polaris/Desktop/SV/sv-benchmarks/c/ntdrivers/floppy_true-unreach-call.i.cil.c
+/home/polaris/Desktop/seahorn/build/run/bin/seapp -o /tmp/sea-N_h71h/floppy_true-unreach-call.i.cil.pp.bc --horn-inline-all --strip-extern=true --devirt-functions --externalize-addr-taken-funcs --kill-vaarg=true /tmp/sea-N_h71h/floppy_true-unreach-call.i.cil.bc
+/home/polaris/Desktop/seahorn/build/run/bin/seapp -o /tmp/sea-N_h71h/floppy_true-unreach-call.i.cil.pp.ms.bc --horn-mixed-sem --ms-reduce-main /tmp/sea-N_h71h/floppy_true-unreach-call.i.cil.pp.bc
+/home/polaris/Desktop/seahorn/build/run/bin/seaopt -f -funit-at-a-time -o /tmp/sea-N_h71h/floppy_true-unreach-call.i.cil.pp.ms.o.bc -O3 --disable-loop-vectorization=true --disable-slp-vectorization=true --vectorize-slp-aggressive=false /tmp/sea-N_h71h/floppy_true-unreach-call.i.cil.pp.ms.bc
+/home/polaris/Desktop/seahorn/build/run/bin/seahorn --keep-shadows=true --horn-solve -horn-inter-proc -horn-sem-lvl=ptr --horn-step=large /tmp/sea-N_h71h/floppy_true-unreach-call.i.cil.pp.ms.o.bc --horn-global-constraints=true --horn-stats --horn-singleton-aliases=true --horn-pdr-contexts=600 --horn-ignore-calloc=false --horn-make-undef-warning-error=false --horn-answer
+unsat
+Function: main
+main@entry: true
+main@_bb116: true
+main@_bb135: (main@%ntStatus.0.i.i<=0)
+main@_bb165:
+		(main@%_438<=1)
+	(main@%_438>=1)
+main@verifier.error.split: false
+
+
+************** BRUNCH STATS ***************** 
+BRUNCH_STAT Result TRUE
+BRUNCH_STAT Horn 0.39
+BRUNCH_STAT HornClauseDB::loadZFixedPoint 0.01
+BRUNCH_STAT HornifyModule 0.05
+BRUNCH_STAT LargeHornifyFunction 0.03
+BRUNCH_STAT seahorn_total 0.49
+************** BRUNCH STATS END ***************** 

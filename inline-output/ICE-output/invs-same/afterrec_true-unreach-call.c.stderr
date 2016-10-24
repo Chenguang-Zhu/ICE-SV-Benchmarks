@@ -1,0 +1,698 @@
+REL NAME TO C5 NAME MAP:
+verifier.error, PRED_0
+main@entry, PRED_1
+main@f, PRED_2
+main@postcall1.split, PRED_3
+pos.query.pred, PRED_4
+(verifier.error V_0 V_1 V_2)
+main@entry
+(main@f V_0)
+main@postcall1.split
+pos.query.pred
+DB: 
+Predicates:
+;[fdecl
+  verifier.error
+  BOOL
+  BOOL
+  BOOL
+  BOOL
+]
+[fdecl
+  main@entry
+  BOOL
+]
+[fdecl
+  main@f
+  INT
+  BOOL
+]
+[fdecl
+  main@postcall1.split
+  BOOL
+]
+[fdecl
+  pos.query.pred
+  BOOL
+]
+Clauses:
+;(verifier.error false false false) <- true.
+(verifier.error false true true) <- true.
+(verifier.error true false true) <- true.
+(verifier.error true true true) <- true.
+main@entry <- true.
+(main@f main@%.0_1) <- (main@entry&&[&&
+  true
+  !main@%_0_0
+  main@f_0->(main@f_0&&main@entry_0)
+  main@f_0
+  main@%.0_0=2
+  (main@f_0&&main@entry_0)->(main@%.0_1=main@%.0_0)
+]).
+(main@f main@%.0_2) <- ((main@f main@%.0_0)&&[&&
+  true
+  main@%_1_0<->(main@%.0_0<3)
+  !main@%_1_0
+  main@%_2_0=(main@%.0_0+-1)
+  main@f_1->(main@f_1&&main@f_0)
+  main@f_1
+  (main@f_1&&main@f_0)->(!main@%_3_0)
+  main@%.0_1=main@%_2_0
+  (main@f_1&&main@f_0)->(main@%.0_2=main@%.0_1)
+]).
+main@postcall1.split <- ((main@f main@%.0_0)&&[&&
+  true
+  main@%_1_0<->(main@%.0_0<3)
+  !main@%_1_0
+  main@%_2_0=(main@%.0_0+-1)
+  main@postcall1_0->(main@postcall1_0&&main@f_0)
+  (main@postcall1_0&&main@f_0)->main@%_3_0
+  main@%.0.lcssa_0=main@%.0_0
+  (main@postcall1_0&&main@f_0)->(main@%.0.lcssa_1=main@%.0.lcssa_0)
+  main@%_4_0<->(main@%.0.lcssa_1<4)
+  main@postcall1_0->main@%_4_0
+  main@postcall1.split_0->(main@postcall1.split_0&&main@postcall1_0)
+  main@postcall1.split_0
+]).
+Queries:
+;main@postcall1.split
+ENTRY IS: main@entry
+=========================== POS START ============================
+VERIFY RULE: pos.query.pred <- (main@entry&&(!true))
+UNSAT
+VERIFY RULE: pos.query.pred <- (main@postcall1.split&&(!true))
+UNSAT
+VERIFY RULE: pos.query.pred <- (pos.query.pred&&(!true))
+UNSAT
+VERIFY RULE: pos.query.pred <- ((main@f V_0)&&(!true))
+UNSAT
+VERIFY RULE: pos.query.pred <- ((verifier.error V_0 V_1 V_2)&&(!true))
+UNSAT
+==================================================================
+AFTER RESET DB IS:
+Predicates:
+;[fdecl
+  verifier.error
+  BOOL
+  BOOL
+  BOOL
+  BOOL
+]
+[fdecl
+  main@entry
+  BOOL
+]
+[fdecl
+  main@f
+  INT
+  BOOL
+]
+[fdecl
+  main@postcall1.split
+  BOOL
+]
+[fdecl
+  pos.query.pred
+  BOOL
+]
+Clauses:
+;(verifier.error false false false) <- true.
+(verifier.error false true true) <- true.
+(verifier.error true false true) <- true.
+(verifier.error true true true) <- true.
+main@entry <- true.
+(main@f main@%.0_1) <- (main@entry&&[&&
+  true
+  !main@%_0_0
+  main@f_0->(main@f_0&&main@entry_0)
+  main@f_0
+  main@%.0_0=2
+  (main@f_0&&main@entry_0)->(main@%.0_1=main@%.0_0)
+]).
+(main@f main@%.0_2) <- ((main@f main@%.0_0)&&[&&
+  true
+  main@%_1_0<->(main@%.0_0<3)
+  !main@%_1_0
+  main@%_2_0=(main@%.0_0+-1)
+  main@f_1->(main@f_1&&main@f_0)
+  main@f_1
+  (main@f_1&&main@f_0)->(!main@%_3_0)
+  main@%.0_1=main@%_2_0
+  (main@f_1&&main@f_0)->(main@%.0_2=main@%.0_1)
+]).
+main@postcall1.split <- ((main@f main@%.0_0)&&[&&
+  true
+  main@%_1_0<->(main@%.0_0<3)
+  !main@%_1_0
+  main@%_2_0=(main@%.0_0+-1)
+  main@postcall1_0->(main@postcall1_0&&main@f_0)
+  (main@postcall1_0&&main@f_0)->main@%_3_0
+  main@%.0.lcssa_0=main@%.0_0
+  (main@postcall1_0&&main@f_0)->(main@%.0.lcssa_1=main@%.0.lcssa_0)
+  main@%_4_0<->(main@%.0.lcssa_1<4)
+  main@postcall1_0->main@%_4_0
+  main@postcall1.split_0->(main@postcall1.split_0&&main@postcall1_0)
+  main@postcall1.split_0
+]).
+Queries:
+;main@postcall1.split
+=========================== NEG START ============================
+VERIFY RULE: pos.query.pred <- (main@entry&&true)
+UNSAT
+VERIFY RULE: main@postcall1.split <- (main@entry&&true)
+SAT, NEED TO ADD NEGATIVE DATA POINT
+(main@postcall1.split&&main@entry)
+NEG CEX IS: main@postcall1.split
+ANSWER ARGS:
+NEG CEX, INDEX IS 0
+VERIFY RULE: main@entry <- true
+UNSAT
+VERIFY RULE: (main@f V_0) <- (main@entry&&true)
+SAT, NEED TO ADD NEGATIVE DATA POINT
+[&&
+  main@postcall1.split
+  (main@f 3)
+  main@entry
+]
+NEG CEX IS: (main@f 3)
+ANSWER ARGS:
+3
+NEG CEX, INDEX IS 1
+VERIFY RULE: (verifier.error V_0 V_1 V_2) <- (main@entry&&true)
+UNSAT
+==================================================================
+AFTER RESET DB IS:
+Predicates:
+;[fdecl
+  verifier.error
+  BOOL
+  BOOL
+  BOOL
+  BOOL
+]
+[fdecl
+  main@entry
+  BOOL
+]
+[fdecl
+  main@f
+  INT
+  BOOL
+]
+[fdecl
+  main@postcall1.split
+  BOOL
+]
+[fdecl
+  pos.query.pred
+  BOOL
+]
+Clauses:
+;(verifier.error false false false) <- true.
+(verifier.error false true true) <- true.
+(verifier.error true false true) <- true.
+(verifier.error true true true) <- true.
+main@entry <- true.
+(main@f main@%.0_1) <- (main@entry&&[&&
+  true
+  !main@%_0_0
+  main@f_0->(main@f_0&&main@entry_0)
+  main@f_0
+  main@%.0_0=2
+  (main@f_0&&main@entry_0)->(main@%.0_1=main@%.0_0)
+]).
+(main@f main@%.0_2) <- ((main@f main@%.0_0)&&[&&
+  true
+  main@%_1_0<->(main@%.0_0<3)
+  !main@%_1_0
+  main@%_2_0=(main@%.0_0+-1)
+  main@f_1->(main@f_1&&main@f_0)
+  main@f_1
+  (main@f_1&&main@f_0)->(!main@%_3_0)
+  main@%.0_1=main@%_2_0
+  (main@f_1&&main@f_0)->(main@%.0_2=main@%.0_1)
+]).
+main@postcall1.split <- ((main@f main@%.0_0)&&[&&
+  true
+  main@%_1_0<->(main@%.0_0<3)
+  !main@%_1_0
+  main@%_2_0=(main@%.0_0+-1)
+  main@postcall1_0->(main@postcall1_0&&main@f_0)
+  (main@postcall1_0&&main@f_0)->main@%_3_0
+  main@%.0.lcssa_0=main@%.0_0
+  (main@postcall1_0&&main@f_0)->(main@%.0.lcssa_1=main@%.0.lcssa_0)
+  main@%_4_0<->(main@%.0.lcssa_1<4)
+  main@postcall1_0->main@%_4_0
+  main@postcall1.split_0->(main@postcall1.split_0&&main@postcall1_0)
+  main@postcall1.split_0
+]).
+Queries:
+;main@postcall1.split
+=========================== IMPL START ============================
+(declare-fun main@%.0_2 () Int)
+(declare-fun main@%.0_1 () Int)
+(declare-fun main@%_3_0 () Bool)
+(declare-fun main@f_0 () Bool)
+(declare-fun main@%_2_0 () Int)
+(declare-fun main@f_1 () Bool)
+(declare-fun main@%.0_0 () Int)
+(declare-fun main@%_1_0 () Bool)
+
+(assert (not true))
+(assert true)
+(assert (and true
+     true
+     (= main@%_1_0 (< main@%.0_0 3))
+     (not main@%_1_0)
+     (= main@%_2_0 (+ main@%.0_0 (- 1)))
+     (=> main@f_1 (and main@f_1 main@f_0))
+     main@f_1
+     (=> (and main@f_1 main@f_0) (not main@%_3_0))
+     (= main@%.0_1 main@%_2_0)
+     (=> (and main@f_1 main@f_0) (= main@%.0_2 main@%.0_1))))
+(check-sat)
+UNSAT
+==================================================================
+DATA & IMPL FILES ARE GENERATED
+TAG: PRED_0
+NEW CANDIDATE: true
+TAG: PRED_1
+NEW CANDIDATE: true
+TAG: PRED_2
+NEW CANDIDATE: false
+TAG: PRED_3
+NEW CANDIDATE: false
+TAG: PRED_4
+NEW CANDIDATE: true
+NEW CANDIDATES MAP:
+(verifier.error V_0 V_1 V_2) : true
+main@entry : true
+(main@f V_0) : false
+main@postcall1.split : false
+pos.query.pred : true
+ENTRY IS: main@entry
+=========================== POS START ============================
+VERIFY RULE: pos.query.pred <- (pos.query.pred&&(!true))
+UNSAT
+VERIFY RULE: pos.query.pred <- (main@postcall1.split&&(!false))
+UNSAT
+VERIFY RULE: pos.query.pred <- (main@entry&&(!true))
+UNSAT
+VERIFY RULE: pos.query.pred <- ((main@f V_0)&&(!false))
+SAT, NEED TO ADD POSITIVE DATA POINT
+[&&
+  pos.query.pred
+  (main@f 2)
+  main@entry
+]
+POS OBJ PRED: (main@f V_0)
+POS CEX IS: (main@f 2)
+ANSWER ARGS:
+2
+POS CEX, INDEX IS 2
+VERIFY RULE: pos.query.pred <- ((verifier.error V_0 V_1 V_2)&&(!true))
+UNSAT
+==================================================================
+AFTER RESET DB IS:
+Predicates:
+;[fdecl
+  verifier.error
+  BOOL
+  BOOL
+  BOOL
+  BOOL
+]
+[fdecl
+  main@entry
+  BOOL
+]
+[fdecl
+  main@f
+  INT
+  BOOL
+]
+[fdecl
+  main@postcall1.split
+  BOOL
+]
+[fdecl
+  pos.query.pred
+  BOOL
+]
+Clauses:
+;(verifier.error false false false) <- true.
+(verifier.error false true true) <- true.
+(verifier.error true false true) <- true.
+(verifier.error true true true) <- true.
+main@entry <- true.
+(main@f main@%.0_1) <- (main@entry&&[&&
+  true
+  !main@%_0_0
+  main@f_0->(main@f_0&&main@entry_0)
+  main@f_0
+  main@%.0_0=2
+  (main@f_0&&main@entry_0)->(main@%.0_1=main@%.0_0)
+]).
+(main@f main@%.0_2) <- ((main@f main@%.0_0)&&[&&
+  true
+  main@%_1_0<->(main@%.0_0<3)
+  !main@%_1_0
+  main@%_2_0=(main@%.0_0+-1)
+  main@f_1->(main@f_1&&main@f_0)
+  main@f_1
+  (main@f_1&&main@f_0)->(!main@%_3_0)
+  main@%.0_1=main@%_2_0
+  (main@f_1&&main@f_0)->(main@%.0_2=main@%.0_1)
+]).
+main@postcall1.split <- ((main@f main@%.0_0)&&[&&
+  true
+  main@%_1_0<->(main@%.0_0<3)
+  !main@%_1_0
+  main@%_2_0=(main@%.0_0+-1)
+  main@postcall1_0->(main@postcall1_0&&main@f_0)
+  (main@postcall1_0&&main@f_0)->main@%_3_0
+  main@%.0.lcssa_0=main@%.0_0
+  (main@postcall1_0&&main@f_0)->(main@%.0.lcssa_1=main@%.0.lcssa_0)
+  main@%_4_0<->(main@%.0.lcssa_1<4)
+  main@postcall1_0->main@%_4_0
+  main@postcall1.split_0->(main@postcall1.split_0&&main@postcall1_0)
+  main@postcall1.split_0
+]).
+Queries:
+;main@postcall1.split
+=========================== NEG START ============================
+VERIFY RULE: pos.query.pred <- (main@entry&&true)
+UNSAT
+VERIFY RULE: main@postcall1.split <- (main@entry&&false)
+UNSAT
+VERIFY RULE: main@entry <- true
+UNSAT
+VERIFY RULE: (main@f V_0) <- (main@entry&&false)
+UNSAT
+VERIFY RULE: (verifier.error V_0 V_1 V_2) <- (main@entry&&true)
+UNSAT
+==================================================================
+AFTER RESET DB IS:
+Predicates:
+;[fdecl
+  verifier.error
+  BOOL
+  BOOL
+  BOOL
+  BOOL
+]
+[fdecl
+  main@entry
+  BOOL
+]
+[fdecl
+  main@f
+  INT
+  BOOL
+]
+[fdecl
+  main@postcall1.split
+  BOOL
+]
+[fdecl
+  pos.query.pred
+  BOOL
+]
+Clauses:
+;(verifier.error false false false) <- true.
+(verifier.error false true true) <- true.
+(verifier.error true false true) <- true.
+(verifier.error true true true) <- true.
+main@entry <- true.
+(main@f main@%.0_1) <- (main@entry&&[&&
+  true
+  !main@%_0_0
+  main@f_0->(main@f_0&&main@entry_0)
+  main@f_0
+  main@%.0_0=2
+  (main@f_0&&main@entry_0)->(main@%.0_1=main@%.0_0)
+]).
+(main@f main@%.0_2) <- ((main@f main@%.0_0)&&[&&
+  true
+  main@%_1_0<->(main@%.0_0<3)
+  !main@%_1_0
+  main@%_2_0=(main@%.0_0+-1)
+  main@f_1->(main@f_1&&main@f_0)
+  main@f_1
+  (main@f_1&&main@f_0)->(!main@%_3_0)
+  main@%.0_1=main@%_2_0
+  (main@f_1&&main@f_0)->(main@%.0_2=main@%.0_1)
+]).
+main@postcall1.split <- ((main@f main@%.0_0)&&[&&
+  true
+  main@%_1_0<->(main@%.0_0<3)
+  !main@%_1_0
+  main@%_2_0=(main@%.0_0+-1)
+  main@postcall1_0->(main@postcall1_0&&main@f_0)
+  (main@postcall1_0&&main@f_0)->main@%_3_0
+  main@%.0.lcssa_0=main@%.0_0
+  (main@postcall1_0&&main@f_0)->(main@%.0.lcssa_1=main@%.0.lcssa_0)
+  main@%_4_0<->(main@%.0.lcssa_1<4)
+  main@postcall1_0->main@%_4_0
+  main@postcall1.split_0->(main@postcall1.split_0&&main@postcall1_0)
+  main@postcall1.split_0
+]).
+Queries:
+;main@postcall1.split
+=========================== IMPL START ============================
+(declare-fun main@%.0_2 () Int)
+(declare-fun main@%.0_1 () Int)
+(declare-fun main@%_3_0 () Bool)
+(declare-fun main@f_0 () Bool)
+(declare-fun main@%_2_0 () Int)
+(declare-fun main@f_1 () Bool)
+(declare-fun main@%.0_0 () Int)
+(declare-fun main@%_1_0 () Bool)
+
+(assert (not false))
+(assert false)
+(assert (and true
+     true
+     (= main@%_1_0 (< main@%.0_0 3))
+     (not main@%_1_0)
+     (= main@%_2_0 (+ main@%.0_0 (- 1)))
+     (=> main@f_1 (and main@f_1 main@f_0))
+     main@f_1
+     (=> (and main@f_1 main@f_0) (not main@%_3_0))
+     (= main@%.0_1 main@%_2_0)
+     (=> (and main@f_1 main@f_0) (= main@%.0_2 main@%.0_1))))
+(check-sat)
+UNSAT
+==================================================================
+DATA & IMPL FILES ARE GENERATED
+TAG: PRED_0
+NEW CANDIDATE: true
+TAG: PRED_1
+NEW CANDIDATE: true
+TAG: PRED_2
+INTERNAL NODE
+CUT ATTRIBUTE: PRED_2!V_0
+LEAF NODE
+LEAF NODE
+NEW CANDIDATE: (true&&(V_0<=2))
+TAG: PRED_3
+NEW CANDIDATE: false
+TAG: PRED_4
+NEW CANDIDATE: true
+NEW CANDIDATES MAP:
+(verifier.error V_0 V_1 V_2) : true
+main@entry : true
+(main@f V_0) : (true&&(V_0<=2))
+main@postcall1.split : false
+pos.query.pred : true
+ENTRY IS: main@entry
+=========================== POS START ============================
+VERIFY RULE: pos.query.pred <- (pos.query.pred&&(!true))
+UNSAT
+VERIFY RULE: pos.query.pred <- (main@postcall1.split&&(!false))
+UNSAT
+VERIFY RULE: pos.query.pred <- (main@entry&&(!true))
+UNSAT
+VERIFY RULE: pos.query.pred <- ((main@f V_0)&&(!(true&&(V_0<=2))))
+UNSAT
+VERIFY RULE: pos.query.pred <- ((verifier.error V_0 V_1 V_2)&&(!true))
+UNSAT
+==================================================================
+AFTER RESET DB IS:
+Predicates:
+;[fdecl
+  verifier.error
+  BOOL
+  BOOL
+  BOOL
+  BOOL
+]
+[fdecl
+  main@entry
+  BOOL
+]
+[fdecl
+  main@f
+  INT
+  BOOL
+]
+[fdecl
+  main@postcall1.split
+  BOOL
+]
+[fdecl
+  pos.query.pred
+  BOOL
+]
+Clauses:
+;(verifier.error false false false) <- true.
+(verifier.error false true true) <- true.
+(verifier.error true false true) <- true.
+(verifier.error true true true) <- true.
+main@entry <- true.
+(main@f main@%.0_1) <- (main@entry&&[&&
+  true
+  !main@%_0_0
+  main@f_0->(main@f_0&&main@entry_0)
+  main@f_0
+  main@%.0_0=2
+  (main@f_0&&main@entry_0)->(main@%.0_1=main@%.0_0)
+]).
+(main@f main@%.0_2) <- ((main@f main@%.0_0)&&[&&
+  true
+  main@%_1_0<->(main@%.0_0<3)
+  !main@%_1_0
+  main@%_2_0=(main@%.0_0+-1)
+  main@f_1->(main@f_1&&main@f_0)
+  main@f_1
+  (main@f_1&&main@f_0)->(!main@%_3_0)
+  main@%.0_1=main@%_2_0
+  (main@f_1&&main@f_0)->(main@%.0_2=main@%.0_1)
+]).
+main@postcall1.split <- ((main@f main@%.0_0)&&[&&
+  true
+  main@%_1_0<->(main@%.0_0<3)
+  !main@%_1_0
+  main@%_2_0=(main@%.0_0+-1)
+  main@postcall1_0->(main@postcall1_0&&main@f_0)
+  (main@postcall1_0&&main@f_0)->main@%_3_0
+  main@%.0.lcssa_0=main@%.0_0
+  (main@postcall1_0&&main@f_0)->(main@%.0.lcssa_1=main@%.0.lcssa_0)
+  main@%_4_0<->(main@%.0.lcssa_1<4)
+  main@postcall1_0->main@%_4_0
+  main@postcall1.split_0->(main@postcall1.split_0&&main@postcall1_0)
+  main@postcall1.split_0
+]).
+Queries:
+;main@postcall1.split
+=========================== NEG START ============================
+VERIFY RULE: pos.query.pred <- (main@entry&&true)
+UNSAT
+VERIFY RULE: main@postcall1.split <- (main@entry&&false)
+UNSAT
+VERIFY RULE: main@entry <- true
+UNSAT
+VERIFY RULE: (main@f V_0) <- (main@entry&&(true&&(V_0<=2)))
+UNSAT
+VERIFY RULE: (verifier.error V_0 V_1 V_2) <- (main@entry&&true)
+UNSAT
+==================================================================
+AFTER RESET DB IS:
+Predicates:
+;[fdecl
+  verifier.error
+  BOOL
+  BOOL
+  BOOL
+  BOOL
+]
+[fdecl
+  main@entry
+  BOOL
+]
+[fdecl
+  main@f
+  INT
+  BOOL
+]
+[fdecl
+  main@postcall1.split
+  BOOL
+]
+[fdecl
+  pos.query.pred
+  BOOL
+]
+Clauses:
+;(verifier.error false false false) <- true.
+(verifier.error false true true) <- true.
+(verifier.error true false true) <- true.
+(verifier.error true true true) <- true.
+main@entry <- true.
+(main@f main@%.0_1) <- (main@entry&&[&&
+  true
+  !main@%_0_0
+  main@f_0->(main@f_0&&main@entry_0)
+  main@f_0
+  main@%.0_0=2
+  (main@f_0&&main@entry_0)->(main@%.0_1=main@%.0_0)
+]).
+(main@f main@%.0_2) <- ((main@f main@%.0_0)&&[&&
+  true
+  main@%_1_0<->(main@%.0_0<3)
+  !main@%_1_0
+  main@%_2_0=(main@%.0_0+-1)
+  main@f_1->(main@f_1&&main@f_0)
+  main@f_1
+  (main@f_1&&main@f_0)->(!main@%_3_0)
+  main@%.0_1=main@%_2_0
+  (main@f_1&&main@f_0)->(main@%.0_2=main@%.0_1)
+]).
+main@postcall1.split <- ((main@f main@%.0_0)&&[&&
+  true
+  main@%_1_0<->(main@%.0_0<3)
+  !main@%_1_0
+  main@%_2_0=(main@%.0_0+-1)
+  main@postcall1_0->(main@postcall1_0&&main@f_0)
+  (main@postcall1_0&&main@f_0)->main@%_3_0
+  main@%.0.lcssa_0=main@%.0_0
+  (main@postcall1_0&&main@f_0)->(main@%.0.lcssa_1=main@%.0.lcssa_0)
+  main@%_4_0<->(main@%.0.lcssa_1<4)
+  main@postcall1_0->main@%_4_0
+  main@postcall1.split_0->(main@postcall1.split_0&&main@postcall1_0)
+  main@postcall1.split_0
+]).
+Queries:
+;main@postcall1.split
+=========================== IMPL START ============================
+(declare-fun main@%.0_1 () Int)
+(declare-fun main@%_3_0 () Bool)
+(declare-fun main@f_0 () Bool)
+(declare-fun main@%_2_0 () Int)
+(declare-fun main@%_1_0 () Bool)
+(declare-fun main@f_1 () Bool)
+(declare-fun main@%.0_0 () Int)
+(declare-fun main@%.0_2 () Int)
+
+(assert (not (and true (<= main@%.0_2 2))))
+(assert (and true (<= main@%.0_0 2)))
+(assert (and true
+     true
+     (= main@%_1_0 (< main@%.0_0 3))
+     (not main@%_1_0)
+     (= main@%_2_0 (+ main@%.0_0 (- 1)))
+     (=> main@f_1 (and main@f_1 main@f_0))
+     main@f_1
+     (=> (and main@f_1 main@f_0) (not main@%_3_0))
+     (= main@%.0_1 main@%_2_0)
+     (=> (and main@f_1 main@f_0) (= main@%.0_2 main@%.0_1))))
+(check-sat)
+UNSAT
+==================================================================
+FINAL INVARIANTS MAP:
+REL: (verifier.error V_0 V_1 V_2), CAND: true
+REL: main@entry, CAND: true
+REL: (main@f V_0), CAND: (true&&(V_0<=2))
+REL: main@postcall1.split, CAND: false
+REL: pos.query.pred, CAND: true
+RUN ICE SUCCESSCULLY

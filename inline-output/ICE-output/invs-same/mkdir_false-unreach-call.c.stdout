@@ -1,0 +1,31 @@
+/usr/bin/clang-3.6 -c -emit-llvm -D__SEAHORN__ -fgnu89-inline -m32 -g -I/home/polaris/Desktop/seahorn/build/run/include -o /tmp/sea-1O1fYC/mkdir_false-unreach-call.bc /home/polaris/Desktop/SV/sv-benchmarks/c/busybox-1.22.0/mkdir_false-unreach-call.c
+/home/polaris/Desktop/seahorn/build/run/bin/seapp -o /tmp/sea-1O1fYC/mkdir_false-unreach-call.pp.bc --horn-inline-all --strip-extern=true --devirt-functions --externalize-addr-taken-funcs --kill-vaarg=true /tmp/sea-1O1fYC/mkdir_false-unreach-call.bc
+/home/polaris/Desktop/seahorn/build/run/bin/seapp -o /tmp/sea-1O1fYC/mkdir_false-unreach-call.pp.ms.bc --horn-mixed-sem --ms-reduce-main /tmp/sea-1O1fYC/mkdir_false-unreach-call.pp.bc
+/home/polaris/Desktop/seahorn/build/run/bin/seaopt -f -funit-at-a-time -o /tmp/sea-1O1fYC/mkdir_false-unreach-call.pp.ms.o.bc -O3 --disable-loop-vectorization=true --disable-slp-vectorization=true --vectorize-slp-aggressive=false /tmp/sea-1O1fYC/mkdir_false-unreach-call.pp.ms.bc
+/home/polaris/Desktop/seahorn/build/run/bin/seahorn --keep-shadows=true --horn-solve -horn-inter-proc -horn-sem-lvl=ptr --horn-step=large -log ice /tmp/sea-1O1fYC/mkdir_false-unreach-call.pp.ms.o.bc --horn-global-constraints=true --horn-stats --horn-singleton-aliases=true --horn-pdr-contexts=600 --horn-ignore-calloc=false --horn-make-undef-warning-error=false --horn-answer --horn-ice
+unsat
+Function: main
+main@entry: true
+main@_bb: true
+main@.thread1.outer: (!(main@%_15<=0))
+main@.thread1: (!(main@%_15<=0))
+main@.outer18: (!(main@%_15<=0))
+main@_bb38: (!(main@%_15<=0))
+main@.outer.us: (!(main@%_15<=0))
+main@.outer: (!(main@%_15<=0))
+main@_bb54: true
+main@.preheader10: true
+main@_bb56: true
+main@.preheader: true
+main@verifier.error.split: false
+
+
+************** BRUNCH STATS ***************** 
+BRUNCH_STAT Result TRUE
+BRUNCH_STAT Horn 0.04
+BRUNCH_STAT HornClauseDB::loadZFixedPoint 1.38
+BRUNCH_STAT HornifyModule 0.03
+BRUNCH_STAT ICE inv 18.16
+BRUNCH_STAT LargeHornifyFunction 0.02
+BRUNCH_STAT seahorn_total 18.26
+************** BRUNCH STATS END ***************** 

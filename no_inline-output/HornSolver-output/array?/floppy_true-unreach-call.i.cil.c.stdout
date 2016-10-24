@@ -1,0 +1,253 @@
+/usr/bin/clang-3.6 -c -emit-llvm -D__SEAHORN__ -fgnu89-inline -m32 -g -I/home/polaris/Desktop/seahorn/build/run/include -o /tmp/sea-asorZ7/floppy_true-unreach-call.i.cil.bc /home/polaris/Desktop/SV/sv-benchmarks/c/ntdrivers/floppy_true-unreach-call.i.cil.c
+/home/polaris/Desktop/seahorn/build/run/bin/seapp -o /tmp/sea-asorZ7/floppy_true-unreach-call.i.cil.pp.bc --strip-extern=true --devirt-functions --externalize-addr-taken-funcs --kill-vaarg=true /tmp/sea-asorZ7/floppy_true-unreach-call.i.cil.bc
+/home/polaris/Desktop/seahorn/build/run/bin/seapp -o /tmp/sea-asorZ7/floppy_true-unreach-call.i.cil.pp.ms.bc --horn-mixed-sem --ms-reduce-main /tmp/sea-asorZ7/floppy_true-unreach-call.i.cil.pp.bc
+/home/polaris/Desktop/seahorn/build/run/bin/seaopt -f -funit-at-a-time -o /tmp/sea-asorZ7/floppy_true-unreach-call.i.cil.pp.ms.o.bc -O3 --disable-loop-vectorization=true --disable-slp-vectorization=true --vectorize-slp-aggressive=false /tmp/sea-asorZ7/floppy_true-unreach-call.i.cil.pp.ms.bc
+/home/polaris/Desktop/seahorn/build/run/bin/seahorn --keep-shadows=true --horn-solve -horn-inter-proc -horn-sem-lvl=ptr --horn-step=large /tmp/sea-asorZ7/floppy_true-unreach-call.i.cil.pp.ms.o.bc --horn-global-constraints=true --horn-stats --horn-singleton-aliases=true --horn-pdr-contexts=600 --horn-ignore-calloc=false --horn-make-undef-warning-error=false --horn-answer
+unsat
+Function: FloppyDeviceControl
+FloppyDeviceControl@_1: true
+FloppyDeviceControl@_shadow.mem66.0: (FloppyDeviceControl@%ntStatus.0<=0)
+FloppyDeviceControl@FloppyQueueRequest.exit.split:
+		(((select(FloppyDeviceControl@%_3, @s)+(-1*select(FloppyDeviceControl@%shadow.mem43.6, @s)))<=0)||(select(FloppyDeviceControl@%shadow.mem43.6, @s)>=0))
+	((select(FloppyDeviceControl@%_21, @NP)+(-1*select(FloppyDeviceControl@%shadow.mem61.3, @NP)))<=0)
+	[||
+  (select(FloppyDeviceControl@%shadow.mem43.6, @s)+(-1*select(FloppyDeviceControl@%_3, @s)))<=0
+  select(FloppyDeviceControl@%shadow.mem43.6, @s)<=2
+  (select(FloppyDeviceControl@%shadow.mem55.3, @lowerDriverReturn)+(-1*FloppyDeviceControl@%.0))<=0
+]
+	[||
+  (select(FloppyDeviceControl@%shadow.mem43.6, @s)+(-1*select(FloppyDeviceControl@%_3, @s)))<=0
+  (FloppyDeviceControl@%.0+(-1*select(FloppyDeviceControl@%shadow.mem55.3, @lowerDriverReturn)))<=0
+  select(FloppyDeviceControl@%shadow.mem43.6, @s)<=3
+]
+	[||
+  !(select(FloppyDeviceControl@%_3, @s)>=1)
+  !(select(FloppyDeviceControl@%_12, @pended)>=0)
+  !(select(FloppyDeviceControl@%shadow.mem43.6, @s)>=1)
+  !(select(FloppyDeviceControl@%shadow.mem43.6, @s)<=1)
+  select(FloppyDeviceControl@%shadow.mem52.4, @pended)>=1
+  select(FloppyDeviceControl@%_21, @NP)<=0
+  select(FloppyDeviceControl@%_23, @SKIP1)<=0
+  !(select(FloppyDeviceControl@%_3, @s)<=1)
+]
+	[||
+  select(FloppyDeviceControl@%shadow.mem43.6, @s)<=2
+  select(FloppyDeviceControl@%shadow.mem43.6, @s)>=4
+  !(select(FloppyDeviceControl@%_3, @s)<=1)
+]
+	((select(FloppyDeviceControl@%_3, @s)>=2)||(select(FloppyDeviceControl@%shadow.mem43.6, @s)<=7))
+	[||
+  select(FloppyDeviceControl@%_21, @NP)<=0
+  select(FloppyDeviceControl@%shadow.mem43.6, @s)<=4
+  !(select(FloppyDeviceControl@%_3, @s)>=1)
+  select(FloppyDeviceControl@%_23, @SKIP1)<=0
+  !(select(FloppyDeviceControl@%_3, @s)<=1)
+]
+	[||
+  (select(FloppyDeviceControl@%_tail, @SKIP2)+(-1*select(FloppyDeviceControl@%shadow.mem69.3, @SKIP2)))<=0
+  select(FloppyDeviceControl@%shadow.mem43.6, @s)<=2
+  (select(FloppyDeviceControl@%shadow.mem43.6, @s)+(-1*select(FloppyDeviceControl@%_3, @s)))<=0
+]
+	[||
+  select(FloppyDeviceControl@%shadow.mem43.6, @s)>=4
+  select(FloppyDeviceControl@%shadow.mem43.6, @s)<=1
+  !(select(FloppyDeviceControl@%shadow.mem62.3, @DC)<=0)
+  !(select(FloppyDeviceControl@%shadow.mem62.3, @DC)>=0)
+  !(select(FloppyDeviceControl@%_3, @s)<=1)
+]
+	[||
+  select(FloppyDeviceControl@%shadow.mem43.6, @s)<=1
+  !(FloppyDeviceControl@%.0>=259)
+  select(FloppyDeviceControl@%shadow.mem43.6, @s)>=3
+  !(select(FloppyDeviceControl@%_3, @s)<=1)
+  !(FloppyDeviceControl@%.0<=259)
+]
+Function: FlQueueIrpToThread
+FlQueueIrpToThread@_1: true
+FlQueueIrpToThread@.split: [||
+  FlQueueIrpToThread@%.0<=-0x3ffffd2d
+  !(select(FlQueueIrpToThread@%_10, @pended)>=0)
+  select(FlQueueIrpToThread@%shadow.mem8.1, @pended)>=1
+]
+Function: IofCallDriver
+IofCallDriver@_1: true
+IofCallDriver@_shadow.mem11.0:
+		[||
+  !(select(IofCallDriver@%_3, @s)<=1)
+  select(IofCallDriver@%shadow.mem1.1, @s)<=6
+  !(select(IofCallDriver@%_3, @s)>=1)
+  select(IofCallDriver@%_12, @compRegistered)<=0
+]
+	((select(IofCallDriver@%_12, @compRegistered)<=0)||(select(IofCallDriver@%shadow.mem17.0, @setEventCalled)>=1))
+	[||
+  !(select(IofCallDriver@%_3, @s)<=1)
+  !(select(IofCallDriver@%_3, @s)>=1)
+  select(IofCallDriver@%_12, @compRegistered)<=0
+  select(IofCallDriver@%shadow.mem1.1, @s)>=1
+  IofCallDriver@%switch.select2>=259
+]
+	[||
+  !(select(IofCallDriver@%_3, @s)<=1)
+  !(select(IofCallDriver@%_3, @s)>=1)
+  select(IofCallDriver@%_5, @MPR3)<=0
+  select(IofCallDriver@%shadow.mem1.1, @s)>=1
+  select(IofCallDriver@%_12, @compRegistered)<=0
+]
+	(IofCallDriver@%switch.select2<=259)
+	[||
+  !(select(IofCallDriver@%_3, @s)<=1)
+  !(select(IofCallDriver@%_3, @s)>=1)
+  !(IofCallDriver@%switch.select2>=259)
+  select(IofCallDriver@%_18, @NP)<=0
+  select(IofCallDriver@%shadow.mem1.1, @s)<=0
+  select(IofCallDriver@%shadow.mem1.1, @s)>=6
+]
+	[||
+  IofCallDriver@%switch.select2>=259
+  (select(IofCallDriver@%shadow.mem1.1, @s)+(-1*select(IofCallDriver@%_3, @s)))<=0
+  !((!(IofCallDriver@%switch.select2<=0))||(!((select(IofCallDriver@%shadow.mem11.0, @lowerDriverReturn)+(-1*IofCallDriver@%switch.select2))<=0)))
+]
+	((!(select(IofCallDriver@%_3, @s)<=1))||(select(IofCallDriver@%shadow.mem1.1, @s)<=7))
+	(((select(IofCallDriver@%shadow.mem1.1, @s)+(-1*select(IofCallDriver@%_3, @s)))<=0)||((select(IofCallDriver@%shadow.mem11.0, @lowerDriverReturn)+(-1*IofCallDriver@%switch.select2))>=0))
+	(((select(IofCallDriver@%_3, @s)+(-1*select(IofCallDriver@%shadow.mem1.1, @s)))<=0)||(select(IofCallDriver@%shadow.mem1.1, @s)>=0))
+	[||
+  (select(IofCallDriver@%shadow.mem1.1, @s)+(-1*select(IofCallDriver@%_3, @s)))<=0
+  select(IofCallDriver@%shadow.mem1.1, @s)<=1
+  select(IofCallDriver@%shadow.mem1.1, @s)>=4
+]
+	[||
+  !(select(IofCallDriver@%_3, @s)<=1)
+  !(select(IofCallDriver@%_3, @s)>=1)
+  select(IofCallDriver@%shadow.mem1.1, @s)>=6
+  select(IofCallDriver@%shadow.mem1.1, @s)<=1
+]
+	[||
+  IofCallDriver@%switch.select2>=259
+  (select(IofCallDriver@%shadow.mem1.1, @s)+(-1*select(IofCallDriver@%_3, @s)))<=0
+  select(IofCallDriver@%shadow.mem1.1, @s)<=4
+  select(IofCallDriver@%shadow.mem1.1, @s)>=7
+]
+	[||
+  !(select(IofCallDriver@%_3, @s)<=1)
+  IofCallDriver@%switch.select2>=259
+  !(select(IofCallDriver@%_14, @IPC)>=0)
+  !(select(IofCallDriver@%_14, @IPC)<=0)
+  select(IofCallDriver@%shadow.mem1.1, @s)<=4
+]
+	[||
+  select(IofCallDriver@%_3, @s)<=1
+  select(IofCallDriver@%_3, @s)>=5
+  select(IofCallDriver@%shadow.mem1.1, @s)<=4
+]
+	(((select(IofCallDriver@%shadow.mem11.0, @lowerDriverReturn)+(-1*IofCallDriver@%switch.select2))<=0)||((select(IofCallDriver@%shadow.mem11.0, @lowerDriverReturn)+(-1*select(IofCallDriver@%_13, @lowerDriverReturn)))<=0))
+	[||
+  !(select(IofCallDriver@%_3, @s)<=3)
+  !(select(IofCallDriver@%_3, @s)>=3)
+  select(IofCallDriver@%shadow.mem1.1, @s)>=4
+  select(IofCallDriver@%_tail, @SKIP2)<=0
+  select(IofCallDriver@%_21, @SKIP1)<=0
+]
+	[||
+  !(select(IofCallDriver@%_3, @s)<=3)
+  select(IofCallDriver@%shadow.mem1.1, @s)>=4
+  !(select(IofCallDriver@%_3, @s)>=3)
+  select(IofCallDriver@%_21, @SKIP1)<=0
+  select(IofCallDriver@%shadow.mem1.1, @s)<=0
+]
+	[||
+  select(IofCallDriver@%shadow.mem1.1, @s)<=0
+  !(select(IofCallDriver@%_3, @s)<=3)
+  !(select(IofCallDriver@%_tail, @SKIP2)>=0)
+  !(select(IofCallDriver@%_tail, @SKIP2)<=0)
+  !(select(IofCallDriver@%_3, @s)>=3)
+  select(IofCallDriver@%_21, @SKIP1)<=0
+]
+	[||
+  !(select(IofCallDriver@%_3, @s)>=3)
+  select(IofCallDriver@%shadow.mem1.1, @s)>=4
+  select(IofCallDriver@%_21, @SKIP1)>=0
+  select(IofCallDriver@%shadow.mem1.1, @s)<=1
+]
+	(((select(IofCallDriver@%shadow.mem11.0, @lowerDriverReturn)+(-1*IofCallDriver@%switch.select2))<=0)||((select(IofCallDriver@%shadow.mem1.1, @s)+(-1*select(IofCallDriver@%_3, @s)))<=0))
+	[||
+  select(IofCallDriver@%_3, @s)>=1
+  !(select(IofCallDriver@%_12, @compRegistered)<=0)
+  select(IofCallDriver@%_7, @MPR1)<=0
+  select(IofCallDriver@%shadow.mem1.1, @s)>=7
+  !(select(IofCallDriver@%_12, @compRegistered)>=0)
+  select(IofCallDriver@%shadow.mem1.1, @s)<=4
+]
+	[||
+  (select(IofCallDriver@%_3, @s)+(-1*select(IofCallDriver@%shadow.mem1.1, @s)))<=0
+  select(IofCallDriver@%_3, @s)>=5
+  select(IofCallDriver@%shadow.mem1.1, @s)<=0
+]
+	[||
+  select(IofCallDriver@%_7, @MPR1)<=0
+  (select(IofCallDriver@%shadow.mem1.1, @s)+(-1*select(IofCallDriver@%_3, @s)))<=0
+  select(IofCallDriver@%shadow.mem1.1, @s)>=4
+]
+	[||
+  select(IofCallDriver@%shadow.mem1.1, @s)<=1
+  select(IofCallDriver@%_21, @SKIP1)>=0
+  !(select(IofCallDriver@%_tail, @SKIP2)>=0)
+  !(select(IofCallDriver@%_tail, @SKIP2)<=0)
+  !(select(IofCallDriver@%_3, @s)>=3)
+  select(IofCallDriver@%_3, @s)>=4
+]
+	[||
+  select(IofCallDriver@%shadow.mem1.1, @s)<=4
+  select(IofCallDriver@%_7, @MPR1)<=0
+  select(IofCallDriver@%_18, @NP)<=0
+  !(select(IofCallDriver@%_3, @s)<=0)
+]
+	[||
+  select(IofCallDriver@%_3, @s)>=1
+  IofCallDriver@%switch.select2>=259
+  !(select(IofCallDriver@%_tail, @SKIP2)>=0)
+  !(select(IofCallDriver@%_tail, @SKIP2)<=0)
+  select(IofCallDriver@%_18, @NP)<=0
+  select(IofCallDriver@%shadow.mem1.1, @s)<=1
+]
+	[||
+  !(select(IofCallDriver@%_tail, @SKIP2)>=0)
+  !(select(IofCallDriver@%_tail, @SKIP2)<=0)
+  (select(IofCallDriver@%shadow.mem1.1, @s)+(-1*select(IofCallDriver@%_3, @s)))<=0
+  !(select(IofCallDriver@%_3, @s)<=0)
+  select(IofCallDriver@%_18, @NP)<=0
+  select(IofCallDriver@%_7, @MPR1)<=0
+]
+Function: FlCheckFormatParameters
+FlCheckFormatParameters@_1: true
+FlCheckFormatParameters@_driveMediaType.06: true
+FlCheckFormatParameters@UnifiedReturnBlock.split: true
+Function: main
+main@entry: true
+main@_bb181:
+		(select(main@%_351, @SKIP2)>=1)
+	(select(main@%_349, @MPR3)>=1)
+	(select(main@%_339, @NP)>=1)
+	(select(main@%_340, @IPC)>=1)
+	(select(main@%shadow.mem84.1, @s)>=0)
+	(select(main@%shadow.mem84.1, @s)<=1)
+main@errorFn.split: false
+main@_bb309:
+		(select(main@%shadow.mem84.22, @s)<=1)
+	(select(main@%shadow.mem84.22, @s)>=1)
+	(select(main@%shadow.mem105.7, @NP)>=1)
+main@_bb405:
+		(select(main@%_2065, @NP)>=1)
+	(select(main@%shadow.mem84.44, @s)<=1)
+	(select(main@%shadow.mem84.44, @s)>=1)
+main@._crit_edge: true
+main@_bb412: false
+
+
+************** BRUNCH STATS ***************** 
+BRUNCH_STAT Result TRUE
+BRUNCH_STAT Horn 24.63
+BRUNCH_STAT HornClauseDB::loadZFixedPoint 0.09
+BRUNCH_STAT HornifyModule 0.30
+BRUNCH_STAT LargeHornifyFunction 0.22
+BRUNCH_STAT seahorn_total 25.13
+************** BRUNCH STATS END ***************** 

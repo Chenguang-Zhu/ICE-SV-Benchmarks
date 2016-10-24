@@ -1,0 +1,4047 @@
+REL NAME TO C5 NAME MAP:
+verifier.error, PRED_0
+isOdd@NodeBlock, PRED_1
+isOdd@tailrecurse, PRED_2
+isOdd@isEven.exit.split, PRED_3
+isOdd, PRED_4
+main@entry, PRED_5
+main@entry.split, PRED_6
+pos.query.pred, PRED_7
+(verifier.error V_0 V_1 V_2)
+(isOdd@NodeBlock V_0)
+(isOdd@tailrecurse V_0 V_1)
+(isOdd@isEven.exit.split V_0 V_1)
+(isOdd V_0 V_1 V_2 V_3 V_4)
+main@entry
+main@entry.split
+pos.query.pred
+DB: 
+Predicates:
+;[fdecl
+  verifier.error
+  BOOL
+  BOOL
+  BOOL
+  BOOL
+]
+[fdecl
+  isOdd@NodeBlock
+  INT
+  BOOL
+]
+[fdecl
+  isOdd@tailrecurse
+  INT
+  INT
+  BOOL
+]
+[fdecl
+  isOdd@isEven.exit.split
+  INT
+  INT
+  BOOL
+]
+[fdecl
+  isOdd
+  BOOL
+  BOOL
+  BOOL
+  INT
+  INT
+  BOOL
+]
+[fdecl
+  main@entry
+  BOOL
+]
+[fdecl
+  main@entry.split
+  BOOL
+]
+[fdecl
+  pos.query.pred
+  BOOL
+]
+Clauses:
+;(verifier.error false false false) <- true.
+(verifier.error false true true) <- true.
+(verifier.error true false true) <- true.
+(verifier.error true true true) <- true.
+(isOdd true true true isOdd@%n_0 isOdd@%.0_0) <- true.
+(isOdd false true true isOdd@%n_0 isOdd@%.0_0) <- true.
+(isOdd false false false isOdd@%n_0 isOdd@%.0_0) <- true.
+(isOdd@NodeBlock isOdd@%n_0) <- true.
+(isOdd@tailrecurse isOdd@%n.tr_1 isOdd@%n_0) <- ((isOdd@NodeBlock isOdd@%n_0)&&[&&
+  true
+  isOdd@tailrecurse_0->(isOdd@tailrecurse_0&&isOdd@NodeBlock_0)
+  isOdd@tailrecurse_0
+  isOdd@%n.tr_0=isOdd@%n_0
+  (isOdd@tailrecurse_0&&isOdd@NodeBlock_0)->(isOdd@%n.tr_1=isOdd@%n.tr_0)
+]).
+(isOdd@tailrecurse isOdd@%n.tr_2 isOdd@%n_0) <- ((isOdd@tailrecurse isOdd@%n.tr_0 isOdd@%n_0)&&[&&
+  true
+  isOdd@%Pivot_0<->(isOdd@%n.tr_0<1)
+  isOdd@LeafBlock1_0->(isOdd@LeafBlock1_0&&isOdd@tailrecurse_0)
+  (isOdd@LeafBlock1_0&&isOdd@tailrecurse_0)->(!isOdd@%Pivot_0)
+  isOdd@%SwitchLeaf2_0<->(isOdd@%n.tr_0=1)
+  isOdd@LeafBlock_0->(isOdd@LeafBlock_0&&isOdd@tailrecurse_0)
+  (isOdd@LeafBlock_0&&isOdd@tailrecurse_0)->isOdd@%Pivot_0
+  isOdd@%SwitchLeaf_0<->(isOdd@%n.tr_0=0)
+  tuple(isOdd@LeafBlock_0, isOdd@NewDefault_0)->isOdd@LeafBlock_0
+  tuple(isOdd@LeafBlock1_0, isOdd@NewDefault_0)->isOdd@LeafBlock1_0
+  isOdd@NewDefault_0->((isOdd@LeafBlock_0&&tuple(isOdd@LeafBlock_0, isOdd@NewDefault_0))||(isOdd@LeafBlock1_0&&tuple(isOdd@LeafBlock1_0, isOdd@NewDefault_0)))
+  (isOdd@LeafBlock_0&&tuple(isOdd@LeafBlock_0, isOdd@NewDefault_0))->(!isOdd@%SwitchLeaf_0)
+  (isOdd@LeafBlock1_0&&tuple(isOdd@LeafBlock1_0, isOdd@NewDefault_0))->(!isOdd@%SwitchLeaf2_0)
+  isOdd@%SwitchLeaf2.i_0<->(isOdd@%n.tr_0=2)
+  isOdd@%_0_0=(isOdd@%n.tr_0+-2)
+  isOdd@tailrecurse_1->(isOdd@tailrecurse_1&&isOdd@NewDefault_0)
+  isOdd@tailrecurse_1
+  (isOdd@tailrecurse_1&&isOdd@NewDefault_0)->(!isOdd@%SwitchLeaf2.i_0)
+  isOdd@%n.tr_1=isOdd@%_0_0
+  (isOdd@tailrecurse_1&&isOdd@NewDefault_0)->(isOdd@%n.tr_2=isOdd@%n.tr_1)
+]).
+(isOdd@isEven.exit.split isOdd@%.0_3 isOdd@%n_0) <- ((isOdd@tailrecurse isOdd@%n.tr_0 isOdd@%n_0)&&[&&
+  true
+  isOdd@%Pivot_0<->(isOdd@%n.tr_0<1)
+  isOdd@LeafBlock1_0->(isOdd@LeafBlock1_0&&isOdd@tailrecurse_0)
+  (isOdd@LeafBlock1_0&&isOdd@tailrecurse_0)->(!isOdd@%Pivot_0)
+  isOdd@%SwitchLeaf2_0<->(isOdd@%n.tr_0=1)
+  isOdd@LeafBlock_0->(isOdd@LeafBlock_0&&isOdd@tailrecurse_0)
+  (isOdd@LeafBlock_0&&isOdd@tailrecurse_0)->isOdd@%Pivot_0
+  isOdd@%SwitchLeaf_0<->(isOdd@%n.tr_0=0)
+  tuple(isOdd@LeafBlock_0, isOdd@NewDefault_0)->isOdd@LeafBlock_0
+  tuple(isOdd@LeafBlock1_0, isOdd@NewDefault_0)->isOdd@LeafBlock1_0
+  isOdd@NewDefault_0->((isOdd@LeafBlock_0&&tuple(isOdd@LeafBlock_0, isOdd@NewDefault_0))||(isOdd@LeafBlock1_0&&tuple(isOdd@LeafBlock1_0, isOdd@NewDefault_0)))
+  (isOdd@LeafBlock_0&&tuple(isOdd@LeafBlock_0, isOdd@NewDefault_0))->(!isOdd@%SwitchLeaf_0)
+  (isOdd@LeafBlock1_0&&tuple(isOdd@LeafBlock1_0, isOdd@NewDefault_0))->(!isOdd@%SwitchLeaf2_0)
+  isOdd@%SwitchLeaf2.i_0<->(isOdd@%n.tr_0=2)
+  isOdd@%_0_0=(isOdd@%n.tr_0+-2)
+  tuple(isOdd@NewDefault_0, isOdd@isEven.exit_0)->isOdd@NewDefault_0
+  tuple(isOdd@LeafBlock_0, isOdd@isEven.exit_0)->isOdd@LeafBlock_0
+  tuple(isOdd@LeafBlock1_0, isOdd@isEven.exit_0)->isOdd@LeafBlock1_0
+  isOdd@isEven.exit_0->[||
+    isOdd@NewDefault_0&&tuple(isOdd@NewDefault_0, isOdd@isEven.exit_0)
+    isOdd@LeafBlock_0&&tuple(isOdd@LeafBlock_0, isOdd@isEven.exit_0)
+    isOdd@LeafBlock1_0&&tuple(isOdd@LeafBlock1_0, isOdd@isEven.exit_0)
+  ]
+  (isOdd@NewDefault_0&&tuple(isOdd@NewDefault_0, isOdd@isEven.exit_0))->isOdd@%SwitchLeaf2.i_0
+  isOdd@%.0_0=0
+  (isOdd@LeafBlock_0&&tuple(isOdd@LeafBlock_0, isOdd@isEven.exit_0))->isOdd@%SwitchLeaf_0
+  isOdd@%.0_1=0
+  (isOdd@LeafBlock1_0&&tuple(isOdd@LeafBlock1_0, isOdd@isEven.exit_0))->isOdd@%SwitchLeaf2_0
+  isOdd@%.0_2=1
+  (isOdd@NewDefault_0&&tuple(isOdd@NewDefault_0, isOdd@isEven.exit_0))->(isOdd@%.0_3=isOdd@%.0_0)
+  (isOdd@LeafBlock_0&&tuple(isOdd@LeafBlock_0, isOdd@isEven.exit_0))->(isOdd@%.0_3=isOdd@%.0_1)
+  (isOdd@LeafBlock1_0&&tuple(isOdd@LeafBlock1_0, isOdd@isEven.exit_0))->(isOdd@%.0_3=isOdd@%.0_2)
+  isOdd@isEven.exit.split_0->(isOdd@isEven.exit.split_0&&isOdd@isEven.exit_0)
+  isOdd@isEven.exit.split_0
+]).
+(isOdd true false false isOdd@%n_0 isOdd@%.0_0) <- (isOdd@isEven.exit.split isOdd@%.0_0 isOdd@%n_0).
+main@entry <- true.
+main@entry.split <- (main@entry&&[&&
+  true
+  main@%_1_0<->(main@%_0_0<0)
+  !main@%_1_0
+  (isOdd true false false main@%_0_0 main@%_2_0)
+  main@%_3_0<->(main@%_2_0>-1)
+  !main@%_3_0
+  main@entry.split_0->(main@entry.split_0&&main@entry_0)
+  main@entry.split_0
+]).
+Queries:
+;main@entry.split
+ENTRY IS: main@entry
+=========================== POS START ============================
+VERIFY RULE: pos.query.pred <- ((isOdd@tailrecurse V_0 V_1)&&(!true))
+UNSAT
+VERIFY RULE: pos.query.pred <- ((isOdd@isEven.exit.split V_0 V_1)&&(!true))
+UNSAT
+VERIFY RULE: pos.query.pred <- (main@entry&&(!true))
+UNSAT
+VERIFY RULE: pos.query.pred <- (pos.query.pred&&(!true))
+UNSAT
+VERIFY RULE: pos.query.pred <- (main@entry.split&&(!true))
+UNSAT
+VERIFY RULE: pos.query.pred <- ((isOdd@NodeBlock V_0)&&(!true))
+UNSAT
+VERIFY RULE: pos.query.pred <- ((verifier.error V_0 V_1 V_2)&&(!true))
+UNSAT
+VERIFY RULE: pos.query.pred <- ((isOdd V_0 V_1 V_2 V_3 V_4)&&(!true))
+UNSAT
+==================================================================
+AFTER RESET DB IS:
+Predicates:
+;[fdecl
+  verifier.error
+  BOOL
+  BOOL
+  BOOL
+  BOOL
+]
+[fdecl
+  isOdd@NodeBlock
+  INT
+  BOOL
+]
+[fdecl
+  isOdd@tailrecurse
+  INT
+  INT
+  BOOL
+]
+[fdecl
+  isOdd@isEven.exit.split
+  INT
+  INT
+  BOOL
+]
+[fdecl
+  isOdd
+  BOOL
+  BOOL
+  BOOL
+  INT
+  INT
+  BOOL
+]
+[fdecl
+  main@entry
+  BOOL
+]
+[fdecl
+  main@entry.split
+  BOOL
+]
+[fdecl
+  pos.query.pred
+  BOOL
+]
+Clauses:
+;(verifier.error false false false) <- true.
+(verifier.error false true true) <- true.
+(verifier.error true false true) <- true.
+(verifier.error true true true) <- true.
+(isOdd true true true isOdd@%n_0 isOdd@%.0_0) <- true.
+(isOdd false true true isOdd@%n_0 isOdd@%.0_0) <- true.
+(isOdd false false false isOdd@%n_0 isOdd@%.0_0) <- true.
+(isOdd@NodeBlock isOdd@%n_0) <- true.
+(isOdd@tailrecurse isOdd@%n.tr_1 isOdd@%n_0) <- ((isOdd@NodeBlock isOdd@%n_0)&&[&&
+  true
+  isOdd@tailrecurse_0->(isOdd@tailrecurse_0&&isOdd@NodeBlock_0)
+  isOdd@tailrecurse_0
+  isOdd@%n.tr_0=isOdd@%n_0
+  (isOdd@tailrecurse_0&&isOdd@NodeBlock_0)->(isOdd@%n.tr_1=isOdd@%n.tr_0)
+]).
+(isOdd@tailrecurse isOdd@%n.tr_2 isOdd@%n_0) <- ((isOdd@tailrecurse isOdd@%n.tr_0 isOdd@%n_0)&&[&&
+  true
+  isOdd@%Pivot_0<->(isOdd@%n.tr_0<1)
+  isOdd@LeafBlock1_0->(isOdd@LeafBlock1_0&&isOdd@tailrecurse_0)
+  (isOdd@LeafBlock1_0&&isOdd@tailrecurse_0)->(!isOdd@%Pivot_0)
+  isOdd@%SwitchLeaf2_0<->(isOdd@%n.tr_0=1)
+  isOdd@LeafBlock_0->(isOdd@LeafBlock_0&&isOdd@tailrecurse_0)
+  (isOdd@LeafBlock_0&&isOdd@tailrecurse_0)->isOdd@%Pivot_0
+  isOdd@%SwitchLeaf_0<->(isOdd@%n.tr_0=0)
+  tuple(isOdd@LeafBlock_0, isOdd@NewDefault_0)->isOdd@LeafBlock_0
+  tuple(isOdd@LeafBlock1_0, isOdd@NewDefault_0)->isOdd@LeafBlock1_0
+  isOdd@NewDefault_0->((isOdd@LeafBlock_0&&tuple(isOdd@LeafBlock_0, isOdd@NewDefault_0))||(isOdd@LeafBlock1_0&&tuple(isOdd@LeafBlock1_0, isOdd@NewDefault_0)))
+  (isOdd@LeafBlock_0&&tuple(isOdd@LeafBlock_0, isOdd@NewDefault_0))->(!isOdd@%SwitchLeaf_0)
+  (isOdd@LeafBlock1_0&&tuple(isOdd@LeafBlock1_0, isOdd@NewDefault_0))->(!isOdd@%SwitchLeaf2_0)
+  isOdd@%SwitchLeaf2.i_0<->(isOdd@%n.tr_0=2)
+  isOdd@%_0_0=(isOdd@%n.tr_0+-2)
+  isOdd@tailrecurse_1->(isOdd@tailrecurse_1&&isOdd@NewDefault_0)
+  isOdd@tailrecurse_1
+  (isOdd@tailrecurse_1&&isOdd@NewDefault_0)->(!isOdd@%SwitchLeaf2.i_0)
+  isOdd@%n.tr_1=isOdd@%_0_0
+  (isOdd@tailrecurse_1&&isOdd@NewDefault_0)->(isOdd@%n.tr_2=isOdd@%n.tr_1)
+]).
+(isOdd@isEven.exit.split isOdd@%.0_3 isOdd@%n_0) <- ((isOdd@tailrecurse isOdd@%n.tr_0 isOdd@%n_0)&&[&&
+  true
+  isOdd@%Pivot_0<->(isOdd@%n.tr_0<1)
+  isOdd@LeafBlock1_0->(isOdd@LeafBlock1_0&&isOdd@tailrecurse_0)
+  (isOdd@LeafBlock1_0&&isOdd@tailrecurse_0)->(!isOdd@%Pivot_0)
+  isOdd@%SwitchLeaf2_0<->(isOdd@%n.tr_0=1)
+  isOdd@LeafBlock_0->(isOdd@LeafBlock_0&&isOdd@tailrecurse_0)
+  (isOdd@LeafBlock_0&&isOdd@tailrecurse_0)->isOdd@%Pivot_0
+  isOdd@%SwitchLeaf_0<->(isOdd@%n.tr_0=0)
+  tuple(isOdd@LeafBlock_0, isOdd@NewDefault_0)->isOdd@LeafBlock_0
+  tuple(isOdd@LeafBlock1_0, isOdd@NewDefault_0)->isOdd@LeafBlock1_0
+  isOdd@NewDefault_0->((isOdd@LeafBlock_0&&tuple(isOdd@LeafBlock_0, isOdd@NewDefault_0))||(isOdd@LeafBlock1_0&&tuple(isOdd@LeafBlock1_0, isOdd@NewDefault_0)))
+  (isOdd@LeafBlock_0&&tuple(isOdd@LeafBlock_0, isOdd@NewDefault_0))->(!isOdd@%SwitchLeaf_0)
+  (isOdd@LeafBlock1_0&&tuple(isOdd@LeafBlock1_0, isOdd@NewDefault_0))->(!isOdd@%SwitchLeaf2_0)
+  isOdd@%SwitchLeaf2.i_0<->(isOdd@%n.tr_0=2)
+  isOdd@%_0_0=(isOdd@%n.tr_0+-2)
+  tuple(isOdd@NewDefault_0, isOdd@isEven.exit_0)->isOdd@NewDefault_0
+  tuple(isOdd@LeafBlock_0, isOdd@isEven.exit_0)->isOdd@LeafBlock_0
+  tuple(isOdd@LeafBlock1_0, isOdd@isEven.exit_0)->isOdd@LeafBlock1_0
+  isOdd@isEven.exit_0->[||
+    isOdd@NewDefault_0&&tuple(isOdd@NewDefault_0, isOdd@isEven.exit_0)
+    isOdd@LeafBlock_0&&tuple(isOdd@LeafBlock_0, isOdd@isEven.exit_0)
+    isOdd@LeafBlock1_0&&tuple(isOdd@LeafBlock1_0, isOdd@isEven.exit_0)
+  ]
+  (isOdd@NewDefault_0&&tuple(isOdd@NewDefault_0, isOdd@isEven.exit_0))->isOdd@%SwitchLeaf2.i_0
+  isOdd@%.0_0=0
+  (isOdd@LeafBlock_0&&tuple(isOdd@LeafBlock_0, isOdd@isEven.exit_0))->isOdd@%SwitchLeaf_0
+  isOdd@%.0_1=0
+  (isOdd@LeafBlock1_0&&tuple(isOdd@LeafBlock1_0, isOdd@isEven.exit_0))->isOdd@%SwitchLeaf2_0
+  isOdd@%.0_2=1
+  (isOdd@NewDefault_0&&tuple(isOdd@NewDefault_0, isOdd@isEven.exit_0))->(isOdd@%.0_3=isOdd@%.0_0)
+  (isOdd@LeafBlock_0&&tuple(isOdd@LeafBlock_0, isOdd@isEven.exit_0))->(isOdd@%.0_3=isOdd@%.0_1)
+  (isOdd@LeafBlock1_0&&tuple(isOdd@LeafBlock1_0, isOdd@isEven.exit_0))->(isOdd@%.0_3=isOdd@%.0_2)
+  isOdd@isEven.exit.split_0->(isOdd@isEven.exit.split_0&&isOdd@isEven.exit_0)
+  isOdd@isEven.exit.split_0
+]).
+(isOdd true false false isOdd@%n_0 isOdd@%.0_0) <- (isOdd@isEven.exit.split isOdd@%.0_0 isOdd@%n_0).
+main@entry <- true.
+main@entry.split <- (main@entry&&[&&
+  true
+  main@%_1_0<->(main@%_0_0<0)
+  !main@%_1_0
+  (isOdd true false false main@%_0_0 main@%_2_0)
+  main@%_3_0<->(main@%_2_0>-1)
+  !main@%_3_0
+  main@entry.split_0->(main@entry.split_0&&main@entry_0)
+  main@entry.split_0
+]).
+Queries:
+;main@entry.split
+=========================== NEG START ============================
+VERIFY RULE: (isOdd@isEven.exit.split V_0 V_1) <- (main@entry&&true)
+SAT, NEED TO ADD NEGATIVE DATA POINT
+[&&
+  main@entry.split
+  main@entry
+  (isOdd true false false 0 -1)
+  (isOdd@isEven.exit.split -1 0)
+  main@entry
+]
+NEG CEX IS: (isOdd@isEven.exit.split -1 0)
+ANSWER ARGS:
+-1
+0
+NEG CEX, INDEX IS 0
+VERIFY RULE: (isOdd@tailrecurse V_0 V_1) <- (main@entry&&true)
+UNSAT
+VERIFY RULE: main@entry.split <- (main@entry&&true)
+SAT, NEED TO ADD NEGATIVE DATA POINT
+(main@entry.split&&main@entry)
+NEG CEX IS: main@entry.split
+ANSWER ARGS:
+NEG CEX, INDEX IS 1
+VERIFY RULE: main@entry <- true
+UNSAT
+VERIFY RULE: pos.query.pred <- (main@entry&&true)
+UNSAT
+VERIFY RULE: (isOdd@NodeBlock V_0) <- (main@entry&&true)
+UNSAT
+VERIFY RULE: (verifier.error V_0 V_1 V_2) <- (main@entry&&true)
+UNSAT
+VERIFY RULE: (isOdd V_0 V_1 V_2 V_3 V_4) <- (main@entry&&true)
+SAT, NEED TO ADD NEGATIVE DATA POINT
+[&&
+  main@entry.split
+  main@entry
+  (isOdd true false false 0 -1)
+  main@entry
+]
+NEG CEX IS: (isOdd true false false 0 -1)
+ANSWER ARGS:
+true
+false
+false
+0
+-1
+NEG CEX, INDEX IS 2
+==================================================================
+AFTER RESET DB IS:
+Predicates:
+;[fdecl
+  verifier.error
+  BOOL
+  BOOL
+  BOOL
+  BOOL
+]
+[fdecl
+  isOdd@NodeBlock
+  INT
+  BOOL
+]
+[fdecl
+  isOdd@tailrecurse
+  INT
+  INT
+  BOOL
+]
+[fdecl
+  isOdd@isEven.exit.split
+  INT
+  INT
+  BOOL
+]
+[fdecl
+  isOdd
+  BOOL
+  BOOL
+  BOOL
+  INT
+  INT
+  BOOL
+]
+[fdecl
+  main@entry
+  BOOL
+]
+[fdecl
+  main@entry.split
+  BOOL
+]
+[fdecl
+  pos.query.pred
+  BOOL
+]
+Clauses:
+;(verifier.error false false false) <- true.
+(verifier.error false true true) <- true.
+(verifier.error true false true) <- true.
+(verifier.error true true true) <- true.
+(isOdd true true true isOdd@%n_0 isOdd@%.0_0) <- true.
+(isOdd false true true isOdd@%n_0 isOdd@%.0_0) <- true.
+(isOdd false false false isOdd@%n_0 isOdd@%.0_0) <- true.
+(isOdd@NodeBlock isOdd@%n_0) <- true.
+(isOdd@tailrecurse isOdd@%n.tr_1 isOdd@%n_0) <- ((isOdd@NodeBlock isOdd@%n_0)&&[&&
+  true
+  isOdd@tailrecurse_0->(isOdd@tailrecurse_0&&isOdd@NodeBlock_0)
+  isOdd@tailrecurse_0
+  isOdd@%n.tr_0=isOdd@%n_0
+  (isOdd@tailrecurse_0&&isOdd@NodeBlock_0)->(isOdd@%n.tr_1=isOdd@%n.tr_0)
+]).
+(isOdd@tailrecurse isOdd@%n.tr_2 isOdd@%n_0) <- ((isOdd@tailrecurse isOdd@%n.tr_0 isOdd@%n_0)&&[&&
+  true
+  isOdd@%Pivot_0<->(isOdd@%n.tr_0<1)
+  isOdd@LeafBlock1_0->(isOdd@LeafBlock1_0&&isOdd@tailrecurse_0)
+  (isOdd@LeafBlock1_0&&isOdd@tailrecurse_0)->(!isOdd@%Pivot_0)
+  isOdd@%SwitchLeaf2_0<->(isOdd@%n.tr_0=1)
+  isOdd@LeafBlock_0->(isOdd@LeafBlock_0&&isOdd@tailrecurse_0)
+  (isOdd@LeafBlock_0&&isOdd@tailrecurse_0)->isOdd@%Pivot_0
+  isOdd@%SwitchLeaf_0<->(isOdd@%n.tr_0=0)
+  tuple(isOdd@LeafBlock_0, isOdd@NewDefault_0)->isOdd@LeafBlock_0
+  tuple(isOdd@LeafBlock1_0, isOdd@NewDefault_0)->isOdd@LeafBlock1_0
+  isOdd@NewDefault_0->((isOdd@LeafBlock_0&&tuple(isOdd@LeafBlock_0, isOdd@NewDefault_0))||(isOdd@LeafBlock1_0&&tuple(isOdd@LeafBlock1_0, isOdd@NewDefault_0)))
+  (isOdd@LeafBlock_0&&tuple(isOdd@LeafBlock_0, isOdd@NewDefault_0))->(!isOdd@%SwitchLeaf_0)
+  (isOdd@LeafBlock1_0&&tuple(isOdd@LeafBlock1_0, isOdd@NewDefault_0))->(!isOdd@%SwitchLeaf2_0)
+  isOdd@%SwitchLeaf2.i_0<->(isOdd@%n.tr_0=2)
+  isOdd@%_0_0=(isOdd@%n.tr_0+-2)
+  isOdd@tailrecurse_1->(isOdd@tailrecurse_1&&isOdd@NewDefault_0)
+  isOdd@tailrecurse_1
+  (isOdd@tailrecurse_1&&isOdd@NewDefault_0)->(!isOdd@%SwitchLeaf2.i_0)
+  isOdd@%n.tr_1=isOdd@%_0_0
+  (isOdd@tailrecurse_1&&isOdd@NewDefault_0)->(isOdd@%n.tr_2=isOdd@%n.tr_1)
+]).
+(isOdd@isEven.exit.split isOdd@%.0_3 isOdd@%n_0) <- ((isOdd@tailrecurse isOdd@%n.tr_0 isOdd@%n_0)&&[&&
+  true
+  isOdd@%Pivot_0<->(isOdd@%n.tr_0<1)
+  isOdd@LeafBlock1_0->(isOdd@LeafBlock1_0&&isOdd@tailrecurse_0)
+  (isOdd@LeafBlock1_0&&isOdd@tailrecurse_0)->(!isOdd@%Pivot_0)
+  isOdd@%SwitchLeaf2_0<->(isOdd@%n.tr_0=1)
+  isOdd@LeafBlock_0->(isOdd@LeafBlock_0&&isOdd@tailrecurse_0)
+  (isOdd@LeafBlock_0&&isOdd@tailrecurse_0)->isOdd@%Pivot_0
+  isOdd@%SwitchLeaf_0<->(isOdd@%n.tr_0=0)
+  tuple(isOdd@LeafBlock_0, isOdd@NewDefault_0)->isOdd@LeafBlock_0
+  tuple(isOdd@LeafBlock1_0, isOdd@NewDefault_0)->isOdd@LeafBlock1_0
+  isOdd@NewDefault_0->((isOdd@LeafBlock_0&&tuple(isOdd@LeafBlock_0, isOdd@NewDefault_0))||(isOdd@LeafBlock1_0&&tuple(isOdd@LeafBlock1_0, isOdd@NewDefault_0)))
+  (isOdd@LeafBlock_0&&tuple(isOdd@LeafBlock_0, isOdd@NewDefault_0))->(!isOdd@%SwitchLeaf_0)
+  (isOdd@LeafBlock1_0&&tuple(isOdd@LeafBlock1_0, isOdd@NewDefault_0))->(!isOdd@%SwitchLeaf2_0)
+  isOdd@%SwitchLeaf2.i_0<->(isOdd@%n.tr_0=2)
+  isOdd@%_0_0=(isOdd@%n.tr_0+-2)
+  tuple(isOdd@NewDefault_0, isOdd@isEven.exit_0)->isOdd@NewDefault_0
+  tuple(isOdd@LeafBlock_0, isOdd@isEven.exit_0)->isOdd@LeafBlock_0
+  tuple(isOdd@LeafBlock1_0, isOdd@isEven.exit_0)->isOdd@LeafBlock1_0
+  isOdd@isEven.exit_0->[||
+    isOdd@NewDefault_0&&tuple(isOdd@NewDefault_0, isOdd@isEven.exit_0)
+    isOdd@LeafBlock_0&&tuple(isOdd@LeafBlock_0, isOdd@isEven.exit_0)
+    isOdd@LeafBlock1_0&&tuple(isOdd@LeafBlock1_0, isOdd@isEven.exit_0)
+  ]
+  (isOdd@NewDefault_0&&tuple(isOdd@NewDefault_0, isOdd@isEven.exit_0))->isOdd@%SwitchLeaf2.i_0
+  isOdd@%.0_0=0
+  (isOdd@LeafBlock_0&&tuple(isOdd@LeafBlock_0, isOdd@isEven.exit_0))->isOdd@%SwitchLeaf_0
+  isOdd@%.0_1=0
+  (isOdd@LeafBlock1_0&&tuple(isOdd@LeafBlock1_0, isOdd@isEven.exit_0))->isOdd@%SwitchLeaf2_0
+  isOdd@%.0_2=1
+  (isOdd@NewDefault_0&&tuple(isOdd@NewDefault_0, isOdd@isEven.exit_0))->(isOdd@%.0_3=isOdd@%.0_0)
+  (isOdd@LeafBlock_0&&tuple(isOdd@LeafBlock_0, isOdd@isEven.exit_0))->(isOdd@%.0_3=isOdd@%.0_1)
+  (isOdd@LeafBlock1_0&&tuple(isOdd@LeafBlock1_0, isOdd@isEven.exit_0))->(isOdd@%.0_3=isOdd@%.0_2)
+  isOdd@isEven.exit.split_0->(isOdd@isEven.exit.split_0&&isOdd@isEven.exit_0)
+  isOdd@isEven.exit.split_0
+]).
+(isOdd true false false isOdd@%n_0 isOdd@%.0_0) <- (isOdd@isEven.exit.split isOdd@%.0_0 isOdd@%n_0).
+main@entry <- true.
+main@entry.split <- (main@entry&&[&&
+  true
+  main@%_1_0<->(main@%_0_0<0)
+  !main@%_1_0
+  (isOdd true false false main@%_0_0 main@%_2_0)
+  main@%_3_0<->(main@%_2_0>-1)
+  !main@%_3_0
+  main@entry.split_0->(main@entry.split_0&&main@entry_0)
+  main@entry.split_0
+]).
+Queries:
+;main@entry.split
+=========================== IMPL START ============================
+(declare-fun isOdd@%n.tr_2 () Int)
+(declare-fun isOdd@%n.tr_1 () Int)
+(declare-fun isOdd@tailrecurse_1 () Bool)
+(declare-fun isOdd@%_0_0 () Int)
+(declare-fun isOdd@%SwitchLeaf2.i_0 () Bool)
+(declare-fun isOdd@%Pivot_0 () Bool)
+(declare-fun isOdd@%n.tr_0 () Int)
+(declare-fun |tuple(isOdd@LeafBlock_0, isOdd@NewDefault_0)| () Bool)
+(declare-fun isOdd@LeafBlock1_0 () Bool)
+(declare-fun isOdd@tailrecurse_0 () Bool)
+(declare-fun isOdd@%SwitchLeaf_0 () Bool)
+(declare-fun isOdd@%SwitchLeaf2_0 () Bool)
+(declare-fun isOdd@LeafBlock_0 () Bool)
+(declare-fun |tuple(isOdd@LeafBlock1_0, isOdd@NewDefault_0)| () Bool)
+(declare-fun isOdd@NewDefault_0 () Bool)
+
+(assert (not true))
+(assert true)
+(assert (and true
+     true
+     (= isOdd@%Pivot_0 (< isOdd@%n.tr_0 1))
+     (=> isOdd@LeafBlock1_0 (and isOdd@LeafBlock1_0 isOdd@tailrecurse_0))
+     (=> (and isOdd@LeafBlock1_0 isOdd@tailrecurse_0) (not isOdd@%Pivot_0))
+     (= isOdd@%SwitchLeaf2_0 (= isOdd@%n.tr_0 1))
+     (=> isOdd@LeafBlock_0 (and isOdd@LeafBlock_0 isOdd@tailrecurse_0))
+     (=> (and isOdd@LeafBlock_0 isOdd@tailrecurse_0) isOdd@%Pivot_0)
+     (= isOdd@%SwitchLeaf_0 (= isOdd@%n.tr_0 0))
+     (=> |tuple(isOdd@LeafBlock_0, isOdd@NewDefault_0)| isOdd@LeafBlock_0)
+     (=> |tuple(isOdd@LeafBlock1_0, isOdd@NewDefault_0)| isOdd@LeafBlock1_0)
+     (=> isOdd@NewDefault_0
+         (or (and isOdd@LeafBlock_0
+                  |tuple(isOdd@LeafBlock_0, isOdd@NewDefault_0)|)
+             (and isOdd@LeafBlock1_0
+                  |tuple(isOdd@LeafBlock1_0, isOdd@NewDefault_0)|)))
+     (=> (and isOdd@LeafBlock_0 |tuple(isOdd@LeafBlock_0, isOdd@NewDefault_0)|)
+         (not isOdd@%SwitchLeaf_0))
+     (=> (and isOdd@LeafBlock1_0
+              |tuple(isOdd@LeafBlock1_0, isOdd@NewDefault_0)|)
+         (not isOdd@%SwitchLeaf2_0))
+     (= isOdd@%SwitchLeaf2.i_0 (= isOdd@%n.tr_0 2))
+     (= isOdd@%_0_0 (+ isOdd@%n.tr_0 (- 2)))
+     (=> isOdd@tailrecurse_1 (and isOdd@tailrecurse_1 isOdd@NewDefault_0))
+     isOdd@tailrecurse_1
+     (=> (and isOdd@tailrecurse_1 isOdd@NewDefault_0)
+         (not isOdd@%SwitchLeaf2.i_0))
+     (= isOdd@%n.tr_1 isOdd@%_0_0)
+     (=> (and isOdd@tailrecurse_1 isOdd@NewDefault_0)
+         (= isOdd@%n.tr_2 isOdd@%n.tr_1))))
+(check-sat)
+UNSAT
+==================================================================
+DATA & IMPL FILES ARE GENERATED
+TAG: PRED_0
+NEW CANDIDATE: true
+TAG: PRED_1
+NEW CANDIDATE: true
+TAG: PRED_2
+NEW CANDIDATE: true
+TAG: PRED_3
+NEW CANDIDATE: false
+TAG: PRED_4
+NEW CANDIDATE: false
+TAG: PRED_5
+NEW CANDIDATE: true
+TAG: PRED_6
+NEW CANDIDATE: false
+TAG: PRED_7
+NEW CANDIDATE: true
+NEW CANDIDATES MAP:
+(verifier.error V_0 V_1 V_2) : true
+(isOdd@NodeBlock V_0) : true
+(isOdd@tailrecurse V_0 V_1) : true
+(isOdd@isEven.exit.split V_0 V_1) : false
+(isOdd V_0 V_1 V_2 V_3 V_4) : false
+main@entry : true
+main@entry.split : false
+pos.query.pred : true
+ENTRY IS: main@entry
+=========================== POS START ============================
+VERIFY RULE: pos.query.pred <- ((isOdd@tailrecurse V_0 V_1)&&(!true))
+UNSAT
+VERIFY RULE: pos.query.pred <- ((isOdd@isEven.exit.split V_0 V_1)&&(!false))
+SAT, NEED TO ADD POSITIVE DATA POINT
+[&&
+  pos.query.pred
+  (isOdd@isEven.exit.split 0 0)
+  (isOdd@tailrecurse 0 0)
+  (isOdd@NodeBlock 0)
+]
+POS OBJ PRED: (isOdd@isEven.exit.split V_0 V_1)
+POS CEX IS: (isOdd@isEven.exit.split 0 0)
+ANSWER ARGS:
+0
+0
+POS CEX, INDEX IS 3
+VERIFY RULE: pos.query.pred <- (pos.query.pred&&(!true))
+UNSAT
+VERIFY RULE: pos.query.pred <- (main@entry.split&&(!false))
+UNSAT
+VERIFY RULE: pos.query.pred <- (main@entry&&(!true))
+UNSAT
+VERIFY RULE: pos.query.pred <- ((isOdd@NodeBlock V_0)&&(!true))
+UNSAT
+VERIFY RULE: pos.query.pred <- ((verifier.error V_0 V_1 V_2)&&(!true))
+UNSAT
+VERIFY RULE: pos.query.pred <- ((isOdd V_0 V_1 V_2 V_3 V_4)&&(!false))
+SAT, NEED TO ADD POSITIVE DATA POINT
+(pos.query.pred&&(isOdd false false false isOdd_3_0 isOdd_4_0))
+POS OBJ PRED: (isOdd V_0 V_1 V_2 V_3 V_4)
+POS CEX IS: (isOdd false false false isOdd_3_0 isOdd_4_0)
+ANSWER ARGS:
+false
+false
+false
+isOdd_3_0
+UNCERTAIN VALUE: isOdd_3_0
+isOdd_4_0
+UNCERTAIN VALUE: isOdd_4_0
+POS CEX, INDEX IS 4
+==================================================================
+AFTER RESET DB IS:
+Predicates:
+;[fdecl
+  verifier.error
+  BOOL
+  BOOL
+  BOOL
+  BOOL
+]
+[fdecl
+  isOdd@NodeBlock
+  INT
+  BOOL
+]
+[fdecl
+  isOdd@tailrecurse
+  INT
+  INT
+  BOOL
+]
+[fdecl
+  isOdd@isEven.exit.split
+  INT
+  INT
+  BOOL
+]
+[fdecl
+  isOdd
+  BOOL
+  BOOL
+  BOOL
+  INT
+  INT
+  BOOL
+]
+[fdecl
+  main@entry
+  BOOL
+]
+[fdecl
+  main@entry.split
+  BOOL
+]
+[fdecl
+  pos.query.pred
+  BOOL
+]
+Clauses:
+;(verifier.error false false false) <- true.
+(verifier.error false true true) <- true.
+(verifier.error true false true) <- true.
+(verifier.error true true true) <- true.
+(isOdd true true true isOdd@%n_0 isOdd@%.0_0) <- true.
+(isOdd false true true isOdd@%n_0 isOdd@%.0_0) <- true.
+(isOdd false false false isOdd@%n_0 isOdd@%.0_0) <- true.
+(isOdd@NodeBlock isOdd@%n_0) <- true.
+(isOdd@tailrecurse isOdd@%n.tr_1 isOdd@%n_0) <- ((isOdd@NodeBlock isOdd@%n_0)&&[&&
+  true
+  isOdd@tailrecurse_0->(isOdd@tailrecurse_0&&isOdd@NodeBlock_0)
+  isOdd@tailrecurse_0
+  isOdd@%n.tr_0=isOdd@%n_0
+  (isOdd@tailrecurse_0&&isOdd@NodeBlock_0)->(isOdd@%n.tr_1=isOdd@%n.tr_0)
+]).
+(isOdd@tailrecurse isOdd@%n.tr_2 isOdd@%n_0) <- ((isOdd@tailrecurse isOdd@%n.tr_0 isOdd@%n_0)&&[&&
+  true
+  isOdd@%Pivot_0<->(isOdd@%n.tr_0<1)
+  isOdd@LeafBlock1_0->(isOdd@LeafBlock1_0&&isOdd@tailrecurse_0)
+  (isOdd@LeafBlock1_0&&isOdd@tailrecurse_0)->(!isOdd@%Pivot_0)
+  isOdd@%SwitchLeaf2_0<->(isOdd@%n.tr_0=1)
+  isOdd@LeafBlock_0->(isOdd@LeafBlock_0&&isOdd@tailrecurse_0)
+  (isOdd@LeafBlock_0&&isOdd@tailrecurse_0)->isOdd@%Pivot_0
+  isOdd@%SwitchLeaf_0<->(isOdd@%n.tr_0=0)
+  tuple(isOdd@LeafBlock_0, isOdd@NewDefault_0)->isOdd@LeafBlock_0
+  tuple(isOdd@LeafBlock1_0, isOdd@NewDefault_0)->isOdd@LeafBlock1_0
+  isOdd@NewDefault_0->((isOdd@LeafBlock_0&&tuple(isOdd@LeafBlock_0, isOdd@NewDefault_0))||(isOdd@LeafBlock1_0&&tuple(isOdd@LeafBlock1_0, isOdd@NewDefault_0)))
+  (isOdd@LeafBlock_0&&tuple(isOdd@LeafBlock_0, isOdd@NewDefault_0))->(!isOdd@%SwitchLeaf_0)
+  (isOdd@LeafBlock1_0&&tuple(isOdd@LeafBlock1_0, isOdd@NewDefault_0))->(!isOdd@%SwitchLeaf2_0)
+  isOdd@%SwitchLeaf2.i_0<->(isOdd@%n.tr_0=2)
+  isOdd@%_0_0=(isOdd@%n.tr_0+-2)
+  isOdd@tailrecurse_1->(isOdd@tailrecurse_1&&isOdd@NewDefault_0)
+  isOdd@tailrecurse_1
+  (isOdd@tailrecurse_1&&isOdd@NewDefault_0)->(!isOdd@%SwitchLeaf2.i_0)
+  isOdd@%n.tr_1=isOdd@%_0_0
+  (isOdd@tailrecurse_1&&isOdd@NewDefault_0)->(isOdd@%n.tr_2=isOdd@%n.tr_1)
+]).
+(isOdd@isEven.exit.split isOdd@%.0_3 isOdd@%n_0) <- ((isOdd@tailrecurse isOdd@%n.tr_0 isOdd@%n_0)&&[&&
+  true
+  isOdd@%Pivot_0<->(isOdd@%n.tr_0<1)
+  isOdd@LeafBlock1_0->(isOdd@LeafBlock1_0&&isOdd@tailrecurse_0)
+  (isOdd@LeafBlock1_0&&isOdd@tailrecurse_0)->(!isOdd@%Pivot_0)
+  isOdd@%SwitchLeaf2_0<->(isOdd@%n.tr_0=1)
+  isOdd@LeafBlock_0->(isOdd@LeafBlock_0&&isOdd@tailrecurse_0)
+  (isOdd@LeafBlock_0&&isOdd@tailrecurse_0)->isOdd@%Pivot_0
+  isOdd@%SwitchLeaf_0<->(isOdd@%n.tr_0=0)
+  tuple(isOdd@LeafBlock_0, isOdd@NewDefault_0)->isOdd@LeafBlock_0
+  tuple(isOdd@LeafBlock1_0, isOdd@NewDefault_0)->isOdd@LeafBlock1_0
+  isOdd@NewDefault_0->((isOdd@LeafBlock_0&&tuple(isOdd@LeafBlock_0, isOdd@NewDefault_0))||(isOdd@LeafBlock1_0&&tuple(isOdd@LeafBlock1_0, isOdd@NewDefault_0)))
+  (isOdd@LeafBlock_0&&tuple(isOdd@LeafBlock_0, isOdd@NewDefault_0))->(!isOdd@%SwitchLeaf_0)
+  (isOdd@LeafBlock1_0&&tuple(isOdd@LeafBlock1_0, isOdd@NewDefault_0))->(!isOdd@%SwitchLeaf2_0)
+  isOdd@%SwitchLeaf2.i_0<->(isOdd@%n.tr_0=2)
+  isOdd@%_0_0=(isOdd@%n.tr_0+-2)
+  tuple(isOdd@NewDefault_0, isOdd@isEven.exit_0)->isOdd@NewDefault_0
+  tuple(isOdd@LeafBlock_0, isOdd@isEven.exit_0)->isOdd@LeafBlock_0
+  tuple(isOdd@LeafBlock1_0, isOdd@isEven.exit_0)->isOdd@LeafBlock1_0
+  isOdd@isEven.exit_0->[||
+    isOdd@NewDefault_0&&tuple(isOdd@NewDefault_0, isOdd@isEven.exit_0)
+    isOdd@LeafBlock_0&&tuple(isOdd@LeafBlock_0, isOdd@isEven.exit_0)
+    isOdd@LeafBlock1_0&&tuple(isOdd@LeafBlock1_0, isOdd@isEven.exit_0)
+  ]
+  (isOdd@NewDefault_0&&tuple(isOdd@NewDefault_0, isOdd@isEven.exit_0))->isOdd@%SwitchLeaf2.i_0
+  isOdd@%.0_0=0
+  (isOdd@LeafBlock_0&&tuple(isOdd@LeafBlock_0, isOdd@isEven.exit_0))->isOdd@%SwitchLeaf_0
+  isOdd@%.0_1=0
+  (isOdd@LeafBlock1_0&&tuple(isOdd@LeafBlock1_0, isOdd@isEven.exit_0))->isOdd@%SwitchLeaf2_0
+  isOdd@%.0_2=1
+  (isOdd@NewDefault_0&&tuple(isOdd@NewDefault_0, isOdd@isEven.exit_0))->(isOdd@%.0_3=isOdd@%.0_0)
+  (isOdd@LeafBlock_0&&tuple(isOdd@LeafBlock_0, isOdd@isEven.exit_0))->(isOdd@%.0_3=isOdd@%.0_1)
+  (isOdd@LeafBlock1_0&&tuple(isOdd@LeafBlock1_0, isOdd@isEven.exit_0))->(isOdd@%.0_3=isOdd@%.0_2)
+  isOdd@isEven.exit.split_0->(isOdd@isEven.exit.split_0&&isOdd@isEven.exit_0)
+  isOdd@isEven.exit.split_0
+]).
+(isOdd true false false isOdd@%n_0 isOdd@%.0_0) <- (isOdd@isEven.exit.split isOdd@%.0_0 isOdd@%n_0).
+main@entry <- true.
+main@entry.split <- (main@entry&&[&&
+  true
+  main@%_1_0<->(main@%_0_0<0)
+  !main@%_1_0
+  (isOdd true false false main@%_0_0 main@%_2_0)
+  main@%_3_0<->(main@%_2_0>-1)
+  !main@%_3_0
+  main@entry.split_0->(main@entry.split_0&&main@entry_0)
+  main@entry.split_0
+]).
+Queries:
+;main@entry.split
+=========================== NEG START ============================
+VERIFY RULE: (isOdd@isEven.exit.split V_0 V_1) <- (main@entry&&false)
+UNSAT
+VERIFY RULE: (isOdd@tailrecurse V_0 V_1) <- (main@entry&&true)
+UNSAT
+VERIFY RULE: main@entry.split <- (main@entry&&false)
+UNSAT
+VERIFY RULE: main@entry <- true
+UNSAT
+VERIFY RULE: pos.query.pred <- (main@entry&&true)
+UNSAT
+VERIFY RULE: (isOdd@NodeBlock V_0) <- (main@entry&&true)
+UNSAT
+VERIFY RULE: (verifier.error V_0 V_1 V_2) <- (main@entry&&true)
+UNSAT
+VERIFY RULE: (isOdd V_0 V_1 V_2 V_3 V_4) <- (main@entry&&false)
+UNSAT
+==================================================================
+AFTER RESET DB IS:
+Predicates:
+;[fdecl
+  verifier.error
+  BOOL
+  BOOL
+  BOOL
+  BOOL
+]
+[fdecl
+  isOdd@NodeBlock
+  INT
+  BOOL
+]
+[fdecl
+  isOdd@tailrecurse
+  INT
+  INT
+  BOOL
+]
+[fdecl
+  isOdd@isEven.exit.split
+  INT
+  INT
+  BOOL
+]
+[fdecl
+  isOdd
+  BOOL
+  BOOL
+  BOOL
+  INT
+  INT
+  BOOL
+]
+[fdecl
+  main@entry
+  BOOL
+]
+[fdecl
+  main@entry.split
+  BOOL
+]
+[fdecl
+  pos.query.pred
+  BOOL
+]
+Clauses:
+;(verifier.error false false false) <- true.
+(verifier.error false true true) <- true.
+(verifier.error true false true) <- true.
+(verifier.error true true true) <- true.
+(isOdd true true true isOdd@%n_0 isOdd@%.0_0) <- true.
+(isOdd false true true isOdd@%n_0 isOdd@%.0_0) <- true.
+(isOdd false false false isOdd@%n_0 isOdd@%.0_0) <- true.
+(isOdd@NodeBlock isOdd@%n_0) <- true.
+(isOdd@tailrecurse isOdd@%n.tr_1 isOdd@%n_0) <- ((isOdd@NodeBlock isOdd@%n_0)&&[&&
+  true
+  isOdd@tailrecurse_0->(isOdd@tailrecurse_0&&isOdd@NodeBlock_0)
+  isOdd@tailrecurse_0
+  isOdd@%n.tr_0=isOdd@%n_0
+  (isOdd@tailrecurse_0&&isOdd@NodeBlock_0)->(isOdd@%n.tr_1=isOdd@%n.tr_0)
+]).
+(isOdd@tailrecurse isOdd@%n.tr_2 isOdd@%n_0) <- ((isOdd@tailrecurse isOdd@%n.tr_0 isOdd@%n_0)&&[&&
+  true
+  isOdd@%Pivot_0<->(isOdd@%n.tr_0<1)
+  isOdd@LeafBlock1_0->(isOdd@LeafBlock1_0&&isOdd@tailrecurse_0)
+  (isOdd@LeafBlock1_0&&isOdd@tailrecurse_0)->(!isOdd@%Pivot_0)
+  isOdd@%SwitchLeaf2_0<->(isOdd@%n.tr_0=1)
+  isOdd@LeafBlock_0->(isOdd@LeafBlock_0&&isOdd@tailrecurse_0)
+  (isOdd@LeafBlock_0&&isOdd@tailrecurse_0)->isOdd@%Pivot_0
+  isOdd@%SwitchLeaf_0<->(isOdd@%n.tr_0=0)
+  tuple(isOdd@LeafBlock_0, isOdd@NewDefault_0)->isOdd@LeafBlock_0
+  tuple(isOdd@LeafBlock1_0, isOdd@NewDefault_0)->isOdd@LeafBlock1_0
+  isOdd@NewDefault_0->((isOdd@LeafBlock_0&&tuple(isOdd@LeafBlock_0, isOdd@NewDefault_0))||(isOdd@LeafBlock1_0&&tuple(isOdd@LeafBlock1_0, isOdd@NewDefault_0)))
+  (isOdd@LeafBlock_0&&tuple(isOdd@LeafBlock_0, isOdd@NewDefault_0))->(!isOdd@%SwitchLeaf_0)
+  (isOdd@LeafBlock1_0&&tuple(isOdd@LeafBlock1_0, isOdd@NewDefault_0))->(!isOdd@%SwitchLeaf2_0)
+  isOdd@%SwitchLeaf2.i_0<->(isOdd@%n.tr_0=2)
+  isOdd@%_0_0=(isOdd@%n.tr_0+-2)
+  isOdd@tailrecurse_1->(isOdd@tailrecurse_1&&isOdd@NewDefault_0)
+  isOdd@tailrecurse_1
+  (isOdd@tailrecurse_1&&isOdd@NewDefault_0)->(!isOdd@%SwitchLeaf2.i_0)
+  isOdd@%n.tr_1=isOdd@%_0_0
+  (isOdd@tailrecurse_1&&isOdd@NewDefault_0)->(isOdd@%n.tr_2=isOdd@%n.tr_1)
+]).
+(isOdd@isEven.exit.split isOdd@%.0_3 isOdd@%n_0) <- ((isOdd@tailrecurse isOdd@%n.tr_0 isOdd@%n_0)&&[&&
+  true
+  isOdd@%Pivot_0<->(isOdd@%n.tr_0<1)
+  isOdd@LeafBlock1_0->(isOdd@LeafBlock1_0&&isOdd@tailrecurse_0)
+  (isOdd@LeafBlock1_0&&isOdd@tailrecurse_0)->(!isOdd@%Pivot_0)
+  isOdd@%SwitchLeaf2_0<->(isOdd@%n.tr_0=1)
+  isOdd@LeafBlock_0->(isOdd@LeafBlock_0&&isOdd@tailrecurse_0)
+  (isOdd@LeafBlock_0&&isOdd@tailrecurse_0)->isOdd@%Pivot_0
+  isOdd@%SwitchLeaf_0<->(isOdd@%n.tr_0=0)
+  tuple(isOdd@LeafBlock_0, isOdd@NewDefault_0)->isOdd@LeafBlock_0
+  tuple(isOdd@LeafBlock1_0, isOdd@NewDefault_0)->isOdd@LeafBlock1_0
+  isOdd@NewDefault_0->((isOdd@LeafBlock_0&&tuple(isOdd@LeafBlock_0, isOdd@NewDefault_0))||(isOdd@LeafBlock1_0&&tuple(isOdd@LeafBlock1_0, isOdd@NewDefault_0)))
+  (isOdd@LeafBlock_0&&tuple(isOdd@LeafBlock_0, isOdd@NewDefault_0))->(!isOdd@%SwitchLeaf_0)
+  (isOdd@LeafBlock1_0&&tuple(isOdd@LeafBlock1_0, isOdd@NewDefault_0))->(!isOdd@%SwitchLeaf2_0)
+  isOdd@%SwitchLeaf2.i_0<->(isOdd@%n.tr_0=2)
+  isOdd@%_0_0=(isOdd@%n.tr_0+-2)
+  tuple(isOdd@NewDefault_0, isOdd@isEven.exit_0)->isOdd@NewDefault_0
+  tuple(isOdd@LeafBlock_0, isOdd@isEven.exit_0)->isOdd@LeafBlock_0
+  tuple(isOdd@LeafBlock1_0, isOdd@isEven.exit_0)->isOdd@LeafBlock1_0
+  isOdd@isEven.exit_0->[||
+    isOdd@NewDefault_0&&tuple(isOdd@NewDefault_0, isOdd@isEven.exit_0)
+    isOdd@LeafBlock_0&&tuple(isOdd@LeafBlock_0, isOdd@isEven.exit_0)
+    isOdd@LeafBlock1_0&&tuple(isOdd@LeafBlock1_0, isOdd@isEven.exit_0)
+  ]
+  (isOdd@NewDefault_0&&tuple(isOdd@NewDefault_0, isOdd@isEven.exit_0))->isOdd@%SwitchLeaf2.i_0
+  isOdd@%.0_0=0
+  (isOdd@LeafBlock_0&&tuple(isOdd@LeafBlock_0, isOdd@isEven.exit_0))->isOdd@%SwitchLeaf_0
+  isOdd@%.0_1=0
+  (isOdd@LeafBlock1_0&&tuple(isOdd@LeafBlock1_0, isOdd@isEven.exit_0))->isOdd@%SwitchLeaf2_0
+  isOdd@%.0_2=1
+  (isOdd@NewDefault_0&&tuple(isOdd@NewDefault_0, isOdd@isEven.exit_0))->(isOdd@%.0_3=isOdd@%.0_0)
+  (isOdd@LeafBlock_0&&tuple(isOdd@LeafBlock_0, isOdd@isEven.exit_0))->(isOdd@%.0_3=isOdd@%.0_1)
+  (isOdd@LeafBlock1_0&&tuple(isOdd@LeafBlock1_0, isOdd@isEven.exit_0))->(isOdd@%.0_3=isOdd@%.0_2)
+  isOdd@isEven.exit.split_0->(isOdd@isEven.exit.split_0&&isOdd@isEven.exit_0)
+  isOdd@isEven.exit.split_0
+]).
+(isOdd true false false isOdd@%n_0 isOdd@%.0_0) <- (isOdd@isEven.exit.split isOdd@%.0_0 isOdd@%n_0).
+main@entry <- true.
+main@entry.split <- (main@entry&&[&&
+  true
+  main@%_1_0<->(main@%_0_0<0)
+  !main@%_1_0
+  (isOdd true false false main@%_0_0 main@%_2_0)
+  main@%_3_0<->(main@%_2_0>-1)
+  !main@%_3_0
+  main@entry.split_0->(main@entry.split_0&&main@entry_0)
+  main@entry.split_0
+]).
+Queries:
+;main@entry.split
+=========================== IMPL START ============================
+(declare-fun isOdd@%n.tr_2 () Int)
+(declare-fun isOdd@%n.tr_1 () Int)
+(declare-fun isOdd@tailrecurse_1 () Bool)
+(declare-fun isOdd@%_0_0 () Int)
+(declare-fun isOdd@%SwitchLeaf2.i_0 () Bool)
+(declare-fun isOdd@%Pivot_0 () Bool)
+(declare-fun isOdd@%n.tr_0 () Int)
+(declare-fun |tuple(isOdd@LeafBlock_0, isOdd@NewDefault_0)| () Bool)
+(declare-fun isOdd@LeafBlock1_0 () Bool)
+(declare-fun isOdd@tailrecurse_0 () Bool)
+(declare-fun isOdd@%SwitchLeaf_0 () Bool)
+(declare-fun isOdd@%SwitchLeaf2_0 () Bool)
+(declare-fun isOdd@LeafBlock_0 () Bool)
+(declare-fun |tuple(isOdd@LeafBlock1_0, isOdd@NewDefault_0)| () Bool)
+(declare-fun isOdd@NewDefault_0 () Bool)
+
+(assert (not true))
+(assert true)
+(assert (and true
+     true
+     (= isOdd@%Pivot_0 (< isOdd@%n.tr_0 1))
+     (=> isOdd@LeafBlock1_0 (and isOdd@LeafBlock1_0 isOdd@tailrecurse_0))
+     (=> (and isOdd@LeafBlock1_0 isOdd@tailrecurse_0) (not isOdd@%Pivot_0))
+     (= isOdd@%SwitchLeaf2_0 (= isOdd@%n.tr_0 1))
+     (=> isOdd@LeafBlock_0 (and isOdd@LeafBlock_0 isOdd@tailrecurse_0))
+     (=> (and isOdd@LeafBlock_0 isOdd@tailrecurse_0) isOdd@%Pivot_0)
+     (= isOdd@%SwitchLeaf_0 (= isOdd@%n.tr_0 0))
+     (=> |tuple(isOdd@LeafBlock_0, isOdd@NewDefault_0)| isOdd@LeafBlock_0)
+     (=> |tuple(isOdd@LeafBlock1_0, isOdd@NewDefault_0)| isOdd@LeafBlock1_0)
+     (=> isOdd@NewDefault_0
+         (or (and isOdd@LeafBlock_0
+                  |tuple(isOdd@LeafBlock_0, isOdd@NewDefault_0)|)
+             (and isOdd@LeafBlock1_0
+                  |tuple(isOdd@LeafBlock1_0, isOdd@NewDefault_0)|)))
+     (=> (and isOdd@LeafBlock_0 |tuple(isOdd@LeafBlock_0, isOdd@NewDefault_0)|)
+         (not isOdd@%SwitchLeaf_0))
+     (=> (and isOdd@LeafBlock1_0
+              |tuple(isOdd@LeafBlock1_0, isOdd@NewDefault_0)|)
+         (not isOdd@%SwitchLeaf2_0))
+     (= isOdd@%SwitchLeaf2.i_0 (= isOdd@%n.tr_0 2))
+     (= isOdd@%_0_0 (+ isOdd@%n.tr_0 (- 2)))
+     (=> isOdd@tailrecurse_1 (and isOdd@tailrecurse_1 isOdd@NewDefault_0))
+     isOdd@tailrecurse_1
+     (=> (and isOdd@tailrecurse_1 isOdd@NewDefault_0)
+         (not isOdd@%SwitchLeaf2.i_0))
+     (= isOdd@%n.tr_1 isOdd@%_0_0)
+     (=> (and isOdd@tailrecurse_1 isOdd@NewDefault_0)
+         (= isOdd@%n.tr_2 isOdd@%n.tr_1))))
+(check-sat)
+UNSAT
+==================================================================
+DATA & IMPL FILES ARE GENERATED
+TAG: PRED_0
+NEW CANDIDATE: true
+TAG: PRED_1
+NEW CANDIDATE: true
+TAG: PRED_2
+NEW CANDIDATE: true
+TAG: PRED_3
+INTERNAL NODE
+CUT ATTRIBUTE: PRED_3!V_0
+LEAF NODE
+LEAF NODE
+NEW CANDIDATE: (true&&(!(V_0<=-1)))
+TAG: PRED_4
+INTERNAL NODE
+CUT ATTRIBUTE: PRED_4!V_0
+LEAF NODE
+LEAF NODE
+NEW CANDIDATE: (true&&(!V_0))
+TAG: PRED_5
+NEW CANDIDATE: true
+TAG: PRED_6
+NEW CANDIDATE: false
+TAG: PRED_7
+NEW CANDIDATE: true
+NEW CANDIDATES MAP:
+(verifier.error V_0 V_1 V_2) : true
+(isOdd@NodeBlock V_0) : true
+(isOdd@tailrecurse V_0 V_1) : true
+(isOdd@isEven.exit.split V_0 V_1) : (true&&(!(V_0<=-1)))
+(isOdd V_0 V_1 V_2 V_3 V_4) : (true&&(!V_0))
+main@entry : true
+main@entry.split : false
+pos.query.pred : true
+ENTRY IS: main@entry
+=========================== POS START ============================
+VERIFY RULE: pos.query.pred <- ((isOdd@tailrecurse V_0 V_1)&&(!true))
+UNSAT
+VERIFY RULE: pos.query.pred <- ((isOdd@isEven.exit.split V_0 V_1)&&(!(true&&(!(V_0<=-1)))))
+UNSAT
+VERIFY RULE: pos.query.pred <- (main@entry.split&&(!false))
+UNSAT
+VERIFY RULE: pos.query.pred <- (pos.query.pred&&(!true))
+UNSAT
+VERIFY RULE: pos.query.pred <- (main@entry&&(!true))
+UNSAT
+VERIFY RULE: pos.query.pred <- ((isOdd@NodeBlock V_0)&&(!true))
+UNSAT
+VERIFY RULE: pos.query.pred <- ((verifier.error V_0 V_1 V_2)&&(!true))
+UNSAT
+VERIFY RULE: pos.query.pred <- ((isOdd V_0 V_1 V_2 V_3 V_4)&&(!(true&&(!V_0))))
+SAT, NEED TO ADD POSITIVE DATA POINT
+(pos.query.pred&&(isOdd true true true isOdd_3_0 isOdd_4_0))
+POS OBJ PRED: (isOdd V_0 V_1 V_2 V_3 V_4)
+POS CEX IS: (isOdd true true true isOdd_3_0 isOdd_4_0)
+ANSWER ARGS:
+true
+true
+true
+isOdd_3_0
+UNCERTAIN VALUE: isOdd_3_0
+isOdd_4_0
+UNCERTAIN VALUE: isOdd_4_0
+POS CEX, INDEX IS 5
+==================================================================
+AFTER RESET DB IS:
+Predicates:
+;[fdecl
+  verifier.error
+  BOOL
+  BOOL
+  BOOL
+  BOOL
+]
+[fdecl
+  isOdd@NodeBlock
+  INT
+  BOOL
+]
+[fdecl
+  isOdd@tailrecurse
+  INT
+  INT
+  BOOL
+]
+[fdecl
+  isOdd@isEven.exit.split
+  INT
+  INT
+  BOOL
+]
+[fdecl
+  isOdd
+  BOOL
+  BOOL
+  BOOL
+  INT
+  INT
+  BOOL
+]
+[fdecl
+  main@entry
+  BOOL
+]
+[fdecl
+  main@entry.split
+  BOOL
+]
+[fdecl
+  pos.query.pred
+  BOOL
+]
+Clauses:
+;(verifier.error false false false) <- true.
+(verifier.error false true true) <- true.
+(verifier.error true false true) <- true.
+(verifier.error true true true) <- true.
+(isOdd true true true isOdd@%n_0 isOdd@%.0_0) <- true.
+(isOdd false true true isOdd@%n_0 isOdd@%.0_0) <- true.
+(isOdd false false false isOdd@%n_0 isOdd@%.0_0) <- true.
+(isOdd@NodeBlock isOdd@%n_0) <- true.
+(isOdd@tailrecurse isOdd@%n.tr_1 isOdd@%n_0) <- ((isOdd@NodeBlock isOdd@%n_0)&&[&&
+  true
+  isOdd@tailrecurse_0->(isOdd@tailrecurse_0&&isOdd@NodeBlock_0)
+  isOdd@tailrecurse_0
+  isOdd@%n.tr_0=isOdd@%n_0
+  (isOdd@tailrecurse_0&&isOdd@NodeBlock_0)->(isOdd@%n.tr_1=isOdd@%n.tr_0)
+]).
+(isOdd@tailrecurse isOdd@%n.tr_2 isOdd@%n_0) <- ((isOdd@tailrecurse isOdd@%n.tr_0 isOdd@%n_0)&&[&&
+  true
+  isOdd@%Pivot_0<->(isOdd@%n.tr_0<1)
+  isOdd@LeafBlock1_0->(isOdd@LeafBlock1_0&&isOdd@tailrecurse_0)
+  (isOdd@LeafBlock1_0&&isOdd@tailrecurse_0)->(!isOdd@%Pivot_0)
+  isOdd@%SwitchLeaf2_0<->(isOdd@%n.tr_0=1)
+  isOdd@LeafBlock_0->(isOdd@LeafBlock_0&&isOdd@tailrecurse_0)
+  (isOdd@LeafBlock_0&&isOdd@tailrecurse_0)->isOdd@%Pivot_0
+  isOdd@%SwitchLeaf_0<->(isOdd@%n.tr_0=0)
+  tuple(isOdd@LeafBlock_0, isOdd@NewDefault_0)->isOdd@LeafBlock_0
+  tuple(isOdd@LeafBlock1_0, isOdd@NewDefault_0)->isOdd@LeafBlock1_0
+  isOdd@NewDefault_0->((isOdd@LeafBlock_0&&tuple(isOdd@LeafBlock_0, isOdd@NewDefault_0))||(isOdd@LeafBlock1_0&&tuple(isOdd@LeafBlock1_0, isOdd@NewDefault_0)))
+  (isOdd@LeafBlock_0&&tuple(isOdd@LeafBlock_0, isOdd@NewDefault_0))->(!isOdd@%SwitchLeaf_0)
+  (isOdd@LeafBlock1_0&&tuple(isOdd@LeafBlock1_0, isOdd@NewDefault_0))->(!isOdd@%SwitchLeaf2_0)
+  isOdd@%SwitchLeaf2.i_0<->(isOdd@%n.tr_0=2)
+  isOdd@%_0_0=(isOdd@%n.tr_0+-2)
+  isOdd@tailrecurse_1->(isOdd@tailrecurse_1&&isOdd@NewDefault_0)
+  isOdd@tailrecurse_1
+  (isOdd@tailrecurse_1&&isOdd@NewDefault_0)->(!isOdd@%SwitchLeaf2.i_0)
+  isOdd@%n.tr_1=isOdd@%_0_0
+  (isOdd@tailrecurse_1&&isOdd@NewDefault_0)->(isOdd@%n.tr_2=isOdd@%n.tr_1)
+]).
+(isOdd@isEven.exit.split isOdd@%.0_3 isOdd@%n_0) <- ((isOdd@tailrecurse isOdd@%n.tr_0 isOdd@%n_0)&&[&&
+  true
+  isOdd@%Pivot_0<->(isOdd@%n.tr_0<1)
+  isOdd@LeafBlock1_0->(isOdd@LeafBlock1_0&&isOdd@tailrecurse_0)
+  (isOdd@LeafBlock1_0&&isOdd@tailrecurse_0)->(!isOdd@%Pivot_0)
+  isOdd@%SwitchLeaf2_0<->(isOdd@%n.tr_0=1)
+  isOdd@LeafBlock_0->(isOdd@LeafBlock_0&&isOdd@tailrecurse_0)
+  (isOdd@LeafBlock_0&&isOdd@tailrecurse_0)->isOdd@%Pivot_0
+  isOdd@%SwitchLeaf_0<->(isOdd@%n.tr_0=0)
+  tuple(isOdd@LeafBlock_0, isOdd@NewDefault_0)->isOdd@LeafBlock_0
+  tuple(isOdd@LeafBlock1_0, isOdd@NewDefault_0)->isOdd@LeafBlock1_0
+  isOdd@NewDefault_0->((isOdd@LeafBlock_0&&tuple(isOdd@LeafBlock_0, isOdd@NewDefault_0))||(isOdd@LeafBlock1_0&&tuple(isOdd@LeafBlock1_0, isOdd@NewDefault_0)))
+  (isOdd@LeafBlock_0&&tuple(isOdd@LeafBlock_0, isOdd@NewDefault_0))->(!isOdd@%SwitchLeaf_0)
+  (isOdd@LeafBlock1_0&&tuple(isOdd@LeafBlock1_0, isOdd@NewDefault_0))->(!isOdd@%SwitchLeaf2_0)
+  isOdd@%SwitchLeaf2.i_0<->(isOdd@%n.tr_0=2)
+  isOdd@%_0_0=(isOdd@%n.tr_0+-2)
+  tuple(isOdd@NewDefault_0, isOdd@isEven.exit_0)->isOdd@NewDefault_0
+  tuple(isOdd@LeafBlock_0, isOdd@isEven.exit_0)->isOdd@LeafBlock_0
+  tuple(isOdd@LeafBlock1_0, isOdd@isEven.exit_0)->isOdd@LeafBlock1_0
+  isOdd@isEven.exit_0->[||
+    isOdd@NewDefault_0&&tuple(isOdd@NewDefault_0, isOdd@isEven.exit_0)
+    isOdd@LeafBlock_0&&tuple(isOdd@LeafBlock_0, isOdd@isEven.exit_0)
+    isOdd@LeafBlock1_0&&tuple(isOdd@LeafBlock1_0, isOdd@isEven.exit_0)
+  ]
+  (isOdd@NewDefault_0&&tuple(isOdd@NewDefault_0, isOdd@isEven.exit_0))->isOdd@%SwitchLeaf2.i_0
+  isOdd@%.0_0=0
+  (isOdd@LeafBlock_0&&tuple(isOdd@LeafBlock_0, isOdd@isEven.exit_0))->isOdd@%SwitchLeaf_0
+  isOdd@%.0_1=0
+  (isOdd@LeafBlock1_0&&tuple(isOdd@LeafBlock1_0, isOdd@isEven.exit_0))->isOdd@%SwitchLeaf2_0
+  isOdd@%.0_2=1
+  (isOdd@NewDefault_0&&tuple(isOdd@NewDefault_0, isOdd@isEven.exit_0))->(isOdd@%.0_3=isOdd@%.0_0)
+  (isOdd@LeafBlock_0&&tuple(isOdd@LeafBlock_0, isOdd@isEven.exit_0))->(isOdd@%.0_3=isOdd@%.0_1)
+  (isOdd@LeafBlock1_0&&tuple(isOdd@LeafBlock1_0, isOdd@isEven.exit_0))->(isOdd@%.0_3=isOdd@%.0_2)
+  isOdd@isEven.exit.split_0->(isOdd@isEven.exit.split_0&&isOdd@isEven.exit_0)
+  isOdd@isEven.exit.split_0
+]).
+(isOdd true false false isOdd@%n_0 isOdd@%.0_0) <- (isOdd@isEven.exit.split isOdd@%.0_0 isOdd@%n_0).
+main@entry <- true.
+main@entry.split <- (main@entry&&[&&
+  true
+  main@%_1_0<->(main@%_0_0<0)
+  !main@%_1_0
+  (isOdd true false false main@%_0_0 main@%_2_0)
+  main@%_3_0<->(main@%_2_0>-1)
+  !main@%_3_0
+  main@entry.split_0->(main@entry.split_0&&main@entry_0)
+  main@entry.split_0
+]).
+Queries:
+;main@entry.split
+=========================== NEG START ============================
+VERIFY RULE: (isOdd@tailrecurse V_0 V_1) <- (main@entry&&true)
+UNSAT
+VERIFY RULE: (isOdd@isEven.exit.split V_0 V_1) <- (main@entry&&(true&&(!(V_0<=-1))))
+UNSAT
+VERIFY RULE: main@entry.split <- (main@entry&&false)
+UNSAT
+VERIFY RULE: main@entry <- true
+UNSAT
+VERIFY RULE: pos.query.pred <- (main@entry&&true)
+UNSAT
+VERIFY RULE: (isOdd@NodeBlock V_0) <- (main@entry&&true)
+UNSAT
+VERIFY RULE: (verifier.error V_0 V_1 V_2) <- (main@entry&&true)
+UNSAT
+VERIFY RULE: (isOdd V_0 V_1 V_2 V_3 V_4) <- (main@entry&&(true&&(!V_0)))
+UNSAT
+==================================================================
+AFTER RESET DB IS:
+Predicates:
+;[fdecl
+  verifier.error
+  BOOL
+  BOOL
+  BOOL
+  BOOL
+]
+[fdecl
+  isOdd@NodeBlock
+  INT
+  BOOL
+]
+[fdecl
+  isOdd@tailrecurse
+  INT
+  INT
+  BOOL
+]
+[fdecl
+  isOdd@isEven.exit.split
+  INT
+  INT
+  BOOL
+]
+[fdecl
+  isOdd
+  BOOL
+  BOOL
+  BOOL
+  INT
+  INT
+  BOOL
+]
+[fdecl
+  main@entry
+  BOOL
+]
+[fdecl
+  main@entry.split
+  BOOL
+]
+[fdecl
+  pos.query.pred
+  BOOL
+]
+Clauses:
+;(verifier.error false false false) <- true.
+(verifier.error false true true) <- true.
+(verifier.error true false true) <- true.
+(verifier.error true true true) <- true.
+(isOdd true true true isOdd@%n_0 isOdd@%.0_0) <- true.
+(isOdd false true true isOdd@%n_0 isOdd@%.0_0) <- true.
+(isOdd false false false isOdd@%n_0 isOdd@%.0_0) <- true.
+(isOdd@NodeBlock isOdd@%n_0) <- true.
+(isOdd@tailrecurse isOdd@%n.tr_1 isOdd@%n_0) <- ((isOdd@NodeBlock isOdd@%n_0)&&[&&
+  true
+  isOdd@tailrecurse_0->(isOdd@tailrecurse_0&&isOdd@NodeBlock_0)
+  isOdd@tailrecurse_0
+  isOdd@%n.tr_0=isOdd@%n_0
+  (isOdd@tailrecurse_0&&isOdd@NodeBlock_0)->(isOdd@%n.tr_1=isOdd@%n.tr_0)
+]).
+(isOdd@tailrecurse isOdd@%n.tr_2 isOdd@%n_0) <- ((isOdd@tailrecurse isOdd@%n.tr_0 isOdd@%n_0)&&[&&
+  true
+  isOdd@%Pivot_0<->(isOdd@%n.tr_0<1)
+  isOdd@LeafBlock1_0->(isOdd@LeafBlock1_0&&isOdd@tailrecurse_0)
+  (isOdd@LeafBlock1_0&&isOdd@tailrecurse_0)->(!isOdd@%Pivot_0)
+  isOdd@%SwitchLeaf2_0<->(isOdd@%n.tr_0=1)
+  isOdd@LeafBlock_0->(isOdd@LeafBlock_0&&isOdd@tailrecurse_0)
+  (isOdd@LeafBlock_0&&isOdd@tailrecurse_0)->isOdd@%Pivot_0
+  isOdd@%SwitchLeaf_0<->(isOdd@%n.tr_0=0)
+  tuple(isOdd@LeafBlock_0, isOdd@NewDefault_0)->isOdd@LeafBlock_0
+  tuple(isOdd@LeafBlock1_0, isOdd@NewDefault_0)->isOdd@LeafBlock1_0
+  isOdd@NewDefault_0->((isOdd@LeafBlock_0&&tuple(isOdd@LeafBlock_0, isOdd@NewDefault_0))||(isOdd@LeafBlock1_0&&tuple(isOdd@LeafBlock1_0, isOdd@NewDefault_0)))
+  (isOdd@LeafBlock_0&&tuple(isOdd@LeafBlock_0, isOdd@NewDefault_0))->(!isOdd@%SwitchLeaf_0)
+  (isOdd@LeafBlock1_0&&tuple(isOdd@LeafBlock1_0, isOdd@NewDefault_0))->(!isOdd@%SwitchLeaf2_0)
+  isOdd@%SwitchLeaf2.i_0<->(isOdd@%n.tr_0=2)
+  isOdd@%_0_0=(isOdd@%n.tr_0+-2)
+  isOdd@tailrecurse_1->(isOdd@tailrecurse_1&&isOdd@NewDefault_0)
+  isOdd@tailrecurse_1
+  (isOdd@tailrecurse_1&&isOdd@NewDefault_0)->(!isOdd@%SwitchLeaf2.i_0)
+  isOdd@%n.tr_1=isOdd@%_0_0
+  (isOdd@tailrecurse_1&&isOdd@NewDefault_0)->(isOdd@%n.tr_2=isOdd@%n.tr_1)
+]).
+(isOdd@isEven.exit.split isOdd@%.0_3 isOdd@%n_0) <- ((isOdd@tailrecurse isOdd@%n.tr_0 isOdd@%n_0)&&[&&
+  true
+  isOdd@%Pivot_0<->(isOdd@%n.tr_0<1)
+  isOdd@LeafBlock1_0->(isOdd@LeafBlock1_0&&isOdd@tailrecurse_0)
+  (isOdd@LeafBlock1_0&&isOdd@tailrecurse_0)->(!isOdd@%Pivot_0)
+  isOdd@%SwitchLeaf2_0<->(isOdd@%n.tr_0=1)
+  isOdd@LeafBlock_0->(isOdd@LeafBlock_0&&isOdd@tailrecurse_0)
+  (isOdd@LeafBlock_0&&isOdd@tailrecurse_0)->isOdd@%Pivot_0
+  isOdd@%SwitchLeaf_0<->(isOdd@%n.tr_0=0)
+  tuple(isOdd@LeafBlock_0, isOdd@NewDefault_0)->isOdd@LeafBlock_0
+  tuple(isOdd@LeafBlock1_0, isOdd@NewDefault_0)->isOdd@LeafBlock1_0
+  isOdd@NewDefault_0->((isOdd@LeafBlock_0&&tuple(isOdd@LeafBlock_0, isOdd@NewDefault_0))||(isOdd@LeafBlock1_0&&tuple(isOdd@LeafBlock1_0, isOdd@NewDefault_0)))
+  (isOdd@LeafBlock_0&&tuple(isOdd@LeafBlock_0, isOdd@NewDefault_0))->(!isOdd@%SwitchLeaf_0)
+  (isOdd@LeafBlock1_0&&tuple(isOdd@LeafBlock1_0, isOdd@NewDefault_0))->(!isOdd@%SwitchLeaf2_0)
+  isOdd@%SwitchLeaf2.i_0<->(isOdd@%n.tr_0=2)
+  isOdd@%_0_0=(isOdd@%n.tr_0+-2)
+  tuple(isOdd@NewDefault_0, isOdd@isEven.exit_0)->isOdd@NewDefault_0
+  tuple(isOdd@LeafBlock_0, isOdd@isEven.exit_0)->isOdd@LeafBlock_0
+  tuple(isOdd@LeafBlock1_0, isOdd@isEven.exit_0)->isOdd@LeafBlock1_0
+  isOdd@isEven.exit_0->[||
+    isOdd@NewDefault_0&&tuple(isOdd@NewDefault_0, isOdd@isEven.exit_0)
+    isOdd@LeafBlock_0&&tuple(isOdd@LeafBlock_0, isOdd@isEven.exit_0)
+    isOdd@LeafBlock1_0&&tuple(isOdd@LeafBlock1_0, isOdd@isEven.exit_0)
+  ]
+  (isOdd@NewDefault_0&&tuple(isOdd@NewDefault_0, isOdd@isEven.exit_0))->isOdd@%SwitchLeaf2.i_0
+  isOdd@%.0_0=0
+  (isOdd@LeafBlock_0&&tuple(isOdd@LeafBlock_0, isOdd@isEven.exit_0))->isOdd@%SwitchLeaf_0
+  isOdd@%.0_1=0
+  (isOdd@LeafBlock1_0&&tuple(isOdd@LeafBlock1_0, isOdd@isEven.exit_0))->isOdd@%SwitchLeaf2_0
+  isOdd@%.0_2=1
+  (isOdd@NewDefault_0&&tuple(isOdd@NewDefault_0, isOdd@isEven.exit_0))->(isOdd@%.0_3=isOdd@%.0_0)
+  (isOdd@LeafBlock_0&&tuple(isOdd@LeafBlock_0, isOdd@isEven.exit_0))->(isOdd@%.0_3=isOdd@%.0_1)
+  (isOdd@LeafBlock1_0&&tuple(isOdd@LeafBlock1_0, isOdd@isEven.exit_0))->(isOdd@%.0_3=isOdd@%.0_2)
+  isOdd@isEven.exit.split_0->(isOdd@isEven.exit.split_0&&isOdd@isEven.exit_0)
+  isOdd@isEven.exit.split_0
+]).
+(isOdd true false false isOdd@%n_0 isOdd@%.0_0) <- (isOdd@isEven.exit.split isOdd@%.0_0 isOdd@%n_0).
+main@entry <- true.
+main@entry.split <- (main@entry&&[&&
+  true
+  main@%_1_0<->(main@%_0_0<0)
+  !main@%_1_0
+  (isOdd true false false main@%_0_0 main@%_2_0)
+  main@%_3_0<->(main@%_2_0>-1)
+  !main@%_3_0
+  main@entry.split_0->(main@entry.split_0&&main@entry_0)
+  main@entry.split_0
+]).
+Queries:
+;main@entry.split
+=========================== IMPL START ============================
+(declare-fun isOdd@%n.tr_2 () Int)
+(declare-fun isOdd@%n.tr_1 () Int)
+(declare-fun isOdd@tailrecurse_1 () Bool)
+(declare-fun isOdd@%_0_0 () Int)
+(declare-fun isOdd@%SwitchLeaf2.i_0 () Bool)
+(declare-fun isOdd@%Pivot_0 () Bool)
+(declare-fun isOdd@%n.tr_0 () Int)
+(declare-fun |tuple(isOdd@LeafBlock_0, isOdd@NewDefault_0)| () Bool)
+(declare-fun isOdd@LeafBlock1_0 () Bool)
+(declare-fun isOdd@tailrecurse_0 () Bool)
+(declare-fun isOdd@%SwitchLeaf_0 () Bool)
+(declare-fun isOdd@%SwitchLeaf2_0 () Bool)
+(declare-fun isOdd@LeafBlock_0 () Bool)
+(declare-fun |tuple(isOdd@LeafBlock1_0, isOdd@NewDefault_0)| () Bool)
+(declare-fun isOdd@NewDefault_0 () Bool)
+
+(assert (not true))
+(assert true)
+(assert (and true
+     true
+     (= isOdd@%Pivot_0 (< isOdd@%n.tr_0 1))
+     (=> isOdd@LeafBlock1_0 (and isOdd@LeafBlock1_0 isOdd@tailrecurse_0))
+     (=> (and isOdd@LeafBlock1_0 isOdd@tailrecurse_0) (not isOdd@%Pivot_0))
+     (= isOdd@%SwitchLeaf2_0 (= isOdd@%n.tr_0 1))
+     (=> isOdd@LeafBlock_0 (and isOdd@LeafBlock_0 isOdd@tailrecurse_0))
+     (=> (and isOdd@LeafBlock_0 isOdd@tailrecurse_0) isOdd@%Pivot_0)
+     (= isOdd@%SwitchLeaf_0 (= isOdd@%n.tr_0 0))
+     (=> |tuple(isOdd@LeafBlock_0, isOdd@NewDefault_0)| isOdd@LeafBlock_0)
+     (=> |tuple(isOdd@LeafBlock1_0, isOdd@NewDefault_0)| isOdd@LeafBlock1_0)
+     (=> isOdd@NewDefault_0
+         (or (and isOdd@LeafBlock_0
+                  |tuple(isOdd@LeafBlock_0, isOdd@NewDefault_0)|)
+             (and isOdd@LeafBlock1_0
+                  |tuple(isOdd@LeafBlock1_0, isOdd@NewDefault_0)|)))
+     (=> (and isOdd@LeafBlock_0 |tuple(isOdd@LeafBlock_0, isOdd@NewDefault_0)|)
+         (not isOdd@%SwitchLeaf_0))
+     (=> (and isOdd@LeafBlock1_0
+              |tuple(isOdd@LeafBlock1_0, isOdd@NewDefault_0)|)
+         (not isOdd@%SwitchLeaf2_0))
+     (= isOdd@%SwitchLeaf2.i_0 (= isOdd@%n.tr_0 2))
+     (= isOdd@%_0_0 (+ isOdd@%n.tr_0 (- 2)))
+     (=> isOdd@tailrecurse_1 (and isOdd@tailrecurse_1 isOdd@NewDefault_0))
+     isOdd@tailrecurse_1
+     (=> (and isOdd@tailrecurse_1 isOdd@NewDefault_0)
+         (not isOdd@%SwitchLeaf2.i_0))
+     (= isOdd@%n.tr_1 isOdd@%_0_0)
+     (=> (and isOdd@tailrecurse_1 isOdd@NewDefault_0)
+         (= isOdd@%n.tr_2 isOdd@%n.tr_1))))
+(check-sat)
+UNSAT
+==================================================================
+DATA & IMPL FILES ARE GENERATED
+TAG: PRED_0
+NEW CANDIDATE: true
+TAG: PRED_1
+NEW CANDIDATE: true
+TAG: PRED_2
+NEW CANDIDATE: true
+TAG: PRED_3
+INTERNAL NODE
+CUT ATTRIBUTE: PRED_3!V_0
+LEAF NODE
+LEAF NODE
+NEW CANDIDATE: (true&&(!(V_0<=-1)))
+TAG: PRED_4
+INTERNAL NODE
+CUT ATTRIBUTE: PRED_4!V_4
+LEAF NODE
+LEAF NODE
+NEW CANDIDATE: (true&&(!(V_4<=-1)))
+TAG: PRED_5
+NEW CANDIDATE: true
+TAG: PRED_6
+NEW CANDIDATE: false
+TAG: PRED_7
+NEW CANDIDATE: true
+NEW CANDIDATES MAP:
+(verifier.error V_0 V_1 V_2) : true
+(isOdd@NodeBlock V_0) : true
+(isOdd@tailrecurse V_0 V_1) : true
+(isOdd@isEven.exit.split V_0 V_1) : (true&&(!(V_0<=-1)))
+(isOdd V_0 V_1 V_2 V_3 V_4) : (true&&(!(V_4<=-1)))
+main@entry : true
+main@entry.split : false
+pos.query.pred : true
+ENTRY IS: main@entry
+=========================== POS START ============================
+VERIFY RULE: pos.query.pred <- ((isOdd@isEven.exit.split V_0 V_1)&&(!(true&&(!(V_0<=-1)))))
+UNSAT
+VERIFY RULE: pos.query.pred <- ((isOdd@tailrecurse V_0 V_1)&&(!true))
+UNSAT
+VERIFY RULE: pos.query.pred <- (main@entry&&(!true))
+UNSAT
+VERIFY RULE: pos.query.pred <- (main@entry.split&&(!false))
+UNSAT
+VERIFY RULE: pos.query.pred <- (pos.query.pred&&(!true))
+UNSAT
+VERIFY RULE: pos.query.pred <- ((isOdd@NodeBlock V_0)&&(!true))
+UNSAT
+VERIFY RULE: pos.query.pred <- ((verifier.error V_0 V_1 V_2)&&(!true))
+UNSAT
+VERIFY RULE: pos.query.pred <- ((isOdd V_0 V_1 V_2 V_3 V_4)&&(!(true&&(!(V_4<=-1)))))
+SAT, NEED TO ADD POSITIVE DATA POINT
+(pos.query.pred&&(isOdd false false false isOdd_3_0 -1))
+POS OBJ PRED: (isOdd V_0 V_1 V_2 V_3 V_4)
+POS CEX IS: (isOdd false false false isOdd_3_0 -1)
+ANSWER ARGS:
+false
+false
+false
+isOdd_3_0
+UNCERTAIN VALUE: isOdd_3_0
+-1
+POS CEX, INDEX IS 6
+==================================================================
+AFTER RESET DB IS:
+Predicates:
+;[fdecl
+  verifier.error
+  BOOL
+  BOOL
+  BOOL
+  BOOL
+]
+[fdecl
+  isOdd@NodeBlock
+  INT
+  BOOL
+]
+[fdecl
+  isOdd@tailrecurse
+  INT
+  INT
+  BOOL
+]
+[fdecl
+  isOdd@isEven.exit.split
+  INT
+  INT
+  BOOL
+]
+[fdecl
+  isOdd
+  BOOL
+  BOOL
+  BOOL
+  INT
+  INT
+  BOOL
+]
+[fdecl
+  main@entry
+  BOOL
+]
+[fdecl
+  main@entry.split
+  BOOL
+]
+[fdecl
+  pos.query.pred
+  BOOL
+]
+Clauses:
+;(verifier.error false false false) <- true.
+(verifier.error false true true) <- true.
+(verifier.error true false true) <- true.
+(verifier.error true true true) <- true.
+(isOdd true true true isOdd@%n_0 isOdd@%.0_0) <- true.
+(isOdd false true true isOdd@%n_0 isOdd@%.0_0) <- true.
+(isOdd false false false isOdd@%n_0 isOdd@%.0_0) <- true.
+(isOdd@NodeBlock isOdd@%n_0) <- true.
+(isOdd@tailrecurse isOdd@%n.tr_1 isOdd@%n_0) <- ((isOdd@NodeBlock isOdd@%n_0)&&[&&
+  true
+  isOdd@tailrecurse_0->(isOdd@tailrecurse_0&&isOdd@NodeBlock_0)
+  isOdd@tailrecurse_0
+  isOdd@%n.tr_0=isOdd@%n_0
+  (isOdd@tailrecurse_0&&isOdd@NodeBlock_0)->(isOdd@%n.tr_1=isOdd@%n.tr_0)
+]).
+(isOdd@tailrecurse isOdd@%n.tr_2 isOdd@%n_0) <- ((isOdd@tailrecurse isOdd@%n.tr_0 isOdd@%n_0)&&[&&
+  true
+  isOdd@%Pivot_0<->(isOdd@%n.tr_0<1)
+  isOdd@LeafBlock1_0->(isOdd@LeafBlock1_0&&isOdd@tailrecurse_0)
+  (isOdd@LeafBlock1_0&&isOdd@tailrecurse_0)->(!isOdd@%Pivot_0)
+  isOdd@%SwitchLeaf2_0<->(isOdd@%n.tr_0=1)
+  isOdd@LeafBlock_0->(isOdd@LeafBlock_0&&isOdd@tailrecurse_0)
+  (isOdd@LeafBlock_0&&isOdd@tailrecurse_0)->isOdd@%Pivot_0
+  isOdd@%SwitchLeaf_0<->(isOdd@%n.tr_0=0)
+  tuple(isOdd@LeafBlock_0, isOdd@NewDefault_0)->isOdd@LeafBlock_0
+  tuple(isOdd@LeafBlock1_0, isOdd@NewDefault_0)->isOdd@LeafBlock1_0
+  isOdd@NewDefault_0->((isOdd@LeafBlock_0&&tuple(isOdd@LeafBlock_0, isOdd@NewDefault_0))||(isOdd@LeafBlock1_0&&tuple(isOdd@LeafBlock1_0, isOdd@NewDefault_0)))
+  (isOdd@LeafBlock_0&&tuple(isOdd@LeafBlock_0, isOdd@NewDefault_0))->(!isOdd@%SwitchLeaf_0)
+  (isOdd@LeafBlock1_0&&tuple(isOdd@LeafBlock1_0, isOdd@NewDefault_0))->(!isOdd@%SwitchLeaf2_0)
+  isOdd@%SwitchLeaf2.i_0<->(isOdd@%n.tr_0=2)
+  isOdd@%_0_0=(isOdd@%n.tr_0+-2)
+  isOdd@tailrecurse_1->(isOdd@tailrecurse_1&&isOdd@NewDefault_0)
+  isOdd@tailrecurse_1
+  (isOdd@tailrecurse_1&&isOdd@NewDefault_0)->(!isOdd@%SwitchLeaf2.i_0)
+  isOdd@%n.tr_1=isOdd@%_0_0
+  (isOdd@tailrecurse_1&&isOdd@NewDefault_0)->(isOdd@%n.tr_2=isOdd@%n.tr_1)
+]).
+(isOdd@isEven.exit.split isOdd@%.0_3 isOdd@%n_0) <- ((isOdd@tailrecurse isOdd@%n.tr_0 isOdd@%n_0)&&[&&
+  true
+  isOdd@%Pivot_0<->(isOdd@%n.tr_0<1)
+  isOdd@LeafBlock1_0->(isOdd@LeafBlock1_0&&isOdd@tailrecurse_0)
+  (isOdd@LeafBlock1_0&&isOdd@tailrecurse_0)->(!isOdd@%Pivot_0)
+  isOdd@%SwitchLeaf2_0<->(isOdd@%n.tr_0=1)
+  isOdd@LeafBlock_0->(isOdd@LeafBlock_0&&isOdd@tailrecurse_0)
+  (isOdd@LeafBlock_0&&isOdd@tailrecurse_0)->isOdd@%Pivot_0
+  isOdd@%SwitchLeaf_0<->(isOdd@%n.tr_0=0)
+  tuple(isOdd@LeafBlock_0, isOdd@NewDefault_0)->isOdd@LeafBlock_0
+  tuple(isOdd@LeafBlock1_0, isOdd@NewDefault_0)->isOdd@LeafBlock1_0
+  isOdd@NewDefault_0->((isOdd@LeafBlock_0&&tuple(isOdd@LeafBlock_0, isOdd@NewDefault_0))||(isOdd@LeafBlock1_0&&tuple(isOdd@LeafBlock1_0, isOdd@NewDefault_0)))
+  (isOdd@LeafBlock_0&&tuple(isOdd@LeafBlock_0, isOdd@NewDefault_0))->(!isOdd@%SwitchLeaf_0)
+  (isOdd@LeafBlock1_0&&tuple(isOdd@LeafBlock1_0, isOdd@NewDefault_0))->(!isOdd@%SwitchLeaf2_0)
+  isOdd@%SwitchLeaf2.i_0<->(isOdd@%n.tr_0=2)
+  isOdd@%_0_0=(isOdd@%n.tr_0+-2)
+  tuple(isOdd@NewDefault_0, isOdd@isEven.exit_0)->isOdd@NewDefault_0
+  tuple(isOdd@LeafBlock_0, isOdd@isEven.exit_0)->isOdd@LeafBlock_0
+  tuple(isOdd@LeafBlock1_0, isOdd@isEven.exit_0)->isOdd@LeafBlock1_0
+  isOdd@isEven.exit_0->[||
+    isOdd@NewDefault_0&&tuple(isOdd@NewDefault_0, isOdd@isEven.exit_0)
+    isOdd@LeafBlock_0&&tuple(isOdd@LeafBlock_0, isOdd@isEven.exit_0)
+    isOdd@LeafBlock1_0&&tuple(isOdd@LeafBlock1_0, isOdd@isEven.exit_0)
+  ]
+  (isOdd@NewDefault_0&&tuple(isOdd@NewDefault_0, isOdd@isEven.exit_0))->isOdd@%SwitchLeaf2.i_0
+  isOdd@%.0_0=0
+  (isOdd@LeafBlock_0&&tuple(isOdd@LeafBlock_0, isOdd@isEven.exit_0))->isOdd@%SwitchLeaf_0
+  isOdd@%.0_1=0
+  (isOdd@LeafBlock1_0&&tuple(isOdd@LeafBlock1_0, isOdd@isEven.exit_0))->isOdd@%SwitchLeaf2_0
+  isOdd@%.0_2=1
+  (isOdd@NewDefault_0&&tuple(isOdd@NewDefault_0, isOdd@isEven.exit_0))->(isOdd@%.0_3=isOdd@%.0_0)
+  (isOdd@LeafBlock_0&&tuple(isOdd@LeafBlock_0, isOdd@isEven.exit_0))->(isOdd@%.0_3=isOdd@%.0_1)
+  (isOdd@LeafBlock1_0&&tuple(isOdd@LeafBlock1_0, isOdd@isEven.exit_0))->(isOdd@%.0_3=isOdd@%.0_2)
+  isOdd@isEven.exit.split_0->(isOdd@isEven.exit.split_0&&isOdd@isEven.exit_0)
+  isOdd@isEven.exit.split_0
+]).
+(isOdd true false false isOdd@%n_0 isOdd@%.0_0) <- (isOdd@isEven.exit.split isOdd@%.0_0 isOdd@%n_0).
+main@entry <- true.
+main@entry.split <- (main@entry&&[&&
+  true
+  main@%_1_0<->(main@%_0_0<0)
+  !main@%_1_0
+  (isOdd true false false main@%_0_0 main@%_2_0)
+  main@%_3_0<->(main@%_2_0>-1)
+  !main@%_3_0
+  main@entry.split_0->(main@entry.split_0&&main@entry_0)
+  main@entry.split_0
+]).
+Queries:
+;main@entry.split
+=========================== NEG START ============================
+VERIFY RULE: (isOdd@tailrecurse V_0 V_1) <- (main@entry&&true)
+UNSAT
+VERIFY RULE: (isOdd@isEven.exit.split V_0 V_1) <- (main@entry&&(true&&(!(V_0<=-1))))
+UNSAT
+VERIFY RULE: main@entry.split <- (main@entry&&false)
+UNSAT
+VERIFY RULE: main@entry <- true
+UNSAT
+VERIFY RULE: pos.query.pred <- (main@entry&&true)
+UNSAT
+VERIFY RULE: (isOdd@NodeBlock V_0) <- (main@entry&&true)
+UNSAT
+VERIFY RULE: (verifier.error V_0 V_1 V_2) <- (main@entry&&true)
+UNSAT
+VERIFY RULE: (isOdd V_0 V_1 V_2 V_3 V_4) <- (main@entry&&(true&&(!(V_4<=-1))))
+UNSAT
+==================================================================
+AFTER RESET DB IS:
+Predicates:
+;[fdecl
+  verifier.error
+  BOOL
+  BOOL
+  BOOL
+  BOOL
+]
+[fdecl
+  isOdd@NodeBlock
+  INT
+  BOOL
+]
+[fdecl
+  isOdd@tailrecurse
+  INT
+  INT
+  BOOL
+]
+[fdecl
+  isOdd@isEven.exit.split
+  INT
+  INT
+  BOOL
+]
+[fdecl
+  isOdd
+  BOOL
+  BOOL
+  BOOL
+  INT
+  INT
+  BOOL
+]
+[fdecl
+  main@entry
+  BOOL
+]
+[fdecl
+  main@entry.split
+  BOOL
+]
+[fdecl
+  pos.query.pred
+  BOOL
+]
+Clauses:
+;(verifier.error false false false) <- true.
+(verifier.error false true true) <- true.
+(verifier.error true false true) <- true.
+(verifier.error true true true) <- true.
+(isOdd true true true isOdd@%n_0 isOdd@%.0_0) <- true.
+(isOdd false true true isOdd@%n_0 isOdd@%.0_0) <- true.
+(isOdd false false false isOdd@%n_0 isOdd@%.0_0) <- true.
+(isOdd@NodeBlock isOdd@%n_0) <- true.
+(isOdd@tailrecurse isOdd@%n.tr_1 isOdd@%n_0) <- ((isOdd@NodeBlock isOdd@%n_0)&&[&&
+  true
+  isOdd@tailrecurse_0->(isOdd@tailrecurse_0&&isOdd@NodeBlock_0)
+  isOdd@tailrecurse_0
+  isOdd@%n.tr_0=isOdd@%n_0
+  (isOdd@tailrecurse_0&&isOdd@NodeBlock_0)->(isOdd@%n.tr_1=isOdd@%n.tr_0)
+]).
+(isOdd@tailrecurse isOdd@%n.tr_2 isOdd@%n_0) <- ((isOdd@tailrecurse isOdd@%n.tr_0 isOdd@%n_0)&&[&&
+  true
+  isOdd@%Pivot_0<->(isOdd@%n.tr_0<1)
+  isOdd@LeafBlock1_0->(isOdd@LeafBlock1_0&&isOdd@tailrecurse_0)
+  (isOdd@LeafBlock1_0&&isOdd@tailrecurse_0)->(!isOdd@%Pivot_0)
+  isOdd@%SwitchLeaf2_0<->(isOdd@%n.tr_0=1)
+  isOdd@LeafBlock_0->(isOdd@LeafBlock_0&&isOdd@tailrecurse_0)
+  (isOdd@LeafBlock_0&&isOdd@tailrecurse_0)->isOdd@%Pivot_0
+  isOdd@%SwitchLeaf_0<->(isOdd@%n.tr_0=0)
+  tuple(isOdd@LeafBlock_0, isOdd@NewDefault_0)->isOdd@LeafBlock_0
+  tuple(isOdd@LeafBlock1_0, isOdd@NewDefault_0)->isOdd@LeafBlock1_0
+  isOdd@NewDefault_0->((isOdd@LeafBlock_0&&tuple(isOdd@LeafBlock_0, isOdd@NewDefault_0))||(isOdd@LeafBlock1_0&&tuple(isOdd@LeafBlock1_0, isOdd@NewDefault_0)))
+  (isOdd@LeafBlock_0&&tuple(isOdd@LeafBlock_0, isOdd@NewDefault_0))->(!isOdd@%SwitchLeaf_0)
+  (isOdd@LeafBlock1_0&&tuple(isOdd@LeafBlock1_0, isOdd@NewDefault_0))->(!isOdd@%SwitchLeaf2_0)
+  isOdd@%SwitchLeaf2.i_0<->(isOdd@%n.tr_0=2)
+  isOdd@%_0_0=(isOdd@%n.tr_0+-2)
+  isOdd@tailrecurse_1->(isOdd@tailrecurse_1&&isOdd@NewDefault_0)
+  isOdd@tailrecurse_1
+  (isOdd@tailrecurse_1&&isOdd@NewDefault_0)->(!isOdd@%SwitchLeaf2.i_0)
+  isOdd@%n.tr_1=isOdd@%_0_0
+  (isOdd@tailrecurse_1&&isOdd@NewDefault_0)->(isOdd@%n.tr_2=isOdd@%n.tr_1)
+]).
+(isOdd@isEven.exit.split isOdd@%.0_3 isOdd@%n_0) <- ((isOdd@tailrecurse isOdd@%n.tr_0 isOdd@%n_0)&&[&&
+  true
+  isOdd@%Pivot_0<->(isOdd@%n.tr_0<1)
+  isOdd@LeafBlock1_0->(isOdd@LeafBlock1_0&&isOdd@tailrecurse_0)
+  (isOdd@LeafBlock1_0&&isOdd@tailrecurse_0)->(!isOdd@%Pivot_0)
+  isOdd@%SwitchLeaf2_0<->(isOdd@%n.tr_0=1)
+  isOdd@LeafBlock_0->(isOdd@LeafBlock_0&&isOdd@tailrecurse_0)
+  (isOdd@LeafBlock_0&&isOdd@tailrecurse_0)->isOdd@%Pivot_0
+  isOdd@%SwitchLeaf_0<->(isOdd@%n.tr_0=0)
+  tuple(isOdd@LeafBlock_0, isOdd@NewDefault_0)->isOdd@LeafBlock_0
+  tuple(isOdd@LeafBlock1_0, isOdd@NewDefault_0)->isOdd@LeafBlock1_0
+  isOdd@NewDefault_0->((isOdd@LeafBlock_0&&tuple(isOdd@LeafBlock_0, isOdd@NewDefault_0))||(isOdd@LeafBlock1_0&&tuple(isOdd@LeafBlock1_0, isOdd@NewDefault_0)))
+  (isOdd@LeafBlock_0&&tuple(isOdd@LeafBlock_0, isOdd@NewDefault_0))->(!isOdd@%SwitchLeaf_0)
+  (isOdd@LeafBlock1_0&&tuple(isOdd@LeafBlock1_0, isOdd@NewDefault_0))->(!isOdd@%SwitchLeaf2_0)
+  isOdd@%SwitchLeaf2.i_0<->(isOdd@%n.tr_0=2)
+  isOdd@%_0_0=(isOdd@%n.tr_0+-2)
+  tuple(isOdd@NewDefault_0, isOdd@isEven.exit_0)->isOdd@NewDefault_0
+  tuple(isOdd@LeafBlock_0, isOdd@isEven.exit_0)->isOdd@LeafBlock_0
+  tuple(isOdd@LeafBlock1_0, isOdd@isEven.exit_0)->isOdd@LeafBlock1_0
+  isOdd@isEven.exit_0->[||
+    isOdd@NewDefault_0&&tuple(isOdd@NewDefault_0, isOdd@isEven.exit_0)
+    isOdd@LeafBlock_0&&tuple(isOdd@LeafBlock_0, isOdd@isEven.exit_0)
+    isOdd@LeafBlock1_0&&tuple(isOdd@LeafBlock1_0, isOdd@isEven.exit_0)
+  ]
+  (isOdd@NewDefault_0&&tuple(isOdd@NewDefault_0, isOdd@isEven.exit_0))->isOdd@%SwitchLeaf2.i_0
+  isOdd@%.0_0=0
+  (isOdd@LeafBlock_0&&tuple(isOdd@LeafBlock_0, isOdd@isEven.exit_0))->isOdd@%SwitchLeaf_0
+  isOdd@%.0_1=0
+  (isOdd@LeafBlock1_0&&tuple(isOdd@LeafBlock1_0, isOdd@isEven.exit_0))->isOdd@%SwitchLeaf2_0
+  isOdd@%.0_2=1
+  (isOdd@NewDefault_0&&tuple(isOdd@NewDefault_0, isOdd@isEven.exit_0))->(isOdd@%.0_3=isOdd@%.0_0)
+  (isOdd@LeafBlock_0&&tuple(isOdd@LeafBlock_0, isOdd@isEven.exit_0))->(isOdd@%.0_3=isOdd@%.0_1)
+  (isOdd@LeafBlock1_0&&tuple(isOdd@LeafBlock1_0, isOdd@isEven.exit_0))->(isOdd@%.0_3=isOdd@%.0_2)
+  isOdd@isEven.exit.split_0->(isOdd@isEven.exit.split_0&&isOdd@isEven.exit_0)
+  isOdd@isEven.exit.split_0
+]).
+(isOdd true false false isOdd@%n_0 isOdd@%.0_0) <- (isOdd@isEven.exit.split isOdd@%.0_0 isOdd@%n_0).
+main@entry <- true.
+main@entry.split <- (main@entry&&[&&
+  true
+  main@%_1_0<->(main@%_0_0<0)
+  !main@%_1_0
+  (isOdd true false false main@%_0_0 main@%_2_0)
+  main@%_3_0<->(main@%_2_0>-1)
+  !main@%_3_0
+  main@entry.split_0->(main@entry.split_0&&main@entry_0)
+  main@entry.split_0
+]).
+Queries:
+;main@entry.split
+=========================== IMPL START ============================
+(declare-fun isOdd@%n.tr_2 () Int)
+(declare-fun isOdd@%n.tr_1 () Int)
+(declare-fun isOdd@tailrecurse_1 () Bool)
+(declare-fun isOdd@%_0_0 () Int)
+(declare-fun isOdd@%SwitchLeaf2.i_0 () Bool)
+(declare-fun isOdd@%Pivot_0 () Bool)
+(declare-fun isOdd@%n.tr_0 () Int)
+(declare-fun |tuple(isOdd@LeafBlock_0, isOdd@NewDefault_0)| () Bool)
+(declare-fun isOdd@LeafBlock1_0 () Bool)
+(declare-fun isOdd@tailrecurse_0 () Bool)
+(declare-fun isOdd@%SwitchLeaf_0 () Bool)
+(declare-fun isOdd@%SwitchLeaf2_0 () Bool)
+(declare-fun isOdd@LeafBlock_0 () Bool)
+(declare-fun |tuple(isOdd@LeafBlock1_0, isOdd@NewDefault_0)| () Bool)
+(declare-fun isOdd@NewDefault_0 () Bool)
+
+(assert (not true))
+(assert true)
+(assert (and true
+     true
+     (= isOdd@%Pivot_0 (< isOdd@%n.tr_0 1))
+     (=> isOdd@LeafBlock1_0 (and isOdd@LeafBlock1_0 isOdd@tailrecurse_0))
+     (=> (and isOdd@LeafBlock1_0 isOdd@tailrecurse_0) (not isOdd@%Pivot_0))
+     (= isOdd@%SwitchLeaf2_0 (= isOdd@%n.tr_0 1))
+     (=> isOdd@LeafBlock_0 (and isOdd@LeafBlock_0 isOdd@tailrecurse_0))
+     (=> (and isOdd@LeafBlock_0 isOdd@tailrecurse_0) isOdd@%Pivot_0)
+     (= isOdd@%SwitchLeaf_0 (= isOdd@%n.tr_0 0))
+     (=> |tuple(isOdd@LeafBlock_0, isOdd@NewDefault_0)| isOdd@LeafBlock_0)
+     (=> |tuple(isOdd@LeafBlock1_0, isOdd@NewDefault_0)| isOdd@LeafBlock1_0)
+     (=> isOdd@NewDefault_0
+         (or (and isOdd@LeafBlock_0
+                  |tuple(isOdd@LeafBlock_0, isOdd@NewDefault_0)|)
+             (and isOdd@LeafBlock1_0
+                  |tuple(isOdd@LeafBlock1_0, isOdd@NewDefault_0)|)))
+     (=> (and isOdd@LeafBlock_0 |tuple(isOdd@LeafBlock_0, isOdd@NewDefault_0)|)
+         (not isOdd@%SwitchLeaf_0))
+     (=> (and isOdd@LeafBlock1_0
+              |tuple(isOdd@LeafBlock1_0, isOdd@NewDefault_0)|)
+         (not isOdd@%SwitchLeaf2_0))
+     (= isOdd@%SwitchLeaf2.i_0 (= isOdd@%n.tr_0 2))
+     (= isOdd@%_0_0 (+ isOdd@%n.tr_0 (- 2)))
+     (=> isOdd@tailrecurse_1 (and isOdd@tailrecurse_1 isOdd@NewDefault_0))
+     isOdd@tailrecurse_1
+     (=> (and isOdd@tailrecurse_1 isOdd@NewDefault_0)
+         (not isOdd@%SwitchLeaf2.i_0))
+     (= isOdd@%n.tr_1 isOdd@%_0_0)
+     (=> (and isOdd@tailrecurse_1 isOdd@NewDefault_0)
+         (= isOdd@%n.tr_2 isOdd@%n.tr_1))))
+(check-sat)
+UNSAT
+==================================================================
+DATA & IMPL FILES ARE GENERATED
+TAG: PRED_0
+NEW CANDIDATE: true
+TAG: PRED_1
+NEW CANDIDATE: true
+TAG: PRED_2
+NEW CANDIDATE: true
+TAG: PRED_3
+INTERNAL NODE
+CUT ATTRIBUTE: PRED_3!V_0
+LEAF NODE
+LEAF NODE
+NEW CANDIDATE: (true&&(!(V_0<=-1)))
+TAG: PRED_4
+INTERNAL NODE
+CUT ATTRIBUTE: PRED_4!V_0
+LEAF NODE
+INTERNAL NODE
+CUT ATTRIBUTE: PRED_4!V_1
+LEAF NODE
+LEAF NODE
+NEW CANDIDATE: ((true&&(!V_0))||[&&
+  true
+  !(!V_0)
+  !(!V_1)
+])
+TAG: PRED_5
+NEW CANDIDATE: true
+TAG: PRED_6
+NEW CANDIDATE: false
+TAG: PRED_7
+NEW CANDIDATE: true
+NEW CANDIDATES MAP:
+(verifier.error V_0 V_1 V_2) : true
+(isOdd@NodeBlock V_0) : true
+(isOdd@tailrecurse V_0 V_1) : true
+(isOdd@isEven.exit.split V_0 V_1) : (true&&(!(V_0<=-1)))
+(isOdd V_0 V_1 V_2 V_3 V_4) : ((true&&(!V_0))||[&&
+  true
+  !(!V_0)
+  !(!V_1)
+])
+main@entry : true
+main@entry.split : false
+pos.query.pred : true
+ENTRY IS: main@entry
+=========================== POS START ============================
+VERIFY RULE: pos.query.pred <- ((isOdd@tailrecurse V_0 V_1)&&(!true))
+UNSAT
+VERIFY RULE: pos.query.pred <- ((isOdd@isEven.exit.split V_0 V_1)&&(!(true&&(!(V_0<=-1)))))
+UNSAT
+VERIFY RULE: pos.query.pred <- (main@entry.split&&(!false))
+UNSAT
+VERIFY RULE: pos.query.pred <- (main@entry&&(!true))
+UNSAT
+VERIFY RULE: pos.query.pred <- (pos.query.pred&&(!true))
+UNSAT
+VERIFY RULE: pos.query.pred <- ((isOdd@NodeBlock V_0)&&(!true))
+UNSAT
+VERIFY RULE: pos.query.pred <- ((verifier.error V_0 V_1 V_2)&&(!true))
+UNSAT
+VERIFY RULE: pos.query.pred <- ((isOdd V_0 V_1 V_2 V_3 V_4)&&(!((true&&(!V_0))||[&&
+    true
+    !(!V_0)
+    !(!V_1)
+  ])))
+SAT, NEED TO ADD POSITIVE DATA POINT
+[&&
+  pos.query.pred
+  (isOdd true false false 1 1)
+  (isOdd@isEven.exit.split 1 1)
+  (isOdd@tailrecurse 1 1)
+  (isOdd@NodeBlock 1)
+]
+POS OBJ PRED: (isOdd V_0 V_1 V_2 V_3 V_4)
+POS CEX IS: (isOdd true false false 1 1)
+ANSWER ARGS:
+true
+false
+false
+1
+1
+POS CEX, INDEX IS 7
+==================================================================
+AFTER RESET DB IS:
+Predicates:
+;[fdecl
+  verifier.error
+  BOOL
+  BOOL
+  BOOL
+  BOOL
+]
+[fdecl
+  isOdd@NodeBlock
+  INT
+  BOOL
+]
+[fdecl
+  isOdd@tailrecurse
+  INT
+  INT
+  BOOL
+]
+[fdecl
+  isOdd@isEven.exit.split
+  INT
+  INT
+  BOOL
+]
+[fdecl
+  isOdd
+  BOOL
+  BOOL
+  BOOL
+  INT
+  INT
+  BOOL
+]
+[fdecl
+  main@entry
+  BOOL
+]
+[fdecl
+  main@entry.split
+  BOOL
+]
+[fdecl
+  pos.query.pred
+  BOOL
+]
+Clauses:
+;(verifier.error false false false) <- true.
+(verifier.error false true true) <- true.
+(verifier.error true false true) <- true.
+(verifier.error true true true) <- true.
+(isOdd true true true isOdd@%n_0 isOdd@%.0_0) <- true.
+(isOdd false true true isOdd@%n_0 isOdd@%.0_0) <- true.
+(isOdd false false false isOdd@%n_0 isOdd@%.0_0) <- true.
+(isOdd@NodeBlock isOdd@%n_0) <- true.
+(isOdd@tailrecurse isOdd@%n.tr_1 isOdd@%n_0) <- ((isOdd@NodeBlock isOdd@%n_0)&&[&&
+  true
+  isOdd@tailrecurse_0->(isOdd@tailrecurse_0&&isOdd@NodeBlock_0)
+  isOdd@tailrecurse_0
+  isOdd@%n.tr_0=isOdd@%n_0
+  (isOdd@tailrecurse_0&&isOdd@NodeBlock_0)->(isOdd@%n.tr_1=isOdd@%n.tr_0)
+]).
+(isOdd@tailrecurse isOdd@%n.tr_2 isOdd@%n_0) <- ((isOdd@tailrecurse isOdd@%n.tr_0 isOdd@%n_0)&&[&&
+  true
+  isOdd@%Pivot_0<->(isOdd@%n.tr_0<1)
+  isOdd@LeafBlock1_0->(isOdd@LeafBlock1_0&&isOdd@tailrecurse_0)
+  (isOdd@LeafBlock1_0&&isOdd@tailrecurse_0)->(!isOdd@%Pivot_0)
+  isOdd@%SwitchLeaf2_0<->(isOdd@%n.tr_0=1)
+  isOdd@LeafBlock_0->(isOdd@LeafBlock_0&&isOdd@tailrecurse_0)
+  (isOdd@LeafBlock_0&&isOdd@tailrecurse_0)->isOdd@%Pivot_0
+  isOdd@%SwitchLeaf_0<->(isOdd@%n.tr_0=0)
+  tuple(isOdd@LeafBlock_0, isOdd@NewDefault_0)->isOdd@LeafBlock_0
+  tuple(isOdd@LeafBlock1_0, isOdd@NewDefault_0)->isOdd@LeafBlock1_0
+  isOdd@NewDefault_0->((isOdd@LeafBlock_0&&tuple(isOdd@LeafBlock_0, isOdd@NewDefault_0))||(isOdd@LeafBlock1_0&&tuple(isOdd@LeafBlock1_0, isOdd@NewDefault_0)))
+  (isOdd@LeafBlock_0&&tuple(isOdd@LeafBlock_0, isOdd@NewDefault_0))->(!isOdd@%SwitchLeaf_0)
+  (isOdd@LeafBlock1_0&&tuple(isOdd@LeafBlock1_0, isOdd@NewDefault_0))->(!isOdd@%SwitchLeaf2_0)
+  isOdd@%SwitchLeaf2.i_0<->(isOdd@%n.tr_0=2)
+  isOdd@%_0_0=(isOdd@%n.tr_0+-2)
+  isOdd@tailrecurse_1->(isOdd@tailrecurse_1&&isOdd@NewDefault_0)
+  isOdd@tailrecurse_1
+  (isOdd@tailrecurse_1&&isOdd@NewDefault_0)->(!isOdd@%SwitchLeaf2.i_0)
+  isOdd@%n.tr_1=isOdd@%_0_0
+  (isOdd@tailrecurse_1&&isOdd@NewDefault_0)->(isOdd@%n.tr_2=isOdd@%n.tr_1)
+]).
+(isOdd@isEven.exit.split isOdd@%.0_3 isOdd@%n_0) <- ((isOdd@tailrecurse isOdd@%n.tr_0 isOdd@%n_0)&&[&&
+  true
+  isOdd@%Pivot_0<->(isOdd@%n.tr_0<1)
+  isOdd@LeafBlock1_0->(isOdd@LeafBlock1_0&&isOdd@tailrecurse_0)
+  (isOdd@LeafBlock1_0&&isOdd@tailrecurse_0)->(!isOdd@%Pivot_0)
+  isOdd@%SwitchLeaf2_0<->(isOdd@%n.tr_0=1)
+  isOdd@LeafBlock_0->(isOdd@LeafBlock_0&&isOdd@tailrecurse_0)
+  (isOdd@LeafBlock_0&&isOdd@tailrecurse_0)->isOdd@%Pivot_0
+  isOdd@%SwitchLeaf_0<->(isOdd@%n.tr_0=0)
+  tuple(isOdd@LeafBlock_0, isOdd@NewDefault_0)->isOdd@LeafBlock_0
+  tuple(isOdd@LeafBlock1_0, isOdd@NewDefault_0)->isOdd@LeafBlock1_0
+  isOdd@NewDefault_0->((isOdd@LeafBlock_0&&tuple(isOdd@LeafBlock_0, isOdd@NewDefault_0))||(isOdd@LeafBlock1_0&&tuple(isOdd@LeafBlock1_0, isOdd@NewDefault_0)))
+  (isOdd@LeafBlock_0&&tuple(isOdd@LeafBlock_0, isOdd@NewDefault_0))->(!isOdd@%SwitchLeaf_0)
+  (isOdd@LeafBlock1_0&&tuple(isOdd@LeafBlock1_0, isOdd@NewDefault_0))->(!isOdd@%SwitchLeaf2_0)
+  isOdd@%SwitchLeaf2.i_0<->(isOdd@%n.tr_0=2)
+  isOdd@%_0_0=(isOdd@%n.tr_0+-2)
+  tuple(isOdd@NewDefault_0, isOdd@isEven.exit_0)->isOdd@NewDefault_0
+  tuple(isOdd@LeafBlock_0, isOdd@isEven.exit_0)->isOdd@LeafBlock_0
+  tuple(isOdd@LeafBlock1_0, isOdd@isEven.exit_0)->isOdd@LeafBlock1_0
+  isOdd@isEven.exit_0->[||
+    isOdd@NewDefault_0&&tuple(isOdd@NewDefault_0, isOdd@isEven.exit_0)
+    isOdd@LeafBlock_0&&tuple(isOdd@LeafBlock_0, isOdd@isEven.exit_0)
+    isOdd@LeafBlock1_0&&tuple(isOdd@LeafBlock1_0, isOdd@isEven.exit_0)
+  ]
+  (isOdd@NewDefault_0&&tuple(isOdd@NewDefault_0, isOdd@isEven.exit_0))->isOdd@%SwitchLeaf2.i_0
+  isOdd@%.0_0=0
+  (isOdd@LeafBlock_0&&tuple(isOdd@LeafBlock_0, isOdd@isEven.exit_0))->isOdd@%SwitchLeaf_0
+  isOdd@%.0_1=0
+  (isOdd@LeafBlock1_0&&tuple(isOdd@LeafBlock1_0, isOdd@isEven.exit_0))->isOdd@%SwitchLeaf2_0
+  isOdd@%.0_2=1
+  (isOdd@NewDefault_0&&tuple(isOdd@NewDefault_0, isOdd@isEven.exit_0))->(isOdd@%.0_3=isOdd@%.0_0)
+  (isOdd@LeafBlock_0&&tuple(isOdd@LeafBlock_0, isOdd@isEven.exit_0))->(isOdd@%.0_3=isOdd@%.0_1)
+  (isOdd@LeafBlock1_0&&tuple(isOdd@LeafBlock1_0, isOdd@isEven.exit_0))->(isOdd@%.0_3=isOdd@%.0_2)
+  isOdd@isEven.exit.split_0->(isOdd@isEven.exit.split_0&&isOdd@isEven.exit_0)
+  isOdd@isEven.exit.split_0
+]).
+(isOdd true false false isOdd@%n_0 isOdd@%.0_0) <- (isOdd@isEven.exit.split isOdd@%.0_0 isOdd@%n_0).
+main@entry <- true.
+main@entry.split <- (main@entry&&[&&
+  true
+  main@%_1_0<->(main@%_0_0<0)
+  !main@%_1_0
+  (isOdd true false false main@%_0_0 main@%_2_0)
+  main@%_3_0<->(main@%_2_0>-1)
+  !main@%_3_0
+  main@entry.split_0->(main@entry.split_0&&main@entry_0)
+  main@entry.split_0
+]).
+Queries:
+;main@entry.split
+=========================== NEG START ============================
+VERIFY RULE: (isOdd@tailrecurse V_0 V_1) <- (main@entry&&true)
+UNSAT
+VERIFY RULE: (isOdd@isEven.exit.split V_0 V_1) <- (main@entry&&(true&&(!(V_0<=-1))))
+UNSAT
+VERIFY RULE: main@entry.split <- (main@entry&&false)
+UNSAT
+VERIFY RULE: main@entry <- true
+UNSAT
+VERIFY RULE: pos.query.pred <- (main@entry&&true)
+UNSAT
+VERIFY RULE: (isOdd@NodeBlock V_0) <- (main@entry&&true)
+UNSAT
+VERIFY RULE: (verifier.error V_0 V_1 V_2) <- (main@entry&&true)
+UNSAT
+VERIFY RULE: (isOdd V_0 V_1 V_2 V_3 V_4) <- (main@entry&&((true&&(!V_0))||[&&
+  true
+  !(!V_0)
+  !(!V_1)
+]))
+UNSAT
+==================================================================
+AFTER RESET DB IS:
+Predicates:
+;[fdecl
+  verifier.error
+  BOOL
+  BOOL
+  BOOL
+  BOOL
+]
+[fdecl
+  isOdd@NodeBlock
+  INT
+  BOOL
+]
+[fdecl
+  isOdd@tailrecurse
+  INT
+  INT
+  BOOL
+]
+[fdecl
+  isOdd@isEven.exit.split
+  INT
+  INT
+  BOOL
+]
+[fdecl
+  isOdd
+  BOOL
+  BOOL
+  BOOL
+  INT
+  INT
+  BOOL
+]
+[fdecl
+  main@entry
+  BOOL
+]
+[fdecl
+  main@entry.split
+  BOOL
+]
+[fdecl
+  pos.query.pred
+  BOOL
+]
+Clauses:
+;(verifier.error false false false) <- true.
+(verifier.error false true true) <- true.
+(verifier.error true false true) <- true.
+(verifier.error true true true) <- true.
+(isOdd true true true isOdd@%n_0 isOdd@%.0_0) <- true.
+(isOdd false true true isOdd@%n_0 isOdd@%.0_0) <- true.
+(isOdd false false false isOdd@%n_0 isOdd@%.0_0) <- true.
+(isOdd@NodeBlock isOdd@%n_0) <- true.
+(isOdd@tailrecurse isOdd@%n.tr_1 isOdd@%n_0) <- ((isOdd@NodeBlock isOdd@%n_0)&&[&&
+  true
+  isOdd@tailrecurse_0->(isOdd@tailrecurse_0&&isOdd@NodeBlock_0)
+  isOdd@tailrecurse_0
+  isOdd@%n.tr_0=isOdd@%n_0
+  (isOdd@tailrecurse_0&&isOdd@NodeBlock_0)->(isOdd@%n.tr_1=isOdd@%n.tr_0)
+]).
+(isOdd@tailrecurse isOdd@%n.tr_2 isOdd@%n_0) <- ((isOdd@tailrecurse isOdd@%n.tr_0 isOdd@%n_0)&&[&&
+  true
+  isOdd@%Pivot_0<->(isOdd@%n.tr_0<1)
+  isOdd@LeafBlock1_0->(isOdd@LeafBlock1_0&&isOdd@tailrecurse_0)
+  (isOdd@LeafBlock1_0&&isOdd@tailrecurse_0)->(!isOdd@%Pivot_0)
+  isOdd@%SwitchLeaf2_0<->(isOdd@%n.tr_0=1)
+  isOdd@LeafBlock_0->(isOdd@LeafBlock_0&&isOdd@tailrecurse_0)
+  (isOdd@LeafBlock_0&&isOdd@tailrecurse_0)->isOdd@%Pivot_0
+  isOdd@%SwitchLeaf_0<->(isOdd@%n.tr_0=0)
+  tuple(isOdd@LeafBlock_0, isOdd@NewDefault_0)->isOdd@LeafBlock_0
+  tuple(isOdd@LeafBlock1_0, isOdd@NewDefault_0)->isOdd@LeafBlock1_0
+  isOdd@NewDefault_0->((isOdd@LeafBlock_0&&tuple(isOdd@LeafBlock_0, isOdd@NewDefault_0))||(isOdd@LeafBlock1_0&&tuple(isOdd@LeafBlock1_0, isOdd@NewDefault_0)))
+  (isOdd@LeafBlock_0&&tuple(isOdd@LeafBlock_0, isOdd@NewDefault_0))->(!isOdd@%SwitchLeaf_0)
+  (isOdd@LeafBlock1_0&&tuple(isOdd@LeafBlock1_0, isOdd@NewDefault_0))->(!isOdd@%SwitchLeaf2_0)
+  isOdd@%SwitchLeaf2.i_0<->(isOdd@%n.tr_0=2)
+  isOdd@%_0_0=(isOdd@%n.tr_0+-2)
+  isOdd@tailrecurse_1->(isOdd@tailrecurse_1&&isOdd@NewDefault_0)
+  isOdd@tailrecurse_1
+  (isOdd@tailrecurse_1&&isOdd@NewDefault_0)->(!isOdd@%SwitchLeaf2.i_0)
+  isOdd@%n.tr_1=isOdd@%_0_0
+  (isOdd@tailrecurse_1&&isOdd@NewDefault_0)->(isOdd@%n.tr_2=isOdd@%n.tr_1)
+]).
+(isOdd@isEven.exit.split isOdd@%.0_3 isOdd@%n_0) <- ((isOdd@tailrecurse isOdd@%n.tr_0 isOdd@%n_0)&&[&&
+  true
+  isOdd@%Pivot_0<->(isOdd@%n.tr_0<1)
+  isOdd@LeafBlock1_0->(isOdd@LeafBlock1_0&&isOdd@tailrecurse_0)
+  (isOdd@LeafBlock1_0&&isOdd@tailrecurse_0)->(!isOdd@%Pivot_0)
+  isOdd@%SwitchLeaf2_0<->(isOdd@%n.tr_0=1)
+  isOdd@LeafBlock_0->(isOdd@LeafBlock_0&&isOdd@tailrecurse_0)
+  (isOdd@LeafBlock_0&&isOdd@tailrecurse_0)->isOdd@%Pivot_0
+  isOdd@%SwitchLeaf_0<->(isOdd@%n.tr_0=0)
+  tuple(isOdd@LeafBlock_0, isOdd@NewDefault_0)->isOdd@LeafBlock_0
+  tuple(isOdd@LeafBlock1_0, isOdd@NewDefault_0)->isOdd@LeafBlock1_0
+  isOdd@NewDefault_0->((isOdd@LeafBlock_0&&tuple(isOdd@LeafBlock_0, isOdd@NewDefault_0))||(isOdd@LeafBlock1_0&&tuple(isOdd@LeafBlock1_0, isOdd@NewDefault_0)))
+  (isOdd@LeafBlock_0&&tuple(isOdd@LeafBlock_0, isOdd@NewDefault_0))->(!isOdd@%SwitchLeaf_0)
+  (isOdd@LeafBlock1_0&&tuple(isOdd@LeafBlock1_0, isOdd@NewDefault_0))->(!isOdd@%SwitchLeaf2_0)
+  isOdd@%SwitchLeaf2.i_0<->(isOdd@%n.tr_0=2)
+  isOdd@%_0_0=(isOdd@%n.tr_0+-2)
+  tuple(isOdd@NewDefault_0, isOdd@isEven.exit_0)->isOdd@NewDefault_0
+  tuple(isOdd@LeafBlock_0, isOdd@isEven.exit_0)->isOdd@LeafBlock_0
+  tuple(isOdd@LeafBlock1_0, isOdd@isEven.exit_0)->isOdd@LeafBlock1_0
+  isOdd@isEven.exit_0->[||
+    isOdd@NewDefault_0&&tuple(isOdd@NewDefault_0, isOdd@isEven.exit_0)
+    isOdd@LeafBlock_0&&tuple(isOdd@LeafBlock_0, isOdd@isEven.exit_0)
+    isOdd@LeafBlock1_0&&tuple(isOdd@LeafBlock1_0, isOdd@isEven.exit_0)
+  ]
+  (isOdd@NewDefault_0&&tuple(isOdd@NewDefault_0, isOdd@isEven.exit_0))->isOdd@%SwitchLeaf2.i_0
+  isOdd@%.0_0=0
+  (isOdd@LeafBlock_0&&tuple(isOdd@LeafBlock_0, isOdd@isEven.exit_0))->isOdd@%SwitchLeaf_0
+  isOdd@%.0_1=0
+  (isOdd@LeafBlock1_0&&tuple(isOdd@LeafBlock1_0, isOdd@isEven.exit_0))->isOdd@%SwitchLeaf2_0
+  isOdd@%.0_2=1
+  (isOdd@NewDefault_0&&tuple(isOdd@NewDefault_0, isOdd@isEven.exit_0))->(isOdd@%.0_3=isOdd@%.0_0)
+  (isOdd@LeafBlock_0&&tuple(isOdd@LeafBlock_0, isOdd@isEven.exit_0))->(isOdd@%.0_3=isOdd@%.0_1)
+  (isOdd@LeafBlock1_0&&tuple(isOdd@LeafBlock1_0, isOdd@isEven.exit_0))->(isOdd@%.0_3=isOdd@%.0_2)
+  isOdd@isEven.exit.split_0->(isOdd@isEven.exit.split_0&&isOdd@isEven.exit_0)
+  isOdd@isEven.exit.split_0
+]).
+(isOdd true false false isOdd@%n_0 isOdd@%.0_0) <- (isOdd@isEven.exit.split isOdd@%.0_0 isOdd@%n_0).
+main@entry <- true.
+main@entry.split <- (main@entry&&[&&
+  true
+  main@%_1_0<->(main@%_0_0<0)
+  !main@%_1_0
+  (isOdd true false false main@%_0_0 main@%_2_0)
+  main@%_3_0<->(main@%_2_0>-1)
+  !main@%_3_0
+  main@entry.split_0->(main@entry.split_0&&main@entry_0)
+  main@entry.split_0
+]).
+Queries:
+;main@entry.split
+=========================== IMPL START ============================
+(declare-fun isOdd@%n.tr_2 () Int)
+(declare-fun isOdd@%n.tr_1 () Int)
+(declare-fun isOdd@tailrecurse_1 () Bool)
+(declare-fun isOdd@%_0_0 () Int)
+(declare-fun isOdd@%SwitchLeaf2.i_0 () Bool)
+(declare-fun isOdd@%Pivot_0 () Bool)
+(declare-fun isOdd@%n.tr_0 () Int)
+(declare-fun |tuple(isOdd@LeafBlock_0, isOdd@NewDefault_0)| () Bool)
+(declare-fun isOdd@LeafBlock1_0 () Bool)
+(declare-fun isOdd@tailrecurse_0 () Bool)
+(declare-fun isOdd@%SwitchLeaf_0 () Bool)
+(declare-fun isOdd@%SwitchLeaf2_0 () Bool)
+(declare-fun isOdd@LeafBlock_0 () Bool)
+(declare-fun |tuple(isOdd@LeafBlock1_0, isOdd@NewDefault_0)| () Bool)
+(declare-fun isOdd@NewDefault_0 () Bool)
+
+(assert (not true))
+(assert true)
+(assert (and true
+     true
+     (= isOdd@%Pivot_0 (< isOdd@%n.tr_0 1))
+     (=> isOdd@LeafBlock1_0 (and isOdd@LeafBlock1_0 isOdd@tailrecurse_0))
+     (=> (and isOdd@LeafBlock1_0 isOdd@tailrecurse_0) (not isOdd@%Pivot_0))
+     (= isOdd@%SwitchLeaf2_0 (= isOdd@%n.tr_0 1))
+     (=> isOdd@LeafBlock_0 (and isOdd@LeafBlock_0 isOdd@tailrecurse_0))
+     (=> (and isOdd@LeafBlock_0 isOdd@tailrecurse_0) isOdd@%Pivot_0)
+     (= isOdd@%SwitchLeaf_0 (= isOdd@%n.tr_0 0))
+     (=> |tuple(isOdd@LeafBlock_0, isOdd@NewDefault_0)| isOdd@LeafBlock_0)
+     (=> |tuple(isOdd@LeafBlock1_0, isOdd@NewDefault_0)| isOdd@LeafBlock1_0)
+     (=> isOdd@NewDefault_0
+         (or (and isOdd@LeafBlock_0
+                  |tuple(isOdd@LeafBlock_0, isOdd@NewDefault_0)|)
+             (and isOdd@LeafBlock1_0
+                  |tuple(isOdd@LeafBlock1_0, isOdd@NewDefault_0)|)))
+     (=> (and isOdd@LeafBlock_0 |tuple(isOdd@LeafBlock_0, isOdd@NewDefault_0)|)
+         (not isOdd@%SwitchLeaf_0))
+     (=> (and isOdd@LeafBlock1_0
+              |tuple(isOdd@LeafBlock1_0, isOdd@NewDefault_0)|)
+         (not isOdd@%SwitchLeaf2_0))
+     (= isOdd@%SwitchLeaf2.i_0 (= isOdd@%n.tr_0 2))
+     (= isOdd@%_0_0 (+ isOdd@%n.tr_0 (- 2)))
+     (=> isOdd@tailrecurse_1 (and isOdd@tailrecurse_1 isOdd@NewDefault_0))
+     isOdd@tailrecurse_1
+     (=> (and isOdd@tailrecurse_1 isOdd@NewDefault_0)
+         (not isOdd@%SwitchLeaf2.i_0))
+     (= isOdd@%n.tr_1 isOdd@%_0_0)
+     (=> (and isOdd@tailrecurse_1 isOdd@NewDefault_0)
+         (= isOdd@%n.tr_2 isOdd@%n.tr_1))))
+(check-sat)
+UNSAT
+==================================================================
+DATA & IMPL FILES ARE GENERATED
+TAG: PRED_0
+NEW CANDIDATE: true
+TAG: PRED_1
+NEW CANDIDATE: true
+TAG: PRED_2
+NEW CANDIDATE: true
+TAG: PRED_3
+INTERNAL NODE
+CUT ATTRIBUTE: PRED_3!V_0
+LEAF NODE
+LEAF NODE
+NEW CANDIDATE: (true&&(!(V_0<=-1)))
+TAG: PRED_4
+INTERNAL NODE
+CUT ATTRIBUTE: PRED_4!V_3-PRED_4!V_4
+LEAF NODE
+INTERNAL NODE
+CUT ATTRIBUTE: PRED_4!V_0
+LEAF NODE
+LEAF NODE
+NEW CANDIDATE: ((true&&((V_3-V_4)<=0))||[&&
+  true
+  !((V_3-V_4)<=0)
+  !V_0
+])
+TAG: PRED_5
+NEW CANDIDATE: true
+TAG: PRED_6
+NEW CANDIDATE: false
+TAG: PRED_7
+NEW CANDIDATE: true
+NEW CANDIDATES MAP:
+(verifier.error V_0 V_1 V_2) : true
+(isOdd@NodeBlock V_0) : true
+(isOdd@tailrecurse V_0 V_1) : true
+(isOdd@isEven.exit.split V_0 V_1) : (true&&(!(V_0<=-1)))
+(isOdd V_0 V_1 V_2 V_3 V_4) : ((true&&((V_3-V_4)<=0))||[&&
+  true
+  !((V_3-V_4)<=0)
+  !V_0
+])
+main@entry : true
+main@entry.split : false
+pos.query.pred : true
+ENTRY IS: main@entry
+=========================== POS START ============================
+VERIFY RULE: pos.query.pred <- ((isOdd@isEven.exit.split V_0 V_1)&&(!(true&&(!(V_0<=-1)))))
+UNSAT
+VERIFY RULE: pos.query.pred <- ((isOdd@tailrecurse V_0 V_1)&&(!true))
+UNSAT
+VERIFY RULE: pos.query.pred <- (main@entry&&(!true))
+UNSAT
+VERIFY RULE: pos.query.pred <- (main@entry.split&&(!false))
+UNSAT
+VERIFY RULE: pos.query.pred <- (pos.query.pred&&(!true))
+UNSAT
+VERIFY RULE: pos.query.pred <- ((isOdd@NodeBlock V_0)&&(!true))
+UNSAT
+VERIFY RULE: pos.query.pred <- ((verifier.error V_0 V_1 V_2)&&(!true))
+UNSAT
+VERIFY RULE: pos.query.pred <- ((isOdd V_0 V_1 V_2 V_3 V_4)&&(!((true&&((V_3-V_4)<=0))||[&&
+    true
+    !((V_3-V_4)<=0)
+    !V_0
+  ])))
+SAT, NEED TO ADD POSITIVE DATA POINT
+(pos.query.pred&&(isOdd true true true 1 0))
+POS OBJ PRED: (isOdd V_0 V_1 V_2 V_3 V_4)
+POS CEX IS: (isOdd true true true 1 0)
+ANSWER ARGS:
+true
+true
+true
+1
+0
+POS CEX, INDEX IS 8
+==================================================================
+AFTER RESET DB IS:
+Predicates:
+;[fdecl
+  verifier.error
+  BOOL
+  BOOL
+  BOOL
+  BOOL
+]
+[fdecl
+  isOdd@NodeBlock
+  INT
+  BOOL
+]
+[fdecl
+  isOdd@tailrecurse
+  INT
+  INT
+  BOOL
+]
+[fdecl
+  isOdd@isEven.exit.split
+  INT
+  INT
+  BOOL
+]
+[fdecl
+  isOdd
+  BOOL
+  BOOL
+  BOOL
+  INT
+  INT
+  BOOL
+]
+[fdecl
+  main@entry
+  BOOL
+]
+[fdecl
+  main@entry.split
+  BOOL
+]
+[fdecl
+  pos.query.pred
+  BOOL
+]
+Clauses:
+;(verifier.error false false false) <- true.
+(verifier.error false true true) <- true.
+(verifier.error true false true) <- true.
+(verifier.error true true true) <- true.
+(isOdd true true true isOdd@%n_0 isOdd@%.0_0) <- true.
+(isOdd false true true isOdd@%n_0 isOdd@%.0_0) <- true.
+(isOdd false false false isOdd@%n_0 isOdd@%.0_0) <- true.
+(isOdd@NodeBlock isOdd@%n_0) <- true.
+(isOdd@tailrecurse isOdd@%n.tr_1 isOdd@%n_0) <- ((isOdd@NodeBlock isOdd@%n_0)&&[&&
+  true
+  isOdd@tailrecurse_0->(isOdd@tailrecurse_0&&isOdd@NodeBlock_0)
+  isOdd@tailrecurse_0
+  isOdd@%n.tr_0=isOdd@%n_0
+  (isOdd@tailrecurse_0&&isOdd@NodeBlock_0)->(isOdd@%n.tr_1=isOdd@%n.tr_0)
+]).
+(isOdd@tailrecurse isOdd@%n.tr_2 isOdd@%n_0) <- ((isOdd@tailrecurse isOdd@%n.tr_0 isOdd@%n_0)&&[&&
+  true
+  isOdd@%Pivot_0<->(isOdd@%n.tr_0<1)
+  isOdd@LeafBlock1_0->(isOdd@LeafBlock1_0&&isOdd@tailrecurse_0)
+  (isOdd@LeafBlock1_0&&isOdd@tailrecurse_0)->(!isOdd@%Pivot_0)
+  isOdd@%SwitchLeaf2_0<->(isOdd@%n.tr_0=1)
+  isOdd@LeafBlock_0->(isOdd@LeafBlock_0&&isOdd@tailrecurse_0)
+  (isOdd@LeafBlock_0&&isOdd@tailrecurse_0)->isOdd@%Pivot_0
+  isOdd@%SwitchLeaf_0<->(isOdd@%n.tr_0=0)
+  tuple(isOdd@LeafBlock_0, isOdd@NewDefault_0)->isOdd@LeafBlock_0
+  tuple(isOdd@LeafBlock1_0, isOdd@NewDefault_0)->isOdd@LeafBlock1_0
+  isOdd@NewDefault_0->((isOdd@LeafBlock_0&&tuple(isOdd@LeafBlock_0, isOdd@NewDefault_0))||(isOdd@LeafBlock1_0&&tuple(isOdd@LeafBlock1_0, isOdd@NewDefault_0)))
+  (isOdd@LeafBlock_0&&tuple(isOdd@LeafBlock_0, isOdd@NewDefault_0))->(!isOdd@%SwitchLeaf_0)
+  (isOdd@LeafBlock1_0&&tuple(isOdd@LeafBlock1_0, isOdd@NewDefault_0))->(!isOdd@%SwitchLeaf2_0)
+  isOdd@%SwitchLeaf2.i_0<->(isOdd@%n.tr_0=2)
+  isOdd@%_0_0=(isOdd@%n.tr_0+-2)
+  isOdd@tailrecurse_1->(isOdd@tailrecurse_1&&isOdd@NewDefault_0)
+  isOdd@tailrecurse_1
+  (isOdd@tailrecurse_1&&isOdd@NewDefault_0)->(!isOdd@%SwitchLeaf2.i_0)
+  isOdd@%n.tr_1=isOdd@%_0_0
+  (isOdd@tailrecurse_1&&isOdd@NewDefault_0)->(isOdd@%n.tr_2=isOdd@%n.tr_1)
+]).
+(isOdd@isEven.exit.split isOdd@%.0_3 isOdd@%n_0) <- ((isOdd@tailrecurse isOdd@%n.tr_0 isOdd@%n_0)&&[&&
+  true
+  isOdd@%Pivot_0<->(isOdd@%n.tr_0<1)
+  isOdd@LeafBlock1_0->(isOdd@LeafBlock1_0&&isOdd@tailrecurse_0)
+  (isOdd@LeafBlock1_0&&isOdd@tailrecurse_0)->(!isOdd@%Pivot_0)
+  isOdd@%SwitchLeaf2_0<->(isOdd@%n.tr_0=1)
+  isOdd@LeafBlock_0->(isOdd@LeafBlock_0&&isOdd@tailrecurse_0)
+  (isOdd@LeafBlock_0&&isOdd@tailrecurse_0)->isOdd@%Pivot_0
+  isOdd@%SwitchLeaf_0<->(isOdd@%n.tr_0=0)
+  tuple(isOdd@LeafBlock_0, isOdd@NewDefault_0)->isOdd@LeafBlock_0
+  tuple(isOdd@LeafBlock1_0, isOdd@NewDefault_0)->isOdd@LeafBlock1_0
+  isOdd@NewDefault_0->((isOdd@LeafBlock_0&&tuple(isOdd@LeafBlock_0, isOdd@NewDefault_0))||(isOdd@LeafBlock1_0&&tuple(isOdd@LeafBlock1_0, isOdd@NewDefault_0)))
+  (isOdd@LeafBlock_0&&tuple(isOdd@LeafBlock_0, isOdd@NewDefault_0))->(!isOdd@%SwitchLeaf_0)
+  (isOdd@LeafBlock1_0&&tuple(isOdd@LeafBlock1_0, isOdd@NewDefault_0))->(!isOdd@%SwitchLeaf2_0)
+  isOdd@%SwitchLeaf2.i_0<->(isOdd@%n.tr_0=2)
+  isOdd@%_0_0=(isOdd@%n.tr_0+-2)
+  tuple(isOdd@NewDefault_0, isOdd@isEven.exit_0)->isOdd@NewDefault_0
+  tuple(isOdd@LeafBlock_0, isOdd@isEven.exit_0)->isOdd@LeafBlock_0
+  tuple(isOdd@LeafBlock1_0, isOdd@isEven.exit_0)->isOdd@LeafBlock1_0
+  isOdd@isEven.exit_0->[||
+    isOdd@NewDefault_0&&tuple(isOdd@NewDefault_0, isOdd@isEven.exit_0)
+    isOdd@LeafBlock_0&&tuple(isOdd@LeafBlock_0, isOdd@isEven.exit_0)
+    isOdd@LeafBlock1_0&&tuple(isOdd@LeafBlock1_0, isOdd@isEven.exit_0)
+  ]
+  (isOdd@NewDefault_0&&tuple(isOdd@NewDefault_0, isOdd@isEven.exit_0))->isOdd@%SwitchLeaf2.i_0
+  isOdd@%.0_0=0
+  (isOdd@LeafBlock_0&&tuple(isOdd@LeafBlock_0, isOdd@isEven.exit_0))->isOdd@%SwitchLeaf_0
+  isOdd@%.0_1=0
+  (isOdd@LeafBlock1_0&&tuple(isOdd@LeafBlock1_0, isOdd@isEven.exit_0))->isOdd@%SwitchLeaf2_0
+  isOdd@%.0_2=1
+  (isOdd@NewDefault_0&&tuple(isOdd@NewDefault_0, isOdd@isEven.exit_0))->(isOdd@%.0_3=isOdd@%.0_0)
+  (isOdd@LeafBlock_0&&tuple(isOdd@LeafBlock_0, isOdd@isEven.exit_0))->(isOdd@%.0_3=isOdd@%.0_1)
+  (isOdd@LeafBlock1_0&&tuple(isOdd@LeafBlock1_0, isOdd@isEven.exit_0))->(isOdd@%.0_3=isOdd@%.0_2)
+  isOdd@isEven.exit.split_0->(isOdd@isEven.exit.split_0&&isOdd@isEven.exit_0)
+  isOdd@isEven.exit.split_0
+]).
+(isOdd true false false isOdd@%n_0 isOdd@%.0_0) <- (isOdd@isEven.exit.split isOdd@%.0_0 isOdd@%n_0).
+main@entry <- true.
+main@entry.split <- (main@entry&&[&&
+  true
+  main@%_1_0<->(main@%_0_0<0)
+  !main@%_1_0
+  (isOdd true false false main@%_0_0 main@%_2_0)
+  main@%_3_0<->(main@%_2_0>-1)
+  !main@%_3_0
+  main@entry.split_0->(main@entry.split_0&&main@entry_0)
+  main@entry.split_0
+]).
+Queries:
+;main@entry.split
+=========================== NEG START ============================
+VERIFY RULE: (isOdd@tailrecurse V_0 V_1) <- (main@entry&&true)
+UNSAT
+VERIFY RULE: (isOdd@isEven.exit.split V_0 V_1) <- (main@entry&&(true&&(!(V_0<=-1))))
+UNSAT
+VERIFY RULE: main@entry.split <- (main@entry&&false)
+UNSAT
+VERIFY RULE: main@entry <- true
+UNSAT
+VERIFY RULE: pos.query.pred <- (main@entry&&true)
+UNSAT
+VERIFY RULE: (isOdd@NodeBlock V_0) <- (main@entry&&true)
+UNSAT
+VERIFY RULE: (verifier.error V_0 V_1 V_2) <- (main@entry&&true)
+UNSAT
+VERIFY RULE: (isOdd V_0 V_1 V_2 V_3 V_4) <- (main@entry&&((true&&((V_3-V_4)<=0))||[&&
+  true
+  !((V_3-V_4)<=0)
+  !V_0
+]))
+UNSAT
+==================================================================
+AFTER RESET DB IS:
+Predicates:
+;[fdecl
+  verifier.error
+  BOOL
+  BOOL
+  BOOL
+  BOOL
+]
+[fdecl
+  isOdd@NodeBlock
+  INT
+  BOOL
+]
+[fdecl
+  isOdd@tailrecurse
+  INT
+  INT
+  BOOL
+]
+[fdecl
+  isOdd@isEven.exit.split
+  INT
+  INT
+  BOOL
+]
+[fdecl
+  isOdd
+  BOOL
+  BOOL
+  BOOL
+  INT
+  INT
+  BOOL
+]
+[fdecl
+  main@entry
+  BOOL
+]
+[fdecl
+  main@entry.split
+  BOOL
+]
+[fdecl
+  pos.query.pred
+  BOOL
+]
+Clauses:
+;(verifier.error false false false) <- true.
+(verifier.error false true true) <- true.
+(verifier.error true false true) <- true.
+(verifier.error true true true) <- true.
+(isOdd true true true isOdd@%n_0 isOdd@%.0_0) <- true.
+(isOdd false true true isOdd@%n_0 isOdd@%.0_0) <- true.
+(isOdd false false false isOdd@%n_0 isOdd@%.0_0) <- true.
+(isOdd@NodeBlock isOdd@%n_0) <- true.
+(isOdd@tailrecurse isOdd@%n.tr_1 isOdd@%n_0) <- ((isOdd@NodeBlock isOdd@%n_0)&&[&&
+  true
+  isOdd@tailrecurse_0->(isOdd@tailrecurse_0&&isOdd@NodeBlock_0)
+  isOdd@tailrecurse_0
+  isOdd@%n.tr_0=isOdd@%n_0
+  (isOdd@tailrecurse_0&&isOdd@NodeBlock_0)->(isOdd@%n.tr_1=isOdd@%n.tr_0)
+]).
+(isOdd@tailrecurse isOdd@%n.tr_2 isOdd@%n_0) <- ((isOdd@tailrecurse isOdd@%n.tr_0 isOdd@%n_0)&&[&&
+  true
+  isOdd@%Pivot_0<->(isOdd@%n.tr_0<1)
+  isOdd@LeafBlock1_0->(isOdd@LeafBlock1_0&&isOdd@tailrecurse_0)
+  (isOdd@LeafBlock1_0&&isOdd@tailrecurse_0)->(!isOdd@%Pivot_0)
+  isOdd@%SwitchLeaf2_0<->(isOdd@%n.tr_0=1)
+  isOdd@LeafBlock_0->(isOdd@LeafBlock_0&&isOdd@tailrecurse_0)
+  (isOdd@LeafBlock_0&&isOdd@tailrecurse_0)->isOdd@%Pivot_0
+  isOdd@%SwitchLeaf_0<->(isOdd@%n.tr_0=0)
+  tuple(isOdd@LeafBlock_0, isOdd@NewDefault_0)->isOdd@LeafBlock_0
+  tuple(isOdd@LeafBlock1_0, isOdd@NewDefault_0)->isOdd@LeafBlock1_0
+  isOdd@NewDefault_0->((isOdd@LeafBlock_0&&tuple(isOdd@LeafBlock_0, isOdd@NewDefault_0))||(isOdd@LeafBlock1_0&&tuple(isOdd@LeafBlock1_0, isOdd@NewDefault_0)))
+  (isOdd@LeafBlock_0&&tuple(isOdd@LeafBlock_0, isOdd@NewDefault_0))->(!isOdd@%SwitchLeaf_0)
+  (isOdd@LeafBlock1_0&&tuple(isOdd@LeafBlock1_0, isOdd@NewDefault_0))->(!isOdd@%SwitchLeaf2_0)
+  isOdd@%SwitchLeaf2.i_0<->(isOdd@%n.tr_0=2)
+  isOdd@%_0_0=(isOdd@%n.tr_0+-2)
+  isOdd@tailrecurse_1->(isOdd@tailrecurse_1&&isOdd@NewDefault_0)
+  isOdd@tailrecurse_1
+  (isOdd@tailrecurse_1&&isOdd@NewDefault_0)->(!isOdd@%SwitchLeaf2.i_0)
+  isOdd@%n.tr_1=isOdd@%_0_0
+  (isOdd@tailrecurse_1&&isOdd@NewDefault_0)->(isOdd@%n.tr_2=isOdd@%n.tr_1)
+]).
+(isOdd@isEven.exit.split isOdd@%.0_3 isOdd@%n_0) <- ((isOdd@tailrecurse isOdd@%n.tr_0 isOdd@%n_0)&&[&&
+  true
+  isOdd@%Pivot_0<->(isOdd@%n.tr_0<1)
+  isOdd@LeafBlock1_0->(isOdd@LeafBlock1_0&&isOdd@tailrecurse_0)
+  (isOdd@LeafBlock1_0&&isOdd@tailrecurse_0)->(!isOdd@%Pivot_0)
+  isOdd@%SwitchLeaf2_0<->(isOdd@%n.tr_0=1)
+  isOdd@LeafBlock_0->(isOdd@LeafBlock_0&&isOdd@tailrecurse_0)
+  (isOdd@LeafBlock_0&&isOdd@tailrecurse_0)->isOdd@%Pivot_0
+  isOdd@%SwitchLeaf_0<->(isOdd@%n.tr_0=0)
+  tuple(isOdd@LeafBlock_0, isOdd@NewDefault_0)->isOdd@LeafBlock_0
+  tuple(isOdd@LeafBlock1_0, isOdd@NewDefault_0)->isOdd@LeafBlock1_0
+  isOdd@NewDefault_0->((isOdd@LeafBlock_0&&tuple(isOdd@LeafBlock_0, isOdd@NewDefault_0))||(isOdd@LeafBlock1_0&&tuple(isOdd@LeafBlock1_0, isOdd@NewDefault_0)))
+  (isOdd@LeafBlock_0&&tuple(isOdd@LeafBlock_0, isOdd@NewDefault_0))->(!isOdd@%SwitchLeaf_0)
+  (isOdd@LeafBlock1_0&&tuple(isOdd@LeafBlock1_0, isOdd@NewDefault_0))->(!isOdd@%SwitchLeaf2_0)
+  isOdd@%SwitchLeaf2.i_0<->(isOdd@%n.tr_0=2)
+  isOdd@%_0_0=(isOdd@%n.tr_0+-2)
+  tuple(isOdd@NewDefault_0, isOdd@isEven.exit_0)->isOdd@NewDefault_0
+  tuple(isOdd@LeafBlock_0, isOdd@isEven.exit_0)->isOdd@LeafBlock_0
+  tuple(isOdd@LeafBlock1_0, isOdd@isEven.exit_0)->isOdd@LeafBlock1_0
+  isOdd@isEven.exit_0->[||
+    isOdd@NewDefault_0&&tuple(isOdd@NewDefault_0, isOdd@isEven.exit_0)
+    isOdd@LeafBlock_0&&tuple(isOdd@LeafBlock_0, isOdd@isEven.exit_0)
+    isOdd@LeafBlock1_0&&tuple(isOdd@LeafBlock1_0, isOdd@isEven.exit_0)
+  ]
+  (isOdd@NewDefault_0&&tuple(isOdd@NewDefault_0, isOdd@isEven.exit_0))->isOdd@%SwitchLeaf2.i_0
+  isOdd@%.0_0=0
+  (isOdd@LeafBlock_0&&tuple(isOdd@LeafBlock_0, isOdd@isEven.exit_0))->isOdd@%SwitchLeaf_0
+  isOdd@%.0_1=0
+  (isOdd@LeafBlock1_0&&tuple(isOdd@LeafBlock1_0, isOdd@isEven.exit_0))->isOdd@%SwitchLeaf2_0
+  isOdd@%.0_2=1
+  (isOdd@NewDefault_0&&tuple(isOdd@NewDefault_0, isOdd@isEven.exit_0))->(isOdd@%.0_3=isOdd@%.0_0)
+  (isOdd@LeafBlock_0&&tuple(isOdd@LeafBlock_0, isOdd@isEven.exit_0))->(isOdd@%.0_3=isOdd@%.0_1)
+  (isOdd@LeafBlock1_0&&tuple(isOdd@LeafBlock1_0, isOdd@isEven.exit_0))->(isOdd@%.0_3=isOdd@%.0_2)
+  isOdd@isEven.exit.split_0->(isOdd@isEven.exit.split_0&&isOdd@isEven.exit_0)
+  isOdd@isEven.exit.split_0
+]).
+(isOdd true false false isOdd@%n_0 isOdd@%.0_0) <- (isOdd@isEven.exit.split isOdd@%.0_0 isOdd@%n_0).
+main@entry <- true.
+main@entry.split <- (main@entry&&[&&
+  true
+  main@%_1_0<->(main@%_0_0<0)
+  !main@%_1_0
+  (isOdd true false false main@%_0_0 main@%_2_0)
+  main@%_3_0<->(main@%_2_0>-1)
+  !main@%_3_0
+  main@entry.split_0->(main@entry.split_0&&main@entry_0)
+  main@entry.split_0
+]).
+Queries:
+;main@entry.split
+=========================== IMPL START ============================
+(declare-fun isOdd@%n.tr_2 () Int)
+(declare-fun isOdd@%n.tr_1 () Int)
+(declare-fun isOdd@tailrecurse_1 () Bool)
+(declare-fun isOdd@%_0_0 () Int)
+(declare-fun isOdd@%SwitchLeaf2.i_0 () Bool)
+(declare-fun isOdd@%Pivot_0 () Bool)
+(declare-fun isOdd@%n.tr_0 () Int)
+(declare-fun |tuple(isOdd@LeafBlock_0, isOdd@NewDefault_0)| () Bool)
+(declare-fun isOdd@LeafBlock1_0 () Bool)
+(declare-fun isOdd@tailrecurse_0 () Bool)
+(declare-fun isOdd@%SwitchLeaf_0 () Bool)
+(declare-fun isOdd@%SwitchLeaf2_0 () Bool)
+(declare-fun isOdd@LeafBlock_0 () Bool)
+(declare-fun |tuple(isOdd@LeafBlock1_0, isOdd@NewDefault_0)| () Bool)
+(declare-fun isOdd@NewDefault_0 () Bool)
+
+(assert (not true))
+(assert true)
+(assert (and true
+     true
+     (= isOdd@%Pivot_0 (< isOdd@%n.tr_0 1))
+     (=> isOdd@LeafBlock1_0 (and isOdd@LeafBlock1_0 isOdd@tailrecurse_0))
+     (=> (and isOdd@LeafBlock1_0 isOdd@tailrecurse_0) (not isOdd@%Pivot_0))
+     (= isOdd@%SwitchLeaf2_0 (= isOdd@%n.tr_0 1))
+     (=> isOdd@LeafBlock_0 (and isOdd@LeafBlock_0 isOdd@tailrecurse_0))
+     (=> (and isOdd@LeafBlock_0 isOdd@tailrecurse_0) isOdd@%Pivot_0)
+     (= isOdd@%SwitchLeaf_0 (= isOdd@%n.tr_0 0))
+     (=> |tuple(isOdd@LeafBlock_0, isOdd@NewDefault_0)| isOdd@LeafBlock_0)
+     (=> |tuple(isOdd@LeafBlock1_0, isOdd@NewDefault_0)| isOdd@LeafBlock1_0)
+     (=> isOdd@NewDefault_0
+         (or (and isOdd@LeafBlock_0
+                  |tuple(isOdd@LeafBlock_0, isOdd@NewDefault_0)|)
+             (and isOdd@LeafBlock1_0
+                  |tuple(isOdd@LeafBlock1_0, isOdd@NewDefault_0)|)))
+     (=> (and isOdd@LeafBlock_0 |tuple(isOdd@LeafBlock_0, isOdd@NewDefault_0)|)
+         (not isOdd@%SwitchLeaf_0))
+     (=> (and isOdd@LeafBlock1_0
+              |tuple(isOdd@LeafBlock1_0, isOdd@NewDefault_0)|)
+         (not isOdd@%SwitchLeaf2_0))
+     (= isOdd@%SwitchLeaf2.i_0 (= isOdd@%n.tr_0 2))
+     (= isOdd@%_0_0 (+ isOdd@%n.tr_0 (- 2)))
+     (=> isOdd@tailrecurse_1 (and isOdd@tailrecurse_1 isOdd@NewDefault_0))
+     isOdd@tailrecurse_1
+     (=> (and isOdd@tailrecurse_1 isOdd@NewDefault_0)
+         (not isOdd@%SwitchLeaf2.i_0))
+     (= isOdd@%n.tr_1 isOdd@%_0_0)
+     (=> (and isOdd@tailrecurse_1 isOdd@NewDefault_0)
+         (= isOdd@%n.tr_2 isOdd@%n.tr_1))))
+(check-sat)
+UNSAT
+==================================================================
+DATA & IMPL FILES ARE GENERATED
+TAG: PRED_0
+NEW CANDIDATE: true
+TAG: PRED_1
+NEW CANDIDATE: true
+TAG: PRED_2
+NEW CANDIDATE: true
+TAG: PRED_3
+INTERNAL NODE
+CUT ATTRIBUTE: PRED_3!V_0
+LEAF NODE
+LEAF NODE
+NEW CANDIDATE: (true&&(!(V_0<=-1)))
+TAG: PRED_4
+INTERNAL NODE
+CUT ATTRIBUTE: PRED_4!V_3-PRED_4!V_4
+LEAF NODE
+INTERNAL NODE
+CUT ATTRIBUTE: PRED_4!V_3+PRED_4!V_4
+INTERNAL NODE
+CUT ATTRIBUTE: PRED_4!V_0
+LEAF NODE
+LEAF NODE
+LEAF NODE
+NEW CANDIDATE: [||
+  true&&((V_3-V_4)<=0)
+  [&&
+    true
+    !((V_3-V_4)<=0)
+    (V_3+V_4)<=0
+    !V_0
+  ]
+  [&&
+    true
+    !((V_3-V_4)<=0)
+    !((V_3+V_4)<=0)
+  ]
+]
+TAG: PRED_5
+NEW CANDIDATE: true
+TAG: PRED_6
+NEW CANDIDATE: false
+TAG: PRED_7
+NEW CANDIDATE: true
+NEW CANDIDATES MAP:
+(verifier.error V_0 V_1 V_2) : true
+(isOdd@NodeBlock V_0) : true
+(isOdd@tailrecurse V_0 V_1) : true
+(isOdd@isEven.exit.split V_0 V_1) : (true&&(!(V_0<=-1)))
+(isOdd V_0 V_1 V_2 V_3 V_4) : [||
+  true&&((V_3-V_4)<=0)
+  [&&
+    true
+    !((V_3-V_4)<=0)
+    (V_3+V_4)<=0
+    !V_0
+  ]
+  [&&
+    true
+    !((V_3-V_4)<=0)
+    !((V_3+V_4)<=0)
+  ]
+]
+main@entry : true
+main@entry.split : false
+pos.query.pred : true
+ENTRY IS: main@entry
+=========================== POS START ============================
+VERIFY RULE: pos.query.pred <- ((isOdd@tailrecurse V_0 V_1)&&(!true))
+UNSAT
+VERIFY RULE: pos.query.pred <- ((isOdd@isEven.exit.split V_0 V_1)&&(!(true&&(!(V_0<=-1)))))
+UNSAT
+VERIFY RULE: pos.query.pred <- (pos.query.pred&&(!true))
+UNSAT
+VERIFY RULE: pos.query.pred <- (main@entry&&(!true))
+UNSAT
+VERIFY RULE: pos.query.pred <- (main@entry.split&&(!false))
+UNSAT
+VERIFY RULE: pos.query.pred <- ((isOdd@NodeBlock V_0)&&(!true))
+UNSAT
+VERIFY RULE: pos.query.pred <- ((verifier.error V_0 V_1 V_2)&&(!true))
+UNSAT
+VERIFY RULE: pos.query.pred <- ((isOdd V_0 V_1 V_2 V_3 V_4)&&(![||
+    true&&((V_3-V_4)<=0)
+    [&&
+      true
+      !((V_3-V_4)<=0)
+      (V_3+V_4)<=0
+      !V_0
+    ]
+    [&&
+      true
+      !((V_3-V_4)<=0)
+      !((V_3+V_4)<=0)
+    ]
+  ]))
+SAT, NEED TO ADD POSITIVE DATA POINT
+(pos.query.pred&&(isOdd true true true 1 -1))
+POS OBJ PRED: (isOdd V_0 V_1 V_2 V_3 V_4)
+POS CEX IS: (isOdd true true true 1 -1)
+ANSWER ARGS:
+true
+true
+true
+1
+-1
+POS CEX, INDEX IS 9
+==================================================================
+AFTER RESET DB IS:
+Predicates:
+;[fdecl
+  verifier.error
+  BOOL
+  BOOL
+  BOOL
+  BOOL
+]
+[fdecl
+  isOdd@NodeBlock
+  INT
+  BOOL
+]
+[fdecl
+  isOdd@tailrecurse
+  INT
+  INT
+  BOOL
+]
+[fdecl
+  isOdd@isEven.exit.split
+  INT
+  INT
+  BOOL
+]
+[fdecl
+  isOdd
+  BOOL
+  BOOL
+  BOOL
+  INT
+  INT
+  BOOL
+]
+[fdecl
+  main@entry
+  BOOL
+]
+[fdecl
+  main@entry.split
+  BOOL
+]
+[fdecl
+  pos.query.pred
+  BOOL
+]
+Clauses:
+;(verifier.error false false false) <- true.
+(verifier.error false true true) <- true.
+(verifier.error true false true) <- true.
+(verifier.error true true true) <- true.
+(isOdd true true true isOdd@%n_0 isOdd@%.0_0) <- true.
+(isOdd false true true isOdd@%n_0 isOdd@%.0_0) <- true.
+(isOdd false false false isOdd@%n_0 isOdd@%.0_0) <- true.
+(isOdd@NodeBlock isOdd@%n_0) <- true.
+(isOdd@tailrecurse isOdd@%n.tr_1 isOdd@%n_0) <- ((isOdd@NodeBlock isOdd@%n_0)&&[&&
+  true
+  isOdd@tailrecurse_0->(isOdd@tailrecurse_0&&isOdd@NodeBlock_0)
+  isOdd@tailrecurse_0
+  isOdd@%n.tr_0=isOdd@%n_0
+  (isOdd@tailrecurse_0&&isOdd@NodeBlock_0)->(isOdd@%n.tr_1=isOdd@%n.tr_0)
+]).
+(isOdd@tailrecurse isOdd@%n.tr_2 isOdd@%n_0) <- ((isOdd@tailrecurse isOdd@%n.tr_0 isOdd@%n_0)&&[&&
+  true
+  isOdd@%Pivot_0<->(isOdd@%n.tr_0<1)
+  isOdd@LeafBlock1_0->(isOdd@LeafBlock1_0&&isOdd@tailrecurse_0)
+  (isOdd@LeafBlock1_0&&isOdd@tailrecurse_0)->(!isOdd@%Pivot_0)
+  isOdd@%SwitchLeaf2_0<->(isOdd@%n.tr_0=1)
+  isOdd@LeafBlock_0->(isOdd@LeafBlock_0&&isOdd@tailrecurse_0)
+  (isOdd@LeafBlock_0&&isOdd@tailrecurse_0)->isOdd@%Pivot_0
+  isOdd@%SwitchLeaf_0<->(isOdd@%n.tr_0=0)
+  tuple(isOdd@LeafBlock_0, isOdd@NewDefault_0)->isOdd@LeafBlock_0
+  tuple(isOdd@LeafBlock1_0, isOdd@NewDefault_0)->isOdd@LeafBlock1_0
+  isOdd@NewDefault_0->((isOdd@LeafBlock_0&&tuple(isOdd@LeafBlock_0, isOdd@NewDefault_0))||(isOdd@LeafBlock1_0&&tuple(isOdd@LeafBlock1_0, isOdd@NewDefault_0)))
+  (isOdd@LeafBlock_0&&tuple(isOdd@LeafBlock_0, isOdd@NewDefault_0))->(!isOdd@%SwitchLeaf_0)
+  (isOdd@LeafBlock1_0&&tuple(isOdd@LeafBlock1_0, isOdd@NewDefault_0))->(!isOdd@%SwitchLeaf2_0)
+  isOdd@%SwitchLeaf2.i_0<->(isOdd@%n.tr_0=2)
+  isOdd@%_0_0=(isOdd@%n.tr_0+-2)
+  isOdd@tailrecurse_1->(isOdd@tailrecurse_1&&isOdd@NewDefault_0)
+  isOdd@tailrecurse_1
+  (isOdd@tailrecurse_1&&isOdd@NewDefault_0)->(!isOdd@%SwitchLeaf2.i_0)
+  isOdd@%n.tr_1=isOdd@%_0_0
+  (isOdd@tailrecurse_1&&isOdd@NewDefault_0)->(isOdd@%n.tr_2=isOdd@%n.tr_1)
+]).
+(isOdd@isEven.exit.split isOdd@%.0_3 isOdd@%n_0) <- ((isOdd@tailrecurse isOdd@%n.tr_0 isOdd@%n_0)&&[&&
+  true
+  isOdd@%Pivot_0<->(isOdd@%n.tr_0<1)
+  isOdd@LeafBlock1_0->(isOdd@LeafBlock1_0&&isOdd@tailrecurse_0)
+  (isOdd@LeafBlock1_0&&isOdd@tailrecurse_0)->(!isOdd@%Pivot_0)
+  isOdd@%SwitchLeaf2_0<->(isOdd@%n.tr_0=1)
+  isOdd@LeafBlock_0->(isOdd@LeafBlock_0&&isOdd@tailrecurse_0)
+  (isOdd@LeafBlock_0&&isOdd@tailrecurse_0)->isOdd@%Pivot_0
+  isOdd@%SwitchLeaf_0<->(isOdd@%n.tr_0=0)
+  tuple(isOdd@LeafBlock_0, isOdd@NewDefault_0)->isOdd@LeafBlock_0
+  tuple(isOdd@LeafBlock1_0, isOdd@NewDefault_0)->isOdd@LeafBlock1_0
+  isOdd@NewDefault_0->((isOdd@LeafBlock_0&&tuple(isOdd@LeafBlock_0, isOdd@NewDefault_0))||(isOdd@LeafBlock1_0&&tuple(isOdd@LeafBlock1_0, isOdd@NewDefault_0)))
+  (isOdd@LeafBlock_0&&tuple(isOdd@LeafBlock_0, isOdd@NewDefault_0))->(!isOdd@%SwitchLeaf_0)
+  (isOdd@LeafBlock1_0&&tuple(isOdd@LeafBlock1_0, isOdd@NewDefault_0))->(!isOdd@%SwitchLeaf2_0)
+  isOdd@%SwitchLeaf2.i_0<->(isOdd@%n.tr_0=2)
+  isOdd@%_0_0=(isOdd@%n.tr_0+-2)
+  tuple(isOdd@NewDefault_0, isOdd@isEven.exit_0)->isOdd@NewDefault_0
+  tuple(isOdd@LeafBlock_0, isOdd@isEven.exit_0)->isOdd@LeafBlock_0
+  tuple(isOdd@LeafBlock1_0, isOdd@isEven.exit_0)->isOdd@LeafBlock1_0
+  isOdd@isEven.exit_0->[||
+    isOdd@NewDefault_0&&tuple(isOdd@NewDefault_0, isOdd@isEven.exit_0)
+    isOdd@LeafBlock_0&&tuple(isOdd@LeafBlock_0, isOdd@isEven.exit_0)
+    isOdd@LeafBlock1_0&&tuple(isOdd@LeafBlock1_0, isOdd@isEven.exit_0)
+  ]
+  (isOdd@NewDefault_0&&tuple(isOdd@NewDefault_0, isOdd@isEven.exit_0))->isOdd@%SwitchLeaf2.i_0
+  isOdd@%.0_0=0
+  (isOdd@LeafBlock_0&&tuple(isOdd@LeafBlock_0, isOdd@isEven.exit_0))->isOdd@%SwitchLeaf_0
+  isOdd@%.0_1=0
+  (isOdd@LeafBlock1_0&&tuple(isOdd@LeafBlock1_0, isOdd@isEven.exit_0))->isOdd@%SwitchLeaf2_0
+  isOdd@%.0_2=1
+  (isOdd@NewDefault_0&&tuple(isOdd@NewDefault_0, isOdd@isEven.exit_0))->(isOdd@%.0_3=isOdd@%.0_0)
+  (isOdd@LeafBlock_0&&tuple(isOdd@LeafBlock_0, isOdd@isEven.exit_0))->(isOdd@%.0_3=isOdd@%.0_1)
+  (isOdd@LeafBlock1_0&&tuple(isOdd@LeafBlock1_0, isOdd@isEven.exit_0))->(isOdd@%.0_3=isOdd@%.0_2)
+  isOdd@isEven.exit.split_0->(isOdd@isEven.exit.split_0&&isOdd@isEven.exit_0)
+  isOdd@isEven.exit.split_0
+]).
+(isOdd true false false isOdd@%n_0 isOdd@%.0_0) <- (isOdd@isEven.exit.split isOdd@%.0_0 isOdd@%n_0).
+main@entry <- true.
+main@entry.split <- (main@entry&&[&&
+  true
+  main@%_1_0<->(main@%_0_0<0)
+  !main@%_1_0
+  (isOdd true false false main@%_0_0 main@%_2_0)
+  main@%_3_0<->(main@%_2_0>-1)
+  !main@%_3_0
+  main@entry.split_0->(main@entry.split_0&&main@entry_0)
+  main@entry.split_0
+]).
+Queries:
+;main@entry.split
+=========================== NEG START ============================
+VERIFY RULE: (isOdd@tailrecurse V_0 V_1) <- (main@entry&&true)
+UNSAT
+VERIFY RULE: (isOdd@isEven.exit.split V_0 V_1) <- (main@entry&&(true&&(!(V_0<=-1))))
+UNSAT
+VERIFY RULE: main@entry.split <- (main@entry&&false)
+UNSAT
+VERIFY RULE: main@entry <- true
+UNSAT
+VERIFY RULE: pos.query.pred <- (main@entry&&true)
+UNSAT
+VERIFY RULE: (isOdd@NodeBlock V_0) <- (main@entry&&true)
+UNSAT
+VERIFY RULE: (verifier.error V_0 V_1 V_2) <- (main@entry&&true)
+UNSAT
+VERIFY RULE: (isOdd V_0 V_1 V_2 V_3 V_4) <- (main@entry&&[||
+  true&&((V_3-V_4)<=0)
+  [&&
+    true
+    !((V_3-V_4)<=0)
+    (V_3+V_4)<=0
+    !V_0
+  ]
+  [&&
+    true
+    !((V_3-V_4)<=0)
+    !((V_3+V_4)<=0)
+  ]
+])
+SAT, NEED TO ADD NEGATIVE DATA POINT
+[&&
+  main@entry.split
+  main@entry
+  (isOdd true false false 2 -1)
+  main@entry
+]
+NEG CEX IS: (isOdd true false false 2 -1)
+ANSWER ARGS:
+true
+false
+false
+2
+-1
+NEG CEX, INDEX IS 10
+==================================================================
+AFTER RESET DB IS:
+Predicates:
+;[fdecl
+  verifier.error
+  BOOL
+  BOOL
+  BOOL
+  BOOL
+]
+[fdecl
+  isOdd@NodeBlock
+  INT
+  BOOL
+]
+[fdecl
+  isOdd@tailrecurse
+  INT
+  INT
+  BOOL
+]
+[fdecl
+  isOdd@isEven.exit.split
+  INT
+  INT
+  BOOL
+]
+[fdecl
+  isOdd
+  BOOL
+  BOOL
+  BOOL
+  INT
+  INT
+  BOOL
+]
+[fdecl
+  main@entry
+  BOOL
+]
+[fdecl
+  main@entry.split
+  BOOL
+]
+[fdecl
+  pos.query.pred
+  BOOL
+]
+Clauses:
+;(verifier.error false false false) <- true.
+(verifier.error false true true) <- true.
+(verifier.error true false true) <- true.
+(verifier.error true true true) <- true.
+(isOdd true true true isOdd@%n_0 isOdd@%.0_0) <- true.
+(isOdd false true true isOdd@%n_0 isOdd@%.0_0) <- true.
+(isOdd false false false isOdd@%n_0 isOdd@%.0_0) <- true.
+(isOdd@NodeBlock isOdd@%n_0) <- true.
+(isOdd@tailrecurse isOdd@%n.tr_1 isOdd@%n_0) <- ((isOdd@NodeBlock isOdd@%n_0)&&[&&
+  true
+  isOdd@tailrecurse_0->(isOdd@tailrecurse_0&&isOdd@NodeBlock_0)
+  isOdd@tailrecurse_0
+  isOdd@%n.tr_0=isOdd@%n_0
+  (isOdd@tailrecurse_0&&isOdd@NodeBlock_0)->(isOdd@%n.tr_1=isOdd@%n.tr_0)
+]).
+(isOdd@tailrecurse isOdd@%n.tr_2 isOdd@%n_0) <- ((isOdd@tailrecurse isOdd@%n.tr_0 isOdd@%n_0)&&[&&
+  true
+  isOdd@%Pivot_0<->(isOdd@%n.tr_0<1)
+  isOdd@LeafBlock1_0->(isOdd@LeafBlock1_0&&isOdd@tailrecurse_0)
+  (isOdd@LeafBlock1_0&&isOdd@tailrecurse_0)->(!isOdd@%Pivot_0)
+  isOdd@%SwitchLeaf2_0<->(isOdd@%n.tr_0=1)
+  isOdd@LeafBlock_0->(isOdd@LeafBlock_0&&isOdd@tailrecurse_0)
+  (isOdd@LeafBlock_0&&isOdd@tailrecurse_0)->isOdd@%Pivot_0
+  isOdd@%SwitchLeaf_0<->(isOdd@%n.tr_0=0)
+  tuple(isOdd@LeafBlock_0, isOdd@NewDefault_0)->isOdd@LeafBlock_0
+  tuple(isOdd@LeafBlock1_0, isOdd@NewDefault_0)->isOdd@LeafBlock1_0
+  isOdd@NewDefault_0->((isOdd@LeafBlock_0&&tuple(isOdd@LeafBlock_0, isOdd@NewDefault_0))||(isOdd@LeafBlock1_0&&tuple(isOdd@LeafBlock1_0, isOdd@NewDefault_0)))
+  (isOdd@LeafBlock_0&&tuple(isOdd@LeafBlock_0, isOdd@NewDefault_0))->(!isOdd@%SwitchLeaf_0)
+  (isOdd@LeafBlock1_0&&tuple(isOdd@LeafBlock1_0, isOdd@NewDefault_0))->(!isOdd@%SwitchLeaf2_0)
+  isOdd@%SwitchLeaf2.i_0<->(isOdd@%n.tr_0=2)
+  isOdd@%_0_0=(isOdd@%n.tr_0+-2)
+  isOdd@tailrecurse_1->(isOdd@tailrecurse_1&&isOdd@NewDefault_0)
+  isOdd@tailrecurse_1
+  (isOdd@tailrecurse_1&&isOdd@NewDefault_0)->(!isOdd@%SwitchLeaf2.i_0)
+  isOdd@%n.tr_1=isOdd@%_0_0
+  (isOdd@tailrecurse_1&&isOdd@NewDefault_0)->(isOdd@%n.tr_2=isOdd@%n.tr_1)
+]).
+(isOdd@isEven.exit.split isOdd@%.0_3 isOdd@%n_0) <- ((isOdd@tailrecurse isOdd@%n.tr_0 isOdd@%n_0)&&[&&
+  true
+  isOdd@%Pivot_0<->(isOdd@%n.tr_0<1)
+  isOdd@LeafBlock1_0->(isOdd@LeafBlock1_0&&isOdd@tailrecurse_0)
+  (isOdd@LeafBlock1_0&&isOdd@tailrecurse_0)->(!isOdd@%Pivot_0)
+  isOdd@%SwitchLeaf2_0<->(isOdd@%n.tr_0=1)
+  isOdd@LeafBlock_0->(isOdd@LeafBlock_0&&isOdd@tailrecurse_0)
+  (isOdd@LeafBlock_0&&isOdd@tailrecurse_0)->isOdd@%Pivot_0
+  isOdd@%SwitchLeaf_0<->(isOdd@%n.tr_0=0)
+  tuple(isOdd@LeafBlock_0, isOdd@NewDefault_0)->isOdd@LeafBlock_0
+  tuple(isOdd@LeafBlock1_0, isOdd@NewDefault_0)->isOdd@LeafBlock1_0
+  isOdd@NewDefault_0->((isOdd@LeafBlock_0&&tuple(isOdd@LeafBlock_0, isOdd@NewDefault_0))||(isOdd@LeafBlock1_0&&tuple(isOdd@LeafBlock1_0, isOdd@NewDefault_0)))
+  (isOdd@LeafBlock_0&&tuple(isOdd@LeafBlock_0, isOdd@NewDefault_0))->(!isOdd@%SwitchLeaf_0)
+  (isOdd@LeafBlock1_0&&tuple(isOdd@LeafBlock1_0, isOdd@NewDefault_0))->(!isOdd@%SwitchLeaf2_0)
+  isOdd@%SwitchLeaf2.i_0<->(isOdd@%n.tr_0=2)
+  isOdd@%_0_0=(isOdd@%n.tr_0+-2)
+  tuple(isOdd@NewDefault_0, isOdd@isEven.exit_0)->isOdd@NewDefault_0
+  tuple(isOdd@LeafBlock_0, isOdd@isEven.exit_0)->isOdd@LeafBlock_0
+  tuple(isOdd@LeafBlock1_0, isOdd@isEven.exit_0)->isOdd@LeafBlock1_0
+  isOdd@isEven.exit_0->[||
+    isOdd@NewDefault_0&&tuple(isOdd@NewDefault_0, isOdd@isEven.exit_0)
+    isOdd@LeafBlock_0&&tuple(isOdd@LeafBlock_0, isOdd@isEven.exit_0)
+    isOdd@LeafBlock1_0&&tuple(isOdd@LeafBlock1_0, isOdd@isEven.exit_0)
+  ]
+  (isOdd@NewDefault_0&&tuple(isOdd@NewDefault_0, isOdd@isEven.exit_0))->isOdd@%SwitchLeaf2.i_0
+  isOdd@%.0_0=0
+  (isOdd@LeafBlock_0&&tuple(isOdd@LeafBlock_0, isOdd@isEven.exit_0))->isOdd@%SwitchLeaf_0
+  isOdd@%.0_1=0
+  (isOdd@LeafBlock1_0&&tuple(isOdd@LeafBlock1_0, isOdd@isEven.exit_0))->isOdd@%SwitchLeaf2_0
+  isOdd@%.0_2=1
+  (isOdd@NewDefault_0&&tuple(isOdd@NewDefault_0, isOdd@isEven.exit_0))->(isOdd@%.0_3=isOdd@%.0_0)
+  (isOdd@LeafBlock_0&&tuple(isOdd@LeafBlock_0, isOdd@isEven.exit_0))->(isOdd@%.0_3=isOdd@%.0_1)
+  (isOdd@LeafBlock1_0&&tuple(isOdd@LeafBlock1_0, isOdd@isEven.exit_0))->(isOdd@%.0_3=isOdd@%.0_2)
+  isOdd@isEven.exit.split_0->(isOdd@isEven.exit.split_0&&isOdd@isEven.exit_0)
+  isOdd@isEven.exit.split_0
+]).
+(isOdd true false false isOdd@%n_0 isOdd@%.0_0) <- (isOdd@isEven.exit.split isOdd@%.0_0 isOdd@%n_0).
+main@entry <- true.
+main@entry.split <- (main@entry&&[&&
+  true
+  main@%_1_0<->(main@%_0_0<0)
+  !main@%_1_0
+  (isOdd true false false main@%_0_0 main@%_2_0)
+  main@%_3_0<->(main@%_2_0>-1)
+  !main@%_3_0
+  main@entry.split_0->(main@entry.split_0&&main@entry_0)
+  main@entry.split_0
+]).
+Queries:
+;main@entry.split
+=========================== IMPL START ============================
+(declare-fun isOdd@%n.tr_2 () Int)
+(declare-fun isOdd@%n.tr_1 () Int)
+(declare-fun isOdd@tailrecurse_1 () Bool)
+(declare-fun isOdd@%_0_0 () Int)
+(declare-fun isOdd@%SwitchLeaf2.i_0 () Bool)
+(declare-fun isOdd@%Pivot_0 () Bool)
+(declare-fun isOdd@%n.tr_0 () Int)
+(declare-fun |tuple(isOdd@LeafBlock_0, isOdd@NewDefault_0)| () Bool)
+(declare-fun isOdd@LeafBlock1_0 () Bool)
+(declare-fun isOdd@tailrecurse_0 () Bool)
+(declare-fun isOdd@%SwitchLeaf_0 () Bool)
+(declare-fun isOdd@%SwitchLeaf2_0 () Bool)
+(declare-fun isOdd@LeafBlock_0 () Bool)
+(declare-fun |tuple(isOdd@LeafBlock1_0, isOdd@NewDefault_0)| () Bool)
+(declare-fun isOdd@NewDefault_0 () Bool)
+
+(assert (not true))
+(assert true)
+(assert (and true
+     true
+     (= isOdd@%Pivot_0 (< isOdd@%n.tr_0 1))
+     (=> isOdd@LeafBlock1_0 (and isOdd@LeafBlock1_0 isOdd@tailrecurse_0))
+     (=> (and isOdd@LeafBlock1_0 isOdd@tailrecurse_0) (not isOdd@%Pivot_0))
+     (= isOdd@%SwitchLeaf2_0 (= isOdd@%n.tr_0 1))
+     (=> isOdd@LeafBlock_0 (and isOdd@LeafBlock_0 isOdd@tailrecurse_0))
+     (=> (and isOdd@LeafBlock_0 isOdd@tailrecurse_0) isOdd@%Pivot_0)
+     (= isOdd@%SwitchLeaf_0 (= isOdd@%n.tr_0 0))
+     (=> |tuple(isOdd@LeafBlock_0, isOdd@NewDefault_0)| isOdd@LeafBlock_0)
+     (=> |tuple(isOdd@LeafBlock1_0, isOdd@NewDefault_0)| isOdd@LeafBlock1_0)
+     (=> isOdd@NewDefault_0
+         (or (and isOdd@LeafBlock_0
+                  |tuple(isOdd@LeafBlock_0, isOdd@NewDefault_0)|)
+             (and isOdd@LeafBlock1_0
+                  |tuple(isOdd@LeafBlock1_0, isOdd@NewDefault_0)|)))
+     (=> (and isOdd@LeafBlock_0 |tuple(isOdd@LeafBlock_0, isOdd@NewDefault_0)|)
+         (not isOdd@%SwitchLeaf_0))
+     (=> (and isOdd@LeafBlock1_0
+              |tuple(isOdd@LeafBlock1_0, isOdd@NewDefault_0)|)
+         (not isOdd@%SwitchLeaf2_0))
+     (= isOdd@%SwitchLeaf2.i_0 (= isOdd@%n.tr_0 2))
+     (= isOdd@%_0_0 (+ isOdd@%n.tr_0 (- 2)))
+     (=> isOdd@tailrecurse_1 (and isOdd@tailrecurse_1 isOdd@NewDefault_0))
+     isOdd@tailrecurse_1
+     (=> (and isOdd@tailrecurse_1 isOdd@NewDefault_0)
+         (not isOdd@%SwitchLeaf2.i_0))
+     (= isOdd@%n.tr_1 isOdd@%_0_0)
+     (=> (and isOdd@tailrecurse_1 isOdd@NewDefault_0)
+         (= isOdd@%n.tr_2 isOdd@%n.tr_1))))
+(check-sat)
+UNSAT
+==================================================================
+DATA & IMPL FILES ARE GENERATED
+TAG: PRED_0
+NEW CANDIDATE: true
+TAG: PRED_1
+NEW CANDIDATE: true
+TAG: PRED_2
+NEW CANDIDATE: true
+TAG: PRED_3
+INTERNAL NODE
+CUT ATTRIBUTE: PRED_3!V_0
+LEAF NODE
+LEAF NODE
+NEW CANDIDATE: (true&&(!(V_0<=-1)))
+TAG: PRED_4
+INTERNAL NODE
+CUT ATTRIBUTE: PRED_4!V_3
+INTERNAL NODE
+CUT ATTRIBUTE: PRED_4!V_1
+INTERNAL NODE
+CUT ATTRIBUTE: PRED_4!V_0
+LEAF NODE
+INTERNAL NODE
+CUT ATTRIBUTE: PRED_4!V_4
+LEAF NODE
+LEAF NODE
+LEAF NODE
+LEAF NODE
+NEW CANDIDATE: [||
+  [&&
+    true
+    V_3<=1
+    !V_1
+    !V_0
+  ]
+  [&&
+    true
+    V_3<=1
+    !V_1
+    !(!V_0)
+    !(V_4<=0)
+  ]
+  [&&
+    true
+    V_3<=1
+    !(!V_1)
+  ]
+]
+TAG: PRED_5
+NEW CANDIDATE: true
+TAG: PRED_6
+NEW CANDIDATE: false
+TAG: PRED_7
+NEW CANDIDATE: true
+NEW CANDIDATES MAP:
+(verifier.error V_0 V_1 V_2) : true
+(isOdd@NodeBlock V_0) : true
+(isOdd@tailrecurse V_0 V_1) : true
+(isOdd@isEven.exit.split V_0 V_1) : (true&&(!(V_0<=-1)))
+(isOdd V_0 V_1 V_2 V_3 V_4) : [||
+  [&&
+    true
+    V_3<=1
+    !V_1
+    !V_0
+  ]
+  [&&
+    true
+    V_3<=1
+    !V_1
+    !(!V_0)
+    !(V_4<=0)
+  ]
+  [&&
+    true
+    V_3<=1
+    !(!V_1)
+  ]
+]
+main@entry : true
+main@entry.split : false
+pos.query.pred : true
+ENTRY IS: main@entry
+=========================== POS START ============================
+VERIFY RULE: pos.query.pred <- ((isOdd@tailrecurse V_0 V_1)&&(!true))
+UNSAT
+VERIFY RULE: pos.query.pred <- ((isOdd@isEven.exit.split V_0 V_1)&&(!(true&&(!(V_0<=-1)))))
+UNSAT
+VERIFY RULE: pos.query.pred <- (main@entry.split&&(!false))
+UNSAT
+VERIFY RULE: pos.query.pred <- (pos.query.pred&&(!true))
+UNSAT
+VERIFY RULE: pos.query.pred <- (main@entry&&(!true))
+UNSAT
+VERIFY RULE: pos.query.pred <- ((isOdd@NodeBlock V_0)&&(!true))
+UNSAT
+VERIFY RULE: pos.query.pred <- ((verifier.error V_0 V_1 V_2)&&(!true))
+UNSAT
+VERIFY RULE: pos.query.pred <- ((isOdd V_0 V_1 V_2 V_3 V_4)&&(![||
+    [&&
+      true
+      V_3<=1
+      !V_1
+      !V_0
+    ]
+    [&&
+      true
+      V_3<=1
+      !V_1
+      !(!V_0)
+      !(V_4<=0)
+    ]
+    [&&
+      true
+      V_3<=1
+      !(!V_1)
+    ]
+  ]))
+SAT, NEED TO ADD POSITIVE DATA POINT
+(pos.query.pred&&(isOdd false false false 2 isOdd_4_0))
+POS OBJ PRED: (isOdd V_0 V_1 V_2 V_3 V_4)
+POS CEX IS: (isOdd false false false 2 isOdd_4_0)
+ANSWER ARGS:
+false
+false
+false
+2
+isOdd_4_0
+UNCERTAIN VALUE: isOdd_4_0
+POS CEX, INDEX IS 11
+==================================================================
+AFTER RESET DB IS:
+Predicates:
+;[fdecl
+  verifier.error
+  BOOL
+  BOOL
+  BOOL
+  BOOL
+]
+[fdecl
+  isOdd@NodeBlock
+  INT
+  BOOL
+]
+[fdecl
+  isOdd@tailrecurse
+  INT
+  INT
+  BOOL
+]
+[fdecl
+  isOdd@isEven.exit.split
+  INT
+  INT
+  BOOL
+]
+[fdecl
+  isOdd
+  BOOL
+  BOOL
+  BOOL
+  INT
+  INT
+  BOOL
+]
+[fdecl
+  main@entry
+  BOOL
+]
+[fdecl
+  main@entry.split
+  BOOL
+]
+[fdecl
+  pos.query.pred
+  BOOL
+]
+Clauses:
+;(verifier.error false false false) <- true.
+(verifier.error false true true) <- true.
+(verifier.error true false true) <- true.
+(verifier.error true true true) <- true.
+(isOdd true true true isOdd@%n_0 isOdd@%.0_0) <- true.
+(isOdd false true true isOdd@%n_0 isOdd@%.0_0) <- true.
+(isOdd false false false isOdd@%n_0 isOdd@%.0_0) <- true.
+(isOdd@NodeBlock isOdd@%n_0) <- true.
+(isOdd@tailrecurse isOdd@%n.tr_1 isOdd@%n_0) <- ((isOdd@NodeBlock isOdd@%n_0)&&[&&
+  true
+  isOdd@tailrecurse_0->(isOdd@tailrecurse_0&&isOdd@NodeBlock_0)
+  isOdd@tailrecurse_0
+  isOdd@%n.tr_0=isOdd@%n_0
+  (isOdd@tailrecurse_0&&isOdd@NodeBlock_0)->(isOdd@%n.tr_1=isOdd@%n.tr_0)
+]).
+(isOdd@tailrecurse isOdd@%n.tr_2 isOdd@%n_0) <- ((isOdd@tailrecurse isOdd@%n.tr_0 isOdd@%n_0)&&[&&
+  true
+  isOdd@%Pivot_0<->(isOdd@%n.tr_0<1)
+  isOdd@LeafBlock1_0->(isOdd@LeafBlock1_0&&isOdd@tailrecurse_0)
+  (isOdd@LeafBlock1_0&&isOdd@tailrecurse_0)->(!isOdd@%Pivot_0)
+  isOdd@%SwitchLeaf2_0<->(isOdd@%n.tr_0=1)
+  isOdd@LeafBlock_0->(isOdd@LeafBlock_0&&isOdd@tailrecurse_0)
+  (isOdd@LeafBlock_0&&isOdd@tailrecurse_0)->isOdd@%Pivot_0
+  isOdd@%SwitchLeaf_0<->(isOdd@%n.tr_0=0)
+  tuple(isOdd@LeafBlock_0, isOdd@NewDefault_0)->isOdd@LeafBlock_0
+  tuple(isOdd@LeafBlock1_0, isOdd@NewDefault_0)->isOdd@LeafBlock1_0
+  isOdd@NewDefault_0->((isOdd@LeafBlock_0&&tuple(isOdd@LeafBlock_0, isOdd@NewDefault_0))||(isOdd@LeafBlock1_0&&tuple(isOdd@LeafBlock1_0, isOdd@NewDefault_0)))
+  (isOdd@LeafBlock_0&&tuple(isOdd@LeafBlock_0, isOdd@NewDefault_0))->(!isOdd@%SwitchLeaf_0)
+  (isOdd@LeafBlock1_0&&tuple(isOdd@LeafBlock1_0, isOdd@NewDefault_0))->(!isOdd@%SwitchLeaf2_0)
+  isOdd@%SwitchLeaf2.i_0<->(isOdd@%n.tr_0=2)
+  isOdd@%_0_0=(isOdd@%n.tr_0+-2)
+  isOdd@tailrecurse_1->(isOdd@tailrecurse_1&&isOdd@NewDefault_0)
+  isOdd@tailrecurse_1
+  (isOdd@tailrecurse_1&&isOdd@NewDefault_0)->(!isOdd@%SwitchLeaf2.i_0)
+  isOdd@%n.tr_1=isOdd@%_0_0
+  (isOdd@tailrecurse_1&&isOdd@NewDefault_0)->(isOdd@%n.tr_2=isOdd@%n.tr_1)
+]).
+(isOdd@isEven.exit.split isOdd@%.0_3 isOdd@%n_0) <- ((isOdd@tailrecurse isOdd@%n.tr_0 isOdd@%n_0)&&[&&
+  true
+  isOdd@%Pivot_0<->(isOdd@%n.tr_0<1)
+  isOdd@LeafBlock1_0->(isOdd@LeafBlock1_0&&isOdd@tailrecurse_0)
+  (isOdd@LeafBlock1_0&&isOdd@tailrecurse_0)->(!isOdd@%Pivot_0)
+  isOdd@%SwitchLeaf2_0<->(isOdd@%n.tr_0=1)
+  isOdd@LeafBlock_0->(isOdd@LeafBlock_0&&isOdd@tailrecurse_0)
+  (isOdd@LeafBlock_0&&isOdd@tailrecurse_0)->isOdd@%Pivot_0
+  isOdd@%SwitchLeaf_0<->(isOdd@%n.tr_0=0)
+  tuple(isOdd@LeafBlock_0, isOdd@NewDefault_0)->isOdd@LeafBlock_0
+  tuple(isOdd@LeafBlock1_0, isOdd@NewDefault_0)->isOdd@LeafBlock1_0
+  isOdd@NewDefault_0->((isOdd@LeafBlock_0&&tuple(isOdd@LeafBlock_0, isOdd@NewDefault_0))||(isOdd@LeafBlock1_0&&tuple(isOdd@LeafBlock1_0, isOdd@NewDefault_0)))
+  (isOdd@LeafBlock_0&&tuple(isOdd@LeafBlock_0, isOdd@NewDefault_0))->(!isOdd@%SwitchLeaf_0)
+  (isOdd@LeafBlock1_0&&tuple(isOdd@LeafBlock1_0, isOdd@NewDefault_0))->(!isOdd@%SwitchLeaf2_0)
+  isOdd@%SwitchLeaf2.i_0<->(isOdd@%n.tr_0=2)
+  isOdd@%_0_0=(isOdd@%n.tr_0+-2)
+  tuple(isOdd@NewDefault_0, isOdd@isEven.exit_0)->isOdd@NewDefault_0
+  tuple(isOdd@LeafBlock_0, isOdd@isEven.exit_0)->isOdd@LeafBlock_0
+  tuple(isOdd@LeafBlock1_0, isOdd@isEven.exit_0)->isOdd@LeafBlock1_0
+  isOdd@isEven.exit_0->[||
+    isOdd@NewDefault_0&&tuple(isOdd@NewDefault_0, isOdd@isEven.exit_0)
+    isOdd@LeafBlock_0&&tuple(isOdd@LeafBlock_0, isOdd@isEven.exit_0)
+    isOdd@LeafBlock1_0&&tuple(isOdd@LeafBlock1_0, isOdd@isEven.exit_0)
+  ]
+  (isOdd@NewDefault_0&&tuple(isOdd@NewDefault_0, isOdd@isEven.exit_0))->isOdd@%SwitchLeaf2.i_0
+  isOdd@%.0_0=0
+  (isOdd@LeafBlock_0&&tuple(isOdd@LeafBlock_0, isOdd@isEven.exit_0))->isOdd@%SwitchLeaf_0
+  isOdd@%.0_1=0
+  (isOdd@LeafBlock1_0&&tuple(isOdd@LeafBlock1_0, isOdd@isEven.exit_0))->isOdd@%SwitchLeaf2_0
+  isOdd@%.0_2=1
+  (isOdd@NewDefault_0&&tuple(isOdd@NewDefault_0, isOdd@isEven.exit_0))->(isOdd@%.0_3=isOdd@%.0_0)
+  (isOdd@LeafBlock_0&&tuple(isOdd@LeafBlock_0, isOdd@isEven.exit_0))->(isOdd@%.0_3=isOdd@%.0_1)
+  (isOdd@LeafBlock1_0&&tuple(isOdd@LeafBlock1_0, isOdd@isEven.exit_0))->(isOdd@%.0_3=isOdd@%.0_2)
+  isOdd@isEven.exit.split_0->(isOdd@isEven.exit.split_0&&isOdd@isEven.exit_0)
+  isOdd@isEven.exit.split_0
+]).
+(isOdd true false false isOdd@%n_0 isOdd@%.0_0) <- (isOdd@isEven.exit.split isOdd@%.0_0 isOdd@%n_0).
+main@entry <- true.
+main@entry.split <- (main@entry&&[&&
+  true
+  main@%_1_0<->(main@%_0_0<0)
+  !main@%_1_0
+  (isOdd true false false main@%_0_0 main@%_2_0)
+  main@%_3_0<->(main@%_2_0>-1)
+  !main@%_3_0
+  main@entry.split_0->(main@entry.split_0&&main@entry_0)
+  main@entry.split_0
+]).
+Queries:
+;main@entry.split
+=========================== NEG START ============================
+VERIFY RULE: (isOdd@tailrecurse V_0 V_1) <- (main@entry&&true)
+UNSAT
+VERIFY RULE: (isOdd@isEven.exit.split V_0 V_1) <- (main@entry&&(true&&(!(V_0<=-1))))
+UNSAT
+VERIFY RULE: main@entry.split <- (main@entry&&false)
+UNSAT
+VERIFY RULE: main@entry <- true
+UNSAT
+VERIFY RULE: pos.query.pred <- (main@entry&&true)
+UNSAT
+VERIFY RULE: (isOdd@NodeBlock V_0) <- (main@entry&&true)
+UNSAT
+VERIFY RULE: (verifier.error V_0 V_1 V_2) <- (main@entry&&true)
+UNSAT
+VERIFY RULE: (isOdd V_0 V_1 V_2 V_3 V_4) <- (main@entry&&[||
+  [&&
+    true
+    V_3<=1
+    !V_1
+    !V_0
+  ]
+  [&&
+    true
+    V_3<=1
+    !V_1
+    !(!V_0)
+    !(V_4<=0)
+  ]
+  [&&
+    true
+    V_3<=1
+    !(!V_1)
+  ]
+])
+UNSAT
+==================================================================
+AFTER RESET DB IS:
+Predicates:
+;[fdecl
+  verifier.error
+  BOOL
+  BOOL
+  BOOL
+  BOOL
+]
+[fdecl
+  isOdd@NodeBlock
+  INT
+  BOOL
+]
+[fdecl
+  isOdd@tailrecurse
+  INT
+  INT
+  BOOL
+]
+[fdecl
+  isOdd@isEven.exit.split
+  INT
+  INT
+  BOOL
+]
+[fdecl
+  isOdd
+  BOOL
+  BOOL
+  BOOL
+  INT
+  INT
+  BOOL
+]
+[fdecl
+  main@entry
+  BOOL
+]
+[fdecl
+  main@entry.split
+  BOOL
+]
+[fdecl
+  pos.query.pred
+  BOOL
+]
+Clauses:
+;(verifier.error false false false) <- true.
+(verifier.error false true true) <- true.
+(verifier.error true false true) <- true.
+(verifier.error true true true) <- true.
+(isOdd true true true isOdd@%n_0 isOdd@%.0_0) <- true.
+(isOdd false true true isOdd@%n_0 isOdd@%.0_0) <- true.
+(isOdd false false false isOdd@%n_0 isOdd@%.0_0) <- true.
+(isOdd@NodeBlock isOdd@%n_0) <- true.
+(isOdd@tailrecurse isOdd@%n.tr_1 isOdd@%n_0) <- ((isOdd@NodeBlock isOdd@%n_0)&&[&&
+  true
+  isOdd@tailrecurse_0->(isOdd@tailrecurse_0&&isOdd@NodeBlock_0)
+  isOdd@tailrecurse_0
+  isOdd@%n.tr_0=isOdd@%n_0
+  (isOdd@tailrecurse_0&&isOdd@NodeBlock_0)->(isOdd@%n.tr_1=isOdd@%n.tr_0)
+]).
+(isOdd@tailrecurse isOdd@%n.tr_2 isOdd@%n_0) <- ((isOdd@tailrecurse isOdd@%n.tr_0 isOdd@%n_0)&&[&&
+  true
+  isOdd@%Pivot_0<->(isOdd@%n.tr_0<1)
+  isOdd@LeafBlock1_0->(isOdd@LeafBlock1_0&&isOdd@tailrecurse_0)
+  (isOdd@LeafBlock1_0&&isOdd@tailrecurse_0)->(!isOdd@%Pivot_0)
+  isOdd@%SwitchLeaf2_0<->(isOdd@%n.tr_0=1)
+  isOdd@LeafBlock_0->(isOdd@LeafBlock_0&&isOdd@tailrecurse_0)
+  (isOdd@LeafBlock_0&&isOdd@tailrecurse_0)->isOdd@%Pivot_0
+  isOdd@%SwitchLeaf_0<->(isOdd@%n.tr_0=0)
+  tuple(isOdd@LeafBlock_0, isOdd@NewDefault_0)->isOdd@LeafBlock_0
+  tuple(isOdd@LeafBlock1_0, isOdd@NewDefault_0)->isOdd@LeafBlock1_0
+  isOdd@NewDefault_0->((isOdd@LeafBlock_0&&tuple(isOdd@LeafBlock_0, isOdd@NewDefault_0))||(isOdd@LeafBlock1_0&&tuple(isOdd@LeafBlock1_0, isOdd@NewDefault_0)))
+  (isOdd@LeafBlock_0&&tuple(isOdd@LeafBlock_0, isOdd@NewDefault_0))->(!isOdd@%SwitchLeaf_0)
+  (isOdd@LeafBlock1_0&&tuple(isOdd@LeafBlock1_0, isOdd@NewDefault_0))->(!isOdd@%SwitchLeaf2_0)
+  isOdd@%SwitchLeaf2.i_0<->(isOdd@%n.tr_0=2)
+  isOdd@%_0_0=(isOdd@%n.tr_0+-2)
+  isOdd@tailrecurse_1->(isOdd@tailrecurse_1&&isOdd@NewDefault_0)
+  isOdd@tailrecurse_1
+  (isOdd@tailrecurse_1&&isOdd@NewDefault_0)->(!isOdd@%SwitchLeaf2.i_0)
+  isOdd@%n.tr_1=isOdd@%_0_0
+  (isOdd@tailrecurse_1&&isOdd@NewDefault_0)->(isOdd@%n.tr_2=isOdd@%n.tr_1)
+]).
+(isOdd@isEven.exit.split isOdd@%.0_3 isOdd@%n_0) <- ((isOdd@tailrecurse isOdd@%n.tr_0 isOdd@%n_0)&&[&&
+  true
+  isOdd@%Pivot_0<->(isOdd@%n.tr_0<1)
+  isOdd@LeafBlock1_0->(isOdd@LeafBlock1_0&&isOdd@tailrecurse_0)
+  (isOdd@LeafBlock1_0&&isOdd@tailrecurse_0)->(!isOdd@%Pivot_0)
+  isOdd@%SwitchLeaf2_0<->(isOdd@%n.tr_0=1)
+  isOdd@LeafBlock_0->(isOdd@LeafBlock_0&&isOdd@tailrecurse_0)
+  (isOdd@LeafBlock_0&&isOdd@tailrecurse_0)->isOdd@%Pivot_0
+  isOdd@%SwitchLeaf_0<->(isOdd@%n.tr_0=0)
+  tuple(isOdd@LeafBlock_0, isOdd@NewDefault_0)->isOdd@LeafBlock_0
+  tuple(isOdd@LeafBlock1_0, isOdd@NewDefault_0)->isOdd@LeafBlock1_0
+  isOdd@NewDefault_0->((isOdd@LeafBlock_0&&tuple(isOdd@LeafBlock_0, isOdd@NewDefault_0))||(isOdd@LeafBlock1_0&&tuple(isOdd@LeafBlock1_0, isOdd@NewDefault_0)))
+  (isOdd@LeafBlock_0&&tuple(isOdd@LeafBlock_0, isOdd@NewDefault_0))->(!isOdd@%SwitchLeaf_0)
+  (isOdd@LeafBlock1_0&&tuple(isOdd@LeafBlock1_0, isOdd@NewDefault_0))->(!isOdd@%SwitchLeaf2_0)
+  isOdd@%SwitchLeaf2.i_0<->(isOdd@%n.tr_0=2)
+  isOdd@%_0_0=(isOdd@%n.tr_0+-2)
+  tuple(isOdd@NewDefault_0, isOdd@isEven.exit_0)->isOdd@NewDefault_0
+  tuple(isOdd@LeafBlock_0, isOdd@isEven.exit_0)->isOdd@LeafBlock_0
+  tuple(isOdd@LeafBlock1_0, isOdd@isEven.exit_0)->isOdd@LeafBlock1_0
+  isOdd@isEven.exit_0->[||
+    isOdd@NewDefault_0&&tuple(isOdd@NewDefault_0, isOdd@isEven.exit_0)
+    isOdd@LeafBlock_0&&tuple(isOdd@LeafBlock_0, isOdd@isEven.exit_0)
+    isOdd@LeafBlock1_0&&tuple(isOdd@LeafBlock1_0, isOdd@isEven.exit_0)
+  ]
+  (isOdd@NewDefault_0&&tuple(isOdd@NewDefault_0, isOdd@isEven.exit_0))->isOdd@%SwitchLeaf2.i_0
+  isOdd@%.0_0=0
+  (isOdd@LeafBlock_0&&tuple(isOdd@LeafBlock_0, isOdd@isEven.exit_0))->isOdd@%SwitchLeaf_0
+  isOdd@%.0_1=0
+  (isOdd@LeafBlock1_0&&tuple(isOdd@LeafBlock1_0, isOdd@isEven.exit_0))->isOdd@%SwitchLeaf2_0
+  isOdd@%.0_2=1
+  (isOdd@NewDefault_0&&tuple(isOdd@NewDefault_0, isOdd@isEven.exit_0))->(isOdd@%.0_3=isOdd@%.0_0)
+  (isOdd@LeafBlock_0&&tuple(isOdd@LeafBlock_0, isOdd@isEven.exit_0))->(isOdd@%.0_3=isOdd@%.0_1)
+  (isOdd@LeafBlock1_0&&tuple(isOdd@LeafBlock1_0, isOdd@isEven.exit_0))->(isOdd@%.0_3=isOdd@%.0_2)
+  isOdd@isEven.exit.split_0->(isOdd@isEven.exit.split_0&&isOdd@isEven.exit_0)
+  isOdd@isEven.exit.split_0
+]).
+(isOdd true false false isOdd@%n_0 isOdd@%.0_0) <- (isOdd@isEven.exit.split isOdd@%.0_0 isOdd@%n_0).
+main@entry <- true.
+main@entry.split <- (main@entry&&[&&
+  true
+  main@%_1_0<->(main@%_0_0<0)
+  !main@%_1_0
+  (isOdd true false false main@%_0_0 main@%_2_0)
+  main@%_3_0<->(main@%_2_0>-1)
+  !main@%_3_0
+  main@entry.split_0->(main@entry.split_0&&main@entry_0)
+  main@entry.split_0
+]).
+Queries:
+;main@entry.split
+=========================== IMPL START ============================
+(declare-fun isOdd@%n.tr_2 () Int)
+(declare-fun isOdd@%n.tr_1 () Int)
+(declare-fun isOdd@tailrecurse_1 () Bool)
+(declare-fun isOdd@%_0_0 () Int)
+(declare-fun isOdd@%SwitchLeaf2.i_0 () Bool)
+(declare-fun isOdd@%Pivot_0 () Bool)
+(declare-fun isOdd@%n.tr_0 () Int)
+(declare-fun |tuple(isOdd@LeafBlock_0, isOdd@NewDefault_0)| () Bool)
+(declare-fun isOdd@LeafBlock1_0 () Bool)
+(declare-fun isOdd@tailrecurse_0 () Bool)
+(declare-fun isOdd@%SwitchLeaf_0 () Bool)
+(declare-fun isOdd@%SwitchLeaf2_0 () Bool)
+(declare-fun isOdd@LeafBlock_0 () Bool)
+(declare-fun |tuple(isOdd@LeafBlock1_0, isOdd@NewDefault_0)| () Bool)
+(declare-fun isOdd@NewDefault_0 () Bool)
+
+(assert (not true))
+(assert true)
+(assert (and true
+     true
+     (= isOdd@%Pivot_0 (< isOdd@%n.tr_0 1))
+     (=> isOdd@LeafBlock1_0 (and isOdd@LeafBlock1_0 isOdd@tailrecurse_0))
+     (=> (and isOdd@LeafBlock1_0 isOdd@tailrecurse_0) (not isOdd@%Pivot_0))
+     (= isOdd@%SwitchLeaf2_0 (= isOdd@%n.tr_0 1))
+     (=> isOdd@LeafBlock_0 (and isOdd@LeafBlock_0 isOdd@tailrecurse_0))
+     (=> (and isOdd@LeafBlock_0 isOdd@tailrecurse_0) isOdd@%Pivot_0)
+     (= isOdd@%SwitchLeaf_0 (= isOdd@%n.tr_0 0))
+     (=> |tuple(isOdd@LeafBlock_0, isOdd@NewDefault_0)| isOdd@LeafBlock_0)
+     (=> |tuple(isOdd@LeafBlock1_0, isOdd@NewDefault_0)| isOdd@LeafBlock1_0)
+     (=> isOdd@NewDefault_0
+         (or (and isOdd@LeafBlock_0
+                  |tuple(isOdd@LeafBlock_0, isOdd@NewDefault_0)|)
+             (and isOdd@LeafBlock1_0
+                  |tuple(isOdd@LeafBlock1_0, isOdd@NewDefault_0)|)))
+     (=> (and isOdd@LeafBlock_0 |tuple(isOdd@LeafBlock_0, isOdd@NewDefault_0)|)
+         (not isOdd@%SwitchLeaf_0))
+     (=> (and isOdd@LeafBlock1_0
+              |tuple(isOdd@LeafBlock1_0, isOdd@NewDefault_0)|)
+         (not isOdd@%SwitchLeaf2_0))
+     (= isOdd@%SwitchLeaf2.i_0 (= isOdd@%n.tr_0 2))
+     (= isOdd@%_0_0 (+ isOdd@%n.tr_0 (- 2)))
+     (=> isOdd@tailrecurse_1 (and isOdd@tailrecurse_1 isOdd@NewDefault_0))
+     isOdd@tailrecurse_1
+     (=> (and isOdd@tailrecurse_1 isOdd@NewDefault_0)
+         (not isOdd@%SwitchLeaf2.i_0))
+     (= isOdd@%n.tr_1 isOdd@%_0_0)
+     (=> (and isOdd@tailrecurse_1 isOdd@NewDefault_0)
+         (= isOdd@%n.tr_2 isOdd@%n.tr_1))))
+(check-sat)
+UNSAT
+==================================================================
+DATA & IMPL FILES ARE GENERATED
+TAG: PRED_0
+NEW CANDIDATE: true
+TAG: PRED_1
+NEW CANDIDATE: true
+TAG: PRED_2
+NEW CANDIDATE: true
+TAG: PRED_3
+INTERNAL NODE
+CUT ATTRIBUTE: PRED_3!V_0
+LEAF NODE
+LEAF NODE
+NEW CANDIDATE: (true&&(!(V_0<=-1)))
+TAG: PRED_4
+INTERNAL NODE
+CUT ATTRIBUTE: PRED_4!V_4
+INTERNAL NODE
+CUT ATTRIBUTE: PRED_4!V_0
+LEAF NODE
+INTERNAL NODE
+CUT ATTRIBUTE: PRED_4!V_1
+LEAF NODE
+LEAF NODE
+LEAF NODE
+NEW CANDIDATE: [||
+  [&&
+    true
+    V_4<=-1
+    !V_0
+  ]
+  [&&
+    true
+    V_4<=-1
+    !(!V_0)
+    !(!V_1)
+  ]
+  true&&(!(V_4<=-1))
+]
+TAG: PRED_5
+NEW CANDIDATE: true
+TAG: PRED_6
+NEW CANDIDATE: false
+TAG: PRED_7
+NEW CANDIDATE: true
+NEW CANDIDATES MAP:
+(verifier.error V_0 V_1 V_2) : true
+(isOdd@NodeBlock V_0) : true
+(isOdd@tailrecurse V_0 V_1) : true
+(isOdd@isEven.exit.split V_0 V_1) : (true&&(!(V_0<=-1)))
+(isOdd V_0 V_1 V_2 V_3 V_4) : [||
+  [&&
+    true
+    V_4<=-1
+    !V_0
+  ]
+  [&&
+    true
+    V_4<=-1
+    !(!V_0)
+    !(!V_1)
+  ]
+  true&&(!(V_4<=-1))
+]
+main@entry : true
+main@entry.split : false
+pos.query.pred : true
+ENTRY IS: main@entry
+=========================== POS START ============================
+VERIFY RULE: pos.query.pred <- ((isOdd@isEven.exit.split V_0 V_1)&&(!(true&&(!(V_0<=-1)))))
+UNSAT
+VERIFY RULE: pos.query.pred <- ((isOdd@tailrecurse V_0 V_1)&&(!true))
+UNSAT
+VERIFY RULE: pos.query.pred <- (pos.query.pred&&(!true))
+UNSAT
+VERIFY RULE: pos.query.pred <- (main@entry&&(!true))
+UNSAT
+VERIFY RULE: pos.query.pred <- (main@entry.split&&(!false))
+UNSAT
+VERIFY RULE: pos.query.pred <- ((isOdd@NodeBlock V_0)&&(!true))
+UNSAT
+VERIFY RULE: pos.query.pred <- ((verifier.error V_0 V_1 V_2)&&(!true))
+UNSAT
+VERIFY RULE: pos.query.pred <- ((isOdd V_0 V_1 V_2 V_3 V_4)&&(![||
+    [&&
+      true
+      V_4<=-1
+      !V_0
+    ]
+    [&&
+      true
+      V_4<=-1
+      !(!V_0)
+      !(!V_1)
+    ]
+    true&&(!(V_4<=-1))
+  ]))
+UNSAT
+==================================================================
+AFTER RESET DB IS:
+Predicates:
+;[fdecl
+  verifier.error
+  BOOL
+  BOOL
+  BOOL
+  BOOL
+]
+[fdecl
+  isOdd@NodeBlock
+  INT
+  BOOL
+]
+[fdecl
+  isOdd@tailrecurse
+  INT
+  INT
+  BOOL
+]
+[fdecl
+  isOdd@isEven.exit.split
+  INT
+  INT
+  BOOL
+]
+[fdecl
+  isOdd
+  BOOL
+  BOOL
+  BOOL
+  INT
+  INT
+  BOOL
+]
+[fdecl
+  main@entry
+  BOOL
+]
+[fdecl
+  main@entry.split
+  BOOL
+]
+[fdecl
+  pos.query.pred
+  BOOL
+]
+Clauses:
+;(verifier.error false false false) <- true.
+(verifier.error false true true) <- true.
+(verifier.error true false true) <- true.
+(verifier.error true true true) <- true.
+(isOdd true true true isOdd@%n_0 isOdd@%.0_0) <- true.
+(isOdd false true true isOdd@%n_0 isOdd@%.0_0) <- true.
+(isOdd false false false isOdd@%n_0 isOdd@%.0_0) <- true.
+(isOdd@NodeBlock isOdd@%n_0) <- true.
+(isOdd@tailrecurse isOdd@%n.tr_1 isOdd@%n_0) <- ((isOdd@NodeBlock isOdd@%n_0)&&[&&
+  true
+  isOdd@tailrecurse_0->(isOdd@tailrecurse_0&&isOdd@NodeBlock_0)
+  isOdd@tailrecurse_0
+  isOdd@%n.tr_0=isOdd@%n_0
+  (isOdd@tailrecurse_0&&isOdd@NodeBlock_0)->(isOdd@%n.tr_1=isOdd@%n.tr_0)
+]).
+(isOdd@tailrecurse isOdd@%n.tr_2 isOdd@%n_0) <- ((isOdd@tailrecurse isOdd@%n.tr_0 isOdd@%n_0)&&[&&
+  true
+  isOdd@%Pivot_0<->(isOdd@%n.tr_0<1)
+  isOdd@LeafBlock1_0->(isOdd@LeafBlock1_0&&isOdd@tailrecurse_0)
+  (isOdd@LeafBlock1_0&&isOdd@tailrecurse_0)->(!isOdd@%Pivot_0)
+  isOdd@%SwitchLeaf2_0<->(isOdd@%n.tr_0=1)
+  isOdd@LeafBlock_0->(isOdd@LeafBlock_0&&isOdd@tailrecurse_0)
+  (isOdd@LeafBlock_0&&isOdd@tailrecurse_0)->isOdd@%Pivot_0
+  isOdd@%SwitchLeaf_0<->(isOdd@%n.tr_0=0)
+  tuple(isOdd@LeafBlock_0, isOdd@NewDefault_0)->isOdd@LeafBlock_0
+  tuple(isOdd@LeafBlock1_0, isOdd@NewDefault_0)->isOdd@LeafBlock1_0
+  isOdd@NewDefault_0->((isOdd@LeafBlock_0&&tuple(isOdd@LeafBlock_0, isOdd@NewDefault_0))||(isOdd@LeafBlock1_0&&tuple(isOdd@LeafBlock1_0, isOdd@NewDefault_0)))
+  (isOdd@LeafBlock_0&&tuple(isOdd@LeafBlock_0, isOdd@NewDefault_0))->(!isOdd@%SwitchLeaf_0)
+  (isOdd@LeafBlock1_0&&tuple(isOdd@LeafBlock1_0, isOdd@NewDefault_0))->(!isOdd@%SwitchLeaf2_0)
+  isOdd@%SwitchLeaf2.i_0<->(isOdd@%n.tr_0=2)
+  isOdd@%_0_0=(isOdd@%n.tr_0+-2)
+  isOdd@tailrecurse_1->(isOdd@tailrecurse_1&&isOdd@NewDefault_0)
+  isOdd@tailrecurse_1
+  (isOdd@tailrecurse_1&&isOdd@NewDefault_0)->(!isOdd@%SwitchLeaf2.i_0)
+  isOdd@%n.tr_1=isOdd@%_0_0
+  (isOdd@tailrecurse_1&&isOdd@NewDefault_0)->(isOdd@%n.tr_2=isOdd@%n.tr_1)
+]).
+(isOdd@isEven.exit.split isOdd@%.0_3 isOdd@%n_0) <- ((isOdd@tailrecurse isOdd@%n.tr_0 isOdd@%n_0)&&[&&
+  true
+  isOdd@%Pivot_0<->(isOdd@%n.tr_0<1)
+  isOdd@LeafBlock1_0->(isOdd@LeafBlock1_0&&isOdd@tailrecurse_0)
+  (isOdd@LeafBlock1_0&&isOdd@tailrecurse_0)->(!isOdd@%Pivot_0)
+  isOdd@%SwitchLeaf2_0<->(isOdd@%n.tr_0=1)
+  isOdd@LeafBlock_0->(isOdd@LeafBlock_0&&isOdd@tailrecurse_0)
+  (isOdd@LeafBlock_0&&isOdd@tailrecurse_0)->isOdd@%Pivot_0
+  isOdd@%SwitchLeaf_0<->(isOdd@%n.tr_0=0)
+  tuple(isOdd@LeafBlock_0, isOdd@NewDefault_0)->isOdd@LeafBlock_0
+  tuple(isOdd@LeafBlock1_0, isOdd@NewDefault_0)->isOdd@LeafBlock1_0
+  isOdd@NewDefault_0->((isOdd@LeafBlock_0&&tuple(isOdd@LeafBlock_0, isOdd@NewDefault_0))||(isOdd@LeafBlock1_0&&tuple(isOdd@LeafBlock1_0, isOdd@NewDefault_0)))
+  (isOdd@LeafBlock_0&&tuple(isOdd@LeafBlock_0, isOdd@NewDefault_0))->(!isOdd@%SwitchLeaf_0)
+  (isOdd@LeafBlock1_0&&tuple(isOdd@LeafBlock1_0, isOdd@NewDefault_0))->(!isOdd@%SwitchLeaf2_0)
+  isOdd@%SwitchLeaf2.i_0<->(isOdd@%n.tr_0=2)
+  isOdd@%_0_0=(isOdd@%n.tr_0+-2)
+  tuple(isOdd@NewDefault_0, isOdd@isEven.exit_0)->isOdd@NewDefault_0
+  tuple(isOdd@LeafBlock_0, isOdd@isEven.exit_0)->isOdd@LeafBlock_0
+  tuple(isOdd@LeafBlock1_0, isOdd@isEven.exit_0)->isOdd@LeafBlock1_0
+  isOdd@isEven.exit_0->[||
+    isOdd@NewDefault_0&&tuple(isOdd@NewDefault_0, isOdd@isEven.exit_0)
+    isOdd@LeafBlock_0&&tuple(isOdd@LeafBlock_0, isOdd@isEven.exit_0)
+    isOdd@LeafBlock1_0&&tuple(isOdd@LeafBlock1_0, isOdd@isEven.exit_0)
+  ]
+  (isOdd@NewDefault_0&&tuple(isOdd@NewDefault_0, isOdd@isEven.exit_0))->isOdd@%SwitchLeaf2.i_0
+  isOdd@%.0_0=0
+  (isOdd@LeafBlock_0&&tuple(isOdd@LeafBlock_0, isOdd@isEven.exit_0))->isOdd@%SwitchLeaf_0
+  isOdd@%.0_1=0
+  (isOdd@LeafBlock1_0&&tuple(isOdd@LeafBlock1_0, isOdd@isEven.exit_0))->isOdd@%SwitchLeaf2_0
+  isOdd@%.0_2=1
+  (isOdd@NewDefault_0&&tuple(isOdd@NewDefault_0, isOdd@isEven.exit_0))->(isOdd@%.0_3=isOdd@%.0_0)
+  (isOdd@LeafBlock_0&&tuple(isOdd@LeafBlock_0, isOdd@isEven.exit_0))->(isOdd@%.0_3=isOdd@%.0_1)
+  (isOdd@LeafBlock1_0&&tuple(isOdd@LeafBlock1_0, isOdd@isEven.exit_0))->(isOdd@%.0_3=isOdd@%.0_2)
+  isOdd@isEven.exit.split_0->(isOdd@isEven.exit.split_0&&isOdd@isEven.exit_0)
+  isOdd@isEven.exit.split_0
+]).
+(isOdd true false false isOdd@%n_0 isOdd@%.0_0) <- (isOdd@isEven.exit.split isOdd@%.0_0 isOdd@%n_0).
+main@entry <- true.
+main@entry.split <- (main@entry&&[&&
+  true
+  main@%_1_0<->(main@%_0_0<0)
+  !main@%_1_0
+  (isOdd true false false main@%_0_0 main@%_2_0)
+  main@%_3_0<->(main@%_2_0>-1)
+  !main@%_3_0
+  main@entry.split_0->(main@entry.split_0&&main@entry_0)
+  main@entry.split_0
+]).
+Queries:
+;main@entry.split
+=========================== NEG START ============================
+VERIFY RULE: (isOdd@tailrecurse V_0 V_1) <- (main@entry&&true)
+UNSAT
+VERIFY RULE: (isOdd@isEven.exit.split V_0 V_1) <- (main@entry&&(true&&(!(V_0<=-1))))
+UNSAT
+VERIFY RULE: main@entry.split <- (main@entry&&false)
+UNSAT
+VERIFY RULE: main@entry <- true
+UNSAT
+VERIFY RULE: pos.query.pred <- (main@entry&&true)
+UNSAT
+VERIFY RULE: (isOdd@NodeBlock V_0) <- (main@entry&&true)
+UNSAT
+VERIFY RULE: (verifier.error V_0 V_1 V_2) <- (main@entry&&true)
+UNSAT
+VERIFY RULE: (isOdd V_0 V_1 V_2 V_3 V_4) <- (main@entry&&[||
+  [&&
+    true
+    V_4<=-1
+    !V_0
+  ]
+  [&&
+    true
+    V_4<=-1
+    !(!V_0)
+    !(!V_1)
+  ]
+  true&&(!(V_4<=-1))
+])
+UNSAT
+==================================================================
+AFTER RESET DB IS:
+Predicates:
+;[fdecl
+  verifier.error
+  BOOL
+  BOOL
+  BOOL
+  BOOL
+]
+[fdecl
+  isOdd@NodeBlock
+  INT
+  BOOL
+]
+[fdecl
+  isOdd@tailrecurse
+  INT
+  INT
+  BOOL
+]
+[fdecl
+  isOdd@isEven.exit.split
+  INT
+  INT
+  BOOL
+]
+[fdecl
+  isOdd
+  BOOL
+  BOOL
+  BOOL
+  INT
+  INT
+  BOOL
+]
+[fdecl
+  main@entry
+  BOOL
+]
+[fdecl
+  main@entry.split
+  BOOL
+]
+[fdecl
+  pos.query.pred
+  BOOL
+]
+Clauses:
+;(verifier.error false false false) <- true.
+(verifier.error false true true) <- true.
+(verifier.error true false true) <- true.
+(verifier.error true true true) <- true.
+(isOdd true true true isOdd@%n_0 isOdd@%.0_0) <- true.
+(isOdd false true true isOdd@%n_0 isOdd@%.0_0) <- true.
+(isOdd false false false isOdd@%n_0 isOdd@%.0_0) <- true.
+(isOdd@NodeBlock isOdd@%n_0) <- true.
+(isOdd@tailrecurse isOdd@%n.tr_1 isOdd@%n_0) <- ((isOdd@NodeBlock isOdd@%n_0)&&[&&
+  true
+  isOdd@tailrecurse_0->(isOdd@tailrecurse_0&&isOdd@NodeBlock_0)
+  isOdd@tailrecurse_0
+  isOdd@%n.tr_0=isOdd@%n_0
+  (isOdd@tailrecurse_0&&isOdd@NodeBlock_0)->(isOdd@%n.tr_1=isOdd@%n.tr_0)
+]).
+(isOdd@tailrecurse isOdd@%n.tr_2 isOdd@%n_0) <- ((isOdd@tailrecurse isOdd@%n.tr_0 isOdd@%n_0)&&[&&
+  true
+  isOdd@%Pivot_0<->(isOdd@%n.tr_0<1)
+  isOdd@LeafBlock1_0->(isOdd@LeafBlock1_0&&isOdd@tailrecurse_0)
+  (isOdd@LeafBlock1_0&&isOdd@tailrecurse_0)->(!isOdd@%Pivot_0)
+  isOdd@%SwitchLeaf2_0<->(isOdd@%n.tr_0=1)
+  isOdd@LeafBlock_0->(isOdd@LeafBlock_0&&isOdd@tailrecurse_0)
+  (isOdd@LeafBlock_0&&isOdd@tailrecurse_0)->isOdd@%Pivot_0
+  isOdd@%SwitchLeaf_0<->(isOdd@%n.tr_0=0)
+  tuple(isOdd@LeafBlock_0, isOdd@NewDefault_0)->isOdd@LeafBlock_0
+  tuple(isOdd@LeafBlock1_0, isOdd@NewDefault_0)->isOdd@LeafBlock1_0
+  isOdd@NewDefault_0->((isOdd@LeafBlock_0&&tuple(isOdd@LeafBlock_0, isOdd@NewDefault_0))||(isOdd@LeafBlock1_0&&tuple(isOdd@LeafBlock1_0, isOdd@NewDefault_0)))
+  (isOdd@LeafBlock_0&&tuple(isOdd@LeafBlock_0, isOdd@NewDefault_0))->(!isOdd@%SwitchLeaf_0)
+  (isOdd@LeafBlock1_0&&tuple(isOdd@LeafBlock1_0, isOdd@NewDefault_0))->(!isOdd@%SwitchLeaf2_0)
+  isOdd@%SwitchLeaf2.i_0<->(isOdd@%n.tr_0=2)
+  isOdd@%_0_0=(isOdd@%n.tr_0+-2)
+  isOdd@tailrecurse_1->(isOdd@tailrecurse_1&&isOdd@NewDefault_0)
+  isOdd@tailrecurse_1
+  (isOdd@tailrecurse_1&&isOdd@NewDefault_0)->(!isOdd@%SwitchLeaf2.i_0)
+  isOdd@%n.tr_1=isOdd@%_0_0
+  (isOdd@tailrecurse_1&&isOdd@NewDefault_0)->(isOdd@%n.tr_2=isOdd@%n.tr_1)
+]).
+(isOdd@isEven.exit.split isOdd@%.0_3 isOdd@%n_0) <- ((isOdd@tailrecurse isOdd@%n.tr_0 isOdd@%n_0)&&[&&
+  true
+  isOdd@%Pivot_0<->(isOdd@%n.tr_0<1)
+  isOdd@LeafBlock1_0->(isOdd@LeafBlock1_0&&isOdd@tailrecurse_0)
+  (isOdd@LeafBlock1_0&&isOdd@tailrecurse_0)->(!isOdd@%Pivot_0)
+  isOdd@%SwitchLeaf2_0<->(isOdd@%n.tr_0=1)
+  isOdd@LeafBlock_0->(isOdd@LeafBlock_0&&isOdd@tailrecurse_0)
+  (isOdd@LeafBlock_0&&isOdd@tailrecurse_0)->isOdd@%Pivot_0
+  isOdd@%SwitchLeaf_0<->(isOdd@%n.tr_0=0)
+  tuple(isOdd@LeafBlock_0, isOdd@NewDefault_0)->isOdd@LeafBlock_0
+  tuple(isOdd@LeafBlock1_0, isOdd@NewDefault_0)->isOdd@LeafBlock1_0
+  isOdd@NewDefault_0->((isOdd@LeafBlock_0&&tuple(isOdd@LeafBlock_0, isOdd@NewDefault_0))||(isOdd@LeafBlock1_0&&tuple(isOdd@LeafBlock1_0, isOdd@NewDefault_0)))
+  (isOdd@LeafBlock_0&&tuple(isOdd@LeafBlock_0, isOdd@NewDefault_0))->(!isOdd@%SwitchLeaf_0)
+  (isOdd@LeafBlock1_0&&tuple(isOdd@LeafBlock1_0, isOdd@NewDefault_0))->(!isOdd@%SwitchLeaf2_0)
+  isOdd@%SwitchLeaf2.i_0<->(isOdd@%n.tr_0=2)
+  isOdd@%_0_0=(isOdd@%n.tr_0+-2)
+  tuple(isOdd@NewDefault_0, isOdd@isEven.exit_0)->isOdd@NewDefault_0
+  tuple(isOdd@LeafBlock_0, isOdd@isEven.exit_0)->isOdd@LeafBlock_0
+  tuple(isOdd@LeafBlock1_0, isOdd@isEven.exit_0)->isOdd@LeafBlock1_0
+  isOdd@isEven.exit_0->[||
+    isOdd@NewDefault_0&&tuple(isOdd@NewDefault_0, isOdd@isEven.exit_0)
+    isOdd@LeafBlock_0&&tuple(isOdd@LeafBlock_0, isOdd@isEven.exit_0)
+    isOdd@LeafBlock1_0&&tuple(isOdd@LeafBlock1_0, isOdd@isEven.exit_0)
+  ]
+  (isOdd@NewDefault_0&&tuple(isOdd@NewDefault_0, isOdd@isEven.exit_0))->isOdd@%SwitchLeaf2.i_0
+  isOdd@%.0_0=0
+  (isOdd@LeafBlock_0&&tuple(isOdd@LeafBlock_0, isOdd@isEven.exit_0))->isOdd@%SwitchLeaf_0
+  isOdd@%.0_1=0
+  (isOdd@LeafBlock1_0&&tuple(isOdd@LeafBlock1_0, isOdd@isEven.exit_0))->isOdd@%SwitchLeaf2_0
+  isOdd@%.0_2=1
+  (isOdd@NewDefault_0&&tuple(isOdd@NewDefault_0, isOdd@isEven.exit_0))->(isOdd@%.0_3=isOdd@%.0_0)
+  (isOdd@LeafBlock_0&&tuple(isOdd@LeafBlock_0, isOdd@isEven.exit_0))->(isOdd@%.0_3=isOdd@%.0_1)
+  (isOdd@LeafBlock1_0&&tuple(isOdd@LeafBlock1_0, isOdd@isEven.exit_0))->(isOdd@%.0_3=isOdd@%.0_2)
+  isOdd@isEven.exit.split_0->(isOdd@isEven.exit.split_0&&isOdd@isEven.exit_0)
+  isOdd@isEven.exit.split_0
+]).
+(isOdd true false false isOdd@%n_0 isOdd@%.0_0) <- (isOdd@isEven.exit.split isOdd@%.0_0 isOdd@%n_0).
+main@entry <- true.
+main@entry.split <- (main@entry&&[&&
+  true
+  main@%_1_0<->(main@%_0_0<0)
+  !main@%_1_0
+  (isOdd true false false main@%_0_0 main@%_2_0)
+  main@%_3_0<->(main@%_2_0>-1)
+  !main@%_3_0
+  main@entry.split_0->(main@entry.split_0&&main@entry_0)
+  main@entry.split_0
+]).
+Queries:
+;main@entry.split
+=========================== IMPL START ============================
+(declare-fun isOdd@%n.tr_2 () Int)
+(declare-fun isOdd@%n.tr_1 () Int)
+(declare-fun isOdd@tailrecurse_1 () Bool)
+(declare-fun isOdd@%_0_0 () Int)
+(declare-fun isOdd@%SwitchLeaf2.i_0 () Bool)
+(declare-fun isOdd@%Pivot_0 () Bool)
+(declare-fun isOdd@%n.tr_0 () Int)
+(declare-fun |tuple(isOdd@LeafBlock_0, isOdd@NewDefault_0)| () Bool)
+(declare-fun isOdd@LeafBlock1_0 () Bool)
+(declare-fun isOdd@tailrecurse_0 () Bool)
+(declare-fun isOdd@%SwitchLeaf_0 () Bool)
+(declare-fun isOdd@%SwitchLeaf2_0 () Bool)
+(declare-fun isOdd@LeafBlock_0 () Bool)
+(declare-fun |tuple(isOdd@LeafBlock1_0, isOdd@NewDefault_0)| () Bool)
+(declare-fun isOdd@NewDefault_0 () Bool)
+
+(assert (not true))
+(assert true)
+(assert (and true
+     true
+     (= isOdd@%Pivot_0 (< isOdd@%n.tr_0 1))
+     (=> isOdd@LeafBlock1_0 (and isOdd@LeafBlock1_0 isOdd@tailrecurse_0))
+     (=> (and isOdd@LeafBlock1_0 isOdd@tailrecurse_0) (not isOdd@%Pivot_0))
+     (= isOdd@%SwitchLeaf2_0 (= isOdd@%n.tr_0 1))
+     (=> isOdd@LeafBlock_0 (and isOdd@LeafBlock_0 isOdd@tailrecurse_0))
+     (=> (and isOdd@LeafBlock_0 isOdd@tailrecurse_0) isOdd@%Pivot_0)
+     (= isOdd@%SwitchLeaf_0 (= isOdd@%n.tr_0 0))
+     (=> |tuple(isOdd@LeafBlock_0, isOdd@NewDefault_0)| isOdd@LeafBlock_0)
+     (=> |tuple(isOdd@LeafBlock1_0, isOdd@NewDefault_0)| isOdd@LeafBlock1_0)
+     (=> isOdd@NewDefault_0
+         (or (and isOdd@LeafBlock_0
+                  |tuple(isOdd@LeafBlock_0, isOdd@NewDefault_0)|)
+             (and isOdd@LeafBlock1_0
+                  |tuple(isOdd@LeafBlock1_0, isOdd@NewDefault_0)|)))
+     (=> (and isOdd@LeafBlock_0 |tuple(isOdd@LeafBlock_0, isOdd@NewDefault_0)|)
+         (not isOdd@%SwitchLeaf_0))
+     (=> (and isOdd@LeafBlock1_0
+              |tuple(isOdd@LeafBlock1_0, isOdd@NewDefault_0)|)
+         (not isOdd@%SwitchLeaf2_0))
+     (= isOdd@%SwitchLeaf2.i_0 (= isOdd@%n.tr_0 2))
+     (= isOdd@%_0_0 (+ isOdd@%n.tr_0 (- 2)))
+     (=> isOdd@tailrecurse_1 (and isOdd@tailrecurse_1 isOdd@NewDefault_0))
+     isOdd@tailrecurse_1
+     (=> (and isOdd@tailrecurse_1 isOdd@NewDefault_0)
+         (not isOdd@%SwitchLeaf2.i_0))
+     (= isOdd@%n.tr_1 isOdd@%_0_0)
+     (=> (and isOdd@tailrecurse_1 isOdd@NewDefault_0)
+         (= isOdd@%n.tr_2 isOdd@%n.tr_1))))
+(check-sat)
+UNSAT
+==================================================================
+FINAL INVARIANTS MAP:
+REL: (verifier.error V_0 V_1 V_2), CAND: true
+REL: (isOdd@NodeBlock V_0), CAND: true
+REL: (isOdd@tailrecurse V_0 V_1), CAND: true
+REL: (isOdd@isEven.exit.split V_0 V_1), CAND: (true&&(!(V_0<=-1)))
+REL: (isOdd V_0 V_1 V_2 V_3 V_4), CAND: [||
+  [&&
+    true
+    V_4<=-1
+    !V_0
+  ]
+  [&&
+    true
+    V_4<=-1
+    !(!V_0)
+    !(!V_1)
+  ]
+  true&&(!(V_4<=-1))
+]
+REL: main@entry, CAND: true
+REL: main@entry.split, CAND: false
+REL: pos.query.pred, CAND: true
+RUN ICE SUCCESSCULLY

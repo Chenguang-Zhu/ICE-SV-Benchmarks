@@ -1,0 +1,34 @@
+/usr/bin/clang-3.6 -c -emit-llvm -D__SEAHORN__ -fgnu89-inline -m32 -g -I/home/polaris/Desktop/seahorn/build/run/include -o /tmp/sea-V61lYZ/wc_false-unreach-call.bc /home/polaris/Desktop/SV/sv-benchmarks/c/busybox-1.22.0/wc_false-unreach-call.c
+/home/polaris/Desktop/seahorn/build/run/bin/seapp -o /tmp/sea-V61lYZ/wc_false-unreach-call.pp.bc --horn-inline-all --strip-extern=true --devirt-functions --externalize-addr-taken-funcs --kill-vaarg=true /tmp/sea-V61lYZ/wc_false-unreach-call.bc
+/home/polaris/Desktop/seahorn/build/run/bin/seapp -o /tmp/sea-V61lYZ/wc_false-unreach-call.pp.ms.bc --horn-mixed-sem --ms-reduce-main /tmp/sea-V61lYZ/wc_false-unreach-call.pp.bc
+/home/polaris/Desktop/seahorn/build/run/bin/seaopt -f -funit-at-a-time -o /tmp/sea-V61lYZ/wc_false-unreach-call.pp.ms.o.bc -O3 --disable-loop-vectorization=true --disable-slp-vectorization=true --vectorize-slp-aggressive=false /tmp/sea-V61lYZ/wc_false-unreach-call.pp.ms.bc
+/home/polaris/Desktop/seahorn/build/run/bin/seahorn --keep-shadows=true --horn-solve -horn-inter-proc -horn-sem-lvl=ptr --horn-step=large -log ice /tmp/sea-V61lYZ/wc_false-unreach-call.pp.ms.o.bc --horn-global-constraints=true --horn-stats --horn-singleton-aliases=true --horn-pdr-contexts=600 --horn-ignore-calloc=false --horn-make-undef-warning-error=false --horn-answer --horn-ice
+unsat
+Function: main
+main@entry: true
+main@_bb: true
+main@.lr.ph:
+		((main@%_123-main@%.1.i.i.ph55)<=4)
+	(!(main@%_123<=4))
+main@_bb12:
+		((main@%_125-main@%.1.i.i36)<=4)
+	(!(main@%_125<=4))
+main@.outer: (!(main@%.lcssa188<=0))
+main@.outer12.split.us.us.outer: (!(main@%.lcssa188<=0))
+main@_bb19: (!(main@%.lcssa188<=0))
+main@.outer12.split.us.us: (!(main@%.lcssa188<=0))
+main@.outer12..outer12.split_crit_edge: (!(main@%.lcssa188<=0))
+main@_bb24: (!(main@%.lcssa188<=0))
+main@.outer12..outer12.split_crit_edge.outer: (!(main@%.lcssa188<=0))
+main@verifier.error.split: false
+
+
+************** BRUNCH STATS ***************** 
+BRUNCH_STAT Result TRUE
+BRUNCH_STAT Horn 0.06
+BRUNCH_STAT HornClauseDB::loadZFixedPoint 8.62
+BRUNCH_STAT HornifyModule 0.03
+BRUNCH_STAT ICE inv 265.93
+BRUNCH_STAT LargeHornifyFunction 0.02
+BRUNCH_STAT seahorn_total 266.07
+************** BRUNCH STATS END ***************** 

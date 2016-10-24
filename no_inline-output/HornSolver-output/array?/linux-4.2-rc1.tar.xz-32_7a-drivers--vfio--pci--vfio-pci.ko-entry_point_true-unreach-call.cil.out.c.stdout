@@ -1,0 +1,131 @@
+/usr/bin/clang-3.6 -c -emit-llvm -D__SEAHORN__ -fgnu89-inline -m32 -g -I/home/polaris/Desktop/seahorn/build/run/include -o /tmp/sea-pgaooO/linux-4.2-rc1.tar.xz-32_7a-drivers--vfio--pci--vfio-pci.ko-entry_point_true-unreach-call.cil.out.bc /home/polaris/Desktop/SV/sv-benchmarks/c/ldv-linux-4.2-rc1/linux-4.2-rc1.tar.xz-32_7a-drivers--vfio--pci--vfio-pci.ko-entry_point_true-unreach-call.cil.out.c
+/home/polaris/Desktop/seahorn/build/run/bin/seapp -o /tmp/sea-pgaooO/linux-4.2-rc1.tar.xz-32_7a-drivers--vfio--pci--vfio-pci.ko-entry_point_true-unreach-call.cil.out.pp.bc --strip-extern=true --devirt-functions --externalize-addr-taken-funcs --kill-vaarg=true /tmp/sea-pgaooO/linux-4.2-rc1.tar.xz-32_7a-drivers--vfio--pci--vfio-pci.ko-entry_point_true-unreach-call.cil.out.bc
+/home/polaris/Desktop/seahorn/build/run/bin/seapp -o /tmp/sea-pgaooO/linux-4.2-rc1.tar.xz-32_7a-drivers--vfio--pci--vfio-pci.ko-entry_point_true-unreach-call.cil.out.pp.ms.bc --horn-mixed-sem --ms-reduce-main /tmp/sea-pgaooO/linux-4.2-rc1.tar.xz-32_7a-drivers--vfio--pci--vfio-pci.ko-entry_point_true-unreach-call.cil.out.pp.bc
+/home/polaris/Desktop/seahorn/build/run/bin/seaopt -f -funit-at-a-time -o /tmp/sea-pgaooO/linux-4.2-rc1.tar.xz-32_7a-drivers--vfio--pci--vfio-pci.ko-entry_point_true-unreach-call.cil.out.pp.ms.o.bc -O3 --disable-loop-vectorization=true --disable-slp-vectorization=true --vectorize-slp-aggressive=false /tmp/sea-pgaooO/linux-4.2-rc1.tar.xz-32_7a-drivers--vfio--pci--vfio-pci.ko-entry_point_true-unreach-call.cil.out.pp.ms.bc
+/home/polaris/Desktop/seahorn/build/run/bin/seahorn --keep-shadows=true --horn-solve -horn-inter-proc -horn-sem-lvl=ptr --horn-step=large /tmp/sea-pgaooO/linux-4.2-rc1.tar.xz-32_7a-drivers--vfio--pci--vfio-pci.ko-entry_point_true-unreach-call.cil.out.pp.ms.o.bc --horn-global-constraints=true --horn-stats --horn-singleton-aliases=true --horn-pdr-contexts=600 --horn-ignore-calloc=false --horn-make-undef-warning-error=false --horn-answer
+unsat
+Function: vfio_pci_mmap
+vfio_pci_mmap@_1: true
+vfio_pci_mmap@_shadow.mem22.1: true
+Function: vfio_pci_ioctl
+vfio_pci_ioctl@NodeBlock12: true
+vfio_pci_ioctl@UnifiedReturnBlock:
+		(((select(vfio_pci_ioctl@%_25, @ldv_mutex_driver_lock)+(-1*select(vfio_pci_ioctl@%shadow.mem25.1, @ldv_mutex_driver_lock)))<=0)||(vfio_pci_ioctl@%cmd>=15211))
+	(((select(vfio_pci_ioctl@%shadow.mem25.1, @ldv_mutex_driver_lock)+(-1*select(vfio_pci_ioctl@%_25, @ldv_mutex_driver_lock)))<=0)||(vfio_pci_ioctl@%cmd>=15211))
+	(((select(vfio_pci_ioctl@%shadow.mem8.1, @ref_cnt)+(-1*select(vfio_pci_ioctl@%_8, @ref_cnt)))<=0)||(vfio_pci_ioctl@%cmd>=15211))
+	(((select(vfio_pci_ioctl@%_8, @ref_cnt)+(-1*select(vfio_pci_ioctl@%shadow.mem8.1, @ref_cnt)))<=0)||(vfio_pci_ioctl@%cmd>=15211))
+	((vfio_pci_ioctl@%cmd>=15211)||((select(vfio_pci_ioctl@%shadow.mem9.1, @ldv_mutex_igate_of_vfio_pci_device)+(-1*select(vfio_pci_ioctl@%_9, @ldv_mutex_igate_of_vfio_pci_device)))<=0))
+	((vfio_pci_ioctl@%cmd>=15211)||((select(vfio_pci_ioctl@%_9, @ldv_mutex_igate_of_vfio_pci_device)+(-1*select(vfio_pci_ioctl@%shadow.mem9.1, @ldv_mutex_igate_of_vfio_pci_device)))<=0))
+Function: vfio_pci_intx_unmask
+vfio_pci_intx_unmask@_1: true
+vfio_pci_intx_unmask@_shadow.mem28.0: true
+Function: vfio_pci_set_irqs_ioctl
+vfio_pci_set_irqs_ioctl@NodeBlock7: true
+vfio_pci_set_irqs_ioctl@.lr.ph71:
+		(vfio_pci_set_irqs_ioctl@%j.0.i.i.i.i70>=0)
+	((select(vfio_pci_set_irqs_ioctl@%_26, @ldv_mutex_driver_lock)+(-1*select(vfio_pci_set_irqs_ioctl@%shadow.mem33.1, @ldv_mutex_driver_lock)))<=0)
+	((select(vfio_pci_set_irqs_ioctl@%_9, @ldv_mutex_igate_of_vfio_pci_device)+(-1*select(vfio_pci_set_irqs_ioctl@%shadow.mem16.1, @ldv_mutex_igate_of_vfio_pci_device)))<=0)
+	((select(vfio_pci_set_irqs_ioctl@%shadow.mem16.1, @ldv_mutex_igate_of_vfio_pci_device)+(-1*select(vfio_pci_set_irqs_ioctl@%_9, @ldv_mutex_igate_of_vfio_pci_device)))<=0)
+vfio_pci_set_irqs_ioctl@.preheader38: true
+vfio_pci_set_irqs_ioctl@.lr.ph47.split.us:
+		((!(vfio_pci_set_irqs_ioctl@%count>=0))||(!(vfio_pci_set_irqs_ioctl@%count<=0)))
+	(vfio_pci_set_irqs_ioctl@%i.0.i1.i.i45.us>=0)
+vfio_pci_set_irqs_ioctl@.preheader:
+		(vfio_pci_set_irqs_ioctl@%i.0.i1.i.i45>=0)
+	((!(vfio_pci_set_irqs_ioctl@%data>=0))||(!(vfio_pci_set_irqs_ioctl@%data<=0)))
+vfio_pci_set_irqs_ioctl@.lr.ph: true
+vfio_pci_set_irqs_ioctl@_bb87: true
+vfio_pci_set_irqs_ioctl@.lr.ph61.split.us: ((!(vfio_pci_set_irqs_ioctl@%count>=0))||(!(vfio_pci_set_irqs_ioctl@%count<=0)))
+vfio_pci_set_irqs_ioctl@.preheader98:
+		((!(vfio_pci_set_irqs_ioctl@%count>=0))||(!(vfio_pci_set_irqs_ioctl@%count<=0)))
+	(vfio_pci_set_irqs_ioctl@%i.0.i4.i.i59>=0)
+vfio_pci_set_irqs_ioctl@.lr.ph58: true
+vfio_pci_set_irqs_ioctl@.lr.ph52:
+		(vfio_pci_set_irqs_ioctl@%j.0.i.i13.i.i51>=0)
+	[||
+  !(vfio_pci_set_irqs_ioctl@%start>=0)
+  (select(vfio_pci_set_irqs_ioctl@%_26, @ldv_mutex_driver_lock)+(-1*select(vfio_pci_set_irqs_ioctl@%shadow.mem33.14, @ldv_mutex_driver_lock)))<=0
+  vfio_pci_set_irqs_ioctl@%start>=1
+]
+	[||
+  !(vfio_pci_set_irqs_ioctl@%start>=0)
+  vfio_pci_set_irqs_ioctl@%start>=1
+  (select(vfio_pci_set_irqs_ioctl@%shadow.mem16.14, @ldv_mutex_igate_of_vfio_pci_device)+(-1*select(vfio_pci_set_irqs_ioctl@%_9, @ldv_mutex_igate_of_vfio_pci_device)))<=0
+]
+	[||
+  !(vfio_pci_set_irqs_ioctl@%start>=0)
+  vfio_pci_set_irqs_ioctl@%start>=1
+  (select(vfio_pci_set_irqs_ioctl@%_9, @ldv_mutex_igate_of_vfio_pci_device)+(-1*select(vfio_pci_set_irqs_ioctl@%shadow.mem16.14, @ldv_mutex_igate_of_vfio_pci_device)))<=0
+]
+vfio_pci_set_irqs_ioctl@.preheader33: true
+vfio_pci_set_irqs_ioctl@UnifiedReturnBlock.split:
+		[||
+  !(vfio_pci_set_irqs_ioctl@%start>=0)
+  !(vfio_pci_set_irqs_ioctl@%count>=0)
+  !(vfio_pci_set_irqs_ioctl@%count<=0)
+  vfio_pci_set_irqs_ioctl@%data>=1
+  vfio_pci_set_irqs_ioctl@%data<=-1
+  vfio_pci_set_irqs_ioctl@%start>=1
+  (select(vfio_pci_set_irqs_ioctl@%_26, @ldv_mutex_driver_lock)+(-1*select(vfio_pci_set_irqs_ioctl@%shadow.mem33.17, @ldv_mutex_driver_lock)))<=0
+]
+	[||
+  !(vfio_pci_set_irqs_ioctl@%start>=0)
+  !(vfio_pci_set_irqs_ioctl@%count>=0)
+  !(vfio_pci_set_irqs_ioctl@%count<=0)
+  vfio_pci_set_irqs_ioctl@%data>=1
+  vfio_pci_set_irqs_ioctl@%start>=1
+  vfio_pci_set_irqs_ioctl@%data<=-1
+  (select(vfio_pci_set_irqs_ioctl@%shadow.mem16.17, @ldv_mutex_igate_of_vfio_pci_device)+(-1*select(vfio_pci_set_irqs_ioctl@%_9, @ldv_mutex_igate_of_vfio_pci_device)))<=0
+]
+	[||
+  !(vfio_pci_set_irqs_ioctl@%start>=0)
+  !(vfio_pci_set_irqs_ioctl@%count>=0)
+  !(vfio_pci_set_irqs_ioctl@%count<=0)
+  vfio_pci_set_irqs_ioctl@%data<=-1
+  vfio_pci_set_irqs_ioctl@%start>=1
+  vfio_pci_set_irqs_ioctl@%data>=1
+  (select(vfio_pci_set_irqs_ioctl@%_9, @ldv_mutex_igate_of_vfio_pci_device)+(-1*select(vfio_pci_set_irqs_ioctl@%shadow.mem16.17, @ldv_mutex_igate_of_vfio_pci_device)))<=0
+]
+Function: vfio_msi_set_vector_signal
+vfio_msi_set_vector_signal@_1: true
+vfio_msi_set_vector_signal@.split: true
+Function: vfio_intx_disable
+vfio_intx_disable@_1: true
+vfio_intx_disable@vfio_intx_set_signal.exit.split: true
+Function: vfio_intx_set_signal
+vfio_intx_set_signal@_1: true
+vfio_intx_set_signal@.split: true
+Function: vfio_pci_enable
+vfio_pci_enable@_1: true
+vfio_pci_enable@_shadow.mem33.1: true
+vfio_pci_enable@.split: true
+Function: vfio_pci_get_irq_count
+vfio_pci_get_irq_count@NodeBlock7: true
+vfio_pci_get_irq_count@.split: true
+Function: vfio_pci_disable
+vfio_pci_disable@_1: true
+vfio_pci_disable@vfio_pci_try_bus_reset.exit:
+		((select(vfio_pci_disable@%_28, @ldv_mutex_driver_lock)+(-1*select(vfio_pci_disable@%_63, @ldv_mutex_driver_lock)))<=0)
+	((select(vfio_pci_disable@%_53, @ldv_mutex_igate_of_vfio_pci_device)+(-1*select(vfio_pci_disable@%_11, @ldv_mutex_igate_of_vfio_pci_device)))<=0)
+	((select(vfio_pci_disable@%_11, @ldv_mutex_igate_of_vfio_pci_device)+(-1*select(vfio_pci_disable@%_53, @ldv_mutex_igate_of_vfio_pci_device)))<=0)
+Function: main
+main@entry: true
+main@NodeBlock12.i:
+		(main@%_85<=2)
+	(main@%_83<=1)
+	(select(main@%shadow.mem46.0, @ldv_mutex_driver_lock)>=0)
+	(select(main@%shadow.mem46.0, @ldv_mutex_driver_lock)<=0)
+	(main@%_85>=0)
+	(select(main@%shadow.mem29.0, @ldv_mutex_igate_of_vfio_pci_device)<=0)
+	(select(main@%shadow.mem29.0, @ldv_mutex_igate_of_vfio_pci_device)>=0)
+main@ldv_error.split: false
+
+
+************** BRUNCH STATS ***************** 
+BRUNCH_STAT Result TRUE
+BRUNCH_STAT Horn 5.87
+BRUNCH_STAT HornClauseDB::loadZFixedPoint 0.07
+BRUNCH_STAT HornifyModule 0.23
+BRUNCH_STAT LargeHornifyFunction 0.15
+BRUNCH_STAT seahorn_total 6.34
+************** BRUNCH STATS END ***************** 

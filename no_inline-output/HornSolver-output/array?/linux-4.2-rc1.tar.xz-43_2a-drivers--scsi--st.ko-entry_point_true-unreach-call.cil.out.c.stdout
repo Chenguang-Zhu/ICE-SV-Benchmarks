@@ -1,0 +1,210 @@
+/usr/bin/clang-3.6 -c -emit-llvm -D__SEAHORN__ -fgnu89-inline -m32 -g -I/home/polaris/Desktop/seahorn/build/run/include -o /tmp/sea-kAe6Wi/linux-4.2-rc1.tar.xz-43_2a-drivers--scsi--st.ko-entry_point_true-unreach-call.cil.out.bc /home/polaris/Desktop/SV/sv-benchmarks/c/ldv-linux-4.2-rc1/linux-4.2-rc1.tar.xz-43_2a-drivers--scsi--st.ko-entry_point_true-unreach-call.cil.out.c
+/home/polaris/Desktop/seahorn/build/run/bin/seapp -o /tmp/sea-kAe6Wi/linux-4.2-rc1.tar.xz-43_2a-drivers--scsi--st.ko-entry_point_true-unreach-call.cil.out.pp.bc --strip-extern=true --devirt-functions --externalize-addr-taken-funcs --kill-vaarg=true /tmp/sea-kAe6Wi/linux-4.2-rc1.tar.xz-43_2a-drivers--scsi--st.ko-entry_point_true-unreach-call.cil.out.bc
+/home/polaris/Desktop/seahorn/build/run/bin/seapp -o /tmp/sea-kAe6Wi/linux-4.2-rc1.tar.xz-43_2a-drivers--scsi--st.ko-entry_point_true-unreach-call.cil.out.pp.ms.bc --horn-mixed-sem --ms-reduce-main /tmp/sea-kAe6Wi/linux-4.2-rc1.tar.xz-43_2a-drivers--scsi--st.ko-entry_point_true-unreach-call.cil.out.pp.bc
+/home/polaris/Desktop/seahorn/build/run/bin/seaopt -f -funit-at-a-time -o /tmp/sea-kAe6Wi/linux-4.2-rc1.tar.xz-43_2a-drivers--scsi--st.ko-entry_point_true-unreach-call.cil.out.pp.ms.o.bc -O3 --disable-loop-vectorization=true --disable-slp-vectorization=true --vectorize-slp-aggressive=false /tmp/sea-kAe6Wi/linux-4.2-rc1.tar.xz-43_2a-drivers--scsi--st.ko-entry_point_true-unreach-call.cil.out.pp.ms.bc
+/home/polaris/Desktop/seahorn/build/run/bin/seahorn --keep-shadows=true --horn-solve -horn-inter-proc -horn-sem-lvl=ptr --horn-step=large /tmp/sea-kAe6Wi/linux-4.2-rc1.tar.xz-43_2a-drivers--scsi--st.ko-entry_point_true-unreach-call.cil.out.pp.ms.o.bc --horn-global-constraints=true --horn-stats --horn-singleton-aliases=true --horn-pdr-contexts=600 --horn-ignore-calloc=false --horn-make-undef-warning-error=false --horn-answer
+unsat
+Function: st_write
+st_write@_1: true
+st_write@_shadow.mem25.3:
+		(st_write@%retry_eot.0>=0)
+	((st_write@%count<=-1)||(st_write@%count>=1))
+st_write@_shadow.mem25.4: ((!(st_write@%count>=0))||(!(st_write@%count<=0)))
+st_write@release_buffering.exit:
+		[||
+  !(st_write@%count>=0)
+  !(st_write@%count<=0)
+  (select(st_write@%_2, @ldv_spin)+(-1*select(st_write@%shadow.mem.10, @ldv_spin)))<=0
+]
+	[||
+  (select(st_write@%shadow.mem.10, @ldv_spin)+(-1*select(st_write@%_2, @ldv_spin)))<=0
+  !(st_write@%count>=0)
+  !(st_write@%count<=0)
+]
+Function: st_flush
+st_flush@_1: true
+st_flush@_shadow.mem8.7:
+		((select(st_flush@%shadow.mem.7, @ldv_spin)+(-1*select(st_flush@%_2, @ldv_spin)))<=0)
+	((select(st_flush@%_2, @ldv_spin)+(-1*select(st_flush@%shadow.mem.7, @ldv_spin)))<=0)
+Function: flush_buffer
+flush_buffer@_1: true
+flush_buffer@.split:
+		((select(flush_buffer@%shadow.mem.1, @ldv_spin)+(-1*select(flush_buffer@%_2, @ldv_spin)))<=0)
+	((select(flush_buffer@%_2, @ldv_spin)+(-1*select(flush_buffer@%shadow.mem.1, @ldv_spin)))<=0)
+Function: st_int_ioctl
+st_int_ioctl@_1: true
+st_int_ioctl@NewDefault.split:
+		((select(st_int_ioctl@%shadow.mem.3, @ldv_spin)+(-1*select(st_int_ioctl@%_2, @ldv_spin)))<=0)
+	((select(st_int_ioctl@%_2, @ldv_spin)+(-1*select(st_int_ioctl@%shadow.mem.3, @ldv_spin)))<=0)
+	(((select(st_int_ioctl@%_6, @debugging)+(-1*select(st_int_ioctl@%shadow.mem11.3, @debugging)))<=0)||(!(st_int_ioctl@%cmd_in<=1)))
+	((st_int_ioctl@%cmd_in>=2)||((select(st_int_ioctl@%shadow.mem11.3, @debugging)+(-1*select(st_int_ioctl@%_6, @debugging)))<=0))
+Function: set_location
+set_location@_1: true
+set_location@.split:
+		((select(set_location@%_2, @ldv_spin)+(-1*select(set_location@%shadow.mem.2, @ldv_spin)))<=0)
+	((select(set_location@%_7, @debugging)+(-1*select(set_location@%shadow.mem5.2, @debugging)))<=0)
+	((select(set_location@%shadow.mem.2, @ldv_spin)+(-1*select(set_location@%_2, @ldv_spin)))<=0)
+Function: st_compression
+st_compression@_1: true
+st_compression@.split: true
+Function: get_location
+get_location@_1: true
+get_location@.split:
+		((select(get_location@%_2, @ldv_spin)+(-1*select(get_location@%shadow.mem.0, @ldv_spin)))<=0)
+	((select(get_location@%shadow.mem.0, @ldv_spin)+(-1*select(get_location@%_2, @ldv_spin)))<=0)
+	((select(get_location@%_7, @debugging)+(-1*select(get_location@%shadow.mem5.0, @debugging)))<=0)
+Function: st_do_scsi
+st_do_scsi@_1: true
+st_do_scsi@.split:
+		((select(st_do_scsi@%shadow.mem.0, @ldv_spin)+(-1*select(st_do_scsi@%_2, @ldv_spin)))<=0)
+	((select(st_do_scsi@%_2, @ldv_spin)+(-1*select(st_do_scsi@%shadow.mem.0, @ldv_spin)))<=0)
+	((select(st_do_scsi@%_6, @debugging)+(-1*select(st_do_scsi@%shadow.mem4.0, @debugging)))<=0)
+	((select(st_do_scsi@%shadow.mem4.0, @debugging)+(-1*select(st_do_scsi@%_6, @debugging)))<=0)
+Function: st_chk_result
+st_chk_result@_1: true
+st_chk_result@.split: true
+Function: write_mode_page
+write_mode_page@_1: true
+write_mode_page@.split: true
+Function: check_tape
+check_tape@_1: true
+check_tape@.split:
+		((select(check_tape@%_2, @ldv_spin)+(-1*select(check_tape@%shadow.mem.3, @ldv_spin)))<=0)
+	((select(check_tape@%shadow.mem.3, @ldv_spin)+(-1*select(check_tape@%_2, @ldv_spin)))<=0)
+Function: test_ready
+test_ready@_1: true
+test_ready@.lr.ph:
+		(test_ready@%new_session.0.ph22>=0)
+	((select(test_ready@%_2, @ldv_spin)+(-1*select(test_ready@%shadow.mem.0, @ldv_spin)))<=0)
+	((select(test_ready@%shadow.mem.0, @ldv_spin)+(-1*select(test_ready@%_2, @ldv_spin)))<=0)
+	((select(test_ready@%_6, @debugging)+(-1*select(test_ready@%shadow.mem4.0, @debugging)))<=0)
+test_ready@_shadow.mem8.1:
+		(test_ready@%new_session.019>=0)
+	((select(test_ready@%_6, @debugging)+(-1*select(test_ready@%shadow.mem4.1, @debugging)))<=0)
+	((select(test_ready@%shadow.mem.1, @ldv_spin)+(-1*select(test_ready@%_2, @ldv_spin)))<=0)
+	((select(test_ready@%_2, @ldv_spin)+(-1*select(test_ready@%shadow.mem.1, @ldv_spin)))<=0)
+test_ready@.split:
+		((select(test_ready@%_6, @debugging)+(-1*select(test_ready@%shadow.mem4.3, @debugging)))<=0)
+	((select(test_ready@%_2, @ldv_spin)+(-1*select(test_ready@%shadow.mem.3, @ldv_spin)))<=0)
+	((select(test_ready@%shadow.mem.3, @ldv_spin)+(-1*select(test_ready@%_2, @ldv_spin)))<=0)
+Function: set_mode_densblk
+set_mode_densblk@_1: true
+set_mode_densblk@.split:
+		((select(set_mode_densblk@%shadow.mem.1, @ldv_spin)+(-1*select(set_mode_densblk@%_2, @ldv_spin)))<=0)
+	((select(set_mode_densblk@%_2, @ldv_spin)+(-1*select(set_mode_densblk@%shadow.mem.1, @ldv_spin)))<=0)
+Function: st_flush_write_buffer
+st_flush_write_buffer@_1: true
+st_flush_write_buffer@.split:
+		((select(st_flush_write_buffer@%shadow.mem.0, @ldv_spin)+(-1*select(st_flush_write_buffer@%_2, @ldv_spin)))<=0)
+	((select(st_flush_write_buffer@%_2, @ldv_spin)+(-1*select(st_flush_write_buffer@%shadow.mem.0, @ldv_spin)))<=0)
+Function: cross_eof
+cross_eof@_1: true
+cross_eof@.split:
+		((select(cross_eof@%_6, @debugging)+(-1*select(cross_eof@%_call22, @debugging)))<=0)
+	((select(cross_eof@%_2, @ldv_spin)+(-1*select(cross_eof@%_38, @ldv_spin)))<=0)
+	((select(cross_eof@%_38, @ldv_spin)+(-1*select(cross_eof@%_2, @ldv_spin)))<=0)
+Function: write_behind_check
+write_behind_check@_1: true
+write_behind_check@.split:
+		((select(write_behind_check@%_2, @ldv_spin)+(-1*select(write_behind_check@%shadow.mem.0, @ldv_spin)))<=0)
+	((select(write_behind_check@%_6, @debugging)+(-1*select(write_behind_check@%shadow.mem4.0, @debugging)))<=0)
+	((select(write_behind_check@%shadow.mem.0, @ldv_spin)+(-1*select(write_behind_check@%_2, @ldv_spin)))<=0)
+	((select(write_behind_check@%shadow.mem4.0, @debugging)+(-1*select(write_behind_check@%_6, @debugging)))<=0)
+Function: kref_put
+kref_put@_1: true
+kref_put@kref_sub.exit: true
+Function: scsi_tape_get
+scsi_tape_get@_1: true
+scsi_tape_get@.split:
+		(select(scsi_tape_get@%_store36, @ldv_spin)<=0)
+	(select(scsi_tape_get@%_store36, @ldv_spin)>=0)
+Function: enlarge_buffer
+enlarge_buffer@_1: true
+enlarge_buffer@_shadow.mem10.0: true
+enlarge_buffer@_shadow.mem10.6: true
+enlarge_buffer@.loopexit.split: true
+Function: rw_checks
+rw_checks@_1: true
+rw_checks@.split:
+		((select(rw_checks@%shadow.mem.1, @ldv_spin)+(-1*select(rw_checks@%_2, @ldv_spin)))<=0)
+	((select(rw_checks@%_2, @ldv_spin)+(-1*select(rw_checks@%shadow.mem.1, @ldv_spin)))<=0)
+Function: setup_buffering
+setup_buffering@_1: true
+setup_buffering@_i.0.i25: true
+setup_buffering@.split: true
+Function: read_tape
+read_tape@_1: true
+read_tape@_i.0.i.i1: true
+read_tape@.split: true
+Function: from_buffer
+from_buffer@_1: true
+from_buffer@.lr.ph11: true
+from_buffer@_shadow.mem10.0: true
+from_buffer@UnifiedReturnBlock.split: true
+Function: append_to_buffer
+append_to_buffer@_1: true
+append_to_buffer@.lr.ph11: true
+append_to_buffer@_shadow.mem10.0: true
+append_to_buffer@UnifiedReturnBlock.split: true
+Function: move_buffer_data
+move_buffer_data@_1: true
+move_buffer_data@.lr.ph6: true
+move_buffer_data@.lr.ph: true
+move_buffer_data@.loopexit: true
+Function: create_one_cdev
+create_one_cdev@_1: true
+create_one_cdev@.split: true
+Function: main
+main@entry: true
+main@NodeBlock60.i:
+		(main@%_143>=0)
+	(select(main@%shadow.mem49.0, @ldv_spin)>=0)
+	(select(main@%shadow.mem49.0, @ldv_spin)<=0)
+main@_bb276: false
+main@_bb310: false
+main@_bb318: true
+main@_bb333: true
+main@ldv_check_alloc_flags.split: false
+main@st_int_ioctl.outer:
+		((main@%.017.ph198<=4)||(main@%.017.ph198>=6))
+	((main@%.017.ph198>=24)||(main@%.018.ph197>=1))
+	((main@%.017.ph198<=24)||(main@%.017.ph198>=0x10001))
+	(select(main@%shadow.mem49.32, @ldv_spin)<=0)
+	(select(main@%shadow.mem49.32, @ldv_spin)>=0)
+main@st_int_ioctl:
+		((!main@%or.cond195)||main@%SwitchLeaf209.i)
+	(main@%Pivot211.i||(!main@%Pivot51.i))
+	((!main@%Pivot51.i)||(!((main@%.017.ph198>=25)||(!(main@%.017.ph198>=0)))))
+	((!main@%Pivot15.i)||main@%Pivot23.i57)
+	(main@%_2555>=0)
+	((!main@%_2554)||(main@%_2569>=0))
+	((!main@%Pivot35.i49)||(!main@%_2554))
+	((!main@%SwitchLeaf209.i)||(!main@%SwitchLeaf239.i))
+	((!main@%Pivot92.i77)||main@%Pivot51.i)
+	(main@%Pivot51.i||(!main@%Pivot245.i))
+	((!main@%Pivot35.i49)||(main@%.018.ph197>=1))
+	((!main@%_2554)||(!main@%Pivot53.i39))
+	((!main@%Pivot49.i41)<->((main@%.017.ph198>=27)||(!(main@%.017.ph198>=0))))
+	((!main@%SwitchLeaf13.i65)||(!main@%_2554))
+	(select(main@%shadow.mem49.33, @ldv_spin)<=0)
+	(select(main@%shadow.mem49.33, @ldv_spin)>=0)
+main@postcall354.lr.ph: true
+main@postcall354: true
+main@enlarge_buffer:
+		(select(main@%shadow.mem49.4, @ldv_spin)<=0)
+	(select(main@%shadow.mem49.4, @ldv_spin)>=0)
+main@postcall366:
+		(select(main@%shadow.mem49.4, @ldv_spin)<=0)
+	(select(main@%shadow.mem49.4, @ldv_spin)>=0)
+main@_bb528: false
+main@_bb539: true
+
+
+************** BRUNCH STATS ***************** 
+BRUNCH_STAT Result TRUE
+BRUNCH_STAT Horn 39.53
+BRUNCH_STAT HornClauseDB::loadZFixedPoint 0.18
+BRUNCH_STAT HornifyModule 0.59
+BRUNCH_STAT LargeHornifyFunction 0.39
+BRUNCH_STAT seahorn_total 40.69
+************** BRUNCH STATS END ***************** 

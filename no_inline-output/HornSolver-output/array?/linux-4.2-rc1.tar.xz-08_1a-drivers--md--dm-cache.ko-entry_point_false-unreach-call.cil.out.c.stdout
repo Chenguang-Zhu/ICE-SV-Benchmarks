@@ -1,0 +1,212 @@
+/usr/bin/clang-3.6 -c -emit-llvm -D__SEAHORN__ -fgnu89-inline -m32 -g -I/home/polaris/Desktop/seahorn/build/run/include -o /tmp/sea-PdhpyF/linux-4.2-rc1.tar.xz-08_1a-drivers--md--dm-cache.ko-entry_point_false-unreach-call.cil.out.bc /home/polaris/Desktop/SV/sv-benchmarks/c/ldv-linux-4.2-rc1/linux-4.2-rc1.tar.xz-08_1a-drivers--md--dm-cache.ko-entry_point_false-unreach-call.cil.out.c
+/home/polaris/Desktop/seahorn/build/run/bin/seapp -o /tmp/sea-PdhpyF/linux-4.2-rc1.tar.xz-08_1a-drivers--md--dm-cache.ko-entry_point_false-unreach-call.cil.out.pp.bc --strip-extern=true --devirt-functions --externalize-addr-taken-funcs --kill-vaarg=true /tmp/sea-PdhpyF/linux-4.2-rc1.tar.xz-08_1a-drivers--md--dm-cache.ko-entry_point_false-unreach-call.cil.out.bc
+/home/polaris/Desktop/seahorn/build/run/bin/seapp -o /tmp/sea-PdhpyF/linux-4.2-rc1.tar.xz-08_1a-drivers--md--dm-cache.ko-entry_point_false-unreach-call.cil.out.pp.ms.bc --horn-mixed-sem --ms-reduce-main /tmp/sea-PdhpyF/linux-4.2-rc1.tar.xz-08_1a-drivers--md--dm-cache.ko-entry_point_false-unreach-call.cil.out.pp.bc
+/home/polaris/Desktop/seahorn/build/run/bin/seaopt -f -funit-at-a-time -o /tmp/sea-PdhpyF/linux-4.2-rc1.tar.xz-08_1a-drivers--md--dm-cache.ko-entry_point_false-unreach-call.cil.out.pp.ms.o.bc -O3 --disable-loop-vectorization=true --disable-slp-vectorization=true --vectorize-slp-aggressive=false /tmp/sea-PdhpyF/linux-4.2-rc1.tar.xz-08_1a-drivers--md--dm-cache.ko-entry_point_false-unreach-call.cil.out.pp.ms.bc
+/home/polaris/Desktop/seahorn/build/run/bin/seahorn --keep-shadows=true --horn-solve -horn-inter-proc -horn-sem-lvl=ptr --horn-step=large /tmp/sea-PdhpyF/linux-4.2-rc1.tar.xz-08_1a-drivers--md--dm-cache.ko-entry_point_false-unreach-call.cil.out.pp.ms.o.bc --horn-global-constraints=true --horn-stats --horn-singleton-aliases=true --horn-pdr-contexts=600 --horn-ignore-calloc=false --horn-make-undef-warning-error=false --horn-answer
+unsat
+Function: call_and_disable_work_1
+call_and_disable_work_1@_1: true
+call_and_disable_work_1@_shadow.mem16.0: true
+Function: do_worker
+do_worker@_1: true
+do_worker@more_work.exit.thread:
+		((select(do_worker@%shadow.mem5.0, @ldv_module_refcounter)+(-1*select(do_worker@%_7, @ldv_module_refcounter)))<=0)
+	((select(do_worker@%_7, @ldv_module_refcounter)+(-1*select(do_worker@%shadow.mem5.0, @ldv_module_refcounter)))<=0)
+do_worker@.lr.ph:
+		((select(do_worker@%_7, @ldv_module_refcounter)+(-1*select(do_worker@%shadow.mem5.1, @ldv_module_refcounter)))<=0)
+	((select(do_worker@%shadow.mem5.1, @ldv_module_refcounter)+(-1*select(do_worker@%_7, @ldv_module_refcounter)))<=0)
+do_worker@.lr.ph64:
+		((select(do_worker@%_7, @ldv_module_refcounter)+(-1*select(do_worker@%shadow.mem5.6, @ldv_module_refcounter)))<=0)
+	((select(do_worker@%shadow.mem5.6, @ldv_module_refcounter)+(-1*select(do_worker@%_7, @ldv_module_refcounter)))<=0)
+do_worker@.lr.ph65:
+		((select(do_worker@%_7, @ldv_module_refcounter)+(-1*select(do_worker@%shadow.mem5.9, @ldv_module_refcounter)))<=0)
+	((select(do_worker@%shadow.mem5.9, @ldv_module_refcounter)+(-1*select(do_worker@%_7, @ldv_module_refcounter)))<=0)
+do_worker@.lr.ph70:
+		((select(do_worker@%_7, @ldv_module_refcounter)+(-1*select(do_worker@%shadow.mem5.12, @ldv_module_refcounter)))<=0)
+	((select(do_worker@%shadow.mem5.12, @ldv_module_refcounter)+(-1*select(do_worker@%_7, @ldv_module_refcounter)))<=0)
+do_worker@.lr.ph73:
+		((select(do_worker@%shadow.mem5.15, @ldv_module_refcounter)+(-1*select(do_worker@%_7, @ldv_module_refcounter)))<=0)
+	((select(do_worker@%_7, @ldv_module_refcounter)+(-1*select(do_worker@%shadow.mem5.15, @ldv_module_refcounter)))<=0)
+do_worker@NodeBlock.i.i:
+		((select(do_worker@%shadow.mem5.15, @ldv_module_refcounter)+(-1*select(do_worker@%_7, @ldv_module_refcounter)))<=0)
+	((select(do_worker@%_7, @ldv_module_refcounter)+(-1*select(do_worker@%shadow.mem5.15, @ldv_module_refcounter)))<=0)
+do_worker@_call359:
+		((select(do_worker@%shadow.mem5.20, @ldv_module_refcounter)+(-1*select(do_worker@%_7, @ldv_module_refcounter)))<=0)
+	((select(do_worker@%_7, @ldv_module_refcounter)+(-1*select(do_worker@%shadow.mem5.20, @ldv_module_refcounter)))<=0)
+Function: cache_end_io
+cache_end_io@_1: true
+cache_end_io@.lr.ph: true
+cache_end_io@accounted_complete.exit.split: true
+Function: cache_map
+cache_map@_1: true
+cache_map@wake_worker.exit: true
+Function: cache_message
+cache_message@_1: true
+cache_message@.lr.ph: true
+cache_message@_shadow.mem13.1: true
+cache_message@set_config_value.exit: true
+Function: cache_status
+cache_status@NodeBlock: true
+cache_status@.lr.ph: true
+cache_status@NewDefault:
+		((select(cache_status@%_6, @ldv_module_refcounter)+(-1*select(cache_status@%shadow.mem6.1, @ldv_module_refcounter)))<=0)
+	((select(cache_status@%shadow.mem6.1, @ldv_module_refcounter)+(-1*select(cache_status@%_6, @ldv_module_refcounter)))<=0)
+Function: ldv_destroy_workqueue_12
+ldv_destroy_workqueue_12@_1: true
+ldv_destroy_workqueue_12@call_and_disable_all_1.exit: true
+Function: dm_cache_metadata_open
+dm_cache_metadata_open@_1: true
+dm_cache_metadata_open@.lr.ph12: true
+dm_cache_metadata_open@.lr.ph: true
+dm_cache_metadata_open@.split: true
+Function: blocks_are_unmapped_or_clean
+blocks_are_unmapped_or_clean@_1: true
+blocks_are_unmapped_or_clean@.lr.ph: true
+blocks_are_unmapped_or_clean@block_unmapped_or_clean.exit.thread1.split: true
+Function: __create_persistent_data_objects
+__create_persistent_data_objects@_1: true
+__create_persistent_data_objects@.lr.ph: true
+__create_persistent_data_objects@__open_or_format_metadata.exit.split: true
+Function: dm_cache_policy_destroy
+dm_cache_policy_destroy@_1: true
+dm_cache_policy_destroy@put_policy.exit: true
+Function: get_policy_once
+get_policy_once@_1: true
+get_policy_once@.lr.ph: true
+get_policy_once@__get_policy_once.exit.split: true
+Function: commit
+commit@_1: true
+commit@.split:
+		((select(commit@%shadow.mem4.0, @ldv_module_refcounter)+(-1*select(commit@%_6, @ldv_module_refcounter)))<=0)
+	((select(commit@%_6, @ldv_module_refcounter)+(-1*select(commit@%shadow.mem4.0, @ldv_module_refcounter)))<=0)
+Function: metadata_operation_failed
+metadata_operation_failed@_1: true
+metadata_operation_failed@abort_transaction.exit.split:
+		((select(metadata_operation_failed@%_7, @ldv_module_refcounter)+(-1*select(metadata_operation_failed@%_111, @ldv_module_refcounter)))<=0)
+	((select(metadata_operation_failed@%_111, @ldv_module_refcounter)+(-1*select(metadata_operation_failed@%_7, @ldv_module_refcounter)))<=0)
+Function: set_cache_mode
+set_cache_mode@_1: true
+set_cache_mode@_call27: true
+Function: accounted_begin
+accounted_begin@_1: true
+accounted_begin@accountable_bio.exit.thread: (!(accounted_begin@%bio<=0))
+Function: cell_defer
+cell_defer@_1: true
+cell_defer@wake_worker.exit: true
+Function: remap_cell_to_cache_dirty
+remap_cell_to_cache_dirty@bio_list_merge.exit: true
+remap_cell_to_cache_dirty@.split:
+		((select(remap_cell_to_cache_dirty@%_4, @ldv_module_refcounter)+(-1*select(remap_cell_to_cache_dirty@%shadow.mem4.0, @ldv_module_refcounter)))<=0)
+	((select(remap_cell_to_cache_dirty@%shadow.mem4.0, @ldv_module_refcounter)+(-1*select(remap_cell_to_cache_dirty@%_4, @ldv_module_refcounter)))<=0)
+Function: remap_cell_to_origin_clear_discard
+remap_cell_to_origin_clear_discard@bio_list_merge.exit: true
+remap_cell_to_origin_clear_discard@.split:
+		((select(remap_cell_to_origin_clear_discard@%_4, @ldv_module_refcounter)+(-1*select(remap_cell_to_origin_clear_discard@%shadow.mem4.0, @ldv_module_refcounter)))<=0)
+	((select(remap_cell_to_origin_clear_discard@%shadow.mem4.0, @ldv_module_refcounter)+(-1*select(remap_cell_to_origin_clear_discard@%_4, @ldv_module_refcounter)))<=0)
+Function: resize_cache_dev
+resize_cache_dev@_1: true
+resize_cache_dev@.split: true
+Function: set_discard_range
+set_discard_range@_1: true
+set_discard_range@.lr.ph: true
+set_discard_range@.loopexit: true
+Function: clear_dirty
+clear_dirty@_1: true
+clear_dirty@_call24: true
+Function: destroy
+destroy@_1: true
+destroy@.preheader: true
+Function: parse_cache_args
+parse_cache_args@_1: true
+parse_cache_args@.lr.ph..lr.ph.split_crit_edge: true
+parse_cache_args@UnifiedReturnBlock.split: [||
+  !(parse_cache_args@%argc<=0)
+  !(parse_cache_args@%argc>=0)
+  parse_cache_args@%UnifiedRetVal<=-22
+]
+Function: cache_create
+cache_create@_1: true
+cache_create@.lr.ph12: true
+cache_create@.lr.ph: true
+cache_create@.split: true
+Function: create_cache_policy
+create_cache_policy@_1: true
+create_cache_policy@.split: true
+Function: process_migrations
+process_migrations@_1: true
+process_migrations@_shadow.mem16.0:
+		((select(process_migrations@%shadow.mem4.0, @ldv_module_refcounter)+(-1*select(process_migrations@%_6, @ldv_module_refcounter)))<=0)
+	((select(process_migrations@%_6, @ldv_module_refcounter)+(-1*select(process_migrations@%shadow.mem4.0, @ldv_module_refcounter)))<=0)
+process_migrations@.lr.ph:
+		((select(process_migrations@%_6, @ldv_module_refcounter)+(-1*select(process_migrations@%shadow.mem4.0, @ldv_module_refcounter)))<=0)
+	((select(process_migrations@%shadow.mem4.0, @ldv_module_refcounter)+(-1*select(process_migrations@%_6, @ldv_module_refcounter)))<=0)
+process_migrations@seahorn.bounce6.exit._crit_edge:
+		((select(process_migrations@%shadow.mem4.3, @ldv_module_refcounter)+(-1*select(process_migrations@%_6, @ldv_module_refcounter)))<=0)
+	((select(process_migrations@%_6, @ldv_module_refcounter)+(-1*select(process_migrations@%shadow.mem4.3, @ldv_module_refcounter)))<=0)
+Function: process_deferred_flush_bios
+process_deferred_flush_bios@bio_list_merge.exit: true
+process_deferred_flush_bios@.backedge.us:
+		((select(process_deferred_flush_bios@%_4, @ldv_module_refcounter)+(-1*select(process_deferred_flush_bios@%shadow.mem4.0, @ldv_module_refcounter)))<=0)
+	((select(process_deferred_flush_bios@%shadow.mem4.0, @ldv_module_refcounter)+(-1*select(process_deferred_flush_bios@%_4, @ldv_module_refcounter)))<=0)
+process_deferred_flush_bios@.backedge: true
+process_deferred_flush_bios@._crit_edge.split:
+		((select(process_deferred_flush_bios@%_4, @ldv_module_refcounter)+(-1*select(process_deferred_flush_bios@%shadow.mem4.1, @ldv_module_refcounter)))<=0)
+	((select(process_deferred_flush_bios@%shadow.mem4.1, @ldv_module_refcounter)+(-1*select(process_deferred_flush_bios@%_4, @ldv_module_refcounter)))<=0)
+Function: migration_failure
+migration_failure@_1: true
+migration_failure@.split:
+		((select(migration_failure@%_136, @ldv_module_refcounter)+(-1*select(migration_failure@%_6, @ldv_module_refcounter)))<=0)
+	((select(migration_failure@%_6, @ldv_module_refcounter)+(-1*select(migration_failure@%_136, @ldv_module_refcounter)))<=0)
+Function: free_migration
+free_migration@_1: true
+free_migration@wake_worker.exit: (!(free_migration@%mg<=0))
+Function: migration_success_pre_commit
+migration_success_pre_commit@_1: true
+migration_success_pre_commit@_shadow.mem16.1:
+		((select(migration_success_pre_commit@%_6, @ldv_module_refcounter)+(-1*select(migration_success_pre_commit@%shadow.mem4.1, @ldv_module_refcounter)))<=0)
+	((select(migration_success_pre_commit@%shadow.mem4.1, @ldv_module_refcounter)+(-1*select(migration_success_pre_commit@%_6, @ldv_module_refcounter)))<=0)
+Function: process_cell
+process_cell@_1: true
+process_cell@_shadow.mem19.1:
+		((select(process_cell@%_6, @ldv_module_refcounter)+(-1*select(process_cell@%shadow.mem4.1, @ldv_module_refcounter)))<=0)
+	((select(process_cell@%shadow.mem4.1, @ldv_module_refcounter)+(-1*select(process_cell@%_6, @ldv_module_refcounter)))<=0)
+Function: quiesce_migration
+quiesce_migration@_1: true
+quiesce_migration@queue_quiesced_migration.exit: true
+Function: main
+main@entry: true
+main@NodeBlock8.i:
+		(main@%_102>=0)
+	[||
+  main@%_102<=0
+  main@%_101>=2
+  main@%_102>=4
+]
+	(main@%_102<=1)
+	(select(main@%shadow.mem110.0, @ldv_module_refcounter)<=1)
+	((main@%_102>=4)||(select(main@%shadow.mem110.0, @ldv_module_refcounter)>=1))
+main@.preheader138: false
+main@.preheader139: false
+main@_bb193: false
+main@.lr.ph156: false
+main@.lr.ph158: false
+main@bio_list_pop.exit.i.i: false
+main@.lr.ph160: false
+main@_bb234: false
+main@.lr.ph164: false
+main@.preheader134: false
+main@precall28: false
+main@ldv_error.split: false
+main@.lr.ph154: false
+main@.lr.ph: false
+main@UnifiedUnreachableBlock: true
+
+
+************** BRUNCH STATS ***************** 
+BRUNCH_STAT Result TRUE
+BRUNCH_STAT Horn 41.47
+BRUNCH_STAT HornClauseDB::loadZFixedPoint 0.21
+BRUNCH_STAT HornifyModule 0.66
+BRUNCH_STAT LargeHornifyFunction 0.52
+BRUNCH_STAT seahorn_total 43.01
+************** BRUNCH STATS END ***************** 

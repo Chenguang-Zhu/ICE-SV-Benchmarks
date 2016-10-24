@@ -1,0 +1,1452 @@
+REL NAME TO C5 NAME MAP:
+verifier.error, PRED_0
+main@entry, PRED_1
+main@.lr.ph4, PRED_2
+main@.lr.ph, PRED_3
+main@verifier.error.split, PRED_4
+pos.query.pred, PRED_5
+(verifier.error V_0 V_1 V_2)
+(main@entry V_0 V_1)
+(main@.lr.ph4 V_0 V_1)
+(main@.lr.ph V_0 V_1)
+main@verifier.error.split
+pos.query.pred
+DB: 
+Predicates:
+;[fdecl
+  verifier.error
+  BOOL
+  BOOL
+  BOOL
+  BOOL
+]
+[fdecl
+  main@entry
+  INT
+  INT
+  BOOL
+]
+[fdecl
+  main@.lr.ph4
+  INT
+  INT
+  BOOL
+]
+[fdecl
+  main@.lr.ph
+  INT
+  INT
+  BOOL
+]
+[fdecl
+  main@verifier.error.split
+  BOOL
+]
+[fdecl
+  pos.query.pred
+  BOOL
+]
+Clauses:
+;(verifier.error false false false) <- true.
+(verifier.error false true true) <- true.
+(verifier.error true false true) <- true.
+(verifier.error true true true) <- true.
+(main@entry @__VERIFIER_nondet_bool_0 @__VERIFIER_nondet_int_0) <- true.
+(main@.lr.ph4 main@%_7_0 main@%z.0.i1.i3_1) <- ((main@entry @__VERIFIER_nondet_bool_0 @__VERIFIER_nondet_int_0)&&[&&
+  true
+  main@%_0_0=@__VERIFIER_nondet_bool_0
+  main@%_2_0=@__VERIFIER_nondet_int_0
+  main@%_4_0=@__VERIFIER_nondet_int_0
+  main@%_6_0=@__VERIFIER_nondet_int_0
+  main@%_8_0<->(main@%_7_0>1)
+  main@.preheader1_0->(main@.preheader1_0&&main@entry_0)
+  (main@.preheader1_0&&main@entry_0)->(!main@%_1_0)
+  main@.lr.ph4.preheader_0->(main@.lr.ph4.preheader_0&&main@.preheader1_0)
+  (main@.lr.ph4.preheader_0&&main@.preheader1_0)->main@%_8_0
+  main@.lr.ph4_0->(main@.lr.ph4_0&&main@.lr.ph4.preheader_0)
+  main@.lr.ph4_0
+  main@%z.0.i1.i3_0=1
+  (main@.lr.ph4_0&&main@.lr.ph4.preheader_0)->(main@%z.0.i1.i3_1=main@%z.0.i1.i3_0)
+]).
+(main@.lr.ph main@%z.0.i.i2_1 main@%_7_0) <- ((main@entry @__VERIFIER_nondet_bool_0 @__VERIFIER_nondet_int_0)&&[&&
+  true
+  main@%_0_0=@__VERIFIER_nondet_bool_0
+  main@%_2_0=@__VERIFIER_nondet_int_0
+  main@%_4_0=@__VERIFIER_nondet_int_0
+  main@%_6_0=@__VERIFIER_nondet_int_0
+  main@%_8_0<->(main@%_7_0>1)
+  main@.preheader_0->(main@.preheader_0&&main@entry_0)
+  (main@.preheader_0&&main@entry_0)->main@%_1_0
+  main@.lr.ph.preheader_0->(main@.lr.ph.preheader_0&&main@.preheader_0)
+  (main@.lr.ph.preheader_0&&main@.preheader_0)->main@%_8_0
+  main@.lr.ph_0->(main@.lr.ph_0&&main@.lr.ph.preheader_0)
+  main@.lr.ph_0
+  main@%z.0.i.i2_0=1
+  (main@.lr.ph_0&&main@.lr.ph.preheader_0)->(main@%z.0.i.i2_1=main@%z.0.i.i2_0)
+]).
+main@verifier.error.split <- ((main@entry @__VERIFIER_nondet_bool_0 @__VERIFIER_nondet_int_0)&&[&&
+  true
+  main@%_0_0=@__VERIFIER_nondet_bool_0
+  main@%_2_0=@__VERIFIER_nondet_int_0
+  main@%_4_0=@__VERIFIER_nondet_int_0
+  main@%_6_0=@__VERIFIER_nondet_int_0
+  main@%_8_0<->(main@%_7_0>1)
+  main@.preheader1_0->(main@.preheader1_0&&main@entry_0)
+  (main@.preheader1_0&&main@entry_0)->(!main@%_1_0)
+  main@_bb1_0->(main@_bb1_0&&main@.preheader1_0)
+  (main@_bb1_0&&main@.preheader1_0)->(!main@%_8_0)
+  main@%z.0.i1.i.lcssa_0=true
+  (main@_bb1_0&&main@.preheader1_0)->(main@%z.0.i1.i.lcssa_1=main@%z.0.i1.i.lcssa_0)
+  main@%_16_0<->(main@%z.0.i1.i.lcssa_1=false)
+  main@_bb1_0->main@%_16_0
+  main@.preheader_0->(main@.preheader_0&&main@entry_0)
+  (main@.preheader_0&&main@entry_0)->main@%_1_0
+  main@_bb_0->(main@_bb_0&&main@.preheader_0)
+  (main@_bb_0&&main@.preheader_0)->(!main@%_8_0)
+  main@%z.0.i.i.lcssa_0=true
+  (main@_bb_0&&main@.preheader_0)->(main@%z.0.i.i.lcssa_1=main@%z.0.i.i.lcssa_0)
+  main@%_12_0<->(main@%z.0.i.i.lcssa_1=false)
+  main@_bb_0->main@%_12_0
+  main@verifier.error_0->((main@verifier.error_0&&main@_bb1_0)||(main@verifier.error_0&&main@_bb_0))
+  main@verifier.error.split_0->(main@verifier.error.split_0&&main@verifier.error_0)
+  main@verifier.error.split_0
+]).
+(main@.lr.ph4 main@%_7_0 main@%z.0.i1.i3_2) <- ((main@.lr.ph4 main@%_7_0 main@%z.0.i1.i3_0)&&[&&
+  true
+  main@%_13_0=(main@%z.0.i1.i3_0*2)
+  main@%_14_0<->(main@%_13_0<main@%_7_0)
+  main@.lr.ph4_1->(main@.lr.ph4_1&&main@.lr.ph4_0)
+  main@.lr.ph4_1
+  (main@.lr.ph4_1&&main@.lr.ph4_0)->main@%_14_0
+  main@%z.0.i1.i3_1=main@%_13_0
+  (main@.lr.ph4_1&&main@.lr.ph4_0)->(main@%z.0.i1.i3_2=main@%z.0.i1.i3_1)
+]).
+main@verifier.error.split <- ((main@.lr.ph4 main@%_7_0 main@%z.0.i1.i3_0)&&[&&
+  true
+  main@%_13_0=(main@%z.0.i1.i3_0*2)
+  main@%_14_0<->(main@%_13_0<main@%_7_0)
+  main@._crit_edge5_0->(main@._crit_edge5_0&&main@.lr.ph4_0)
+  (main@._crit_edge5_0&&main@.lr.ph4_0)->(!main@%_14_0)
+  main@%z.0.i1.i3.lcssa_0=main@%z.0.i1.i3_0
+  (main@._crit_edge5_0&&main@.lr.ph4_0)->(main@%z.0.i1.i3.lcssa_1=main@%z.0.i1.i3.lcssa_0)
+  main@%phitmp_0<->(main@%z.0.i1.i3.lcssa_1>0)
+  main@_bb1_0->(main@_bb1_0&&main@._crit_edge5_0)
+  main@%z.0.i1.i.lcssa_0=main@%phitmp_0
+  (main@_bb1_0&&main@._crit_edge5_0)->(main@%z.0.i1.i.lcssa_1=main@%z.0.i1.i.lcssa_0)
+  main@%_16_0<->(main@%z.0.i1.i.lcssa_1=false)
+  main@_bb1_0->main@%_16_0
+  main@verifier.error_0->(main@verifier.error_0&&main@_bb1_0)
+  main@verifier.error.split_0->(main@verifier.error.split_0&&main@verifier.error_0)
+  main@verifier.error.split_0
+]).
+(main@.lr.ph main@%z.0.i.i2_2 main@%_7_0) <- ((main@.lr.ph main@%z.0.i.i2_0 main@%_7_0)&&[&&
+  true
+  main@%_9_0=(main@%z.0.i.i2_0*2)
+  main@%_10_0<->(main@%_9_0<main@%_7_0)
+  main@.lr.ph_1->(main@.lr.ph_1&&main@.lr.ph_0)
+  main@.lr.ph_1
+  (main@.lr.ph_1&&main@.lr.ph_0)->main@%_10_0
+  main@%z.0.i.i2_1=main@%_9_0
+  (main@.lr.ph_1&&main@.lr.ph_0)->(main@%z.0.i.i2_2=main@%z.0.i.i2_1)
+]).
+main@verifier.error.split <- ((main@.lr.ph main@%z.0.i.i2_0 main@%_7_0)&&[&&
+  true
+  main@%_9_0=(main@%z.0.i.i2_0*2)
+  main@%_10_0<->(main@%_9_0<main@%_7_0)
+  main@._crit_edge_0->(main@._crit_edge_0&&main@.lr.ph_0)
+  (main@._crit_edge_0&&main@.lr.ph_0)->(!main@%_10_0)
+  main@%z.0.i.i2.lcssa_0=main@%z.0.i.i2_0
+  (main@._crit_edge_0&&main@.lr.ph_0)->(main@%z.0.i.i2.lcssa_1=main@%z.0.i.i2.lcssa_0)
+  main@%phitmp7_0<->(main@%z.0.i.i2.lcssa_1>0)
+  main@_bb_0->(main@_bb_0&&main@._crit_edge_0)
+  main@%z.0.i.i.lcssa_0=main@%phitmp7_0
+  (main@_bb_0&&main@._crit_edge_0)->(main@%z.0.i.i.lcssa_1=main@%z.0.i.i.lcssa_0)
+  main@%_12_0<->(main@%z.0.i.i.lcssa_1=false)
+  main@_bb_0->main@%_12_0
+  main@verifier.error_0->(main@verifier.error_0&&main@_bb_0)
+  main@verifier.error.split_0->(main@verifier.error.split_0&&main@verifier.error_0)
+  main@verifier.error.split_0
+]).
+Queries:
+;main@verifier.error.split
+ENTRY IS: (main@entry @__VERIFIER_nondet_bool_0 @__VERIFIER_nondet_int_0)
+=========================== POS START ============================
+VERIFY RULE: pos.query.pred <- ((main@.lr.ph V_0 V_1)&&(!true))
+UNSAT
+VERIFY RULE: pos.query.pred <- ((main@.lr.ph4 V_0 V_1)&&(!true))
+UNSAT
+VERIFY RULE: pos.query.pred <- ((main@entry V_0 V_1)&&(!true))
+UNSAT
+VERIFY RULE: pos.query.pred <- (main@verifier.error.split&&(!true))
+UNSAT
+VERIFY RULE: pos.query.pred <- (pos.query.pred&&(!true))
+UNSAT
+VERIFY RULE: pos.query.pred <- ((verifier.error V_0 V_1 V_2)&&(!true))
+UNSAT
+==================================================================
+AFTER RESET DB IS:
+Predicates:
+;[fdecl
+  verifier.error
+  BOOL
+  BOOL
+  BOOL
+  BOOL
+]
+[fdecl
+  main@entry
+  INT
+  INT
+  BOOL
+]
+[fdecl
+  main@.lr.ph4
+  INT
+  INT
+  BOOL
+]
+[fdecl
+  main@.lr.ph
+  INT
+  INT
+  BOOL
+]
+[fdecl
+  main@verifier.error.split
+  BOOL
+]
+[fdecl
+  pos.query.pred
+  BOOL
+]
+Clauses:
+;(verifier.error false false false) <- true.
+(verifier.error false true true) <- true.
+(verifier.error true false true) <- true.
+(verifier.error true true true) <- true.
+(main@entry @__VERIFIER_nondet_bool_0 @__VERIFIER_nondet_int_0) <- true.
+(main@.lr.ph4 main@%_7_0 main@%z.0.i1.i3_1) <- ((main@entry @__VERIFIER_nondet_bool_0 @__VERIFIER_nondet_int_0)&&[&&
+  true
+  main@%_0_0=@__VERIFIER_nondet_bool_0
+  main@%_2_0=@__VERIFIER_nondet_int_0
+  main@%_4_0=@__VERIFIER_nondet_int_0
+  main@%_6_0=@__VERIFIER_nondet_int_0
+  main@%_8_0<->(main@%_7_0>1)
+  main@.preheader1_0->(main@.preheader1_0&&main@entry_0)
+  (main@.preheader1_0&&main@entry_0)->(!main@%_1_0)
+  main@.lr.ph4.preheader_0->(main@.lr.ph4.preheader_0&&main@.preheader1_0)
+  (main@.lr.ph4.preheader_0&&main@.preheader1_0)->main@%_8_0
+  main@.lr.ph4_0->(main@.lr.ph4_0&&main@.lr.ph4.preheader_0)
+  main@.lr.ph4_0
+  main@%z.0.i1.i3_0=1
+  (main@.lr.ph4_0&&main@.lr.ph4.preheader_0)->(main@%z.0.i1.i3_1=main@%z.0.i1.i3_0)
+]).
+(main@.lr.ph main@%z.0.i.i2_1 main@%_7_0) <- ((main@entry @__VERIFIER_nondet_bool_0 @__VERIFIER_nondet_int_0)&&[&&
+  true
+  main@%_0_0=@__VERIFIER_nondet_bool_0
+  main@%_2_0=@__VERIFIER_nondet_int_0
+  main@%_4_0=@__VERIFIER_nondet_int_0
+  main@%_6_0=@__VERIFIER_nondet_int_0
+  main@%_8_0<->(main@%_7_0>1)
+  main@.preheader_0->(main@.preheader_0&&main@entry_0)
+  (main@.preheader_0&&main@entry_0)->main@%_1_0
+  main@.lr.ph.preheader_0->(main@.lr.ph.preheader_0&&main@.preheader_0)
+  (main@.lr.ph.preheader_0&&main@.preheader_0)->main@%_8_0
+  main@.lr.ph_0->(main@.lr.ph_0&&main@.lr.ph.preheader_0)
+  main@.lr.ph_0
+  main@%z.0.i.i2_0=1
+  (main@.lr.ph_0&&main@.lr.ph.preheader_0)->(main@%z.0.i.i2_1=main@%z.0.i.i2_0)
+]).
+main@verifier.error.split <- ((main@entry @__VERIFIER_nondet_bool_0 @__VERIFIER_nondet_int_0)&&[&&
+  true
+  main@%_0_0=@__VERIFIER_nondet_bool_0
+  main@%_2_0=@__VERIFIER_nondet_int_0
+  main@%_4_0=@__VERIFIER_nondet_int_0
+  main@%_6_0=@__VERIFIER_nondet_int_0
+  main@%_8_0<->(main@%_7_0>1)
+  main@.preheader1_0->(main@.preheader1_0&&main@entry_0)
+  (main@.preheader1_0&&main@entry_0)->(!main@%_1_0)
+  main@_bb1_0->(main@_bb1_0&&main@.preheader1_0)
+  (main@_bb1_0&&main@.preheader1_0)->(!main@%_8_0)
+  main@%z.0.i1.i.lcssa_0=true
+  (main@_bb1_0&&main@.preheader1_0)->(main@%z.0.i1.i.lcssa_1=main@%z.0.i1.i.lcssa_0)
+  main@%_16_0<->(main@%z.0.i1.i.lcssa_1=false)
+  main@_bb1_0->main@%_16_0
+  main@.preheader_0->(main@.preheader_0&&main@entry_0)
+  (main@.preheader_0&&main@entry_0)->main@%_1_0
+  main@_bb_0->(main@_bb_0&&main@.preheader_0)
+  (main@_bb_0&&main@.preheader_0)->(!main@%_8_0)
+  main@%z.0.i.i.lcssa_0=true
+  (main@_bb_0&&main@.preheader_0)->(main@%z.0.i.i.lcssa_1=main@%z.0.i.i.lcssa_0)
+  main@%_12_0<->(main@%z.0.i.i.lcssa_1=false)
+  main@_bb_0->main@%_12_0
+  main@verifier.error_0->((main@verifier.error_0&&main@_bb1_0)||(main@verifier.error_0&&main@_bb_0))
+  main@verifier.error.split_0->(main@verifier.error.split_0&&main@verifier.error_0)
+  main@verifier.error.split_0
+]).
+(main@.lr.ph4 main@%_7_0 main@%z.0.i1.i3_2) <- ((main@.lr.ph4 main@%_7_0 main@%z.0.i1.i3_0)&&[&&
+  true
+  main@%_13_0=(main@%z.0.i1.i3_0*2)
+  main@%_14_0<->(main@%_13_0<main@%_7_0)
+  main@.lr.ph4_1->(main@.lr.ph4_1&&main@.lr.ph4_0)
+  main@.lr.ph4_1
+  (main@.lr.ph4_1&&main@.lr.ph4_0)->main@%_14_0
+  main@%z.0.i1.i3_1=main@%_13_0
+  (main@.lr.ph4_1&&main@.lr.ph4_0)->(main@%z.0.i1.i3_2=main@%z.0.i1.i3_1)
+]).
+main@verifier.error.split <- ((main@.lr.ph4 main@%_7_0 main@%z.0.i1.i3_0)&&[&&
+  true
+  main@%_13_0=(main@%z.0.i1.i3_0*2)
+  main@%_14_0<->(main@%_13_0<main@%_7_0)
+  main@._crit_edge5_0->(main@._crit_edge5_0&&main@.lr.ph4_0)
+  (main@._crit_edge5_0&&main@.lr.ph4_0)->(!main@%_14_0)
+  main@%z.0.i1.i3.lcssa_0=main@%z.0.i1.i3_0
+  (main@._crit_edge5_0&&main@.lr.ph4_0)->(main@%z.0.i1.i3.lcssa_1=main@%z.0.i1.i3.lcssa_0)
+  main@%phitmp_0<->(main@%z.0.i1.i3.lcssa_1>0)
+  main@_bb1_0->(main@_bb1_0&&main@._crit_edge5_0)
+  main@%z.0.i1.i.lcssa_0=main@%phitmp_0
+  (main@_bb1_0&&main@._crit_edge5_0)->(main@%z.0.i1.i.lcssa_1=main@%z.0.i1.i.lcssa_0)
+  main@%_16_0<->(main@%z.0.i1.i.lcssa_1=false)
+  main@_bb1_0->main@%_16_0
+  main@verifier.error_0->(main@verifier.error_0&&main@_bb1_0)
+  main@verifier.error.split_0->(main@verifier.error.split_0&&main@verifier.error_0)
+  main@verifier.error.split_0
+]).
+(main@.lr.ph main@%z.0.i.i2_2 main@%_7_0) <- ((main@.lr.ph main@%z.0.i.i2_0 main@%_7_0)&&[&&
+  true
+  main@%_9_0=(main@%z.0.i.i2_0*2)
+  main@%_10_0<->(main@%_9_0<main@%_7_0)
+  main@.lr.ph_1->(main@.lr.ph_1&&main@.lr.ph_0)
+  main@.lr.ph_1
+  (main@.lr.ph_1&&main@.lr.ph_0)->main@%_10_0
+  main@%z.0.i.i2_1=main@%_9_0
+  (main@.lr.ph_1&&main@.lr.ph_0)->(main@%z.0.i.i2_2=main@%z.0.i.i2_1)
+]).
+main@verifier.error.split <- ((main@.lr.ph main@%z.0.i.i2_0 main@%_7_0)&&[&&
+  true
+  main@%_9_0=(main@%z.0.i.i2_0*2)
+  main@%_10_0<->(main@%_9_0<main@%_7_0)
+  main@._crit_edge_0->(main@._crit_edge_0&&main@.lr.ph_0)
+  (main@._crit_edge_0&&main@.lr.ph_0)->(!main@%_10_0)
+  main@%z.0.i.i2.lcssa_0=main@%z.0.i.i2_0
+  (main@._crit_edge_0&&main@.lr.ph_0)->(main@%z.0.i.i2.lcssa_1=main@%z.0.i.i2.lcssa_0)
+  main@%phitmp7_0<->(main@%z.0.i.i2.lcssa_1>0)
+  main@_bb_0->(main@_bb_0&&main@._crit_edge_0)
+  main@%z.0.i.i.lcssa_0=main@%phitmp7_0
+  (main@_bb_0&&main@._crit_edge_0)->(main@%z.0.i.i.lcssa_1=main@%z.0.i.i.lcssa_0)
+  main@%_12_0<->(main@%z.0.i.i.lcssa_1=false)
+  main@_bb_0->main@%_12_0
+  main@verifier.error_0->(main@verifier.error_0&&main@_bb_0)
+  main@verifier.error.split_0->(main@verifier.error.split_0&&main@verifier.error_0)
+  main@verifier.error.split_0
+]).
+Queries:
+;main@verifier.error.split
+=========================== NEG START ============================
+VERIFY RULE: main@verifier.error.split <- ((main@entry @__VERIFIER_nondet_bool_0 @__VERIFIER_nondet_int_0)&&true)
+SAT, NEED TO ADD NEGATIVE DATA POINT
+(main@verifier.error.split&&(main@entry main@entry_0_0 main@entry_1_0))
+NEG CEX IS: main@verifier.error.split
+ANSWER ARGS:
+NEG CEX, INDEX IS 0
+VERIFY RULE: pos.query.pred <- ((main@entry @__VERIFIER_nondet_bool_0 @__VERIFIER_nondet_int_0)&&true)
+UNSAT
+VERIFY RULE: (main@.lr.ph V_0 V_1) <- ((main@entry @__VERIFIER_nondet_bool_0 @__VERIFIER_nondet_int_0)&&true)
+SAT, NEED TO ADD NEGATIVE DATA POINT
+[&&
+  main@verifier.error.split
+  (main@.lr.ph 0 0)
+  (main@entry main@entry_0_0 main@entry_1_0)
+]
+NEG CEX IS: (main@.lr.ph 0 0)
+ANSWER ARGS:
+0
+0
+NEG CEX, INDEX IS 1
+VERIFY RULE: (main@.lr.ph4 V_0 V_1) <- ((main@entry @__VERIFIER_nondet_bool_0 @__VERIFIER_nondet_int_0)&&true)
+SAT, NEED TO ADD NEGATIVE DATA POINT
+[&&
+  main@verifier.error.split
+  (main@.lr.ph4 0 0)
+  (main@entry main@entry_0_0 main@entry_1_0)
+]
+NEG CEX IS: (main@.lr.ph4 0 0)
+ANSWER ARGS:
+0
+0
+NEG CEX, INDEX IS 2
+VERIFY RULE: (main@entry V_0 V_1) <- true
+UNSAT
+VERIFY RULE: (verifier.error V_0 V_1 V_2) <- ((main@entry @__VERIFIER_nondet_bool_0 @__VERIFIER_nondet_int_0)&&true)
+UNSAT
+==================================================================
+AFTER RESET DB IS:
+Predicates:
+;[fdecl
+  verifier.error
+  BOOL
+  BOOL
+  BOOL
+  BOOL
+]
+[fdecl
+  main@entry
+  INT
+  INT
+  BOOL
+]
+[fdecl
+  main@.lr.ph4
+  INT
+  INT
+  BOOL
+]
+[fdecl
+  main@.lr.ph
+  INT
+  INT
+  BOOL
+]
+[fdecl
+  main@verifier.error.split
+  BOOL
+]
+[fdecl
+  pos.query.pred
+  BOOL
+]
+Clauses:
+;(verifier.error false false false) <- true.
+(verifier.error false true true) <- true.
+(verifier.error true false true) <- true.
+(verifier.error true true true) <- true.
+(main@entry @__VERIFIER_nondet_bool_0 @__VERIFIER_nondet_int_0) <- true.
+(main@.lr.ph4 main@%_7_0 main@%z.0.i1.i3_1) <- ((main@entry @__VERIFIER_nondet_bool_0 @__VERIFIER_nondet_int_0)&&[&&
+  true
+  main@%_0_0=@__VERIFIER_nondet_bool_0
+  main@%_2_0=@__VERIFIER_nondet_int_0
+  main@%_4_0=@__VERIFIER_nondet_int_0
+  main@%_6_0=@__VERIFIER_nondet_int_0
+  main@%_8_0<->(main@%_7_0>1)
+  main@.preheader1_0->(main@.preheader1_0&&main@entry_0)
+  (main@.preheader1_0&&main@entry_0)->(!main@%_1_0)
+  main@.lr.ph4.preheader_0->(main@.lr.ph4.preheader_0&&main@.preheader1_0)
+  (main@.lr.ph4.preheader_0&&main@.preheader1_0)->main@%_8_0
+  main@.lr.ph4_0->(main@.lr.ph4_0&&main@.lr.ph4.preheader_0)
+  main@.lr.ph4_0
+  main@%z.0.i1.i3_0=1
+  (main@.lr.ph4_0&&main@.lr.ph4.preheader_0)->(main@%z.0.i1.i3_1=main@%z.0.i1.i3_0)
+]).
+(main@.lr.ph main@%z.0.i.i2_1 main@%_7_0) <- ((main@entry @__VERIFIER_nondet_bool_0 @__VERIFIER_nondet_int_0)&&[&&
+  true
+  main@%_0_0=@__VERIFIER_nondet_bool_0
+  main@%_2_0=@__VERIFIER_nondet_int_0
+  main@%_4_0=@__VERIFIER_nondet_int_0
+  main@%_6_0=@__VERIFIER_nondet_int_0
+  main@%_8_0<->(main@%_7_0>1)
+  main@.preheader_0->(main@.preheader_0&&main@entry_0)
+  (main@.preheader_0&&main@entry_0)->main@%_1_0
+  main@.lr.ph.preheader_0->(main@.lr.ph.preheader_0&&main@.preheader_0)
+  (main@.lr.ph.preheader_0&&main@.preheader_0)->main@%_8_0
+  main@.lr.ph_0->(main@.lr.ph_0&&main@.lr.ph.preheader_0)
+  main@.lr.ph_0
+  main@%z.0.i.i2_0=1
+  (main@.lr.ph_0&&main@.lr.ph.preheader_0)->(main@%z.0.i.i2_1=main@%z.0.i.i2_0)
+]).
+main@verifier.error.split <- ((main@entry @__VERIFIER_nondet_bool_0 @__VERIFIER_nondet_int_0)&&[&&
+  true
+  main@%_0_0=@__VERIFIER_nondet_bool_0
+  main@%_2_0=@__VERIFIER_nondet_int_0
+  main@%_4_0=@__VERIFIER_nondet_int_0
+  main@%_6_0=@__VERIFIER_nondet_int_0
+  main@%_8_0<->(main@%_7_0>1)
+  main@.preheader1_0->(main@.preheader1_0&&main@entry_0)
+  (main@.preheader1_0&&main@entry_0)->(!main@%_1_0)
+  main@_bb1_0->(main@_bb1_0&&main@.preheader1_0)
+  (main@_bb1_0&&main@.preheader1_0)->(!main@%_8_0)
+  main@%z.0.i1.i.lcssa_0=true
+  (main@_bb1_0&&main@.preheader1_0)->(main@%z.0.i1.i.lcssa_1=main@%z.0.i1.i.lcssa_0)
+  main@%_16_0<->(main@%z.0.i1.i.lcssa_1=false)
+  main@_bb1_0->main@%_16_0
+  main@.preheader_0->(main@.preheader_0&&main@entry_0)
+  (main@.preheader_0&&main@entry_0)->main@%_1_0
+  main@_bb_0->(main@_bb_0&&main@.preheader_0)
+  (main@_bb_0&&main@.preheader_0)->(!main@%_8_0)
+  main@%z.0.i.i.lcssa_0=true
+  (main@_bb_0&&main@.preheader_0)->(main@%z.0.i.i.lcssa_1=main@%z.0.i.i.lcssa_0)
+  main@%_12_0<->(main@%z.0.i.i.lcssa_1=false)
+  main@_bb_0->main@%_12_0
+  main@verifier.error_0->((main@verifier.error_0&&main@_bb1_0)||(main@verifier.error_0&&main@_bb_0))
+  main@verifier.error.split_0->(main@verifier.error.split_0&&main@verifier.error_0)
+  main@verifier.error.split_0
+]).
+(main@.lr.ph4 main@%_7_0 main@%z.0.i1.i3_2) <- ((main@.lr.ph4 main@%_7_0 main@%z.0.i1.i3_0)&&[&&
+  true
+  main@%_13_0=(main@%z.0.i1.i3_0*2)
+  main@%_14_0<->(main@%_13_0<main@%_7_0)
+  main@.lr.ph4_1->(main@.lr.ph4_1&&main@.lr.ph4_0)
+  main@.lr.ph4_1
+  (main@.lr.ph4_1&&main@.lr.ph4_0)->main@%_14_0
+  main@%z.0.i1.i3_1=main@%_13_0
+  (main@.lr.ph4_1&&main@.lr.ph4_0)->(main@%z.0.i1.i3_2=main@%z.0.i1.i3_1)
+]).
+main@verifier.error.split <- ((main@.lr.ph4 main@%_7_0 main@%z.0.i1.i3_0)&&[&&
+  true
+  main@%_13_0=(main@%z.0.i1.i3_0*2)
+  main@%_14_0<->(main@%_13_0<main@%_7_0)
+  main@._crit_edge5_0->(main@._crit_edge5_0&&main@.lr.ph4_0)
+  (main@._crit_edge5_0&&main@.lr.ph4_0)->(!main@%_14_0)
+  main@%z.0.i1.i3.lcssa_0=main@%z.0.i1.i3_0
+  (main@._crit_edge5_0&&main@.lr.ph4_0)->(main@%z.0.i1.i3.lcssa_1=main@%z.0.i1.i3.lcssa_0)
+  main@%phitmp_0<->(main@%z.0.i1.i3.lcssa_1>0)
+  main@_bb1_0->(main@_bb1_0&&main@._crit_edge5_0)
+  main@%z.0.i1.i.lcssa_0=main@%phitmp_0
+  (main@_bb1_0&&main@._crit_edge5_0)->(main@%z.0.i1.i.lcssa_1=main@%z.0.i1.i.lcssa_0)
+  main@%_16_0<->(main@%z.0.i1.i.lcssa_1=false)
+  main@_bb1_0->main@%_16_0
+  main@verifier.error_0->(main@verifier.error_0&&main@_bb1_0)
+  main@verifier.error.split_0->(main@verifier.error.split_0&&main@verifier.error_0)
+  main@verifier.error.split_0
+]).
+(main@.lr.ph main@%z.0.i.i2_2 main@%_7_0) <- ((main@.lr.ph main@%z.0.i.i2_0 main@%_7_0)&&[&&
+  true
+  main@%_9_0=(main@%z.0.i.i2_0*2)
+  main@%_10_0<->(main@%_9_0<main@%_7_0)
+  main@.lr.ph_1->(main@.lr.ph_1&&main@.lr.ph_0)
+  main@.lr.ph_1
+  (main@.lr.ph_1&&main@.lr.ph_0)->main@%_10_0
+  main@%z.0.i.i2_1=main@%_9_0
+  (main@.lr.ph_1&&main@.lr.ph_0)->(main@%z.0.i.i2_2=main@%z.0.i.i2_1)
+]).
+main@verifier.error.split <- ((main@.lr.ph main@%z.0.i.i2_0 main@%_7_0)&&[&&
+  true
+  main@%_9_0=(main@%z.0.i.i2_0*2)
+  main@%_10_0<->(main@%_9_0<main@%_7_0)
+  main@._crit_edge_0->(main@._crit_edge_0&&main@.lr.ph_0)
+  (main@._crit_edge_0&&main@.lr.ph_0)->(!main@%_10_0)
+  main@%z.0.i.i2.lcssa_0=main@%z.0.i.i2_0
+  (main@._crit_edge_0&&main@.lr.ph_0)->(main@%z.0.i.i2.lcssa_1=main@%z.0.i.i2.lcssa_0)
+  main@%phitmp7_0<->(main@%z.0.i.i2.lcssa_1>0)
+  main@_bb_0->(main@_bb_0&&main@._crit_edge_0)
+  main@%z.0.i.i.lcssa_0=main@%phitmp7_0
+  (main@_bb_0&&main@._crit_edge_0)->(main@%z.0.i.i.lcssa_1=main@%z.0.i.i.lcssa_0)
+  main@%_12_0<->(main@%z.0.i.i.lcssa_1=false)
+  main@_bb_0->main@%_12_0
+  main@verifier.error_0->(main@verifier.error_0&&main@_bb_0)
+  main@verifier.error.split_0->(main@verifier.error.split_0&&main@verifier.error_0)
+  main@verifier.error.split_0
+]).
+Queries:
+;main@verifier.error.split
+=========================== IMPL START ============================
+(declare-fun main@%z.0.i1.i3_2 () Int)
+(declare-fun main@%z.0.i1.i3_1 () Int)
+(declare-fun main@%_7_0 () Int)
+(declare-fun main@.lr.ph4_0 () Bool)
+(declare-fun main@%_14_0 () Bool)
+(declare-fun main@.lr.ph4_1 () Bool)
+(declare-fun main@%z.0.i1.i3_0 () Int)
+(declare-fun main@%_13_0 () Int)
+
+(assert (not true))
+(assert true)
+(assert (and true
+     true
+     (= main@%_13_0 (* main@%z.0.i1.i3_0 2))
+     (= main@%_14_0 (< main@%_13_0 main@%_7_0))
+     (=> main@.lr.ph4_1 (and main@.lr.ph4_1 main@.lr.ph4_0))
+     main@.lr.ph4_1
+     (=> (and main@.lr.ph4_1 main@.lr.ph4_0) main@%_14_0)
+     (= main@%z.0.i1.i3_1 main@%_13_0)
+     (=> (and main@.lr.ph4_1 main@.lr.ph4_0)
+         (= main@%z.0.i1.i3_2 main@%z.0.i1.i3_1))))
+(check-sat)
+UNSAT
+(declare-fun main@%z.0.i.i2_2 () Int)
+(declare-fun main@%z.0.i.i2_1 () Int)
+(declare-fun main@.lr.ph_0 () Bool)
+(declare-fun main@.lr.ph_1 () Bool)
+(declare-fun main@%_10_0 () Bool)
+(declare-fun main@%z.0.i.i2_0 () Int)
+(declare-fun main@%_7_0 () Int)
+(declare-fun main@%_9_0 () Int)
+
+(assert (not true))
+(assert true)
+(assert (and true
+     true
+     (= main@%_9_0 (* main@%z.0.i.i2_0 2))
+     (= main@%_10_0 (< main@%_9_0 main@%_7_0))
+     (=> main@.lr.ph_1 (and main@.lr.ph_1 main@.lr.ph_0))
+     main@.lr.ph_1
+     (=> (and main@.lr.ph_1 main@.lr.ph_0) main@%_10_0)
+     (= main@%z.0.i.i2_1 main@%_9_0)
+     (=> (and main@.lr.ph_1 main@.lr.ph_0)
+         (= main@%z.0.i.i2_2 main@%z.0.i.i2_1))))
+(check-sat)
+UNSAT
+==================================================================
+DATA & IMPL FILES ARE GENERATED
+TAG: PRED_0
+NEW CANDIDATE: true
+TAG: PRED_1
+NEW CANDIDATE: true
+TAG: PRED_2
+NEW CANDIDATE: false
+TAG: PRED_3
+NEW CANDIDATE: false
+TAG: PRED_4
+NEW CANDIDATE: false
+TAG: PRED_5
+NEW CANDIDATE: true
+NEW CANDIDATES MAP:
+(verifier.error V_0 V_1 V_2) : true
+(main@entry V_0 V_1) : true
+(main@.lr.ph4 V_0 V_1) : false
+(main@.lr.ph V_0 V_1) : false
+main@verifier.error.split : false
+pos.query.pred : true
+ENTRY IS: (main@entry @__VERIFIER_nondet_bool_0 @__VERIFIER_nondet_int_0)
+=========================== POS START ============================
+VERIFY RULE: pos.query.pred <- ((main@entry V_0 V_1)&&(!true))
+UNSAT
+VERIFY RULE: pos.query.pred <- ((main@.lr.ph V_0 V_1)&&(!false))
+SAT, NEED TO ADD POSITIVE DATA POINT
+[&&
+  pos.query.pred
+  (main@.lr.ph 1 2)
+  (main@entry 3 0)
+]
+POS OBJ PRED: (main@.lr.ph V_0 V_1)
+POS CEX IS: (main@.lr.ph 1 2)
+ANSWER ARGS:
+1
+2
+POS CEX, INDEX IS 3
+VERIFY RULE: pos.query.pred <- ((main@.lr.ph4 V_0 V_1)&&(!false))
+SAT, NEED TO ADD POSITIVE DATA POINT
+[&&
+  pos.query.pred
+  (main@.lr.ph4 2 1)
+  (main@entry 3 0)
+]
+POS OBJ PRED: (main@.lr.ph4 V_0 V_1)
+POS CEX IS: (main@.lr.ph4 2 1)
+ANSWER ARGS:
+2
+1
+POS CEX, INDEX IS 4
+VERIFY RULE: pos.query.pred <- (main@verifier.error.split&&(!false))
+UNSAT
+VERIFY RULE: pos.query.pred <- (pos.query.pred&&(!true))
+UNSAT
+VERIFY RULE: pos.query.pred <- ((verifier.error V_0 V_1 V_2)&&(!true))
+UNSAT
+==================================================================
+AFTER RESET DB IS:
+Predicates:
+;[fdecl
+  verifier.error
+  BOOL
+  BOOL
+  BOOL
+  BOOL
+]
+[fdecl
+  main@entry
+  INT
+  INT
+  BOOL
+]
+[fdecl
+  main@.lr.ph4
+  INT
+  INT
+  BOOL
+]
+[fdecl
+  main@.lr.ph
+  INT
+  INT
+  BOOL
+]
+[fdecl
+  main@verifier.error.split
+  BOOL
+]
+[fdecl
+  pos.query.pred
+  BOOL
+]
+Clauses:
+;(verifier.error false false false) <- true.
+(verifier.error false true true) <- true.
+(verifier.error true false true) <- true.
+(verifier.error true true true) <- true.
+(main@entry @__VERIFIER_nondet_bool_0 @__VERIFIER_nondet_int_0) <- true.
+(main@.lr.ph4 main@%_7_0 main@%z.0.i1.i3_1) <- ((main@entry @__VERIFIER_nondet_bool_0 @__VERIFIER_nondet_int_0)&&[&&
+  true
+  main@%_0_0=@__VERIFIER_nondet_bool_0
+  main@%_2_0=@__VERIFIER_nondet_int_0
+  main@%_4_0=@__VERIFIER_nondet_int_0
+  main@%_6_0=@__VERIFIER_nondet_int_0
+  main@%_8_0<->(main@%_7_0>1)
+  main@.preheader1_0->(main@.preheader1_0&&main@entry_0)
+  (main@.preheader1_0&&main@entry_0)->(!main@%_1_0)
+  main@.lr.ph4.preheader_0->(main@.lr.ph4.preheader_0&&main@.preheader1_0)
+  (main@.lr.ph4.preheader_0&&main@.preheader1_0)->main@%_8_0
+  main@.lr.ph4_0->(main@.lr.ph4_0&&main@.lr.ph4.preheader_0)
+  main@.lr.ph4_0
+  main@%z.0.i1.i3_0=1
+  (main@.lr.ph4_0&&main@.lr.ph4.preheader_0)->(main@%z.0.i1.i3_1=main@%z.0.i1.i3_0)
+]).
+(main@.lr.ph main@%z.0.i.i2_1 main@%_7_0) <- ((main@entry @__VERIFIER_nondet_bool_0 @__VERIFIER_nondet_int_0)&&[&&
+  true
+  main@%_0_0=@__VERIFIER_nondet_bool_0
+  main@%_2_0=@__VERIFIER_nondet_int_0
+  main@%_4_0=@__VERIFIER_nondet_int_0
+  main@%_6_0=@__VERIFIER_nondet_int_0
+  main@%_8_0<->(main@%_7_0>1)
+  main@.preheader_0->(main@.preheader_0&&main@entry_0)
+  (main@.preheader_0&&main@entry_0)->main@%_1_0
+  main@.lr.ph.preheader_0->(main@.lr.ph.preheader_0&&main@.preheader_0)
+  (main@.lr.ph.preheader_0&&main@.preheader_0)->main@%_8_0
+  main@.lr.ph_0->(main@.lr.ph_0&&main@.lr.ph.preheader_0)
+  main@.lr.ph_0
+  main@%z.0.i.i2_0=1
+  (main@.lr.ph_0&&main@.lr.ph.preheader_0)->(main@%z.0.i.i2_1=main@%z.0.i.i2_0)
+]).
+main@verifier.error.split <- ((main@entry @__VERIFIER_nondet_bool_0 @__VERIFIER_nondet_int_0)&&[&&
+  true
+  main@%_0_0=@__VERIFIER_nondet_bool_0
+  main@%_2_0=@__VERIFIER_nondet_int_0
+  main@%_4_0=@__VERIFIER_nondet_int_0
+  main@%_6_0=@__VERIFIER_nondet_int_0
+  main@%_8_0<->(main@%_7_0>1)
+  main@.preheader1_0->(main@.preheader1_0&&main@entry_0)
+  (main@.preheader1_0&&main@entry_0)->(!main@%_1_0)
+  main@_bb1_0->(main@_bb1_0&&main@.preheader1_0)
+  (main@_bb1_0&&main@.preheader1_0)->(!main@%_8_0)
+  main@%z.0.i1.i.lcssa_0=true
+  (main@_bb1_0&&main@.preheader1_0)->(main@%z.0.i1.i.lcssa_1=main@%z.0.i1.i.lcssa_0)
+  main@%_16_0<->(main@%z.0.i1.i.lcssa_1=false)
+  main@_bb1_0->main@%_16_0
+  main@.preheader_0->(main@.preheader_0&&main@entry_0)
+  (main@.preheader_0&&main@entry_0)->main@%_1_0
+  main@_bb_0->(main@_bb_0&&main@.preheader_0)
+  (main@_bb_0&&main@.preheader_0)->(!main@%_8_0)
+  main@%z.0.i.i.lcssa_0=true
+  (main@_bb_0&&main@.preheader_0)->(main@%z.0.i.i.lcssa_1=main@%z.0.i.i.lcssa_0)
+  main@%_12_0<->(main@%z.0.i.i.lcssa_1=false)
+  main@_bb_0->main@%_12_0
+  main@verifier.error_0->((main@verifier.error_0&&main@_bb1_0)||(main@verifier.error_0&&main@_bb_0))
+  main@verifier.error.split_0->(main@verifier.error.split_0&&main@verifier.error_0)
+  main@verifier.error.split_0
+]).
+(main@.lr.ph4 main@%_7_0 main@%z.0.i1.i3_2) <- ((main@.lr.ph4 main@%_7_0 main@%z.0.i1.i3_0)&&[&&
+  true
+  main@%_13_0=(main@%z.0.i1.i3_0*2)
+  main@%_14_0<->(main@%_13_0<main@%_7_0)
+  main@.lr.ph4_1->(main@.lr.ph4_1&&main@.lr.ph4_0)
+  main@.lr.ph4_1
+  (main@.lr.ph4_1&&main@.lr.ph4_0)->main@%_14_0
+  main@%z.0.i1.i3_1=main@%_13_0
+  (main@.lr.ph4_1&&main@.lr.ph4_0)->(main@%z.0.i1.i3_2=main@%z.0.i1.i3_1)
+]).
+main@verifier.error.split <- ((main@.lr.ph4 main@%_7_0 main@%z.0.i1.i3_0)&&[&&
+  true
+  main@%_13_0=(main@%z.0.i1.i3_0*2)
+  main@%_14_0<->(main@%_13_0<main@%_7_0)
+  main@._crit_edge5_0->(main@._crit_edge5_0&&main@.lr.ph4_0)
+  (main@._crit_edge5_0&&main@.lr.ph4_0)->(!main@%_14_0)
+  main@%z.0.i1.i3.lcssa_0=main@%z.0.i1.i3_0
+  (main@._crit_edge5_0&&main@.lr.ph4_0)->(main@%z.0.i1.i3.lcssa_1=main@%z.0.i1.i3.lcssa_0)
+  main@%phitmp_0<->(main@%z.0.i1.i3.lcssa_1>0)
+  main@_bb1_0->(main@_bb1_0&&main@._crit_edge5_0)
+  main@%z.0.i1.i.lcssa_0=main@%phitmp_0
+  (main@_bb1_0&&main@._crit_edge5_0)->(main@%z.0.i1.i.lcssa_1=main@%z.0.i1.i.lcssa_0)
+  main@%_16_0<->(main@%z.0.i1.i.lcssa_1=false)
+  main@_bb1_0->main@%_16_0
+  main@verifier.error_0->(main@verifier.error_0&&main@_bb1_0)
+  main@verifier.error.split_0->(main@verifier.error.split_0&&main@verifier.error_0)
+  main@verifier.error.split_0
+]).
+(main@.lr.ph main@%z.0.i.i2_2 main@%_7_0) <- ((main@.lr.ph main@%z.0.i.i2_0 main@%_7_0)&&[&&
+  true
+  main@%_9_0=(main@%z.0.i.i2_0*2)
+  main@%_10_0<->(main@%_9_0<main@%_7_0)
+  main@.lr.ph_1->(main@.lr.ph_1&&main@.lr.ph_0)
+  main@.lr.ph_1
+  (main@.lr.ph_1&&main@.lr.ph_0)->main@%_10_0
+  main@%z.0.i.i2_1=main@%_9_0
+  (main@.lr.ph_1&&main@.lr.ph_0)->(main@%z.0.i.i2_2=main@%z.0.i.i2_1)
+]).
+main@verifier.error.split <- ((main@.lr.ph main@%z.0.i.i2_0 main@%_7_0)&&[&&
+  true
+  main@%_9_0=(main@%z.0.i.i2_0*2)
+  main@%_10_0<->(main@%_9_0<main@%_7_0)
+  main@._crit_edge_0->(main@._crit_edge_0&&main@.lr.ph_0)
+  (main@._crit_edge_0&&main@.lr.ph_0)->(!main@%_10_0)
+  main@%z.0.i.i2.lcssa_0=main@%z.0.i.i2_0
+  (main@._crit_edge_0&&main@.lr.ph_0)->(main@%z.0.i.i2.lcssa_1=main@%z.0.i.i2.lcssa_0)
+  main@%phitmp7_0<->(main@%z.0.i.i2.lcssa_1>0)
+  main@_bb_0->(main@_bb_0&&main@._crit_edge_0)
+  main@%z.0.i.i.lcssa_0=main@%phitmp7_0
+  (main@_bb_0&&main@._crit_edge_0)->(main@%z.0.i.i.lcssa_1=main@%z.0.i.i.lcssa_0)
+  main@%_12_0<->(main@%z.0.i.i.lcssa_1=false)
+  main@_bb_0->main@%_12_0
+  main@verifier.error_0->(main@verifier.error_0&&main@_bb_0)
+  main@verifier.error.split_0->(main@verifier.error.split_0&&main@verifier.error_0)
+  main@verifier.error.split_0
+]).
+Queries:
+;main@verifier.error.split
+=========================== NEG START ============================
+VERIFY RULE: main@verifier.error.split <- ((main@entry @__VERIFIER_nondet_bool_0 @__VERIFIER_nondet_int_0)&&false)
+UNSAT
+VERIFY RULE: pos.query.pred <- ((main@entry @__VERIFIER_nondet_bool_0 @__VERIFIER_nondet_int_0)&&true)
+UNSAT
+VERIFY RULE: (main@.lr.ph V_0 V_1) <- ((main@entry @__VERIFIER_nondet_bool_0 @__VERIFIER_nondet_int_0)&&false)
+UNSAT
+VERIFY RULE: (main@.lr.ph4 V_0 V_1) <- ((main@entry @__VERIFIER_nondet_bool_0 @__VERIFIER_nondet_int_0)&&false)
+UNSAT
+VERIFY RULE: (main@entry V_0 V_1) <- true
+UNSAT
+VERIFY RULE: (verifier.error V_0 V_1 V_2) <- ((main@entry @__VERIFIER_nondet_bool_0 @__VERIFIER_nondet_int_0)&&true)
+UNSAT
+==================================================================
+AFTER RESET DB IS:
+Predicates:
+;[fdecl
+  verifier.error
+  BOOL
+  BOOL
+  BOOL
+  BOOL
+]
+[fdecl
+  main@entry
+  INT
+  INT
+  BOOL
+]
+[fdecl
+  main@.lr.ph4
+  INT
+  INT
+  BOOL
+]
+[fdecl
+  main@.lr.ph
+  INT
+  INT
+  BOOL
+]
+[fdecl
+  main@verifier.error.split
+  BOOL
+]
+[fdecl
+  pos.query.pred
+  BOOL
+]
+Clauses:
+;(verifier.error false false false) <- true.
+(verifier.error false true true) <- true.
+(verifier.error true false true) <- true.
+(verifier.error true true true) <- true.
+(main@entry @__VERIFIER_nondet_bool_0 @__VERIFIER_nondet_int_0) <- true.
+(main@.lr.ph4 main@%_7_0 main@%z.0.i1.i3_1) <- ((main@entry @__VERIFIER_nondet_bool_0 @__VERIFIER_nondet_int_0)&&[&&
+  true
+  main@%_0_0=@__VERIFIER_nondet_bool_0
+  main@%_2_0=@__VERIFIER_nondet_int_0
+  main@%_4_0=@__VERIFIER_nondet_int_0
+  main@%_6_0=@__VERIFIER_nondet_int_0
+  main@%_8_0<->(main@%_7_0>1)
+  main@.preheader1_0->(main@.preheader1_0&&main@entry_0)
+  (main@.preheader1_0&&main@entry_0)->(!main@%_1_0)
+  main@.lr.ph4.preheader_0->(main@.lr.ph4.preheader_0&&main@.preheader1_0)
+  (main@.lr.ph4.preheader_0&&main@.preheader1_0)->main@%_8_0
+  main@.lr.ph4_0->(main@.lr.ph4_0&&main@.lr.ph4.preheader_0)
+  main@.lr.ph4_0
+  main@%z.0.i1.i3_0=1
+  (main@.lr.ph4_0&&main@.lr.ph4.preheader_0)->(main@%z.0.i1.i3_1=main@%z.0.i1.i3_0)
+]).
+(main@.lr.ph main@%z.0.i.i2_1 main@%_7_0) <- ((main@entry @__VERIFIER_nondet_bool_0 @__VERIFIER_nondet_int_0)&&[&&
+  true
+  main@%_0_0=@__VERIFIER_nondet_bool_0
+  main@%_2_0=@__VERIFIER_nondet_int_0
+  main@%_4_0=@__VERIFIER_nondet_int_0
+  main@%_6_0=@__VERIFIER_nondet_int_0
+  main@%_8_0<->(main@%_7_0>1)
+  main@.preheader_0->(main@.preheader_0&&main@entry_0)
+  (main@.preheader_0&&main@entry_0)->main@%_1_0
+  main@.lr.ph.preheader_0->(main@.lr.ph.preheader_0&&main@.preheader_0)
+  (main@.lr.ph.preheader_0&&main@.preheader_0)->main@%_8_0
+  main@.lr.ph_0->(main@.lr.ph_0&&main@.lr.ph.preheader_0)
+  main@.lr.ph_0
+  main@%z.0.i.i2_0=1
+  (main@.lr.ph_0&&main@.lr.ph.preheader_0)->(main@%z.0.i.i2_1=main@%z.0.i.i2_0)
+]).
+main@verifier.error.split <- ((main@entry @__VERIFIER_nondet_bool_0 @__VERIFIER_nondet_int_0)&&[&&
+  true
+  main@%_0_0=@__VERIFIER_nondet_bool_0
+  main@%_2_0=@__VERIFIER_nondet_int_0
+  main@%_4_0=@__VERIFIER_nondet_int_0
+  main@%_6_0=@__VERIFIER_nondet_int_0
+  main@%_8_0<->(main@%_7_0>1)
+  main@.preheader1_0->(main@.preheader1_0&&main@entry_0)
+  (main@.preheader1_0&&main@entry_0)->(!main@%_1_0)
+  main@_bb1_0->(main@_bb1_0&&main@.preheader1_0)
+  (main@_bb1_0&&main@.preheader1_0)->(!main@%_8_0)
+  main@%z.0.i1.i.lcssa_0=true
+  (main@_bb1_0&&main@.preheader1_0)->(main@%z.0.i1.i.lcssa_1=main@%z.0.i1.i.lcssa_0)
+  main@%_16_0<->(main@%z.0.i1.i.lcssa_1=false)
+  main@_bb1_0->main@%_16_0
+  main@.preheader_0->(main@.preheader_0&&main@entry_0)
+  (main@.preheader_0&&main@entry_0)->main@%_1_0
+  main@_bb_0->(main@_bb_0&&main@.preheader_0)
+  (main@_bb_0&&main@.preheader_0)->(!main@%_8_0)
+  main@%z.0.i.i.lcssa_0=true
+  (main@_bb_0&&main@.preheader_0)->(main@%z.0.i.i.lcssa_1=main@%z.0.i.i.lcssa_0)
+  main@%_12_0<->(main@%z.0.i.i.lcssa_1=false)
+  main@_bb_0->main@%_12_0
+  main@verifier.error_0->((main@verifier.error_0&&main@_bb1_0)||(main@verifier.error_0&&main@_bb_0))
+  main@verifier.error.split_0->(main@verifier.error.split_0&&main@verifier.error_0)
+  main@verifier.error.split_0
+]).
+(main@.lr.ph4 main@%_7_0 main@%z.0.i1.i3_2) <- ((main@.lr.ph4 main@%_7_0 main@%z.0.i1.i3_0)&&[&&
+  true
+  main@%_13_0=(main@%z.0.i1.i3_0*2)
+  main@%_14_0<->(main@%_13_0<main@%_7_0)
+  main@.lr.ph4_1->(main@.lr.ph4_1&&main@.lr.ph4_0)
+  main@.lr.ph4_1
+  (main@.lr.ph4_1&&main@.lr.ph4_0)->main@%_14_0
+  main@%z.0.i1.i3_1=main@%_13_0
+  (main@.lr.ph4_1&&main@.lr.ph4_0)->(main@%z.0.i1.i3_2=main@%z.0.i1.i3_1)
+]).
+main@verifier.error.split <- ((main@.lr.ph4 main@%_7_0 main@%z.0.i1.i3_0)&&[&&
+  true
+  main@%_13_0=(main@%z.0.i1.i3_0*2)
+  main@%_14_0<->(main@%_13_0<main@%_7_0)
+  main@._crit_edge5_0->(main@._crit_edge5_0&&main@.lr.ph4_0)
+  (main@._crit_edge5_0&&main@.lr.ph4_0)->(!main@%_14_0)
+  main@%z.0.i1.i3.lcssa_0=main@%z.0.i1.i3_0
+  (main@._crit_edge5_0&&main@.lr.ph4_0)->(main@%z.0.i1.i3.lcssa_1=main@%z.0.i1.i3.lcssa_0)
+  main@%phitmp_0<->(main@%z.0.i1.i3.lcssa_1>0)
+  main@_bb1_0->(main@_bb1_0&&main@._crit_edge5_0)
+  main@%z.0.i1.i.lcssa_0=main@%phitmp_0
+  (main@_bb1_0&&main@._crit_edge5_0)->(main@%z.0.i1.i.lcssa_1=main@%z.0.i1.i.lcssa_0)
+  main@%_16_0<->(main@%z.0.i1.i.lcssa_1=false)
+  main@_bb1_0->main@%_16_0
+  main@verifier.error_0->(main@verifier.error_0&&main@_bb1_0)
+  main@verifier.error.split_0->(main@verifier.error.split_0&&main@verifier.error_0)
+  main@verifier.error.split_0
+]).
+(main@.lr.ph main@%z.0.i.i2_2 main@%_7_0) <- ((main@.lr.ph main@%z.0.i.i2_0 main@%_7_0)&&[&&
+  true
+  main@%_9_0=(main@%z.0.i.i2_0*2)
+  main@%_10_0<->(main@%_9_0<main@%_7_0)
+  main@.lr.ph_1->(main@.lr.ph_1&&main@.lr.ph_0)
+  main@.lr.ph_1
+  (main@.lr.ph_1&&main@.lr.ph_0)->main@%_10_0
+  main@%z.0.i.i2_1=main@%_9_0
+  (main@.lr.ph_1&&main@.lr.ph_0)->(main@%z.0.i.i2_2=main@%z.0.i.i2_1)
+]).
+main@verifier.error.split <- ((main@.lr.ph main@%z.0.i.i2_0 main@%_7_0)&&[&&
+  true
+  main@%_9_0=(main@%z.0.i.i2_0*2)
+  main@%_10_0<->(main@%_9_0<main@%_7_0)
+  main@._crit_edge_0->(main@._crit_edge_0&&main@.lr.ph_0)
+  (main@._crit_edge_0&&main@.lr.ph_0)->(!main@%_10_0)
+  main@%z.0.i.i2.lcssa_0=main@%z.0.i.i2_0
+  (main@._crit_edge_0&&main@.lr.ph_0)->(main@%z.0.i.i2.lcssa_1=main@%z.0.i.i2.lcssa_0)
+  main@%phitmp7_0<->(main@%z.0.i.i2.lcssa_1>0)
+  main@_bb_0->(main@_bb_0&&main@._crit_edge_0)
+  main@%z.0.i.i.lcssa_0=main@%phitmp7_0
+  (main@_bb_0&&main@._crit_edge_0)->(main@%z.0.i.i.lcssa_1=main@%z.0.i.i.lcssa_0)
+  main@%_12_0<->(main@%z.0.i.i.lcssa_1=false)
+  main@_bb_0->main@%_12_0
+  main@verifier.error_0->(main@verifier.error_0&&main@_bb_0)
+  main@verifier.error.split_0->(main@verifier.error.split_0&&main@verifier.error_0)
+  main@verifier.error.split_0
+]).
+Queries:
+;main@verifier.error.split
+=========================== IMPL START ============================
+(declare-fun main@%z.0.i1.i3_2 () Int)
+(declare-fun main@%z.0.i1.i3_1 () Int)
+(declare-fun main@%_7_0 () Int)
+(declare-fun main@.lr.ph4_0 () Bool)
+(declare-fun main@%_14_0 () Bool)
+(declare-fun main@.lr.ph4_1 () Bool)
+(declare-fun main@%z.0.i1.i3_0 () Int)
+(declare-fun main@%_13_0 () Int)
+
+(assert (not false))
+(assert false)
+(assert (and true
+     true
+     (= main@%_13_0 (* main@%z.0.i1.i3_0 2))
+     (= main@%_14_0 (< main@%_13_0 main@%_7_0))
+     (=> main@.lr.ph4_1 (and main@.lr.ph4_1 main@.lr.ph4_0))
+     main@.lr.ph4_1
+     (=> (and main@.lr.ph4_1 main@.lr.ph4_0) main@%_14_0)
+     (= main@%z.0.i1.i3_1 main@%_13_0)
+     (=> (and main@.lr.ph4_1 main@.lr.ph4_0)
+         (= main@%z.0.i1.i3_2 main@%z.0.i1.i3_1))))
+(check-sat)
+UNSAT
+(declare-fun main@%z.0.i.i2_2 () Int)
+(declare-fun main@%z.0.i.i2_1 () Int)
+(declare-fun main@.lr.ph_0 () Bool)
+(declare-fun main@.lr.ph_1 () Bool)
+(declare-fun main@%_10_0 () Bool)
+(declare-fun main@%z.0.i.i2_0 () Int)
+(declare-fun main@%_7_0 () Int)
+(declare-fun main@%_9_0 () Int)
+
+(assert (not false))
+(assert false)
+(assert (and true
+     true
+     (= main@%_9_0 (* main@%z.0.i.i2_0 2))
+     (= main@%_10_0 (< main@%_9_0 main@%_7_0))
+     (=> main@.lr.ph_1 (and main@.lr.ph_1 main@.lr.ph_0))
+     main@.lr.ph_1
+     (=> (and main@.lr.ph_1 main@.lr.ph_0) main@%_10_0)
+     (= main@%z.0.i.i2_1 main@%_9_0)
+     (=> (and main@.lr.ph_1 main@.lr.ph_0)
+         (= main@%z.0.i.i2_2 main@%z.0.i.i2_1))))
+(check-sat)
+UNSAT
+==================================================================
+DATA & IMPL FILES ARE GENERATED
+TAG: PRED_0
+NEW CANDIDATE: true
+TAG: PRED_1
+NEW CANDIDATE: true
+TAG: PRED_2
+INTERNAL NODE
+CUT ATTRIBUTE: PRED_2!V_1
+LEAF NODE
+LEAF NODE
+NEW CANDIDATE: (true&&(!(V_1<=0)))
+TAG: PRED_3
+INTERNAL NODE
+CUT ATTRIBUTE: PRED_3!V_0
+LEAF NODE
+LEAF NODE
+NEW CANDIDATE: (true&&(!(V_0<=0)))
+TAG: PRED_4
+NEW CANDIDATE: false
+TAG: PRED_5
+NEW CANDIDATE: true
+NEW CANDIDATES MAP:
+(verifier.error V_0 V_1 V_2) : true
+(main@entry V_0 V_1) : true
+(main@.lr.ph4 V_0 V_1) : (true&&(!(V_1<=0)))
+(main@.lr.ph V_0 V_1) : (true&&(!(V_0<=0)))
+main@verifier.error.split : false
+pos.query.pred : true
+ENTRY IS: (main@entry @__VERIFIER_nondet_bool_0 @__VERIFIER_nondet_int_0)
+=========================== POS START ============================
+VERIFY RULE: pos.query.pred <- ((main@.lr.ph V_0 V_1)&&(!(true&&(!(V_0<=0)))))
+UNSAT
+VERIFY RULE: pos.query.pred <- ((main@entry V_0 V_1)&&(!true))
+UNSAT
+VERIFY RULE: pos.query.pred <- ((main@.lr.ph4 V_0 V_1)&&(!(true&&(!(V_1<=0)))))
+UNSAT
+VERIFY RULE: pos.query.pred <- (pos.query.pred&&(!true))
+UNSAT
+VERIFY RULE: pos.query.pred <- (main@verifier.error.split&&(!false))
+UNSAT
+VERIFY RULE: pos.query.pred <- ((verifier.error V_0 V_1 V_2)&&(!true))
+UNSAT
+==================================================================
+AFTER RESET DB IS:
+Predicates:
+;[fdecl
+  verifier.error
+  BOOL
+  BOOL
+  BOOL
+  BOOL
+]
+[fdecl
+  main@entry
+  INT
+  INT
+  BOOL
+]
+[fdecl
+  main@.lr.ph4
+  INT
+  INT
+  BOOL
+]
+[fdecl
+  main@.lr.ph
+  INT
+  INT
+  BOOL
+]
+[fdecl
+  main@verifier.error.split
+  BOOL
+]
+[fdecl
+  pos.query.pred
+  BOOL
+]
+Clauses:
+;(verifier.error false false false) <- true.
+(verifier.error false true true) <- true.
+(verifier.error true false true) <- true.
+(verifier.error true true true) <- true.
+(main@entry @__VERIFIER_nondet_bool_0 @__VERIFIER_nondet_int_0) <- true.
+(main@.lr.ph4 main@%_7_0 main@%z.0.i1.i3_1) <- ((main@entry @__VERIFIER_nondet_bool_0 @__VERIFIER_nondet_int_0)&&[&&
+  true
+  main@%_0_0=@__VERIFIER_nondet_bool_0
+  main@%_2_0=@__VERIFIER_nondet_int_0
+  main@%_4_0=@__VERIFIER_nondet_int_0
+  main@%_6_0=@__VERIFIER_nondet_int_0
+  main@%_8_0<->(main@%_7_0>1)
+  main@.preheader1_0->(main@.preheader1_0&&main@entry_0)
+  (main@.preheader1_0&&main@entry_0)->(!main@%_1_0)
+  main@.lr.ph4.preheader_0->(main@.lr.ph4.preheader_0&&main@.preheader1_0)
+  (main@.lr.ph4.preheader_0&&main@.preheader1_0)->main@%_8_0
+  main@.lr.ph4_0->(main@.lr.ph4_0&&main@.lr.ph4.preheader_0)
+  main@.lr.ph4_0
+  main@%z.0.i1.i3_0=1
+  (main@.lr.ph4_0&&main@.lr.ph4.preheader_0)->(main@%z.0.i1.i3_1=main@%z.0.i1.i3_0)
+]).
+(main@.lr.ph main@%z.0.i.i2_1 main@%_7_0) <- ((main@entry @__VERIFIER_nondet_bool_0 @__VERIFIER_nondet_int_0)&&[&&
+  true
+  main@%_0_0=@__VERIFIER_nondet_bool_0
+  main@%_2_0=@__VERIFIER_nondet_int_0
+  main@%_4_0=@__VERIFIER_nondet_int_0
+  main@%_6_0=@__VERIFIER_nondet_int_0
+  main@%_8_0<->(main@%_7_0>1)
+  main@.preheader_0->(main@.preheader_0&&main@entry_0)
+  (main@.preheader_0&&main@entry_0)->main@%_1_0
+  main@.lr.ph.preheader_0->(main@.lr.ph.preheader_0&&main@.preheader_0)
+  (main@.lr.ph.preheader_0&&main@.preheader_0)->main@%_8_0
+  main@.lr.ph_0->(main@.lr.ph_0&&main@.lr.ph.preheader_0)
+  main@.lr.ph_0
+  main@%z.0.i.i2_0=1
+  (main@.lr.ph_0&&main@.lr.ph.preheader_0)->(main@%z.0.i.i2_1=main@%z.0.i.i2_0)
+]).
+main@verifier.error.split <- ((main@entry @__VERIFIER_nondet_bool_0 @__VERIFIER_nondet_int_0)&&[&&
+  true
+  main@%_0_0=@__VERIFIER_nondet_bool_0
+  main@%_2_0=@__VERIFIER_nondet_int_0
+  main@%_4_0=@__VERIFIER_nondet_int_0
+  main@%_6_0=@__VERIFIER_nondet_int_0
+  main@%_8_0<->(main@%_7_0>1)
+  main@.preheader1_0->(main@.preheader1_0&&main@entry_0)
+  (main@.preheader1_0&&main@entry_0)->(!main@%_1_0)
+  main@_bb1_0->(main@_bb1_0&&main@.preheader1_0)
+  (main@_bb1_0&&main@.preheader1_0)->(!main@%_8_0)
+  main@%z.0.i1.i.lcssa_0=true
+  (main@_bb1_0&&main@.preheader1_0)->(main@%z.0.i1.i.lcssa_1=main@%z.0.i1.i.lcssa_0)
+  main@%_16_0<->(main@%z.0.i1.i.lcssa_1=false)
+  main@_bb1_0->main@%_16_0
+  main@.preheader_0->(main@.preheader_0&&main@entry_0)
+  (main@.preheader_0&&main@entry_0)->main@%_1_0
+  main@_bb_0->(main@_bb_0&&main@.preheader_0)
+  (main@_bb_0&&main@.preheader_0)->(!main@%_8_0)
+  main@%z.0.i.i.lcssa_0=true
+  (main@_bb_0&&main@.preheader_0)->(main@%z.0.i.i.lcssa_1=main@%z.0.i.i.lcssa_0)
+  main@%_12_0<->(main@%z.0.i.i.lcssa_1=false)
+  main@_bb_0->main@%_12_0
+  main@verifier.error_0->((main@verifier.error_0&&main@_bb1_0)||(main@verifier.error_0&&main@_bb_0))
+  main@verifier.error.split_0->(main@verifier.error.split_0&&main@verifier.error_0)
+  main@verifier.error.split_0
+]).
+(main@.lr.ph4 main@%_7_0 main@%z.0.i1.i3_2) <- ((main@.lr.ph4 main@%_7_0 main@%z.0.i1.i3_0)&&[&&
+  true
+  main@%_13_0=(main@%z.0.i1.i3_0*2)
+  main@%_14_0<->(main@%_13_0<main@%_7_0)
+  main@.lr.ph4_1->(main@.lr.ph4_1&&main@.lr.ph4_0)
+  main@.lr.ph4_1
+  (main@.lr.ph4_1&&main@.lr.ph4_0)->main@%_14_0
+  main@%z.0.i1.i3_1=main@%_13_0
+  (main@.lr.ph4_1&&main@.lr.ph4_0)->(main@%z.0.i1.i3_2=main@%z.0.i1.i3_1)
+]).
+main@verifier.error.split <- ((main@.lr.ph4 main@%_7_0 main@%z.0.i1.i3_0)&&[&&
+  true
+  main@%_13_0=(main@%z.0.i1.i3_0*2)
+  main@%_14_0<->(main@%_13_0<main@%_7_0)
+  main@._crit_edge5_0->(main@._crit_edge5_0&&main@.lr.ph4_0)
+  (main@._crit_edge5_0&&main@.lr.ph4_0)->(!main@%_14_0)
+  main@%z.0.i1.i3.lcssa_0=main@%z.0.i1.i3_0
+  (main@._crit_edge5_0&&main@.lr.ph4_0)->(main@%z.0.i1.i3.lcssa_1=main@%z.0.i1.i3.lcssa_0)
+  main@%phitmp_0<->(main@%z.0.i1.i3.lcssa_1>0)
+  main@_bb1_0->(main@_bb1_0&&main@._crit_edge5_0)
+  main@%z.0.i1.i.lcssa_0=main@%phitmp_0
+  (main@_bb1_0&&main@._crit_edge5_0)->(main@%z.0.i1.i.lcssa_1=main@%z.0.i1.i.lcssa_0)
+  main@%_16_0<->(main@%z.0.i1.i.lcssa_1=false)
+  main@_bb1_0->main@%_16_0
+  main@verifier.error_0->(main@verifier.error_0&&main@_bb1_0)
+  main@verifier.error.split_0->(main@verifier.error.split_0&&main@verifier.error_0)
+  main@verifier.error.split_0
+]).
+(main@.lr.ph main@%z.0.i.i2_2 main@%_7_0) <- ((main@.lr.ph main@%z.0.i.i2_0 main@%_7_0)&&[&&
+  true
+  main@%_9_0=(main@%z.0.i.i2_0*2)
+  main@%_10_0<->(main@%_9_0<main@%_7_0)
+  main@.lr.ph_1->(main@.lr.ph_1&&main@.lr.ph_0)
+  main@.lr.ph_1
+  (main@.lr.ph_1&&main@.lr.ph_0)->main@%_10_0
+  main@%z.0.i.i2_1=main@%_9_0
+  (main@.lr.ph_1&&main@.lr.ph_0)->(main@%z.0.i.i2_2=main@%z.0.i.i2_1)
+]).
+main@verifier.error.split <- ((main@.lr.ph main@%z.0.i.i2_0 main@%_7_0)&&[&&
+  true
+  main@%_9_0=(main@%z.0.i.i2_0*2)
+  main@%_10_0<->(main@%_9_0<main@%_7_0)
+  main@._crit_edge_0->(main@._crit_edge_0&&main@.lr.ph_0)
+  (main@._crit_edge_0&&main@.lr.ph_0)->(!main@%_10_0)
+  main@%z.0.i.i2.lcssa_0=main@%z.0.i.i2_0
+  (main@._crit_edge_0&&main@.lr.ph_0)->(main@%z.0.i.i2.lcssa_1=main@%z.0.i.i2.lcssa_0)
+  main@%phitmp7_0<->(main@%z.0.i.i2.lcssa_1>0)
+  main@_bb_0->(main@_bb_0&&main@._crit_edge_0)
+  main@%z.0.i.i.lcssa_0=main@%phitmp7_0
+  (main@_bb_0&&main@._crit_edge_0)->(main@%z.0.i.i.lcssa_1=main@%z.0.i.i.lcssa_0)
+  main@%_12_0<->(main@%z.0.i.i.lcssa_1=false)
+  main@_bb_0->main@%_12_0
+  main@verifier.error_0->(main@verifier.error_0&&main@_bb_0)
+  main@verifier.error.split_0->(main@verifier.error.split_0&&main@verifier.error_0)
+  main@verifier.error.split_0
+]).
+Queries:
+;main@verifier.error.split
+=========================== NEG START ============================
+VERIFY RULE: main@verifier.error.split <- ((main@entry @__VERIFIER_nondet_bool_0 @__VERIFIER_nondet_int_0)&&false)
+UNSAT
+VERIFY RULE: pos.query.pred <- ((main@entry @__VERIFIER_nondet_bool_0 @__VERIFIER_nondet_int_0)&&true)
+UNSAT
+VERIFY RULE: (main@.lr.ph4 V_0 V_1) <- ((main@entry @__VERIFIER_nondet_bool_0 @__VERIFIER_nondet_int_0)&&(true&&(!(V_1<=0))))
+UNSAT
+VERIFY RULE: (main@.lr.ph V_0 V_1) <- ((main@entry @__VERIFIER_nondet_bool_0 @__VERIFIER_nondet_int_0)&&(true&&(!(V_0<=0))))
+UNSAT
+VERIFY RULE: (main@entry V_0 V_1) <- true
+UNSAT
+VERIFY RULE: (verifier.error V_0 V_1 V_2) <- ((main@entry @__VERIFIER_nondet_bool_0 @__VERIFIER_nondet_int_0)&&true)
+UNSAT
+==================================================================
+AFTER RESET DB IS:
+Predicates:
+;[fdecl
+  verifier.error
+  BOOL
+  BOOL
+  BOOL
+  BOOL
+]
+[fdecl
+  main@entry
+  INT
+  INT
+  BOOL
+]
+[fdecl
+  main@.lr.ph4
+  INT
+  INT
+  BOOL
+]
+[fdecl
+  main@.lr.ph
+  INT
+  INT
+  BOOL
+]
+[fdecl
+  main@verifier.error.split
+  BOOL
+]
+[fdecl
+  pos.query.pred
+  BOOL
+]
+Clauses:
+;(verifier.error false false false) <- true.
+(verifier.error false true true) <- true.
+(verifier.error true false true) <- true.
+(verifier.error true true true) <- true.
+(main@entry @__VERIFIER_nondet_bool_0 @__VERIFIER_nondet_int_0) <- true.
+(main@.lr.ph4 main@%_7_0 main@%z.0.i1.i3_1) <- ((main@entry @__VERIFIER_nondet_bool_0 @__VERIFIER_nondet_int_0)&&[&&
+  true
+  main@%_0_0=@__VERIFIER_nondet_bool_0
+  main@%_2_0=@__VERIFIER_nondet_int_0
+  main@%_4_0=@__VERIFIER_nondet_int_0
+  main@%_6_0=@__VERIFIER_nondet_int_0
+  main@%_8_0<->(main@%_7_0>1)
+  main@.preheader1_0->(main@.preheader1_0&&main@entry_0)
+  (main@.preheader1_0&&main@entry_0)->(!main@%_1_0)
+  main@.lr.ph4.preheader_0->(main@.lr.ph4.preheader_0&&main@.preheader1_0)
+  (main@.lr.ph4.preheader_0&&main@.preheader1_0)->main@%_8_0
+  main@.lr.ph4_0->(main@.lr.ph4_0&&main@.lr.ph4.preheader_0)
+  main@.lr.ph4_0
+  main@%z.0.i1.i3_0=1
+  (main@.lr.ph4_0&&main@.lr.ph4.preheader_0)->(main@%z.0.i1.i3_1=main@%z.0.i1.i3_0)
+]).
+(main@.lr.ph main@%z.0.i.i2_1 main@%_7_0) <- ((main@entry @__VERIFIER_nondet_bool_0 @__VERIFIER_nondet_int_0)&&[&&
+  true
+  main@%_0_0=@__VERIFIER_nondet_bool_0
+  main@%_2_0=@__VERIFIER_nondet_int_0
+  main@%_4_0=@__VERIFIER_nondet_int_0
+  main@%_6_0=@__VERIFIER_nondet_int_0
+  main@%_8_0<->(main@%_7_0>1)
+  main@.preheader_0->(main@.preheader_0&&main@entry_0)
+  (main@.preheader_0&&main@entry_0)->main@%_1_0
+  main@.lr.ph.preheader_0->(main@.lr.ph.preheader_0&&main@.preheader_0)
+  (main@.lr.ph.preheader_0&&main@.preheader_0)->main@%_8_0
+  main@.lr.ph_0->(main@.lr.ph_0&&main@.lr.ph.preheader_0)
+  main@.lr.ph_0
+  main@%z.0.i.i2_0=1
+  (main@.lr.ph_0&&main@.lr.ph.preheader_0)->(main@%z.0.i.i2_1=main@%z.0.i.i2_0)
+]).
+main@verifier.error.split <- ((main@entry @__VERIFIER_nondet_bool_0 @__VERIFIER_nondet_int_0)&&[&&
+  true
+  main@%_0_0=@__VERIFIER_nondet_bool_0
+  main@%_2_0=@__VERIFIER_nondet_int_0
+  main@%_4_0=@__VERIFIER_nondet_int_0
+  main@%_6_0=@__VERIFIER_nondet_int_0
+  main@%_8_0<->(main@%_7_0>1)
+  main@.preheader1_0->(main@.preheader1_0&&main@entry_0)
+  (main@.preheader1_0&&main@entry_0)->(!main@%_1_0)
+  main@_bb1_0->(main@_bb1_0&&main@.preheader1_0)
+  (main@_bb1_0&&main@.preheader1_0)->(!main@%_8_0)
+  main@%z.0.i1.i.lcssa_0=true
+  (main@_bb1_0&&main@.preheader1_0)->(main@%z.0.i1.i.lcssa_1=main@%z.0.i1.i.lcssa_0)
+  main@%_16_0<->(main@%z.0.i1.i.lcssa_1=false)
+  main@_bb1_0->main@%_16_0
+  main@.preheader_0->(main@.preheader_0&&main@entry_0)
+  (main@.preheader_0&&main@entry_0)->main@%_1_0
+  main@_bb_0->(main@_bb_0&&main@.preheader_0)
+  (main@_bb_0&&main@.preheader_0)->(!main@%_8_0)
+  main@%z.0.i.i.lcssa_0=true
+  (main@_bb_0&&main@.preheader_0)->(main@%z.0.i.i.lcssa_1=main@%z.0.i.i.lcssa_0)
+  main@%_12_0<->(main@%z.0.i.i.lcssa_1=false)
+  main@_bb_0->main@%_12_0
+  main@verifier.error_0->((main@verifier.error_0&&main@_bb1_0)||(main@verifier.error_0&&main@_bb_0))
+  main@verifier.error.split_0->(main@verifier.error.split_0&&main@verifier.error_0)
+  main@verifier.error.split_0
+]).
+(main@.lr.ph4 main@%_7_0 main@%z.0.i1.i3_2) <- ((main@.lr.ph4 main@%_7_0 main@%z.0.i1.i3_0)&&[&&
+  true
+  main@%_13_0=(main@%z.0.i1.i3_0*2)
+  main@%_14_0<->(main@%_13_0<main@%_7_0)
+  main@.lr.ph4_1->(main@.lr.ph4_1&&main@.lr.ph4_0)
+  main@.lr.ph4_1
+  (main@.lr.ph4_1&&main@.lr.ph4_0)->main@%_14_0
+  main@%z.0.i1.i3_1=main@%_13_0
+  (main@.lr.ph4_1&&main@.lr.ph4_0)->(main@%z.0.i1.i3_2=main@%z.0.i1.i3_1)
+]).
+main@verifier.error.split <- ((main@.lr.ph4 main@%_7_0 main@%z.0.i1.i3_0)&&[&&
+  true
+  main@%_13_0=(main@%z.0.i1.i3_0*2)
+  main@%_14_0<->(main@%_13_0<main@%_7_0)
+  main@._crit_edge5_0->(main@._crit_edge5_0&&main@.lr.ph4_0)
+  (main@._crit_edge5_0&&main@.lr.ph4_0)->(!main@%_14_0)
+  main@%z.0.i1.i3.lcssa_0=main@%z.0.i1.i3_0
+  (main@._crit_edge5_0&&main@.lr.ph4_0)->(main@%z.0.i1.i3.lcssa_1=main@%z.0.i1.i3.lcssa_0)
+  main@%phitmp_0<->(main@%z.0.i1.i3.lcssa_1>0)
+  main@_bb1_0->(main@_bb1_0&&main@._crit_edge5_0)
+  main@%z.0.i1.i.lcssa_0=main@%phitmp_0
+  (main@_bb1_0&&main@._crit_edge5_0)->(main@%z.0.i1.i.lcssa_1=main@%z.0.i1.i.lcssa_0)
+  main@%_16_0<->(main@%z.0.i1.i.lcssa_1=false)
+  main@_bb1_0->main@%_16_0
+  main@verifier.error_0->(main@verifier.error_0&&main@_bb1_0)
+  main@verifier.error.split_0->(main@verifier.error.split_0&&main@verifier.error_0)
+  main@verifier.error.split_0
+]).
+(main@.lr.ph main@%z.0.i.i2_2 main@%_7_0) <- ((main@.lr.ph main@%z.0.i.i2_0 main@%_7_0)&&[&&
+  true
+  main@%_9_0=(main@%z.0.i.i2_0*2)
+  main@%_10_0<->(main@%_9_0<main@%_7_0)
+  main@.lr.ph_1->(main@.lr.ph_1&&main@.lr.ph_0)
+  main@.lr.ph_1
+  (main@.lr.ph_1&&main@.lr.ph_0)->main@%_10_0
+  main@%z.0.i.i2_1=main@%_9_0
+  (main@.lr.ph_1&&main@.lr.ph_0)->(main@%z.0.i.i2_2=main@%z.0.i.i2_1)
+]).
+main@verifier.error.split <- ((main@.lr.ph main@%z.0.i.i2_0 main@%_7_0)&&[&&
+  true
+  main@%_9_0=(main@%z.0.i.i2_0*2)
+  main@%_10_0<->(main@%_9_0<main@%_7_0)
+  main@._crit_edge_0->(main@._crit_edge_0&&main@.lr.ph_0)
+  (main@._crit_edge_0&&main@.lr.ph_0)->(!main@%_10_0)
+  main@%z.0.i.i2.lcssa_0=main@%z.0.i.i2_0
+  (main@._crit_edge_0&&main@.lr.ph_0)->(main@%z.0.i.i2.lcssa_1=main@%z.0.i.i2.lcssa_0)
+  main@%phitmp7_0<->(main@%z.0.i.i2.lcssa_1>0)
+  main@_bb_0->(main@_bb_0&&main@._crit_edge_0)
+  main@%z.0.i.i.lcssa_0=main@%phitmp7_0
+  (main@_bb_0&&main@._crit_edge_0)->(main@%z.0.i.i.lcssa_1=main@%z.0.i.i.lcssa_0)
+  main@%_12_0<->(main@%z.0.i.i.lcssa_1=false)
+  main@_bb_0->main@%_12_0
+  main@verifier.error_0->(main@verifier.error_0&&main@_bb_0)
+  main@verifier.error.split_0->(main@verifier.error.split_0&&main@verifier.error_0)
+  main@verifier.error.split_0
+]).
+Queries:
+;main@verifier.error.split
+=========================== IMPL START ============================
+(declare-fun main@%_7_0 () Int)
+(declare-fun main@.lr.ph4_0 () Bool)
+(declare-fun main@%_14_0 () Bool)
+(declare-fun main@%_13_0 () Int)
+(declare-fun main@.lr.ph4_1 () Bool)
+(declare-fun main@%z.0.i1.i3_0 () Int)
+(declare-fun main@%z.0.i1.i3_1 () Int)
+(declare-fun main@%z.0.i1.i3_2 () Int)
+
+(assert (not (and true (not (<= main@%z.0.i1.i3_2 0)))))
+(assert (and true (not (<= main@%z.0.i1.i3_0 0))))
+(assert (and true
+     true
+     (= main@%_13_0 (* main@%z.0.i1.i3_0 2))
+     (= main@%_14_0 (< main@%_13_0 main@%_7_0))
+     (=> main@.lr.ph4_1 (and main@.lr.ph4_1 main@.lr.ph4_0))
+     main@.lr.ph4_1
+     (=> (and main@.lr.ph4_1 main@.lr.ph4_0) main@%_14_0)
+     (= main@%z.0.i1.i3_1 main@%_13_0)
+     (=> (and main@.lr.ph4_1 main@.lr.ph4_0)
+         (= main@%z.0.i1.i3_2 main@%z.0.i1.i3_1))))
+(check-sat)
+UNSAT
+(declare-fun main@%z.0.i.i2_1 () Int)
+(declare-fun main@.lr.ph_0 () Bool)
+(declare-fun main@.lr.ph_1 () Bool)
+(declare-fun main@%_10_0 () Bool)
+(declare-fun main@%_7_0 () Int)
+(declare-fun main@%_9_0 () Int)
+(declare-fun main@%z.0.i.i2_0 () Int)
+(declare-fun main@%z.0.i.i2_2 () Int)
+
+(assert (not (and true (not (<= main@%z.0.i.i2_2 0)))))
+(assert (and true (not (<= main@%z.0.i.i2_0 0))))
+(assert (and true
+     true
+     (= main@%_9_0 (* main@%z.0.i.i2_0 2))
+     (= main@%_10_0 (< main@%_9_0 main@%_7_0))
+     (=> main@.lr.ph_1 (and main@.lr.ph_1 main@.lr.ph_0))
+     main@.lr.ph_1
+     (=> (and main@.lr.ph_1 main@.lr.ph_0) main@%_10_0)
+     (= main@%z.0.i.i2_1 main@%_9_0)
+     (=> (and main@.lr.ph_1 main@.lr.ph_0)
+         (= main@%z.0.i.i2_2 main@%z.0.i.i2_1))))
+(check-sat)
+UNSAT
+==================================================================
+FINAL INVARIANTS MAP:
+REL: (verifier.error V_0 V_1 V_2), CAND: true
+REL: (main@entry V_0 V_1), CAND: true
+REL: (main@.lr.ph4 V_0 V_1), CAND: (true&&(!(V_1<=0)))
+REL: (main@.lr.ph V_0 V_1), CAND: (true&&(!(V_0<=0)))
+REL: main@verifier.error.split, CAND: false
+REL: pos.query.pred, CAND: true
+RUN ICE SUCCESSCULLY
